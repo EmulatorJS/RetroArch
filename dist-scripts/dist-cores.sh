@@ -2,8 +2,13 @@
 
 . ../version.all
 PLATFORM=$1
+CLEAN=$2
 SALAMANDER=no
 MAKEFILE_GRIFFIN=no
+
+if [ $CLEAN = "clean" ] ; then
+clean=yes
+fi
 
 # PSP
 if [ $PLATFORM = "unix" ] ; then
@@ -194,6 +199,12 @@ if [ $PLATFORM = "libnx" ]; then
    make -C ../ -f Makefile.${platform} clean || exit 1
 fi
 
+if [ $clean = "yes" ]; then
+rm -rf ../obj-emscripten
+fi
+lastPthreads=0
+lastGles=0
+
 #for f in *_${platform}.${EXT} ; do
 for f in `ls -v *_${platform}.${EXT}`; do
 
@@ -242,10 +253,9 @@ for f in `ls -v *_${platform}.${EXT}`; do
       async=1
       heap_mem=536870912
    elif [ $name = "ppsspp" ] ; then
-      gles3=0
+      gles3=1
       pthread=12
       heap_mem=3221225472
-      memory_padding=300
    elif [ $name = "scummvm" ] ; then
       async=1
       pthread=0
@@ -271,7 +281,19 @@ for f in `ls -v *_${platform}.${EXT}`; do
    echo STACK_MEMORY: $stack_mem
    echo HEAP_MEMORY: $heap_mem
    echo MEMORY_PADDING: $memory_padding
+   
+   if [ $clean = "yes" ]; then
+      if [ $lastPthreads != $pthread ] ; then
+         rm -rf ../obj-emscripten
+      fi
+      if [ $lastGles != $gles3 ] ; then
+         rm -rf ../obj-emscripten
+      fi
+   fi
 
+   lastPthreads=$pthread
+   lastGles=$gles3
+   
    # Do cleanup if this is a big stack core
    if [ "$big_stack" = "BIG_STACK=1" ] ; then
       if [ $MAKEFILE_GRIFFIN = "yes" ]; then
