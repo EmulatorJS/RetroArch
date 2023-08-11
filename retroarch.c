@@ -5082,6 +5082,21 @@ void set_ff_ratio(float ratio) {
     settings->floats.fastforward_ratio = ratio;
 }
 
+bool SM_ACTIVE;
+void toggle_slow_motion(bool enabled)
+{
+   SM_ACTIVE = enabled;
+}
+bool EJS_IS_SLOWMOTION()
+{
+   return SM_ACTIVE;
+}
+void set_sm_ratio(float ratio)
+{
+   settings_t *settings = config_get_ptr();
+   settings->floats.slowmotion_ratio = ratio;
+}
+
 bool REWIND_ACTIVE;
 void toggle_rewind(bool enabled)
 {

@@ -5358,6 +5358,7 @@ static void runloop_pause_toggle(
 
 #ifdef EMULATORJS
 bool EJS_IS_FASTFORWARD();
+bool EJS_IS_SLOWMOTION();
 bool EJS_IS_REWIND();
 #endif
 
@@ -6435,10 +6436,16 @@ static enum runloop_state_enum runloop_check_state(
          /* Check slowmotion hotkeys */
          static bool old_slowmotion_button_state      = false;
          static bool old_slowmotion_hold_button_state = false;
+
+#ifdef EMULATORJS
+         bool new_slowmotion_button_state = EJS_IS_SLOWMOTION();
+         bool new_slowmotion_hold_button_state = EJS_IS_SLOWMOTION();
+#else
          bool new_slowmotion_button_state             = BIT256_GET(
                current_bits, RARCH_SLOWMOTION_KEY);
          bool new_slowmotion_hold_button_state        = BIT256_GET(
                current_bits, RARCH_SLOWMOTION_HOLD_KEY);
+#endif
 
          /* Don't allow slowmotion while paused */
          if (runloop_paused)
