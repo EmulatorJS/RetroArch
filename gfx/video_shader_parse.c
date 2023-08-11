@@ -3007,6 +3007,7 @@ bool video_shader_apply_shader(
                      sizeof(msg) - _len);
             }
 
+#ifdef EMULATORJS
 #ifdef HAVE_GFX_WIDGETS
             if (dispwidget_get_ptr()->active)
                gfx_widget_set_generic_message(msg, 2000);
@@ -3014,6 +3015,7 @@ bool video_shader_apply_shader(
 #endif
                runloop_msg_queue_push(msg, 1, 120, true, NULL,
                      MESSAGE_QUEUE_ICON_DEFAULT, MESSAGE_QUEUE_CATEGORY_INFO);
+#endif
          }
 
          RARCH_LOG("[Shaders]: %s: \"%s\".\n",
