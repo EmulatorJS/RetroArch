@@ -6,6 +6,7 @@ CLEAN=$2
 SALAMANDER=no
 MAKEFILE_GRIFFIN=no
 
+clean=no
 if [ $CLEAN = "clean" ] ; then
 clean=yes
 fi
