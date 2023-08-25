@@ -390,7 +390,7 @@ for f in `ls -v *_${platform}.${EXT}`; do
       fi
       
       if [ $pthread != 0 ] ; then
-         7z a ${out_dir}/${core}-wasm.data ../${name}_libretro.wasm ../${name}_libretro.js ../${name}_libretro.worker.js
+         7z a ${out_dir}/${core}-thread-wasm.data ../${name}_libretro.wasm ../${name}_libretro.js ../${name}_libretro.worker.js
       else
          if [ $wasm = 0 ]; then
            7z a ${out_dir}/${core}-asmjs.data ../${name}_libretro.js.mem ../${name}_libretro.js
