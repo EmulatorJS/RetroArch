@@ -3,12 +3,17 @@
 . ../version.all
 PLATFORM=$1
 CLEAN=$2
+PTHREADS=$3
 SALAMANDER=no
 MAKEFILE_GRIFFIN=no
 
 clean=no
 if [ "$CLEAN" = "clean" ] ; then
 clean=yes
+fi
+threads=0
+if [ "$PTHREADS" = "yes" ] ; then
+threads=24
 fi
 
 # PSP
@@ -212,7 +217,7 @@ for f in `ls -v *_${platform}.${EXT}`; do
    echo Buildbot: building ${name} for ${platform}
    name=`echo "$f" | sed "s/\(_libretro_${platform}\|\).${EXT}$//"`
    async=0
-   pthread=${pthread:-0}
+   pthread="$threads"
    wasm=1
    lto=0
    whole_archive=
@@ -236,34 +241,28 @@ for f in `ls -v *_${platform}.${EXT}`; do
    elif [ $name = "mupen64plus_next" ] ; then
       gles3=1
       async=1
-      pthread=0
       stack_mem=268435456
       heap_mem=536870912
       if [ $wasm = 0 ]; then
         continue;
       fi
-   elif [ $name = "picodrive" ] || [ $name = "pcsx_rearmed" ] || [ $name = "genesis_plus_gx" ]; then
+   elif [ $name = "picodrive" ] ; then
+      heap_mem=536870912
+   elif [ $name = "pcsx_rearmed" ] || [ $name = "genesis_plus_gx" ]; then
       heap_mem=536870912
    elif [ $name = "mednafen_psx" ] || [ $name = "mednafen_psx_hw" ]; then
       gles3=1
       heap_mem=536870912
-   elif [ $name = "melonds" ] ; then
-      pthread=0
    elif [ $name = "parallel_n64" ] ; then
       gles3=1
       async=1
       heap_mem=536870912
    elif [ $name = "ppsspp" ] ; then
-      gles3=0
+      gles3=1
       pthread=12
       heap_mem=536870912
    elif [ $name = "scummvm" ] ; then
       async=1
-      pthread=0
-   elif [ $name = "yabause" ] ; then
-      pthread=0
-   elif [ $name = "yabasanshiro" ] ; then
-      pthread=0
    elif [ $name = "dosbox" ] ; then
       async=0
    fi
