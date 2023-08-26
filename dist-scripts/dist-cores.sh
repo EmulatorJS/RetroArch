@@ -13,7 +13,7 @@ clean=yes
 fi
 threads=0
 if [ "$PTHREADS" = "yes" ] ; then
-threads=24
+threads=8
 fi
 
 # PSP
