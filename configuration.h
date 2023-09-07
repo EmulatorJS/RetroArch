@@ -82,6 +82,7 @@ enum crt_switch_type
 enum override_type
 {
    OVERRIDE_NONE = 0,
+   OVERRIDE_AS,
    OVERRIDE_CORE,
    OVERRIDE_CONTENT_DIR,
    OVERRIDE_GAME
@@ -358,6 +359,7 @@ typedef struct settings
       float placeholder;
       float video_aspect_ratio;
       float video_refresh_rate;
+      float video_autoswitch_pal_threshold;
       float crt_video_refresh_rate;
       float video_font_size;
       float video_msg_pos_x;
@@ -427,6 +429,7 @@ typedef struct settings
       char wifi_driver[32];
       char led_driver[32];
       char location_driver[32];
+      char cloud_sync_driver[32];
       char menu_driver[32];
       char cheevos_username[32];
       char cheevos_password[256];
@@ -459,6 +462,10 @@ typedef struct settings
       char netplay_mitm_server[255];
 
       char translation_service_url[2048];
+
+      char webdav_url[255];
+      char webdav_username[255];
+      char webdav_password[255];
 
       char youtube_stream_key[PATH_MAX_LENGTH];
       char twitch_stream_key[PATH_MAX_LENGTH];
@@ -676,6 +683,7 @@ typedef struct settings
       bool notification_show_remap_load;
       bool notification_show_config_override_load;
       bool notification_show_set_initial_disk;
+      bool notification_show_save_state;
       bool notification_show_fast_forward;
 #ifdef HAVE_SCREENSHOTS
       bool notification_show_screenshot;
@@ -899,6 +907,10 @@ typedef struct settings
       /* Steam */
       bool steam_rich_presence_enable;
 #endif
+
+      /* Cloud Sync */
+      bool cloud_sync_enable;
+      bool cloud_sync_destructive;
 
       /* Misc. */
       bool discord_enable;
@@ -1193,7 +1205,8 @@ bool config_save_file(const char *path);
  *
  * Returns: true (1) on success, (-1) if nothing to write, otherwise returns false (0).
  **/
-int8_t config_save_overrides(enum override_type type, void *data, bool remove);
+int8_t config_save_overrides(enum override_type type,
+      void *data, bool remove, const char *path);
 
 /* Replaces currently loaded configuration file with
  * another one. Will load a dummy core to flush state

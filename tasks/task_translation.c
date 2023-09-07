@@ -91,7 +91,7 @@ task_finished:
 
    if (*mode_ptr == 1 || *mode_ptr == 2)
    {
-      bool was_paused = runloop_flags & RUNLOOP_FLAG_PAUSED;
+      bool was_paused = (runloop_flags & RUNLOOP_FLAG_PAUSED) ? true : false;
       command_event(CMD_EVENT_AI_SERVICE_CALL, &was_paused);
    }
    if (task->user_data)
@@ -156,14 +156,14 @@ static void handle_translation_cb(
 #ifdef HAVE_ACCESSIBILITY
    input_driver_state_t *input_st    = input_state_get_ptr();
 #endif
-   video_driver_state_t 
+   video_driver_state_t
       *video_st                      = video_state_get_ptr();
    const enum retro_pixel_format
       video_driver_pix_fmt           = video_st->pix_fmt;
    access_state_t *access_st         = access_state_get_ptr();
 #ifdef HAVE_GFX_WIDGETS
-   bool gfx_widgets_paused           = video_st->flags &
-      VIDEO_FLAG_WIDGETS_PAUSED;
+   bool gfx_widgets_paused           = (video_st->flags &
+      VIDEO_FLAG_WIDGETS_PAUSED) ? true : false;
    dispgfx_widget_t *p_dispwidget    = dispwidget_get_ptr();
 #endif
 #ifdef HAVE_ACCESSIBILITY
@@ -345,7 +345,7 @@ static void handle_translation_cb(
          /* Write to video buffer directly (software cores only) */
 
          /* This is a BMP file coming back. */
-         if (     raw_image_file_data[0] == 'B' 
+         if (     raw_image_file_data[0] == 'B'
                && raw_image_file_data[1] == 'M')
          {
             /* Get image data (24 bit), and convert to the emulated pixel format */
@@ -366,7 +366,7 @@ static void handle_translation_cb(
                    image_width * image_height * 3 * sizeof(uint8_t));
          }
          /* PNG coming back from the url */
-         else if (raw_image_file_data[1] == 'P' 
+         else if (raw_image_file_data[1] == 'P'
                && raw_image_file_data[2] == 'N'
                && raw_image_file_data[3] == 'G')
          {
@@ -617,7 +617,7 @@ finish:
    {
       if (string_is_equal(auto_str, "auto"))
       {
-         bool was_paused = runloop_flags & RUNLOOP_FLAG_PAUSED;
+         bool was_paused = (runloop_flags & RUNLOOP_FLAG_PAUSED) ? true : false;
          if (     (access_st->ai_service_auto != 0)
                && !settings->bools.ai_service_pause)
             call_auto_translate_task(settings, &was_paused);
@@ -1155,7 +1155,7 @@ bool is_narrator_running(bool accessibility_enable)
             accessibility_enable,
             access_st->enabled))
    {
-      frontend_ctx_driver_t *frontend = 
+      frontend_ctx_driver_t *frontend =
          frontend_state_get_ptr()->current_frontend_ctx;
       if (frontend && frontend->is_narrator_running)
          return frontend->is_narrator_running();

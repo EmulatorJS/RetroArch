@@ -46,7 +46,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ADD_TAB,
-   "Імпартаваць змесціва"
+   "Імпарт змесціва"
    )
 
 /* Main Menu */
@@ -61,7 +61,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_LIST,
-   "Загрузіць ядро"
+   "Загрузка ядра"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_LIST,
@@ -77,24 +77,28 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_DISC,
-   "Загрузіць дыск"
+   "Загрузка дыска"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOAD_DISC,
+   "Загрузіць фізічны медыядыск. Спачатку выберыце адпаведнае дыску ядро («Загрузіць ядро»)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DUMP_DISC,
-   "Стварыць дамп дыска"
+   "Дамп дыска"
    )
 MSG_HASH( /* FIXME Is a specific image format used? Is it determined automatically? User choice? */
    MENU_ENUM_SUBLABEL_DUMP_DISC,
-   "Стварыць дамп медыя дыска ва ўнутраным сховішчы. Ён будзе захаваны як файл вобразу."
+   "Стварыць дамп медыядыска ва ўнутраным сховішчы. Ён будзе захаваны як файл вобразу."
    )
 #ifdef HAVE_LAKKA
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_EJECT_DISC,
-   "Выняць дыск"
+   "Выманне дыска"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_EJECT_DISC,
-   "Вымае дыск з фізічнага CD/DVD-прывада."
+   "Выняць дыск з фізічнага CD/DVD-прывада."
    )
 #endif
 MSG_HASH(
@@ -107,7 +111,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ADD_CONTENT_LIST,
-   "Імпартаваць змесціва"
+   "Імпарт змесціва"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ADD_CONTENT_LIST,
@@ -115,11 +119,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHOW_WIMP,
-   "Паказаць меню стальніцы"
+   "Паказ меню працоўнага стала"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SHOW_WIMP,
+   "Адкрывае традыцыйнае меню працоўнага стала."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_DISABLE_KIOSK_MODE,
    "Адключыць рэжым кіёска (патрабуецца перазапуск)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_DISABLE_KIOSK_MODE,
+   "Паказаць усе адпаведныя канфігурацыі налады."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ONLINE_UPDATER,
@@ -182,11 +194,15 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE,
-   "Сцягнуць ядро"
+   "Спампоўка ядра"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_DOWNLOAD_CORE,
+   "Сцягнуць ды ўсталяваць ядро праз анлайнавы абнаўляльнік."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SIDELOAD_CORE_LIST,
-   "Усталяваць або аднавіць ядро"
+   "Усталяванне або аднаўленне ядра"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SIDELOAD_CORE_LIST,
@@ -194,7 +210,7 @@ MSG_HASH(
    )
 MSG_HASH( /* FIXME Maybe add a description? */
    MENU_ENUM_LABEL_VALUE_START_VIDEO_PROCESSOR,
-   "Запусціць відэапрацэсар"
+   "Запуск відэапрацэсара"
    )
 MSG_HASH( /* FIXME Maybe add a description? */
    MENU_ENUM_LABEL_VALUE_START_NET_RETROPAD,
@@ -258,6 +274,10 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GOTO_EXPLORE,
    "Агляд"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_GOTO_EXPLORE,
+   "Агляд усяго адпаведнага базе даных змесціва праз інтэрфейс пошуку па катэгорыям."
+   )
 
 /* Main Menu > Online Updater */
 
@@ -274,16 +294,36 @@ MSG_HASH(
    "Абнавіць усе ўсталяваныя ядры да апошніх даступных версій."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SWITCH_INSTALLED_CORES_PFD,
+   "Замена ядраў версіямі з Play Store"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SWITCH_INSTALLED_CORES_PFD,
+   "Замяніць усе ўстарэлыя ды ўсталяваныя ўручную ядры на апошнія даступныя версіі з Play Store."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS_UPDATER_LIST,
    "Абнаўляльнік мініяцюр"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_THUMBNAILS_UPDATER_LIST,
+   "Сцягнуць поўны пакет мініяцюр для выбранай сістэмы."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PL_THUMBNAILS_UPDATER_LIST,
-   "Абнаўляльнік мініяцюр плэйлістоў"
+   "Абнаўляльнік мініяцюр плэй-лістоў"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_CONTENT,
    "Пампавальнік змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_DOWNLOAD_CORE_CONTENT,
+   "Сцягвае вольнае змесціва для выбранага ядра."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_SYSTEM_FILES,
+   "Пампавальнік сістэмных файлаў ядраў"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATE_DATABASES,
@@ -326,7 +366,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SYSTEM_INFORMATION,
-   "Прагляд звестак аб пэўнай прыладзе."
+   "Праглядзець пэўныя звесткі аб прыладзе."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DATABASE_MANAGER,
@@ -334,7 +374,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DATABASE_MANAGER,
-   "Прагляд баз даных."
+   "Праглядзець базу даных."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CURSOR_MANAGER,
@@ -342,7 +382,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CURSOR_MANAGER,
-   "Прагляд папярэдніх пошукаў."
+   "Праглядзець папярэднія пошукі."
    )
 
 /* Main Menu > Information > Core Information */
@@ -424,8 +464,12 @@ MSG_HASH(
    "Маецца, неабавязкова:"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_LOCK,
+   "Блакаванне ўсталяванага ядра"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_DELETE,
-   "Выдаліць ядро"
+   "Выдаленне ядра"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_DELETE,
@@ -433,15 +477,31 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_CREATE_BACKUP,
-   "Стварыць рэзервовую копію ядра"
+   "Стварэнне рэзервовай копіі ядра"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_CREATE_BACKUP,
+   "Стварыць архіваваную рэзервовую копію бягучага ўсталяванага ядра."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_RESTORE_BACKUP_LIST,
-   "Аднавіць з рэзервовай копіі"
+   "Аднаўленне з рэзервовай копіі"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_RESTORE_BACKUP_LIST,
+   "Усталяваць папярэднюю версію ядра са спісу рэзервовых копій."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_DELETE_BACKUP_LIST,
-   "Выдаліць рэзервовую копію"
+   "Выдаленне рэзервовай копіі"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_DELETE_BACKUP_LIST,
+   "Выдаліць файл са спісу архіваваных рэзервовых копій."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_BACKUP_MODE_AUTO,
+   "[Аўта]"
    )
 
 /* Main Menu > Information > System Information */
@@ -481,6 +541,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_POWER_SOURCE,
    "Крыніца сілкавання"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_VIDEO_CONTEXT_DRIVER,
+   "Драйвер відэакантэксту"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DISPLAY_METRIC_MM_WIDTH,
@@ -969,6 +1033,34 @@ MSG_HASH(
    "Канфігурацыя"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVING_SETTINGS,
+   "Захоўванне"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVING_SETTINGS,
+   "Змяніць налады захоўвання."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SETTINGS,
+   "Воблачная сінхранізацыя"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SETTINGS,
+   "Змяніць налады воблачнай сінхранізацыі."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_ENABLE,
+   "Уключэнне воблачнай сінхранізацыі"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_USERNAME,
+   "Імя карыстальніка"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
+   "Пароль"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FILE_BROWSER_SETTINGS,
    "Файлавы браўзер"
    )
@@ -1022,7 +1114,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_IMAGE,
-   "Файл вобраза."
+   "Файл відарыса."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORDING_SETTINGS,
@@ -1151,6 +1243,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL1,
    "Драйвер OpenGL 1.x. Патрабуе версію:OpenGL не менш за 1.1. Не падтрымлівае шэйдары. Па магчымасці, замест яго ўжывайце пазнейшыя драйверы OpenGL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL,
+   "Драйвер OpenGL 2.x. Гэты драйвер дазваляе ўжываць GL ядры ў дадатак да ядраў з праграмным рэндэрынгам. Мінімальная патрэбная версія: OpenGL 2.0 або OpenGLES 2.0. Падтрымлівае фармат шэйдараў GLSL. Па магчымасці, замест яго ўжывайце драйвер glcore."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL_CORE,
+   "Драйвер OpenGL 3.x. Гэты драйвер дазваляе ўжываць GL ядры ў дадатак да ядраў з праграмным рэндэрынгам. Мінімальная патрэбная версія: OpenGL 3.2 або OpenGLES 3.0+. Падтрымлівае фармат шэйдараў Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_VULKAN,
+   "Драйвер Vulkan. Гэты драйвер дазваляе ўжываць GL ядры ў дадатак да ядраў з праграмным рэндэрынгам. Мінімальная патрэбная версія: Vulkan 1.0. Падтрымлівае фарматы шэйдараў HDR ды Slang."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_METAL,
@@ -2059,10 +2163,6 @@ MSG_HASH(
    "Аўтаматычнае захаванне стану"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_LOAD,
-   "Аўтаматычнае загрузка стану"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_LOAD,
    "Аўтаматычна загружаць стан аўтаматычнага захавання пры запуску."
    )
@@ -2771,12 +2871,8 @@ MSG_HASH(
    "Непразрыстасць фону"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FRAMEBUFFER_OPACITY,
-   "Непразрыстасць меню"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS,
-   "Мініяцюры"
+   "Першасная мініяцяюра"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_THUMBNAILS,
@@ -2901,10 +2997,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_STDIN_CMD_ENABLE,
    "Камандны інтэрфейс stdin."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_UPDATER_SETTINGS,
-   "Абнаўляльнік"
    )
 
 /* Settings > Network > Updater */
@@ -3635,16 +3727,8 @@ MSG_HASH(
    "Захаваць опцыі гульні"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_CORE_OPTIONS_REMOVE,
-   "Выдаліць опцыі гульні"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_CREATE,
    "Захаваць опцыі каталога змесціва"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_REMOVE,
-   "Выдаліць опцыі каталога змесціва"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_OPTIONS_RESET,
@@ -4356,6 +4440,10 @@ MSG_HASH(
 /* RGUI: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO,
+   "Суадносіны бакоў"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_SHADOWS,
    "Эфекты ценю"
    )
@@ -4425,6 +4513,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_5_3_CENTRE,
    "5:3 (цэнтравана)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_AUTO,
+   "Аўта"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_NONE,
@@ -4534,6 +4626,10 @@ MSG_HASH(
 /* XMB: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS,
+   "Другарадная мініяцюра"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DYNAMIC_WALLPAPER,
    "Дынамічны фон"
    )
@@ -4542,32 +4638,12 @@ MSG_HASH(
    "Гарызантальная анімацыя"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_FONT,
-   "Шрыфт меню"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_RED,
-   "Колер шрыфту меню (чырвоны)"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_GREEN,
-   "Колер шрыфту меню (зялёны)"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_BLUE,
-   "Колер шрыфту меню (сіні)"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_THEME,
-   "Тэма значкоў меню"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_SWITCH_ICONS,
    "Значкі пераключальніка"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME,
-   "Колеравая тэма меню"
+   MENU_ENUM_LABEL_VALUE_XMB_SHADOWS_ENABLE,
+   "Эфекты ценю"
    )
 
 /* XMB: Settings Options */
@@ -4634,7 +4710,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PLAIN,
-   "Звычайная"
+   "Фонавы відарыс"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_VOLCANIC_RED,
@@ -4643,10 +4719,6 @@ MSG_HASH(
 
 /* Ozone: Settings > User Interface > Appearance */
 
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
-   "Колеравая тэма меню"
-   )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME,
    "Выбраць іншую колеравую тэму."
@@ -4673,14 +4745,14 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE,
-   "Другая мініяцюра"
+   "Другарадная мініяцюра"
    )
 
 /* MaterialUI: Settings > User Interface > Appearance */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_ICONS_ENABLE,
-   "Значкі меню"
+   "Значкі"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_SWITCH_ICONS,
@@ -4693,14 +4765,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_SHOW_NAV_BAR,
    "Паказваць панэль навігацыі"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_COLOR_THEME,
-   "Колеравая тэма меню"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_TRANSITION_ANIMATION,
-   "Анімацыя пераходаў меню"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS_MATERIALUI,
@@ -4858,7 +4922,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOAD_CORE,
-   "Загрузіць ядро"
+   "Загрузка ядра"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOADING_CORE,
@@ -5139,10 +5203,6 @@ MSG_HASH(
 
 /* Unsorted */
 
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CORE_UPDATER_SETTINGS,
-   "Абнаўляльнік"
-   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_COUNTERS,
    "Лічыльнікі ядра"

@@ -239,6 +239,7 @@
 /* Enable automatic switching of the screen refresh rate when using the specified screen mode(s),
  * based on running core/content */
 #define DEFAULT_AUTOSWITCH_REFRESH_RATE AUTOSWITCH_REFRESH_RATE_EXCLUSIVE_FULLSCREEN
+#define DEFAULT_AUTOSWITCH_PAL_THRESHOLD 54.50f
 
 /* Which monitor to prefer. 0 is any monitor, 1 and up selects
  * specific monitors, 1 being the first monitor. */
@@ -768,7 +769,7 @@
 #define DEFAULT_XMB_TITLE_MARGIN                   5
 #define DEFAULT_XMB_TITLE_MARGIN_HORIZONTAL_OFFSET 0
 #define MAXIMUM_XMB_TITLE_MARGIN                   12
-#define DEFAULT_XMB_ALPHA_FACTOR                   75
+#define DEFAULT_XMB_ALPHA_FACTOR                   90
 
 #define DEFAULT_MENU_FONT_COLOR_RED 255
 #define DEFAULT_MENU_FONT_COLOR_GREEN 255
@@ -835,8 +836,8 @@
 #define DEFAULT_GLOBAL_CORE_OPTIONS false
 #define DEFAULT_AUTO_SHADERS_ENABLE true
 
-#define DEFAULT_SORT_SAVEFILES_ENABLE false
-#define DEFAULT_SORT_SAVESTATES_ENABLE false
+#define DEFAULT_SORT_SAVEFILES_ENABLE true
+#define DEFAULT_SORT_SAVESTATES_ENABLE true
 #define DEFAULT_SORT_SAVEFILES_BY_CONTENT_ENABLE false
 #define DEFAULT_SORT_SAVESTATES_BY_CONTENT_ENABLE false
 #define DEFAULT_SORT_SCREENSHOTS_BY_CONTENT_ENABLE false
@@ -846,7 +847,7 @@
 #define DEFAULT_SYSTEMFILES_IN_CONTENT_DIR false
 #define DEFAULT_SCREENSHOTS_IN_CONTENT_DIR false
 
-#if defined(RS90) || defined(RETROFW) || defined(MIYOO)
+#if defined(RS90) || defined(RETROFW) || defined(MIYOO) || defined(SWITCH) || defined(ORBIS) || defined(__WINRT__)
 #define DEFAULT_MENU_TOGGLE_GAMEPAD_COMBO INPUT_COMBO_START_SELECT
 #elif defined(_XBOX1) || defined(__PS3__) || defined(_XBOX360) || defined(DINGUX)
 #define DEFAULT_MENU_TOGGLE_GAMEPAD_COMBO INPUT_COMBO_L3_R3
@@ -854,8 +855,6 @@
 #define DEFAULT_MENU_TOGGLE_GAMEPAD_COMBO INPUT_COMBO_HOLD_START
 #elif defined(VITA)
 #define DEFAULT_MENU_TOGGLE_GAMEPAD_COMBO INPUT_COMBO_L1_R1_START_SELECT
-#elif defined(SWITCH) || defined(ORBIS)
-#define DEFAULT_MENU_TOGGLE_GAMEPAD_COMBO INPUT_COMBO_START_SELECT
 #elif TARGET_OS_TV
 #define DEFAULT_MENU_TOGGLE_GAMEPAD_COMBO INPUT_COMBO_DOWN_Y_L_R
 #else
@@ -1048,6 +1047,9 @@
 /* Display a notification when automatically restoring
  * at launch the last used disk of multi-disk content */
 #define DEFAULT_NOTIFICATION_SHOW_SET_INITIAL_DISK true
+
+/* Display save state notifications */
+#define DEFAULT_NOTIFICATION_SHOW_SAVE_STATE true
 
 /* Display a notification when fast forwarding
  * content */
@@ -1414,7 +1416,7 @@
 #define DEFAULT_PLAYLIST_SUBLABEL_RUNTIME_TYPE PLAYLIST_RUNTIME_PER_CORE
 
 /* Specifies time/date display format for runtime 'last played' data */
-#define DEFAULT_PLAYLIST_SUBLABEL_LAST_PLAYED_STYLE PLAYLIST_LAST_PLAYED_STYLE_YMD_HMS
+#define DEFAULT_PLAYLIST_SUBLABEL_LAST_PLAYED_STYLE PLAYLIST_LAST_PLAYED_STYLE_YMD_HM
 
 #define DEFAULT_PLAYLIST_ENTRY_REMOVE_ENABLE PLAYLIST_ENTRY_REMOVE_ENABLE_ALL
 #endif
@@ -1522,8 +1524,8 @@
 #define DEFAULT_INPUT_MAX_USERS 8
 #endif
 
-#define DEFAULT_INPUT_BIND_TIMEOUT 5
-#define DEFAULT_INPUT_BIND_HOLD 2
+#define DEFAULT_INPUT_BIND_TIMEOUT 3
+#define DEFAULT_INPUT_BIND_HOLD 1
 #define DEFAULT_INPUT_POLL_TYPE_BEHAVIOR 2
 #define DEFAULT_INPUT_HOTKEY_BLOCK_DELAY 5
 

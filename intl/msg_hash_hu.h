@@ -81,7 +81,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_LOAD_CONTENT_LIST,
-   "Tartalom böngészése. Tartalom betöltéséhez kell egy \"mag\", és egy tartalom fájl. A böngészés a \"Fájlböngésző könyvtára\" beállításnál megadott helyről indul, na ez nincs beállítva, akkor a gyökérből.\nA böngésző csak a \"Mag betöltése\" menüben kiválasztott mag által támogatott kiterjesztéseket mutatja, és azt használja a tartalom betöltéséhez."
+   "Tartalom böngészése. Tartalom betöltéséhez kell egy \"mag\", és egy tartalom fájl. A böngészés a \"Fájlböngésző könyvtára\" beállításnál megadott helyről indul, ha ez nincs beállítva, akkor a gyökérből.\nA böngésző csak a \"Mag betöltése\" menüben kiválasztott mag által támogatott kiterjesztéseket mutatja, és azt használja a tartalom betöltéséhez."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_DISC,
@@ -1165,6 +1165,62 @@ MSG_HASH(
    "A mentések beállításai."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SETTINGS,
+   "Szinkronizálás felhőbe"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SETTINGS,
+   "A felhőbe szinkronizálás beállításai."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_ENABLE,
+   "Felhőbe szinkronizálás engedélyezése"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_ENABLE,
+   "A konfiguráció, az SRAM és a játékállások szinkronizálása egy felhőalapú tárhelyszolgáltatóhoz."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DESTRUCTIVE,
+   "Destruktív szinkronizálás a felhőbe"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_DESTRUCTIVE,
+   "Kikapcsolt állapotban a fájlok egy tartalék könyvtárba kerülnek felülírás vagy törlés előtt."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DRIVER,
+   "A felhőszinkronizálás háttértára"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_DRIVER,
+   "A felhőszinkronizáláshoz használt protokoll."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_URL,
+   "A felhő alapú tárhely URL-je"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_URL,
+   "A felhő alapú tárhelyszolgáltató API hozzáférésének URL-je."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_USERNAME,
+   "Felhasználónév"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_USERNAME,
+   "A felhő alapú tárhelyszolgáltatóhoz használt felhasználónév."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
+   "Jelszó"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_PASSWORD,
+   "A felhő alapú tárhelyszolgáltatóhoz használt jelszó."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOGGING_SETTINGS,
    "Naplózás"
    )
@@ -1605,6 +1661,10 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_MICROPHONE_RESAMPLER_DRIVER,
    "A mikrofonhoz használt újramintavételező illesztő."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_BLOCK_FRAMES,
+   "Mikrofon keretek blokkonként"
+   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_RESAMPLER_DRIVER,
@@ -2019,7 +2079,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_AUTOSWITCH_REFRESH_RATE,
-   "A képfrissítési gyakoriság automatikus állítása, amikor a megadott képernyőmód aktív, az éppen futó mag és/vagy tartalom szerint."
+   "A képfrissítési gyakoriság automatikus módosítása az aktuális tartalomnak megfelelően."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_EXCLUSIVE_FULLSCREEN,
@@ -2032,6 +2092,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_ALL_FULLSCREEN,
    "Minden teljes képernyős módban"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
+   "Képfrissítési gyakoriság határértéke - PAL"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
+   "A legnagyobb frissítési gyakoriság, ami még PAL tartalomnak minősül."
    )
 #if defined(DINGUX) && defined(DINGUX_BETA)
 MSG_HASH(
@@ -3031,6 +3099,22 @@ MSG_HASH(
    "Ennyi másodpercig kell nyomni a gombot, hogy a párosítást elfogadja."
    )
 MSG_HASH(
+   MSG_INPUT_BIND_PRESS,
+   "Nyomj meg egy gombot a billentyűzeten, egéren vagy kontrolleren"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_RELEASE,
+   "Engedd el a billentyűket és gombokat!"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_TIMEOUT,
+   "Időkorlát"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_HOLD,
+   "Tartás"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_PERIOD,
    "Turbó periódus"
    )
@@ -3091,6 +3175,10 @@ MSG_HASH(
    "Turbó mód"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_TURBO_FIRE_SETTINGS,
+   "A turbó tűz beállítása. \nMegjegyzés: a turbó funkcióhoz be kell állítani egy turbó gombot a megfelelő csatlakozó kezelőszerveinél."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_HAPTIC_FEEDBACK_SETTINGS,
    "Tapintható visszajelzés / rezgés"
    )
@@ -3111,8 +3199,32 @@ MSG_HASH(
    "Gyorsbillentyűk"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_HOTKEY_BINDS,
+   "A gyorsbillentyűk kiosztása és beállításai, például a játék közbeni menü előhívásához."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_RETROPAD_BINDS,
+   "RetroPad párosítások"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_RETROPAD_BINDS,
+   "A virtuális RetroPad leképezése a fizikai bemeneti eszközre. Ha a bemeneti eszköz felismerése és automatikus beállítása sikeres, vélhetően nincs szükség itt módosításra. \nFigyelem: magspecifikus beállításokhoz a gyorsmenü Irányítás almenüje használható e helyett."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_RETROPAD_BINDS,
+   "A Libretro rendszer egy RetroPad nevű virtuális gamepadet használ a frontend (RetroArch) és a magok közti kommunikációhoz. Ebben a menüben lehet meghatározni, hogy melyik virtuális RetroPad melyik fizikai bemeneti eszközhöz tartozik, és melyik bemeneti csatlakozóhoz van rendelve.\nHa a fizikai bemeneti eszköz felismerése és automatikus beállítása sikeres, itt vélhetően nincs szükség módosításra, magspecifikus beállításokhoz pedig e helyett a Gyorsmenü Irányítás [...]"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_USER_BINDS,
    "%u. csatlakozó kezelőszervei"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_USER_BINDS,
+   "A virtuális RetroPad és a fizikai bemeneti eszköz leképezése ennél a csatlakozónál."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_USER_REMAPS,
+   "Magspecifikus bemeneti hozzárendelések."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ANDROID_INPUT_DISCONNECT_WORKAROUND,
@@ -4252,7 +4364,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_LOAD,
-   "Játékállás automatikus betöltése"
+   "Automatikus játékállás betöltés"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_LOAD,
@@ -4295,16 +4407,32 @@ MSG_HASH(
    "Mentések elhelyezése a tartalom könyvtárába"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVEFILES_IN_CONTENT_DIR_ENABLE,
+   "Mentés fájlok tárolása a tartalom könyvtárába."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATES_IN_CONTENT_DIR_ENABLE,
    "Játékállások mentése a tartalom könyvtárába"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVESTATES_IN_CONTENT_DIR_ENABLE,
+   "Játékállások mentése a tartalom könyvtárába."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEMFILES_IN_CONTENT_DIR_ENABLE,
    "A rendszerfájlok a tartalom könyvtárában vannak"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SYSTEMFILES_IN_CONTENT_DIR_ENABLE,
+   "Rendszerfájlok használata a tartalom könyvtárából."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCREENSHOTS_IN_CONTENT_DIR_ENABLE,
    "Képernyőképek mentése a tartalom könyvtárába"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SCREENSHOTS_IN_CONTENT_DIR_ENABLE,
+   "Képernyőmentések tárolása a tartalom könyvtárába."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_RUNTIME_LOG,
@@ -4932,6 +5060,14 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_OSK_OVERLAY_AUTO_SCALE,
    "A billentyűzet rátét eredeti képarányának alkalmazása. Kikapcsolva a képernyőhöz igazodik."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OSK_OVERLAY_OPACITY,
+   "Billentyűzet rátét átlátszatlansága"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OSK_OVERLAY_OPACITY,
+   "A billentyűzet rátét összes elemének átlátszatlansága."
+   )
 
 /* Settings > On-Screen Display > Video Layout */
 
@@ -5113,6 +5249,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_SET_INITIAL_DISK,
    "Üzenet megjelenítése az M3U lejátszási listákból betöltött többlemezes tartalmak utoljára használt lemezének automatikus visszaállításáról."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SAVE_STATE,
+   "Játékállás mentés értesítései"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_SAVE_STATE,
+   "Üzenet megjelenítése játékállás mentésekor és betöltésekor."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_FAST_FORWARD,
@@ -5558,11 +5702,11 @@ MSG_HASH(
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_ONLINE_UPDATER,
-   "\"Online frissítés\" látható"
+   "\"Online frissítő\" látható"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SHOW_ONLINE_UPDATER,
-   "Az \"Online frissítés\" lehetőség jelenjen meg a főmenüben."
+   "Az \"Online frissítő\" lehetőség jelenjen meg a főmenüben."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_CORE_UPDATER,
@@ -6212,7 +6356,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SCALE_FACTOR,
-   "Menüméret szorzója"
+   "Méret szorzója"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SCALE_FACTOR,
@@ -6236,7 +6380,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FRAMEBUFFER_OPACITY,
-   "Menü átlátszatlansága"
+   "Átlátszatlanság"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_FRAMEBUFFER_OPACITY,
@@ -6252,7 +6396,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS,
-   "Bélyegképek"
+   "Elsődleges bélyegkép"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_THUMBNAILS,
@@ -6884,14 +7028,14 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATER_SETTINGS,
-   "Frissítő"
+   "A frissítő beállításai"
    )
 
 /* Settings > Network > Updater */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_UPDATER_BUILDBOT_URL,
-   "Buildbot magok URL-je"
+   "Buildbot URL a magokhoz"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_UPDATER_BUILDBOT_URL,
@@ -6899,7 +7043,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BUILDBOT_ASSETS_URL,
-   "Buildbot beépített médiafájlok URL-je"
+   "Buildbot URL a beépített médiafájlokhoz"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_BUILDBOT_ASSETS_URL,
@@ -7042,59 +7186,59 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_SECONDS_SINGLE,
-   "másodperc"
+   "másodperccel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_SECONDS_PLURAL,
-   "másodperc"
+   "másodperccel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_MINUTES_SINGLE,
-   "perc"
+   "perccel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_MINUTES_PLURAL,
-   "perc"
+   "perccel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_HOURS_SINGLE,
-   "óra"
+   "órával"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_HOURS_PLURAL,
-   "óra"
+   "órával"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_DAYS_SINGLE,
-   "nap"
+   "nappal"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_DAYS_PLURAL,
-   "nap"
+   "nappal"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_WEEKS_SINGLE,
-   "hét"
+   "héttel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_WEEKS_PLURAL,
-   "hét"
+   "héttel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_MONTHS_SINGLE,
-   "hónap"
+   "hónappal"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_MONTHS_PLURAL,
-   "hónap"
+   "hónappal"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_YEARS_SINGLE,
-   "év"
+   "évvel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_YEARS_PLURAL,
-   "év"
+   "évvel"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_AGO,
@@ -8431,16 +8575,28 @@ MSG_HASH(
    "Játékspecifikus beállítások mentése"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_GAME_SPECIFIC_CORE_OPTIONS_CREATE,
+   "A magbeállítások mentése csak az aktuális tartalomra vonatkozóan."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_CORE_OPTIONS_REMOVE,
-   "Játékspecifikus beállítások törlése"
+   "Játékspecifikus beállítások eltávolítása"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_GAME_SPECIFIC_CORE_OPTIONS_REMOVE,
+   "Az aktuális tartalomra vonatkozó magbeállítások törlése."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_CREATE,
    "Tartalomkönyvtár specifikus beállítások mentése"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_FOLDER_SPECIFIC_CORE_OPTIONS_CREATE,
+   "Magbeállítások mentése minden olyan tartalomra vonatkozóan, ami a jelenlegi fájl könyvtárában helyezkedik el."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_REMOVE,
-   "Tartalomkönyvtár specifikus beállítások törlése"
+   "Tartalomkönyvtár specifikus beállítások eltávolítása"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_OPTION_OVERRIDE_INFO,
@@ -8507,24 +8663,12 @@ MSG_HASH(
    "Magspecifikus remap fájl mentése"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CORE,
-   "Magspecifikus remap fájl törlése"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_CONTENT_DIR,
    "Tartalomkönyvtár specifikus remap fájl mentése"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CONTENT_DIR,
-   "Tartalomkönyvtár specifikus remap fájl törlése"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_GAME,
    "Játékspecifikus remap fájl mentése"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_GAME,
-   "Játékspecifikus remap fájl törlése"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_RESET,
@@ -9874,7 +10018,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_KEY,
-   "(Billentyű: %s)"
+   "%s billentyű"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_LEFT,
@@ -10030,7 +10174,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIMEDATE_AGO,
-   "korábban"
+   "Eltelt idő"
    )
 
 /* RGUI: Settings > User Interface > Appearance */
@@ -10069,7 +10213,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_LINEAR_FILTER,
-   "Lineáris szűrő a menüben"
+   "Lineáris szűrő"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_LINEAR_FILTER,
@@ -10085,7 +10229,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO,
-   "Menü képaránya"
+   "Képarány"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO,
@@ -10093,7 +10237,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO_LOCK,
-   "Menü képarány rögzítése"
+   "Képarány rögzítése"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO_LOCK,
@@ -10101,7 +10245,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME,
-   "A menü színösszeállítása"
+   "Színösszeállítás"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RGUI_MENU_COLOR_THEME,
@@ -10117,7 +10261,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_TRANSPARENCY,
-   "Menü átlátszósága"
+   "Átlátszóság"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_TRANSPARENCY,
@@ -10251,12 +10395,20 @@ MSG_HASH(
    "16:10 (középre igazított)"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_21_9_CENTRE,
+   "21:9 (középre igazított)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_3_2_CENTRE,
    "3:2 (középre igazított)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_5_3_CENTRE,
    "5:3 (középre igazított)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_AUTO,
+   "Automatikus"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_NONE,
@@ -10311,7 +10463,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS,
-   "Bal bélyegkép"
+   "Másodlagos bélyegkép"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS,
@@ -10359,11 +10511,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_ALPHA_FACTOR,
-   "Menü átlátszóság szorzója"
+   "A színösszeállítás alfa értéke"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_FONT,
-   "Menü betűtípusa"
+   "Betűtípus"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_FONT,
@@ -10371,19 +10523,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_RED,
-   "A menü betűtípusának színe (piros)"
+   "Betűszín, piros komponens"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_GREEN,
-   "A menü betűtípusának színe (zöld)"
+   "Betűszín, zöld komponens"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_BLUE,
-   "A menü betűtípusának színe (kék)"
+   "Betűszín, kék komponens"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_LAYOUT,
-   "Menü elrendezése"
+   "Elrendezés"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_LAYOUT,
@@ -10391,7 +10543,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_THEME,
-   "A menü ikontémája"
+   "Ikontéma"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_THEME,
@@ -10407,7 +10559,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_SHADOWS_ENABLE,
-   "Árnyékok megjelenítése"
+   "Árnyék effekt"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_SHADOWS_ENABLE,
@@ -10415,7 +10567,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_RIBBON_ENABLE,
-   "Shader feldolgozó a menühöz"
+   "Shader feldolgozó"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_RIBBON_ENABLE,
@@ -10423,11 +10575,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME,
-   "A menü színösszeállítása"
+   "Színösszeállítás"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_MENU_COLOR_THEME,
-   "A háttérben látható színátmenet lecserélése."
+   "Más színösszeállítás választása a háttérhez."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_VERTICAL_THUMBNAILS,
@@ -10526,7 +10678,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PLAIN,
-   "Egyszerű"
+   "Háttérkép"
    )
 
 /* Ozone: Settings > User Interface > Appearance */
@@ -10557,7 +10709,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
-   "A menü színösszeállítása"
+   "Színösszeállítás"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME,
@@ -10577,7 +10729,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE,
-   "Második bélyegkép"
+   "Másodlagos bélyegkép"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS_OZONE,
@@ -10604,7 +10756,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_ICONS_ENABLE,
-   "Ikonok a menüben"
+   "Ikonok"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_ICONS_ENABLE,
@@ -10652,15 +10804,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_COLOR_THEME,
-   "A menü színösszeállítása"
+   "Színösszeállítás"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_MENU_COLOR_THEME,
-   "A háttérben látható színátmenet lecserélése."
+   "Más színösszeállítás választása a háttérhez."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_TRANSITION_ANIMATION,
-   "Menüátmenet animációja"
+   "Átmenet animációja"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_MENU_TRANSITION_ANIMATION,
@@ -11357,7 +11509,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_UPDATER_SETTINGS,
-   "Frissítő"
+   "A magfrissítő beállításai"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACCOUNTS_CHEEVOS_SETTINGS,

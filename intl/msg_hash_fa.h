@@ -1005,6 +1005,14 @@ MSG_HASH(
    "تنظیمات ذخیره کردن را تغییر دهید."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_USERNAME,
+   "نام کاربری"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
+   "گذرواژه"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOGGING_SETTINGS,
    "ثبت گزارش‌ها"
    )
@@ -2022,10 +2030,6 @@ MSG_HASH(
 
 /* Settings > User Interface > Appearance */
 
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_THUMBNAILS,
-   "تصاویر بندانگشتی"
-   )
 
 /* Settings > AI Service */
 
@@ -2427,6 +2431,10 @@ MSG_HASH(
 
 /* RGUI: Settings > User Interface > Appearance */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO,
+   "نسبت تصویر"
+   )
 
 /* RGUI: Settings Options */
 
@@ -2436,6 +2444,10 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_UPSCALE_AUTO,
+   "خودکار"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_AUTO,
    "خودکار"
    )
 MSG_HASH(

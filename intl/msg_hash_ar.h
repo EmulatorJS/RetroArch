@@ -1101,6 +1101,14 @@ MSG_HASH(
    "تغيير اعدادات النواة."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_USERNAME,
+   "اسم المستخدم"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
+   "كلمة المرور"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOGGING_SETTINGS,
    "تسجيل الدخول"
    )
@@ -2827,10 +2835,6 @@ MSG_HASH(
    "حفظ تلقائي للحالة"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_LOAD,
-   "تحميل الحالة تلقائياً"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_LOAD,
    "تحميل حالة الحفظ التلقائي تلقائيا عند بدء التشغيل."
    )
@@ -3591,10 +3595,6 @@ MSG_HASH( /* FIXME Not RGUI specific */
 /* Settings > User Interface > Appearance */
 
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_SCALE_FACTOR,
-   "عامل حجم القائمة"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_WALLPAPER_OPACITY,
    "شفافية الخلفية"
    )
@@ -3604,7 +3604,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS,
-   "الصورة المصغرة"
+   "الصورة المصغرة الرئيسية"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_THUMBNAILS,
@@ -3857,10 +3857,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETWORK_ON_DEMAND_THUMBNAILS,
    "التنزيلات المصغرة عند الطلب"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_UPDATER_SETTINGS,
-   "المحدّث"
    )
 
 /* Settings > Network > Updater */
@@ -4715,24 +4711,12 @@ MSG_HASH(
    "حفظ ملف تعيينات نواة"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CORE,
-   "حذف ملف تعيينات نواة"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_CONTENT_DIR,
    "حفظ ملف تعيينات مجلد المحتوى"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CONTENT_DIR,
-   "حذف ملف تعيينات محتوى اللعبة"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_GAME,
    "حفظ ملف تعيينات اللعبة"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_GAME,
-   "حذف ملف تعيينات اللعبة"
    )
 
 /* Quick Menu > Controls > Manage Remap Files > Load Remap File */
@@ -5729,10 +5713,6 @@ MSG_HASH(
    "Analog الأيمن"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_INPUT_KEY,
-   "(المفتاح: %s)"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_LEFT,
    "الماوس 1"
    )
@@ -5844,40 +5824,24 @@ MSG_HASH(
    "تغيير حجم ومواقع إدخالات قائمة الاستخدام الأفضل للمساحة المتاحة للشاشة. قم بتعطيل هذا لاستخدام تخطيط العمود الثاني الثابت كلاسيكي."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_LINEAR_FILTER,
-   "مرشح القائمة الخطية"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_INTERNAL_UPSCALE_LEVEL,
    "الترقية الداخلية"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO,
-   "نسبة جانب القائمة"
+   "نسبة الجانب"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO,
    "حدد نسبة جانب القائمة. نسبة عرض الشاشة تزيد من الدقة الأفقية لواجهة القائمة. (قد يتطلب إعادة تشغيل إذا تم تعطيل 'قفل نسبة جانب القائمة'"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO_LOCK,
-   "قفل نسبة جانب القائمة"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO_LOCK,
    "يضمن عرض القائمة دائماً مع نسبة الجانب الصحيحة. في حالة التعطيل، سيتم توسيع القائمة السريعة لتطابق المحتوى الذي تم تحميله حاليا."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME,
-   "سمة لون القائمة"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_RGUI_MENU_COLOR_THEME,
    "حدد سمة لون مختلفة. اختيار 'مخصص' يمكن استخدام ملفات الإعداد المسبق لقائمة الملفات."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_RGUI_MENU_THEME_PRESET,
-   "تعيين مسبق لقائمة مخصصة"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RGUI_MENU_THEME_PRESET,
@@ -5989,6 +5953,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_5_3_CENTRE,
    "5:3 (مركز)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_AUTO,
+   "تلقائي"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_NONE,
@@ -6170,6 +6138,10 @@ MSG_HASH(
 /* XMB: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS,
+   "الصورة المصغرة الثانوية"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS,
    "نوع الصور المصغرة التي تعرض يسارا."
    )
@@ -6214,64 +6186,24 @@ MSG_HASH(
    "التحريكات التي تظهر عند فتح قائمة فرعية."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_ALPHA_FACTOR,
-   "عامل شفافية القائمة"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_FONT,
-   "خط القائمة"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_FONT,
    "اختر خطا رئيسيا مغايرا ليستعمل في القائمة."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_RED,
-   "لون خط القائمة (أحمر)"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_GREEN,
-   "لون خط القائمة (أخضر)"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_BLUE,
-   "لون خط القائمة (أزرق)"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_LAYOUT,
-   "تنسيق القائمة"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_LAYOUT,
    "اختر تنسيق مختلفا لواجهة XMB."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_THEME,
-   "سمة أيقونة القائمة"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_THEME,
    "حدد سمة أيقونة مختلفة لـ RetroArch."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_RIBBON_ENABLE,
-   "خط أنابيب عرض القائمة"
+   MENU_ENUM_LABEL_VALUE_XMB_SHADOWS_ENABLE,
+   "تأثيرات الظل"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_RIBBON_ENABLE,
    "حدد تأثير الخلفية المتحركة. يمكن أن يكون GPU كثيفا اعتمادا على التأثير. وإذا كان الأداء غير مرضٍ، إما أن يوقف ذلك أو يعود إلى أثر أبسط من ذي قبل."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME,
-   "سمة لون القائمة"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_XMB_MENU_COLOR_THEME,
-   "حدد سمة ترتيب لون خلفية مختلفة."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_VERTICAL_THUMBNAILS,
-   "التصرفات العمودية المصغرة"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_VERTICAL_THUMBNAILS,
@@ -6397,10 +6329,6 @@ MSG_HASH(
    "أزرق منتصف الليل"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PLAIN,
-   "السهول"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_UNDERSEA,
    "تحت البحر"
    )
@@ -6448,10 +6376,6 @@ MSG_HASH(
    "اجعل الشريط الجانبي الأيسر مطويًا دائمًا."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
-   "سمة لون القائمة"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME,
    "حدد سمة لون مختلفة."
    )
@@ -6485,7 +6409,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE,
-   "الصورة المصغرة الثانية"
+   "الصورة المصغرة الثانوية"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_SCROLL_CONTENT_METADATA,
@@ -6504,7 +6428,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_ICONS_ENABLE,
-   "أيقونات القائمة"
+   "الأيقونات"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_LANDSCAPE_LAYOUT_OPTIMIZATION,
@@ -6529,18 +6453,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_AUTO_ROTATE_NAV_BAR,
    "نقل شريط التنقل تلقائياً إلى الجانب الأيمن من الشاشة عند استخدام توجيهات العرض الأفقي."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_COLOR_THEME,
-   "سمة لون القائمة"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_MATERIALUI_MENU_COLOR_THEME,
-   "حدد سمة ترتيب لون خلفية مختلفة."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_TRANSITION_ANIMATION,
-   "حركة انتقال القائمة"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_MENU_TRANSITION_ANIMATION,
@@ -7295,10 +7207,6 @@ MSG_HASH(
 
 /* Unsorted */
 
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CORE_UPDATER_SETTINGS,
-   "المحدّث"
-   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACCOUNTS_CHEEVOS_SETTINGS,
    "حسابات Cheevos"

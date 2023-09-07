@@ -548,6 +548,14 @@ MSG_HASH(
    "Zapobiegaj modyfikacjom aktualnie zainstalowanego rdzenia. Może być użyty w celu uniknięcia niechcianych aktualizacji, gdy zawartość wymaga określonej wersji głównej (np. zestawy ROM Arcade)."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_SET_STANDALONE_EXEMPT,
+   "Wyklucz z menu 'Rdzenie bez zawartości'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_SET_STANDALONE_EXEMPT,
+   "Zapobiega wyświetlaniu tego rdzenia na karcie/menu 'Rdzenie bez zawartości'. Ma zastosowanie tylko wtedy, gdy tryb wyświetlania jest ustawiony na 'Niestandardowy'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_DELETE,
    "Usuń rdzeń"
    )
@@ -1165,6 +1173,62 @@ MSG_HASH(
    "Zmień ustawienia zapisywania."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SETTINGS,
+   "Synchronizacja Chmury"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SETTINGS,
+   "Zmień ustawienia synchronizacji w chmurze."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_ENABLE,
+   "Włącz synchronizację w chmurze"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_ENABLE,
+   "Próba synchronizacji konfiguracji, sramu i stanów z dostawcą pamięci w chmurze."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DESTRUCTIVE,
+   "Destrukcyjna synchronizacja w chmurze"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_DESTRUCTIVE,
+   "Gdy wyłączone, pliki są przenoszone do folderu kopii zapasowej przed nadpisaniem lub usunięciem."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DRIVER,
+   "Back-end synchronizacji w chmurze"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_DRIVER,
+   "Jakiego protokołu sieci przechowywania w chmurze należy użyć."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_URL,
+   "Adres URL przechowywania w chmurze"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_URL,
+   "Adres URL punktu wejścia API do usługi przechowywania w chmurze."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_USERNAME,
+   "Nazwa użytkownika"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_USERNAME,
+   "Twoja nazwa użytkownika dla Twojego konta w chmurze."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
+   "Hasło"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_PASSWORD,
+   "Twoje hasło do swojego konta w chmurze."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOGGING_SETTINGS,
    "Logowanie"
    )
@@ -1201,6 +1265,10 @@ MSG_HASH(
    "Plik konfiguracyjny."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_SHADER_PRESET,
+   "Plik ustawień wstępnych shadera."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_SHADER,
    "Plik cieniowania."
    )
@@ -1229,8 +1297,32 @@ MSG_HASH(
    "Zwykły plik."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_MOVIE_OPEN,
+   "Wideo. Wybierz go, aby otworzyć ten plik w odtwarzaczu wideo."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_MUSIC_OPEN,
+   "Muzyka. Wybierz go, aby otworzyć ten plik w odtwarzaczu muzyki."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_IMAGE,
    "Plik obrazu."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_IMAGE_OPEN_WITH_VIEWER,
+   "Obraz. Wybierz go, aby otworzyć ten plik w przeglądarce obrazów."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_CORE_SELECT_FROM_COLLECTION,
+   "Rdzeń Libretro. Wybranie tej opcji spowoduje powiązanie tego rdzenia z grą."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_CORE,
+   "Rdzeń Libretro. Wybierz ten plik, aby RetroArch załadował ten rdzeń."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_DIRECTORY,
+   "Katalog. Wybierz go, aby otworzyć ten katalog."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FRAME_THROTTLE_SETTINGS,
@@ -1373,6 +1465,14 @@ MSG_HASH(
    "Sterownik wejścia do użycia. Niektóre sterowniki wideo wymuszają inny sterownik wejścia."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
+   "Sterownik wejścia udev wykorzystuje najnowsze API evdev joypad do obsługi joysticka. Obsługuje hotplugging i siłowe sprzężenie zwrotne.\nSterownik odczytuje zdarzenia evdev do obsługi klawiatury. Obsługuje również wywołania zwrotne klawiatury, myszy i touchpadów.\nDomyślnie w większości dystrybucji, węzły /dev/input są tylko dla roota (tryb 600). Można skonfigurować regułę udev, która czyni je dostępnymi dla użytkowników innych niż root."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
+   "Sterownik wejścia linuxraw wymaga aktywnego TTY. Zdarzenia klawiatury są odczytywane bezpośrednio z TTY, co czyni go prostszym, ale nie tak elastycznym jak udev. Myszy, itp. nie są w ogóle obsługiwane. Ten sterownik używa starszego API joysticka (/dev/input/js*)."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_NO_DETAILS,
    "Sterownik wejścia do użycia. Niektóre sterowniki wideo wymuszają inny sterownik wejścia."
    )
@@ -1393,6 +1493,94 @@ MSG_HASH(
    "Sterownik wideo do użycia."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL1,
+   "Sterownik OpenGL 1.x. Wymagana wersja minimalna: OpenGL 1.1. Nie obsługuje shaderów. Jeśli to możliwe, użyj nowszych sterowników OpenGL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL,
+   "Sterownik OpenGL 2.x. Sterownik ten umożliwia korzystanie z rdzeni Libretro GL oprócz rdzeni renderowanych programowo. Wymagana minimalna wersja: OpenGL 2.0 lub OpenGLES 2.0. Obsługuje format cieniowania GLSL. Jeśli to możliwe, użyj sterownika glcore."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL_CORE,
+   "Sterownik OpenGL 3.x. Sterownik ten umożliwia korzystanie z rdzeni Libretro GL oprócz rdzeni renderowanych programowo. Wymagana minimalna wersja: OpenGL 3.2 lub OpenGLES 3.0+. Obsługuje format shaderów Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_VULKAN,
+   "Sterownik Vulkan. Sterownik ten umożliwia korzystanie z rdzeni Libretro Vulkan oprócz rdzeni renderowanych programowo. Wymagana minimalna wersja: Vulkan 1.0. Obsługuje shadery HDR i Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SDL1,
+   "Sterownik renderowany programowo SDL 1.2. Wydajność jest uważana za nieoptymalną. Rozważ korzystanie z niego tylko w ostateczności."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SDL2,
+   "Sterownik renderowany programowo SDL 2. Wydajność implementacji rdzenia Libretro renderowanego programowo zależy od implementacji SDL na danej platformie."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_METAL,
+   "Sterownik Metal dla platform Apple. Obsługuje format shaderów Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D8,
+   "Sterownik Direct3D 8 bez obsługi shaderów."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D9_CG,
+   "Sterownik Direct3D 9 z obsługą starego formatu shaderów Cg."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D9_HLSL,
+   "Sterownik Direct3D 9 z obsługą formatu shaderów HLSL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D10,
+   "Sterownik Direct3D 10 z obsługą formatu shaderów Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D11,
+   "Sterownik Direct3D 11 z obsługą HDR i formatu shaderów Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D12,
+   "Sterownik Direct3D 12 z obsługą HDR i formatu shaderów Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_DISPMANX,
+   "Sterownik DispmanX. Wykorzystuje API DispmanX dla GPU Videocore IV w Raspberry Pi Zero...3. Brak obsługi nakładek i shaderów."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_CACA,
+   "Sterownik LibCACA. Wyświetla znaki zamiast grafiki. Nie jest zalecany do praktycznego użytku."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_EXYNOS,
+   "Niskopoziomowy sterownik wideo Exynos, który wykorzystuje blok G2D w SoC Samsung Exynos do operacji blit. Wydajność dla rdzeni renderowanych programowo powinna być optymalna."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_DRM,
+   "Zwykły sterownik wideo DRM. Jest to niskopoziomowy sterownik wideo wykorzystujący libdrm do sprzętowego skalowania przy użyciu nakładek GPU."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SUNXI,
+   "Niskopoziomowy sterownik wideo Sunxi wykorzystujący blok G2D w układach SoC Allwinner."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_WIIU,
+   "Sterownik Wii U. Obsługuje shadery Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SWITCH,
+   "Sterownik Switch. Obsługuje shadery GLSL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_VG,
+   "Sterownik OpenVG. Wykorzystuje przyśpieszany sprzętowo interfejs API grafiki wektorowej 2D OpenVG."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GDI,
+   "Sterownik GDI. Używa starszego interfejsu Windows. Niezalecane."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_NO_DETAILS,
    "Aktualny sterownik wideo."
    )
@@ -1401,8 +1589,28 @@ MSG_HASH(
    "Sterownik audio do użycia."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_RSOUND,
+   "Sterownik RSound dla sieciowych systemów audio."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_OSS,
+   "Starszy sterownik Open Sound System."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ALSA,
    "Domyślny sterownik ALSA."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ALSATHREAD,
+   "Sterownik ALSA z obsługą wątków."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_TINYALSA,
+   "Sterownik ALSA zaimplementowany bez zależności."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ROAR,
+   "Systemowy sterownik dźwięku RoarAudio."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_AL,
@@ -1411,6 +1619,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_SL,
    "Sterownik OpenSL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_DSOUND,
+   "Sterownik DirectSound. DirectSound jest używany głównie w systemach od Windows 95 do Windows XP."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_WASAPI,
+   "Sterownik Windows Audio Session API. WASAPI jest używany głównie w systemach Windows 7 i nowszych."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_PULSE,
+   "Sterownik PulseAudio. Jeśli system używa PulseAudio, upewnij się, że używasz tego sterownika zamiast np. ALSA."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_JACK,
@@ -1429,6 +1649,14 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MICROPHONE_RESAMPLER_DRIVER,
    "Resampler mikrofonu"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MICROPHONE_RESAMPLER_DRIVER,
+   "Sterownik resamplera mikrofonu do użycia."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_BLOCK_FRAMES,
+   "Ramki blokujące mikrofon"
+   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_RESAMPLER_DRIVER,
@@ -1437,6 +1665,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_RESAMPLER_DRIVER,
    "Sterownik resamplera dźwięku do użycia."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_RESAMPLER_DRIVER_SINC,
+   "Implementacja Windowed Sinc."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_RESAMPLER_DRIVER_CC,
+   "Implementacja Convoluted Cosine."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_RESAMPLER_DRIVER_NEAREST,
+   "Implementacja najbliższego resamplingu. Ten resampler ignoruje ustawienia jakości."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CAMERA_DRIVER,
@@ -1469,6 +1709,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_MENU_DRIVER_XMB,
    "XMB to interfejs RetroArch, który wygląda jak menu konsoli 7 generacji. Może obsługiwać te same funkcje co Ozone."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_OZONE,
+   "Ozone jest domyślnym GUI RetroArch na większości platform. Jest on zoptymalizowany pod kątem nawigacji za pomocą kontrolera gier."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_RGUI,
+   "RGUI jest prostym wbudowanym GUI dla RetroArch. Ma najniższe wymagania wydajnościowe spośród sterowników menu i może być używany na ekranach o niskiej rozdzielczości."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_MATERIALUI,
+   "Na urządzeniach mobilnych RetroArch domyślnie korzysta z mobilnego interfejsu użytkownika MaterialUI. Interfejs ten został zaprojektowany z myślą o ekranach dotykowych i urządzeniach wskazujących, takich jak mysz/trackball."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORD_DRIVER,
@@ -1776,14 +2028,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE_POLLED,
    "Częstotliwość odświeżania zgłoszona przez sterownik ekranu."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE,
-   "Przełącz automatycznie odświeżanie"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_AUTOSWITCH_REFRESH_RATE,
-   "Przełącz prędkość odświeżania ekranu automatycznie podczas korzystania z określonego trybu ekranu, w oparciu o uruchomiony rdzeń i/lub zawartość."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_EXCLUSIVE_FULLSCREEN,
@@ -2583,6 +2827,10 @@ MSG_HASH(
    "Wstrzymaj zawartość po rozłączeniu kontrolera"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_PAUSE_ON_DISCONNECT,
+   "Wstrzymuj zawartość po odłączeniu dowolnego kontrolera. Wznów za pomocą Start."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_BUTTON_AXIS_THRESHOLD,
    "Próg osi przycisku wprowadzania danych"
    )
@@ -2595,8 +2843,16 @@ MSG_HASH(
    "Martwa strefa analoga"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ANALOG_DEADZONE,
+   "Ignoruj ruchy drążka analogowego poniżej wartości strefy martwej."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_SENSITIVITY,
    "Czułość analoga"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ANALOG_SENSITIVITY,
+   "Dostosuj czułość drążków analogowych."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_BIND_TIMEOUT,
@@ -2613,6 +2869,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_BIND_HOLD,
    "Ilość sekund na utrzymanie wejścia w celu powiązania go."
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_PRESS,
+   "Naciśnij klawiaturę, mysz lub kontroler"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_RELEASE,
+   "Zwolnij klawisze i przyciski!"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_TIMEOUT,
+   "Limit czasu"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_HOLD,
+   "Przytrzymaj"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_PERIOD,
@@ -2675,6 +2947,10 @@ MSG_HASH(
    "Turbo Ogień"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_TURBO_FIRE_SETTINGS,
+   "Zmień ustawienia turbo ognia.\nUwaga: funkcja turbo wymaga zmapowania przycisku turbo do urządzenia wejściowego w odpowiednim menu \"Elementy sterujące portu X\"."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_HAPTIC_FEEDBACK_SETTINGS,
    "Haptyczne sprzężenie zwrotne / wibracje"
    )
@@ -2695,8 +2971,20 @@ MSG_HASH(
    "Klawisze skrótów"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_HOTKEY_BINDS,
+   "Zmień ustawienia i przypisania skrótów klawiszowych, takich jak przełączanie menu podczas rozgrywki."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_RETROPAD_BINDS,
+   "Wiązania RetroPad"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_RETROPAD_BINDS,
    "Zmień sposób mapowania wirtualnego RetroPada na fizyczne urządzenie wejściowe. Jeśli urządzenie wejściowe jest rozpoznane i poprawnie skonfigurowane, użytkownicy prawdopodobnie nie muszą używać tego menu.\nUwaga: dla zmian danych wejściowych specyficznych dla rdzenia, użyj podmenu 'Kontrola'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_RETROPAD_BINDS,
+   "Libretro używa wirtualnej abstrakcji gamepada znanej jako \"RetroPad\" do komunikacji z frontendami (takimi jak RetroArch) do rdzeni i odwrotnie. To menu określa, w jaki sposób wirtualny RetroPad jest mapowany na fizyczne urządzenia wejściowe i które wirtualne porty wejściowe te urządzenia zajmują.\nJeśli fizyczne urządzenie wejściowe jest prawidłowo rozpoznawane i autokonfigurowane, użytkownicy prawdopodobnie nie muszą w ogóle korzystać z tego menu, a do zmian danych wejściowy[...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_USER_BINDS,
@@ -2709,6 +2997,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_USER_REMAPS,
    "Zmień mapowanie wejściowe specyficzne dla rdzenia."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ANDROID_INPUT_DISCONNECT_WORKAROUND,
+   "Obejście rozłączania systemu Android"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_ANDROID_INPUT_DISCONNECT_WORKAROUND,
+   "Obejście problemu rozłączania i ponownego łączenia kontrolerów. Uniemożliwia grę 2 graczom z identycznymi kontrolerami."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUIT_PRESS_TWICE,
@@ -2773,6 +3069,14 @@ MSG_HASH(
    "Zamień przyciski na OK/Anuluj. Wyłączone to japońska orientacja przycisku, włączona to orientacja zachodnia."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_INPUT_SWAP_SCROLL,
+   "Zmień przyciski przewijania menu"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_INPUT_SWAP_SCROLL,
+   "Zamiana przycisków przewijania. Wyłączone przewijanie 10 elementów za pomocą L/R i alfabetycznie za pomocą L2/R2."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ALL_USERS_CONTROL_MENU,
    "Wszyscy użytkownicy kontrolują menu"
    )
@@ -2786,6 +3090,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_ENABLE_HOTKEY,
    "Aktywacja klawisza skrótu"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_ENABLE_HOTKEY,
+   "Po przypisaniu, klawisz \"Włącz Hotkeys\" musi być przytrzymany, zanim jakiekolwiek inne klawisze skrótu zostaną rozpoznane. Umożliwia mapowanie przycisków kontrolera na funkcje klawiszy skrótu bez wpływu na normalne wprowadzanie danych. Przypisanie modyfikatora tylko do kontrolera nie będzie wymagało go dla klawiszy skrótu klawiatury i odwrotnie, ale oba modyfikatory działają dla obu urządzeń."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_HOTKEY_BLOCK_DELAY,
@@ -3621,10 +3929,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_SAVE,
    "Automatycznie utwórz stan zapisu, gdy zawartość jest zamknięta. RetroArch automatycznie załaduje ten stan zapisu, jeśli włączona jest opcja \"Załaduj stan automatycznie\"."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_LOAD,
-   "Automatyczne ładowanie stanu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_LOAD,
@@ -5439,10 +5743,6 @@ MSG_HASH(
 /* Settings > User Interface > Appearance */
 
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_SCALE_FACTOR,
-   "Współczynnik skali menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SCALE_FACTOR,
    "Skaluj rozmiar elementów interfejsu użytkownika w menu."
    )
@@ -5463,10 +5763,6 @@ MSG_HASH(
    "Modyfikuj przezroczystość obrazu tła."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FRAMEBUFFER_OPACITY,
-   "Przezroczystość menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_FRAMEBUFFER_OPACITY,
    "Modyfikuj przezroczystość tła menu domyślnego."
    )
@@ -5480,7 +5776,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS,
-   "Miniatury"
+   "Pierwsza miniatura"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_THUMBNAILS,
@@ -6012,7 +6308,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATER_SETTINGS,
-   "Aktualizacja"
+   "Ustawienia aktualizacji"
    )
 
 /* Settings > Network > Updater */
@@ -7451,16 +7747,8 @@ MSG_HASH(
    "Zapisz opcje gry"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_CORE_OPTIONS_REMOVE,
-   "Usuń opcje gry"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_CREATE,
    "Zapisz opcje katalogu treści"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_REMOVE,
-   "Usuń opcje katalogu treści"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_OPTION_OVERRIDE_INFO,
@@ -7515,28 +7803,20 @@ MSG_HASH(
    "Załaduj plik przemapowania"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_CORE,
-   "Zapisz plik przemapowania rdzenia"
+   MENU_ENUM_SUBLABEL_REMAP_FILE_LOAD,
+   "Załaduj i zastąp aktualne mapowanie wejściowe."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CORE,
-   "Usuń plik przemapowania rdzenia"
+   MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_CORE,
+   "Zapisz plik przemapowania rdzenia"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_CONTENT_DIR,
    "Zapisz plik przemapowania zawartości"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_CONTENT_DIR,
-   "Usuń plik przemapowania katalogu zawartości gry"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_GAME,
    "Zapisz plik przemapowania gry"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_REMAP_FILE_REMOVE_GAME,
-   "Usuń plik przemapowania gry"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REMAP_FILE_RESET,
@@ -8782,7 +9062,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_KEY,
-   "(Klucz: %s)"
+   "Klawisz %s"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_LEFT,
@@ -8968,10 +9248,6 @@ MSG_HASH(
    "Zmień rozmiar i pozycję wpisów menu, aby jak najlepiej wykorzystać dostępną przestrzeń ekranu. Wyłącz to, aby użyć klasycznego układu dwóch kolumn o stałej szerokości."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_LINEAR_FILTER,
-   "Menu filtra liniowego"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_LINEAR_FILTER,
    "Dodaje lekkie rozmycie w menu, aby złagodzić twarde krawędzie pikseli."
    )
@@ -8985,39 +9261,23 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO,
-   "Współczynnik proporcji menu"
+   "Współczynnik proporcji"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO,
    "Wybierz współczynnik proporcji menu. Współczynniki panoramiczne zwiększają poziomą rozdzielczość interfejsu menu. (Może wymagać ponownego uruchomienia, jeśli opcja „Zablokuj proporcje menu” jest wyłączona)"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO_LOCK,
-   "Zablokuj współczynnik proporcji menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO_LOCK,
    "Gwarantuje, że menu jest zawsze wyświetlane z właściwym współczynnikiem kształtu. Jeśli wyłączone, szybkie menu zostanie rozciągnięte, aby dopasować się do aktualnie załadowanej zawartości."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME,
-   "Motyw koloru menu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RGUI_MENU_COLOR_THEME,
    "Wybierz inny motyw koloru. Wybranie opcji „Niestandardowe” umożliwia korzystanie z plików predefiniowanych kompozycji menu."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_RGUI_MENU_THEME_PRESET,
-   "Niestandardowe ustawienia motywu menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_RGUI_MENU_THEME_PRESET,
    "Wybierz predefiniowany motyw menu z przeglądarki plików."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_RGUI_TRANSPARENCY,
-   "Przezroczystość menu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_TRANSPARENCY,
@@ -9143,12 +9403,20 @@ MSG_HASH(
    "16:10 (wyśrodkowany)"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_21_9_CENTRE,
+   "21:9 (wyśrodkowane)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_3_2_CENTRE,
    "3:2 (wypośrodkowane)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_5_3_CENTRE,
    "5:3 (wyśrodkowane)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_AUTO,
+   "Automatyczny"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_NONE,
@@ -9299,7 +9567,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS,
-   "Miniatury po lewej stornie"
+   "Drugorzędna miniatura"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS,
@@ -9346,40 +9614,12 @@ MSG_HASH(
    "Animacja, która wyzwala podczas otwierania podmenu."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_ALPHA_FACTOR,
-   "Menu czynnika alfa"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_FONT,
-   "Czcionka menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_FONT,
    "Wybierz inną główną czcionkę, która ma być używana w menu."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_RED,
-   "Kolor czcionki czerwony"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_GREEN,
-   "Kolor czcionki zielony"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_BLUE,
-   "Kolor czcionki niebieski"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_LAYOUT,
-   "Układ menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_LAYOUT,
    "Wybierz inny układ interfejsu XMB."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_THEME,
-   "Motyw ikon menu"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_THEME,
@@ -9395,27 +9635,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_SHADOWS_ENABLE,
-   "Rysuj Cienie"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_RIBBON_ENABLE,
-   "Potok shadera menu (animowane tło)"
+   "Efekty cienia"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_RIBBON_ENABLE,
    "Wybierz animowany efekt tła. Może być intensywnie wykorzystujący GPU w zależności od efektu. Jeśli wydajność jest niezadowalająca, wyłącz to lub powróć do prostszego efektu."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME,
-   "Kolor menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_MENU_COLOR_THEME,
-   "Wybierz inny motyw gradientu tła."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_XMB_VERTICAL_THUMBNAILS,
-   "Miniatury dyspozycji pionowej"
+   "Wybierz inny kolor tła motywu."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_VERTICAL_THUMBNAILS,
@@ -9538,7 +9766,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PLAIN,
-   "Zwykły"
+   "Obraz tła"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_UNDERSEA,
@@ -9600,10 +9828,6 @@ MSG_HASH(
    "Listy odtwarzania zostaną ponownie posortowane w kolejności alfabetycznej po usunięciu składnika producenta ich nazw."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
-   "Kolor menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME,
    "Wybierz inny motyw koloru."
    )
@@ -9653,7 +9877,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE,
-   "Druga miniatura"
+   "Drugorzędna miniatura"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS_OZONE,
@@ -9676,7 +9900,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_ICONS_ENABLE,
-   "Ikony menu"
+   "Ikony"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_ICONS_ENABLE,
@@ -9723,16 +9947,8 @@ MSG_HASH(
    "Automatycznie przesuń pasek nawigacji na prawą stronę ekranu, gdy używasz orientacji wyświetlania w poziomie."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_COLOR_THEME,
-   "Kolor menu"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_MENU_COLOR_THEME,
-   "Wybierz inny motyw gradientu tła."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_TRANSITION_ANIMATION,
-   "Animacja przejścia menu"
+   "Wybierz inny kolor tła motywu."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_MENU_TRANSITION_ANIMATION,
@@ -10477,7 +10693,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_UPDATER_SETTINGS,
-   "Aktualizacja"
+   "Ustawienia aktualizacji rdzenia"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACCOUNTS_CHEEVOS_SETTINGS,
