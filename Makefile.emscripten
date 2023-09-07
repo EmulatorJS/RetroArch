@@ -146,7 +146,7 @@ ifeq ($(HAVE_OPENGLES), 1)
    ifeq ($(HAVE_OPENGLES3), 1)
       LDFLAGS += -s FULL_ES3=1 -s MIN_WEBGL_VERSION=2 -s MAX_WEBGL_VERSION=2
    else
-      LDFLAGS += -s FULL_ES3=1 -s MAX_WEBGL_VERSION=2
+      LDFLAGS += -s FULL_ES2=1 -s MAX_WEBGL_VERSION=2
    endif
 endif
 ifeq ($(EM_OPENGL), 1)
