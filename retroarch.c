@@ -4947,6 +4947,7 @@ void RWebAudioRecalibrateTime(void);
 bool EJS_PAUSED = false;
 bool EJS_MAINLOOP_PAUSED = false;
 #endif
+static unsigned emscripten_frame_count = 0;
 
 void emscripten_mainloop(void)
 {
@@ -4956,7 +4957,6 @@ void emscripten_mainloop(void)
       return;
    }
    int ret;
-   static unsigned emscripten_frame_count = 0;
    video_driver_state_t *video_st         = video_state_get_ptr();
    settings_t        *settings            = config_get_ptr();
    input_driver_state_t *input_st         = input_state_get_ptr();
@@ -5004,6 +5004,10 @@ void emscripten_mainloop(void)
 
 #ifdef EMULATORJS
 
+double get_current_frame_count(void) {
+    return emscripten_frame_count;
+}
+
 char* save_file_path() {
    runloop_state_t *runloop_st     = runloop_state_get_ptr();
    return runloop_st->name.savefile;
@@ -5019,7 +5023,7 @@ void toggleMainLoop(int running) {
 
 void cmd_load_state(void)
 {
-   command_event(CMD_EVENT_LOAD_STATE, NULL);//done
+   command_event(CMD_EVENT_LOAD_STATE, NULL);
 }
 
 int load_state(char *path, int rv)
@@ -5030,7 +5034,7 @@ int load_state(char *path, int rv)
 
 void system_restart(void)
 {
-    command_event(CMD_EVENT_RESET, NULL);//done
+    command_event(CMD_EVENT_RESET, NULL);
 }
 
 void cmd_take_screenshot(void)
