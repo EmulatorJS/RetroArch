@@ -1622,7 +1622,7 @@ void gfx_widgets_frame(void *data)
          || core_status_msg_show
          )
    {
-      const char *txt      = *p_dispwidget->gfx_widgets_status_text == '\0'
+      const char *text      = *p_dispwidget->gfx_widgets_status_text == '\0'
          ? msg_hash_to_str(MENU_ENUM_LABEL_VALUE_NOT_AVAILABLE)
          : p_dispwidget->gfx_widgets_status_text;
 
@@ -1662,7 +1662,7 @@ void gfx_widgets_frame(void *data)
             );
 
       gfx_widgets_draw_text(&p_dispwidget->gfx_widget_fonts.regular,
-            txt,
+            text,
             status_txt_x,
             p_dispwidget->simple_widget_height / 2.0f
             + p_dispwidget->gfx_widget_fonts.regular.line_centre_offset,
