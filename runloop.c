@@ -8265,7 +8265,7 @@ void runloop_path_set_special(char **argv, unsigned num_content)
 
 
 #ifdef EMULATORJS
-void set_variable(char key[], char value[])
+void ejs_set_variable(char key[], char value[])
 {
     if (strcmp(key, "fps") == 0) {
         settings_t *settings = config_get_ptr();

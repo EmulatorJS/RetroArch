@@ -1065,13 +1065,6 @@ void command_event_set_volume(
    audio_set_float(AUDIO_ACTION_VOLUME_GAIN, new_volume);
 }
 
-#ifdef EMULATORJS
-void set_volume(float new_volume)
-{
-    audio_set_float(AUDIO_ACTION_VOLUME_GAIN, new_volume);
-}
-#endif
-
 /**
  * event_set_mixer_volume:
  * @gain      : amount of gain to be applied to current volume level.
