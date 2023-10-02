@@ -63,11 +63,11 @@ void cmd_save_state(void)
 #ifdef EMULATORJS
 void set_cheat(unsigned index, bool enabled, const char *code)
 {
-   command_event(CMD_EVENT_LOAD_STATE, NULL);
+   retro_cheat_set(index, enabled, code);
 }
 void reset_cheat(void)
 {
-    retro_cheat_reset();
+   retro_cheat_reset();
 }
 #else
 void cmd_load_state(void)
