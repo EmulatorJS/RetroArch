@@ -353,6 +353,10 @@ MSG_HASH(
    "Звесткі аб дыску"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_DISC_INFORMATION,
+   "Праглядзець звесткі аб устаўленых медыядысках."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETWORK_INFORMATION,
    "Звесткі аб сеціве"
    )
@@ -548,15 +552,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DISPLAY_METRIC_MM_WIDTH,
-   "Шырыня дысплея (мм)"
+   "Шырыня дысплэя (мм)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DISPLAY_METRIC_MM_HEIGHT,
-   "Вышыня дысплея (мм)"
+   "Вышыня дысплэя (мм)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DISPLAY_METRIC_DPI,
-   "DPI дысплея"
+   "DPI дысплэя"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_LIBRETRODB_SUPPORT,
@@ -1006,7 +1010,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_SETTINGS,
-   "Аўдыё"
+   "Аўдыя"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_SETTINGS,
+   "Змяніць налады ўводу/вываду аўдыя."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_SETTINGS,
@@ -1031,6 +1039,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONFIGURATION_SETTINGS,
    "Канфігурацыя"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONFIGURATION_SETTINGS,
+   "Змяніць прадвызначаныя налады для файлаў канфігурацыі."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVING_SETTINGS,
@@ -1059,6 +1071,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
    "Пароль"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LOGGING_SETTINGS,
+   "Журналяванне"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOGGING_SETTINGS,
+   "Змяніць налады журналявання."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FILE_BROWSER_SETTINGS,
@@ -1113,8 +1133,24 @@ MSG_HASH(
    "Просты файл."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_MOVIE_OPEN,
+   "Відэа. Выберыце, каб адкрыць гэты файл праз прайгравальнік відэа."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_MUSIC_OPEN,
+   "Музыка. Выберыце, каб адкрыць гэты файл праз прайгравальнік музыкі."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_IMAGE,
    "Файл відарыса."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_IMAGE_OPEN_WITH_VIEWER,
+   "Відарыс. Выберыце, каб адкрыць гэты файл праз праглядальнік відарысаў."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_DIRECTORY,
+   "Каталог. Выберыце, каб адкрыць гэты каталог."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORDING_SETTINGS,
@@ -1225,6 +1261,14 @@ MSG_HASH(
    "Увод"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_DRIVER,
+   "Ужыты драйвер уводу. Некаторыя драйверы відэа прымусова вызначаць іншы драйвер уводу."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_NO_DETAILS,
+   "Драйвер уводу. Драйвер відэа можа прымусова вызначаць іншы драйвер уводу."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_JOYPAD_DRIVER,
    "Кантролер"
    )
@@ -1298,11 +1342,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DRIVER,
-   "Аўдыё"
+   "Аўдыя"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_DRIVER,
-   "Ужыты драйвер аўдыё."
+   "Ужыты драйвер аўдыя."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_RSOUND,
+   "Драйвер RSound для сеткавых аўдыясістэм."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_OSS,
@@ -1328,7 +1376,19 @@ MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_WASAPI,
    "Драйвер Windows Audio Session API. WASAPI выкарыстоўваецца пераважна з Windows 7 і вышэй."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_JACK,
+   "Драйвер Jack Audio Connection Kit."
+   )
 #ifdef HAVE_MICROPHONE
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_DRIVER,
+   "Мікрафон"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MICROPHONE_DRIVER,
+   "Ужыты драйвер мікрафона."
+   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CAMERA_DRIVER,
@@ -1445,6 +1505,10 @@ MSG_HASH(
    )
 #endif
 #endif
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FILTER,
+   "Відэафільтр"
+   )
 
 /* Settings > Video > CRT SwitchRes */
 
@@ -1470,6 +1534,10 @@ MSG_HASH(
    "Індэкс GPU"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_GPU_INDEX,
+   "Выбраць відэакарту для выкарыстання."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OFFSET_X,
    "Гарызантальны зрух экрана"
    )
@@ -1487,9 +1555,25 @@ MSG_HASH(
    "50 Гц"
    )
 #endif
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FORCE_SRGB_DISABLE,
+   "Прымусовае адключэнне sRGB FBO"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_FORCE_SRGB_DISABLE,
+   "Прымусова адключыць падтрымку sRGB FBO. Некаторыя драйверы Intel OpenGL на Windows маюць праблемы з відэа праз sRGB FBO. Уключэнне гэтай налады можа дапамагчы вырашыць тыя праблемы."
+   )
 
 /* Settings > Video > Fullscreen Mode */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FULLSCREEN,
+   "Запуск у поўнаэкранным рэжыме"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_WINDOWED_FULLSCREEN,
+   "Аконны поўнаэкранны рэжым"
+   )
 
 /* Settings > Video > Windowed Mode */
 
@@ -1518,20 +1602,52 @@ MSG_HASH(
    "Паказваць меню акна."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_SAVE_POSITION,
+   "Памятаць пазіцыю і велічыню акна"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_SAVE_POSITION,
+   "Паказваць усё змесціва ў акне фіксаванай велічыні, згодна з адзначанымі значэннямі 'Шырыня акна' ды 'Вышыня акна', і захоўваць бягучыя велічыню ды пазіцыю акна падчас выхаду з RetroArch. Калі адключана, велічыня акна будзе задавацца дынамічна, грунтуючыся на значэнні 'Маштаб ак[...]"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_CUSTOM_SIZE_ENABLE,
+   "Уласная велічыня акна"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_CUSTOM_SIZE_ENABLE,
+   "Паказваць усё змесціва ў акне фіксаванай велічыні, згодна з адзначанымі значэннямі 'Шырыня акна' ды 'Вышыня акна. Калі адключана, велічыня акна будзе задавацца дынамічна, грунтуючыся на значэнні 'Маштаб акна'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_WIDTH,
    "Шырыня акна"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_WIDTH,
+   "Задаць уласную шырыню акна дысплэя."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_HEIGHT,
    "Вышыня акна"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_HEIGHT,
+   "Задаць уласную вышыню акна дысплэя."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_AUTO_WIDTH_MAX,
    "Максімальная шырыня акна"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_AUTO_WIDTH_MAX,
+   "Задаць максімальную шырыню акна дысплэя пры аўтаматычнай змене памераў, грунтуючыся на значэнні 'Маштаб акна'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_AUTO_HEIGHT_MAX,
    "Максімальная вышыня акна"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_AUTO_HEIGHT_MAX,
+   "Задаць максімальную вышыню акна дысплэя пры аўтаматычнай змене памераў, грунтуючыся на значэнні 'Маштаб акна'."
    )
 
 /* Settings > Video > Scaling */
@@ -1562,7 +1678,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ASPECT_RATIO_CUSTOM,
-   "Дапасаваныя"
+   "Уласныя"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ASPECT_RATIO_FULL,
@@ -1576,19 +1692,19 @@ MSG_HASH(
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_X,
-   "Дапасаваныя суадносіны бакоў (пазіцыя X)"
+   "Уласныя суадносіны бакоў (пазіцыя X)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_Y,
-   "Дапасаваныя суадносіны бакоў (пазіцыя Y)"
+   "Уласныя суадносіны бакоў (пазіцыя Y)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_WIDTH,
-   "Дапасаваныя суадносіны бакоў (шырыня)"
+   "Уласныя суадносіны бакоў (шырыня)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_HEIGHT,
-   "Дапасаваныя суадносіны бакоў (вышыня)"
+   "Уласныя суадносіны бакоў (вышыня)"
    )
 
 /* Settings > Video > HDR */
@@ -1599,7 +1715,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_HDR_ENABLE,
-   "Уключыць HDR, калі падтрымліваецца дысплеем."
+   "Уключыць HDR, калі падтрымліваецца дысплэем."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_HDR_CONTRAST,
@@ -1637,9 +1753,13 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_OUTPUT_SETTINGS,
-   "Змяніць налады вываду аўдыё."
+   "Змяніць налады вываду аўдыя."
    )
 #ifdef HAVE_MICROPHONE
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_SETTINGS,
+   "Мікрафон"
+   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_SYNCHRONIZATION_SETTINGS,
@@ -1655,7 +1775,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MIXER_SETTINGS,
-   "Змяніць налады аўдыёмікшара."
+   "Змяніць налады аўдыямікшара."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SOUNDS,
@@ -1671,7 +1791,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MUTE,
-   "Сцішыць аўдыё."
+   "Сцішыць аўдыя."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_MIXER_MUTE,
@@ -1679,7 +1799,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MIXER_MUTE,
-   "Сцішыць мікшар аўдыё."
+   "Сцішыць аўдыямікшар."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_VOLUME,
@@ -1699,7 +1819,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_DSP_PLUGIN_REMOVE,
-   "Выгрузіць усялякія актыўныя плагіны аўдыё DSP."
+   "Выгрузіць усялякія актыўныя аўдыяплагіны DSP."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_WASAPI_EXCLUSIVE_MODE,
@@ -1710,11 +1830,11 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_ENABLE,
-   "Аўдыё"
+   "Аўдыя"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_ENABLE,
-   "Уключыць вывад аўдыё."
+   "Уключыць вывад аўдыя."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DEVICE,
@@ -1723,6 +1843,10 @@ MSG_HASH(
 
 #ifdef HAVE_MICROPHONE
 /* Settings > Audio > Input */
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_ENABLE,
+   "Мікрафон"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MICROPHONE_DEVICE,
    "Прылада"
@@ -1926,28 +2050,32 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_VOLUME_UP,
-   "Павелічэнне гучнасці"
+   "Гучней"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_VOLUME_UP,
+   "Павялічвае ўзровень гучнасці выходнага гуку."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_VOLUME_DOWN,
-   "Змяншэнне гучнасці"
+   "Цішэй"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_VOLUME_DOWN,
-   "Паменшыць узровень гучнасці выходнага гуку."
+   "Паменшае ўзровень гучнасці выходнага гуку."
    )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_LOAD_STATE_KEY,
-   "Загрузіць стан"
+   "Загрузка стану"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_LOAD_STATE_KEY,
-   "Загрузіць захаваны стан з выбранага на дадзены момант слота."
+   "Загружае захаваны стан з бягучага выбранага слота."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_SAVE_STATE_KEY,
-   "Захаваць стан"
+   "Захоўванне стану"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_SAVE_STATE_KEY,
@@ -2015,7 +2143,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_FULLSCREEN_TOGGLE_KEY,
-   "Пераключае паміж поўнаэкранным і аконным рэжымамі дысплея."
+   "Пераключае паміж поўнаэкранным і аконным рэжымамі дысплэя."
    )
 
 
@@ -2210,7 +2338,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_RECORDING_CUSTOM,
-   "Дапасаваная"
+   "Уласная"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_RECORDING_LOW_QUALITY,
@@ -2238,7 +2366,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORD_CONFIG,
-   "Дапасаваная канфігурацыя запісу"
+   "Уласная канфігурацыя запісу"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_STREAMING_MODE,
@@ -2250,7 +2378,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_STREAMING_MODE_CUSTOM,
-   "Дапасаваны"
+   "Уласны"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_STREAM_QUALITY,
@@ -2258,7 +2386,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_STREAMING_CUSTOM,
-   "Дапасаваная"
+   "Уласная"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_STREAMING_LOW_QUALITY,
@@ -2274,7 +2402,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_STREAM_CONFIG,
-   "Дапасаваная канфігурацыя стрымінгу"
+   "Уласная канфігурацыя стрымінгу"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_STREAMING_TITLE,
@@ -2618,7 +2746,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHOW_CONTENTLESS_CORES_CUSTOM,
-   "Дапасаваныя"
+   "Уласныя"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIMEDATE_ENABLE,
@@ -2740,11 +2868,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_AUDIO,
-   "Паказваць 'Аўдыё'"
+   "Паказваць 'Аўдыя'"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SETTINGS_SHOW_AUDIO,
-   "Паказаць налады 'Аўдыё'."
+   "Паказаць налады 'Аўдыя'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_INPUT,
@@ -3088,7 +3216,7 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_AGO,
    "таму"
    )
-MSG_HASH(
+   MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANAGE,
    "Кіраваць"
    )
@@ -4902,7 +5030,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MENU_VIEW_OPTIONS_THEME_CUSTOM,
-   "Дапасаваная..."
+   "Уласная..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MENU_VIEW_OPTIONS_TITLE,

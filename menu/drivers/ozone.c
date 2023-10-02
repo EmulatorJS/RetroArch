@@ -5222,6 +5222,10 @@ static void ozone_content_metadata_line(
       uint32_t color,
       uint8_t lines_count)
 {
+   if (*y + (lines_count * (unsigned)ozone->fonts.footer.line_height)
+         > video_height - ozone->dimensions.footer_height)
+      return;
+
    gfx_display_draw_text(
          ozone->fonts.footer.font,
          text,
@@ -8347,7 +8351,7 @@ static enum menu_action ozone_parse_menu_entry_action(
 
             if (menu_st->scroll.mode == MENU_SCROLL_PAGE)
                new_selection           = (int)(tab_selection - 10);
-            else
+            else if (ozone->sidebar_index_size)
             {
                /* Alphabetical scroll */
                size_t l                = ozone->sidebar_index_size - 1;

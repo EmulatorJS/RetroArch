@@ -5444,7 +5444,7 @@ static enum runloop_state_enum runloop_check_state(
    menu_handle_t *menu                 = menu_st->driver_data;
    unsigned menu_toggle_gamepad_combo  = settings->uints.input_menu_toggle_gamepad_combo;
    bool menu_driver_binding_state      = (menu_st->flags & MENU_ST_FLAG_IS_BINDING) ? true : false;
-   bool menu_is_alive                  = (menu_st->flags & MENU_ST_FLAG_ALIVE)      ? true : false;
+   bool menu_was_alive                 = (menu_st->flags & MENU_ST_FLAG_ALIVE)      ? true : false;
    bool display_kb                     = menu_input_dialog_get_display_kb();
 #endif
 #if defined(HAVE_GFX_WIDGETS)
@@ -5826,7 +5826,7 @@ static enum runloop_state_enum runloop_check_state(
 #endif
 
 #ifdef HAVE_MENU
-   if (menu_is_alive)
+   if (menu_st->flags & MENU_ST_FLAG_ALIVE)
    {
       enum menu_action action;
       static input_bits_t old_input = {{0}};
@@ -6044,7 +6044,6 @@ static enum runloop_state_enum runloop_check_state(
 
    /* Check close content hotkey */
    HOTKEY_CHECK(RARCH_CLOSE_CONTENT_KEY, CMD_EVENT_CLOSE_CONTENT, true, NULL);
-
 
    /* Check FPS hotkey */
    HOTKEY_CHECK(RARCH_FPS_TOGGLE, CMD_EVENT_FPS_TOGGLE, true, NULL);
@@ -6802,6 +6801,9 @@ static enum runloop_state_enum runloop_check_state(
       cbs->poll_cb();
       return RUNLOOP_STATE_PAUSE;
    }
+
+   if (menu_was_alive)
+      return RUNLOOP_STATE_END;
 
    return RUNLOOP_STATE_ITERATE;
 }

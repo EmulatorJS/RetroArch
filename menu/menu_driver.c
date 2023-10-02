@@ -5024,6 +5024,9 @@ static bool menu_input_key_bind_iterate(
 
       if (complete)
       {
+         /* Always stop binding when not binding all */
+         bool stop_binding                   = new_binds.order == 0 && new_binds.begin == new_binds.last;
+
          /* Update bind */
          *(new_binds.output)                 = new_binds.buffer;
 
@@ -5045,7 +5048,7 @@ static bool menu_input_key_bind_iterate(
          new_binds.begin = MENU_SETTINGS_BIND_BEGIN + input_config_bind_order[new_binds.order];
 
          if (     new_binds.order > ARRAY_SIZE(input_config_bind_order) - 1
-               || new_binds.last != MENU_SETTINGS_BIND_LAST)
+               || stop_binding)
          {
             input_st->keyboard_press_cb      = NULL;
             input_st->keyboard_press_data    = NULL;
@@ -5239,8 +5242,9 @@ unsigned menu_event(
 
    ok_old                                          = ok_current;
 
-   /* Menu must be alive */
-   if (!(menu_st->flags & MENU_ST_FLAG_ALIVE))
+   /* Menu must be alive, and input must be released after menu toggle. */
+   if (     !(menu_st->flags & MENU_ST_FLAG_ALIVE)
+         || menu_st->input_driver_flushing_input > 0)
       return ret;
 
    /* Get pointer (mouse + touchscreen) input

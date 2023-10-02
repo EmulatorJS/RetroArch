@@ -439,6 +439,10 @@ MSG_HASH(
    "Fonte enerxética"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_VIDEO_CONTEXT_DRIVER,
+   "Controlador del contestu de videu"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DISPLAY_METRIC_MM_WIDTH,
    "Anchor de la pantalla (mm)"
    )
@@ -1832,7 +1836,7 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_PORTABLE_PATHS,
    "Llistes portátiles"
    )
-
+   
 /* Settings > Playlists > Playlist Management */
 
 MSG_HASH(
