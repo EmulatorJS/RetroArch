@@ -90,9 +90,6 @@
 
 #ifdef HAVE_LIBNX
 #include <switch.h>
-#endif
-
-#if defined(HAVE_LAKKA) || defined(HAVE_LIBNX)
 #include "switch_performance_profiles.h"
 #endif
 
@@ -299,6 +296,7 @@ extern const bluetooth_driver_t *bluetooth_drivers[];
 struct rarch_state
 {
    char *connect_host; /* Netplay hostname passed from CLI */
+   char *connect_mitm_id; /* Netplay MITM address from CLI */
 
    struct retro_perf_counter *perf_counters_rarch[MAX_COUNTERS];
 
@@ -1050,11 +1048,9 @@ void drivers_init(
    if (flags & DRIVER_MIDI_MASK)
       midi_driver_init(settings);
 
-#ifndef HAVE_LAKKA_SWITCH
 #ifdef HAVE_LAKKA
    cpu_scaling_driver_init();
 #endif
-#endif /* #ifndef HAVE_LAKKA_SWITCH */
 }
 
 void driver_uninit(int flags, enum driver_lifetime_flags lifetime_flags)
@@ -1153,11 +1149,9 @@ void driver_uninit(int flags, enum driver_lifetime_flags lifetime_flags)
    if (flags & DRIVER_MIDI_MASK)
       midi_driver_free();
 
-#ifndef HAVE_LAKKA_SWITCH
 #ifdef HAVE_LAKKA
    cpu_scaling_driver_free();
 #endif
-#endif /* #ifndef HAVE_LAKKA_SWITCH */
 }
 
 static void retroarch_deinit_drivers(struct retro_callbacks *cbs)
@@ -3764,7 +3758,7 @@ bool command_event(enum event_command cmd, void *data)
       case CMD_EVENT_NETPLAY_INIT:
          {
             char tmp_netplay_server[256];
-            char tmp_netplay_session[sizeof(tmp_netplay_server)];
+            char tmp_netplay_session[256];
             char *netplay_server  = NULL;
             char *netplay_session = NULL;
             unsigned netplay_port = 0;
@@ -3780,10 +3774,14 @@ bool command_event(enum event_command cmd, void *data)
                netplay_server  = tmp_netplay_server;
                netplay_session = tmp_netplay_session;
             }
+
+            if (p_rarch->connect_mitm_id)
+                netplay_session = strdup(p_rarch->connect_mitm_id);
+
             if (p_rarch->connect_host)
             {
-               free(p_rarch->connect_host);
-               p_rarch->connect_host = NULL;
+                free(p_rarch->connect_host);
+                p_rarch->connect_host = NULL;
             }
 
             if (string_is_empty(netplay_server))
@@ -3794,7 +3792,22 @@ bool command_event(enum event_command cmd, void *data)
             if (!init_netplay(netplay_server, netplay_port, netplay_session))
             {
                command_event(CMD_EVENT_NETPLAY_DEINIT, NULL);
+               if (p_rarch->connect_mitm_id)
+               {
+                  free(p_rarch->connect_mitm_id);
+                  free(netplay_session);
+                  p_rarch->connect_mitm_id = NULL;
+                  netplay_session          = NULL;
+               }
                return false;
+            }
+
+            if (p_rarch->connect_mitm_id)
+            {
+               free(p_rarch->connect_mitm_id);
+               free(netplay_session);
+               p_rarch->connect_mitm_id = NULL;
+               netplay_session          = NULL;
             }
 
             /* Disable rewind & SRAM autosave if it was enabled
@@ -3812,7 +3825,7 @@ bool command_event(enum event_command cmd, void *data)
       case CMD_EVENT_NETPLAY_INIT_DIRECT:
          {
             char netplay_server[256];
-            char netplay_session[sizeof(netplay_server)];
+            char netplay_session[256];
             unsigned netplay_port = 0;
 
             command_event(CMD_EVENT_NETPLAY_DEINIT, NULL);
@@ -3849,7 +3862,7 @@ bool command_event(enum event_command cmd, void *data)
       case CMD_EVENT_NETPLAY_INIT_DIRECT_DEFERRED:
          {
             char netplay_server[256];
-            char netplay_session[sizeof(netplay_server)];
+            char netplay_session[256];
             unsigned netplay_port = 0;
 
             command_event(CMD_EVENT_NETPLAY_DEINIT, NULL);
@@ -5459,6 +5472,8 @@ static void retroarch_print_help(const char *arg0)
          "Connect to netplay server as user 2.\n"
          "      --port=PORT                "
          "Port used to netplay. Default is 55435.\n"
+         "      --mitm-session=ID           "
+         "MITM (relay) session ID to join.\n"
          "      --nick=NICK                "
          "Picks a username (for use with netplay). Not mandatory.\n"
          "      --check-frames=NUMBER      "
@@ -5770,6 +5785,7 @@ static bool retroarch_parse_input_and_config(
 #ifdef HAVE_NETWORKING
       { "host",               0, NULL, 'H' },
       { "connect",            1, NULL, 'C' },
+      { "mitm-session",       1, NULL, 'T' },
       { "check-frames",       1, NULL, RA_OPT_CHECK_FRAMES },
       { "port",               1, NULL, RA_OPT_PORT },
 #ifdef HAVE_NETWORK_CMD
@@ -6197,6 +6213,10 @@ static bool retroarch_parse_input_and_config(
                      RARCH_OVERRIDE_SETTING_NETPLAY_MODE, NULL);
                netplay_driver_ctl(RARCH_NETPLAY_CTL_ENABLE_CLIENT, NULL);
                p_rarch->connect_host = strdup(optarg);
+               break;
+
+            case 'T':
+               p_rarch->connect_mitm_id = strdup(optarg);
                break;
 
             case RA_OPT_CHECK_FRAMES:

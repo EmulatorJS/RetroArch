@@ -61,7 +61,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_LIST,
-   "Загрузка ядра"
+   "Загрузіць ядро"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_LIST,
@@ -77,7 +77,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_DISC,
-   "Загрузка дыска"
+   "Загрузіць дыск"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LOAD_DISC,
@@ -94,7 +94,7 @@ MSG_HASH( /* FIXME Is a specific image format used? Is it determined automatical
 #ifdef HAVE_LAKKA
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_EJECT_DISC,
-   "Выманне дыска"
+   "Выняць дыск"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_EJECT_DISC,
@@ -314,6 +314,10 @@ MSG_HASH(
    "Абнаўляльнік мініяцюр плэй-лістоў"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_PL_THUMBNAILS_UPDATER_LIST,
+   "Сцягнуць мініяцюры для запісаў выбранага плэй-лісту."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_CONTENT,
    "Пампавальнік змесціва"
    )
@@ -324,6 +328,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_SYSTEM_FILES,
    "Пампавальнік сістэмных файлаў ядраў"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UPDATE_CORE_INFO_FILES,
+   "Абнавіць файлы звестак ядраў"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UPDATE_AUTOCONFIG_PROFILES,
+   "Абнавіць профілі кантролераў"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATE_DATABASES,
@@ -1361,6 +1373,14 @@ MSG_HASH(
    "Прадвызначаны драйвер ALSA."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_TINYALSA,
+   "Драйвер ALSA, рэалізаваны без залежнасцяў."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ROAR,
+   "Драйвер гукавой сістэмы RoarAudio."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_AL,
    "Драйвер OpenAL."
    )
@@ -1375,6 +1395,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_WASAPI,
    "Драйвер Windows Audio Session API. WASAPI выкарыстоўваецца пераважна з Windows 7 і вышэй."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_PULSE,
+   "Драйвер PulseAudio. Калі ў сістэме выкарыстоўваецца PulseAudio, пераканайцеся, што ўжыты гэты драйвер замест кшталту ALSA."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_JACK,
@@ -1500,6 +1524,10 @@ MSG_HASH(
    )
 #if defined(RS90) || defined(MIYOO)
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_RS90_SOFTFILTER_TYPE,
+   "Інтэрпаляцыя паказу"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_RS90_SOFTFILTER_POINT,
    "Метад бліжэйшага суседа"
    )
@@ -1545,7 +1573,43 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OFFSET_Y,
    "Вертыкальны зрух экрана"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE,
+   "Вертыкальная частата абнаўлення"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE_AUTO,
+   "Ацэнка частаты абнаўлення экрана"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE_AUTO,
+   "Дакладная ацэнка частаты абнаўлення экрана ў Гц."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE,
+   "Аўтаматычнае пераключэнне частаты абнаўлення"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_EXCLUSIVE_FULLSCREEN,
+   "Толькі ў эксклюзіўным поўнаэкранным рэжыме"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_WINDOWED_FULLSCREEN,
+   "Толькі ў аконным поўнаэкранным рэжыме"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_ALL_FULLSCREEN,
+   "Усе поўнаэкранныя рэжымы"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
+   "Парог аўтаматычнай частаты абнаўлення PAL"
+   )
 #if defined(DINGUX) && defined(DINGUX_BETA)
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_REFRESH_RATE,
+   "Вертыкальная частата абнаўлення"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_REFRESH_RATE_60HZ,
    "60 Гц"
@@ -1573,6 +1637,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOWED_FULLSCREEN,
    "Аконны поўнаэкранны рэжым"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FULLSCREEN_X,
+   "Поўнаэкранная шырыня"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FULLSCREEN_Y,
+   "Поўнаэкранная вышыня"
    )
 
 /* Settings > Video > Windowed Mode */
@@ -5050,7 +5122,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOAD_CORE,
-   "Загрузка ядра"
+   "Загрузіць ядро"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOADING_CORE,
@@ -5806,12 +5878,13 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_RESTART_KEY,
    "Перазапусціць RetroArch"
    )
-
-#ifdef HAVE_LAKKA_SWITCH
-#endif
-#if defined(HAVE_LAKKA_SWITCH) || defined(HAVE_LIBNX)
+#ifdef HAVE_LIBNX
 #endif
 #ifdef HAVE_LAKKA
+#ifdef HAVE_LAKKA_SWITCH
+#endif
+#endif
+#ifdef HAVE_LAKKA_SWITCH
 #endif
 #ifdef GEKKO
 #endif
