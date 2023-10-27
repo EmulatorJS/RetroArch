@@ -248,6 +248,34 @@ static void rwebinput_generate_lut(void)
    key_map->rk  = RETROK_UNKNOWN;
    key_map->sym = 0;
 }
+static int keyboard_enabled = 0;
+void ejs_set_keyboard_enabled(int enabled) {
+   keyboard_enabled = enabled;
+}
+static EM_BOOL rwebinput_keyboard_cb(int event_type,
+   const EmscriptenKeyboardEvent *key_event, void *user_data)
+{
+   if (keyboard_enabled != 1) return EM_FALSE;
+   rwebinput_input_t *rwebinput = (rwebinput_input_t*)user_data;
+
+   if (event_type == EMSCRIPTEN_EVENT_KEYPRESS)
+      return EM_TRUE;
+
+   if (rwebinput->keyboard.count >= rwebinput->keyboard.max_size)
+   {
+      size_t new_max = MAX(1, rwebinput->keyboard.max_size << 1);
+      rwebinput->keyboard.events = realloc(rwebinput->keyboard.events,
+         new_max * sizeof(rwebinput->keyboard.events[0]));
+      rwebinput->keyboard.max_size = new_max;
+   }
+
+   rwebinput->keyboard.events[rwebinput->keyboard.count].type = event_type;
+   memcpy(&rwebinput->keyboard.events[rwebinput->keyboard.count].event,
+      key_event, sizeof(*key_event));
+   rwebinput->keyboard.count++;
+
+   return EM_TRUE;
+}
 static EM_BOOL rwebinput_mouse_cb(int event_type,
    const EmscriptenMouseEvent *mouse_event, void *user_data)
 {
@@ -379,6 +407,33 @@ static void *rwebinput_input_init(const char *joypad_driver)
       return NULL;
 
    rwebinput_generate_lut();
+
+   r = emscripten_set_keydown_callback(
+         EMSCRIPTEN_EVENT_TARGET_DOCUMENT, rwebinput, false,
+         rwebinput_keyboard_cb);
+   if (r != EMSCRIPTEN_RESULT_SUCCESS)
+   {
+      RARCH_ERR(
+         "[EMSCRIPTEN/INPUT] failed to create keydown callback: %d\n", r);
+   }
+
+   r = emscripten_set_keyup_callback(
+         EMSCRIPTEN_EVENT_TARGET_DOCUMENT, rwebinput, false,
+         rwebinput_keyboard_cb);
+   if (r != EMSCRIPTEN_RESULT_SUCCESS)
+   {
+      RARCH_ERR(
+         "[EMSCRIPTEN/INPUT] failed to create keyup callback: %d\n", r);
+   }
+
+   r = emscripten_set_keypress_callback(
+         EMSCRIPTEN_EVENT_TARGET_DOCUMENT, rwebinput, false,
+         rwebinput_keyboard_cb);
+   if (r != EMSCRIPTEN_RESULT_SUCCESS)
+   {
+      RARCH_ERR(
+         "[EMSCRIPTEN/INPUT] failed to create keypress callback: %d\n", r);
+   }
    
    r = emscripten_set_mousedown_callback("#canvas", rwebinput, false, rwebinput_mouse_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
@@ -440,6 +495,13 @@ static void *rwebinput_input_init(const char *joypad_driver)
 
    return rwebinput;
 }
+static bool rwebinput_key_pressed(rwebinput_input_t *rwebinput, int key)
+{
+   if (key >= RETROK_LAST)
+      return false;
+
+   return rwebinput->keys[key];
+}
 static int16_t rwebinput_mouse_state(
       rwebinput_mouse_state_t *mouse,
       unsigned id, bool screen)
@@ -470,6 +532,24 @@ static int16_t rwebinput_mouse_state(
          return mouse->scroll_x > 0.0;
    }
 
+   return 0;
+}
+
+static int16_t rwebinput_is_pressed(
+      rwebinput_input_t *rwebinput,
+      const struct retro_keybind *binds,
+      unsigned port, unsigned id,
+      bool keyboard_mapping_blocked)
+{
+   const struct retro_keybind *bind = &binds[id];
+   int key                          = bind->key;
+
+   if ((key < RETROK_LAST) && rwebinput_key_pressed(rwebinput, key))
+      if ((id == RARCH_GAME_FOCUS_TOGGLE) || !keyboard_mapping_blocked)
+         return 1;
+   if (port == 0 && !!rwebinput_mouse_state(&rwebinput->mouse,
+            bind->mbutton, false))
+      return 1;
    return 0;
 }
 struct rwebinput_code_to_key
@@ -573,8 +653,13 @@ static int16_t rwebinput_input_state(
             int16_t ret = 0;
             for (i = 0; i < RARCH_FIRST_CUSTOM_BIND; i++)
             {
-                if (is_pressed_hehe(port, i))
-                   ret |= (1 << i);
+               if (binds[port][i].valid || is_pressed_hehe(port, i))
+               {
+                  if (is_pressed_hehe(port, i) || rwebinput_is_pressed(
+                           rwebinput, binds[port], port, i,
+                           keyboard_mapping_blocked))
+                     ret |= (1 << i);
+               }
             }
 
             return ret;
@@ -582,17 +667,48 @@ static int16_t rwebinput_input_state(
 
          if (id < RARCH_BIND_LIST_END)
          {
-             if (is_pressed_hehe(port, id))
-                return 1;
+            if (binds[port][id].valid || is_pressed_hehe(port, id))
+            {
+               if (is_pressed_hehe(port, id) || rwebinput_is_pressed(rwebinput,
+                        binds[port],
+                        port, id,
+                        keyboard_mapping_blocked))
+                  return 1;
+            }
          }
          break;
       case RETRO_DEVICE_ANALOG: {
+            int rv = 0;
+            
+            int id_minus_key      = 0;
+            int id_plus_key       = 0;
             unsigned id_minus     = 0;
             unsigned id_plus      = 0;
             int16_t ret           = 0;
-            int rv = 0;
+            bool id_plus_valid    = false;
+            bool id_minus_valid   = false;
 
             input_conv_analog_id_to_bind_id(idx, id, id_minus, id_plus);
+
+            id_minus_valid        = binds[port][id_minus].valid;
+            id_plus_valid         = binds[port][id_plus].valid;
+            id_minus_key          = binds[port][id_minus].key;
+            id_plus_key           = binds[port][id_plus].key;
+
+            if (id_plus_valid && id_plus_key < RETROK_LAST)
+            {
+               if (rwebinput_is_pressed(rwebinput,
+                        binds[port], idx, id_plus,
+                        keyboard_mapping_blocked))
+                  ret = 0x7fff;
+            }
+            if (id_minus_valid && id_minus_key < RETROK_LAST)
+            {
+               if (rwebinput_is_pressed(rwebinput, 
+                        binds[port], idx, id_minus,
+                        keyboard_mapping_blocked))
+                  ret += -0x7fff;
+            }
 
 
             rv = is_pressed_hehe(port, id_plus);
