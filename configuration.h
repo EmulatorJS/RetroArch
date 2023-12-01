@@ -106,7 +106,6 @@ typedef struct settings
       int location_update_interval_distance;
       int state_slot;
       int replay_slot;
-      int audio_wasapi_sh_buffer_length;
       int crt_switch_center_adjust;
       int crt_switch_porch_adjust;
 #ifdef HAVE_VULKAN
@@ -161,12 +160,18 @@ typedef struct settings
       unsigned audio_block_frames;
       unsigned audio_latency;
 
+#ifdef HAVE_WASAPI
+      unsigned audio_wasapi_sh_buffer_length;
+#endif
+
 #ifdef HAVE_MICROPHONE
       unsigned microphone_sample_rate;
       unsigned microphone_block_frames;
       unsigned microphone_latency;
-      unsigned microphone_wasapi_sh_buffer_length;
       unsigned microphone_resampler_quality;
+#ifdef HAVE_WASAPI
+      unsigned microphone_wasapi_sh_buffer_length;
+#endif
 #endif
 
       unsigned fps_update_interval;
@@ -334,6 +339,9 @@ typedef struct settings
       unsigned ai_service_mode;
       unsigned ai_service_target_lang;
       unsigned ai_service_source_lang;
+      unsigned ai_service_poll_delay;
+      unsigned ai_service_text_position;
+      unsigned ai_service_text_padding;
 
       unsigned core_updater_auto_backup_history_size;
       unsigned video_black_frame_insertion;
@@ -576,6 +584,7 @@ typedef struct settings
       bool video_ctx_scaling;
       bool video_force_aspect;
       bool video_frame_delay_auto;
+      bool video_frame_rest;
       bool video_crop_overscan;
       bool video_aspect_ratio_auto;
       bool video_dingux_ipu_keep_aspect;
@@ -620,10 +629,16 @@ typedef struct settings
       bool audio_enable_menu_scroll;
       bool audio_sync;
       bool audio_rate_control;
-      bool audio_wasapi_exclusive_mode;
-      bool audio_wasapi_float_format;
       bool audio_fastforward_mute;
       bool audio_fastforward_speedup;
+#ifdef TARGET_OS_IOS
+      bool audio_respect_silent_mode;
+#endif
+
+#ifdef HAVE_WASAPI
+      bool audio_wasapi_exclusive_mode;
+      bool audio_wasapi_float_format;
+#endif
 
 #ifdef HAVE_MICROPHONE
       /* Microphone */
@@ -703,13 +718,11 @@ typedef struct settings
       bool menu_core_enable;
       bool menu_show_sublabels;
       bool menu_dynamic_wallpaper_enable;
-      bool menu_throttle;
       bool menu_mouse_enable;
       bool menu_pointer_enable;
       bool menu_navigation_wraparound_enable;
       bool menu_navigation_browser_filter_supported_extensions_enable;
       bool menu_show_advanced_settings;
-      bool menu_throttle_framerate;
       bool menu_linear_filter;
       bool menu_horizontal_animation;
       bool menu_scroll_fast;
@@ -922,6 +935,7 @@ typedef struct settings
       bool rewind_enable;
       bool fastforward_frameskip;
       bool vrr_runloop_enable;
+      bool menu_throttle_framerate;
       bool apply_cheats_after_toggle;
       bool apply_cheats_after_load;
       bool run_ahead_enabled;

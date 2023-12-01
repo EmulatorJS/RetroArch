@@ -1935,7 +1935,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_NOTCH_WRITE_OVER,
-   "Android cihazlarda çentik üzerinde tam ekranı etkinleştir"
+   "Android ve iOS cihazlarda çentik üzerinde tam ekranı etkinleştir"
 )
 
 /* Settings > Video > CRT SwitchRes */
@@ -2568,6 +2568,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MIXER_MUTE,
    "Karıştırıcı sesini kapat."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AUDIO_RESPECT_SILENT_MODE,
+   "Sessiz Saygı Modu"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_RESPECT_SILENT_MODE,
+   "Sessiz modda tüm sesleri kapatın."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_MUTE,
@@ -4597,7 +4605,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_FASTFORWARD_FRAMESKIP,
-   "Hızlı ileri sarma hızına göre kareleri atlayın. Bu güç tasarrufu sağlar ve 3. taraf kare sınırlamasının kullanılmasına izin verir."
+   "Hızlı ileri sarma hızına göre kareleri atlayın. Bu güç tasarrufu sağlar ve üçüncü taraf kare sınırlamasının kullanılmasına izin verir."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SLOWMOTION_RATIO,
@@ -6380,7 +6388,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_WALLPAPER,
-   "Menü arka planı olarak ayarlamak için bir resim seçin."
+   "Menü arka planı ayarlamak için bir resim seçin. Sabit ve dinamik görüntüler 'Renk Temasını' geçersiz kılacaktır."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_WALLPAPER_OPACITY,
@@ -6473,9 +6481,9 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_MODE,
    "Çeviri Servisi Çıkışı"
    )
-MSG_HASH( /* FIXME What does the Narrator mode do? */
+MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_MODE,
-   "Çeviriyi metin kaplama olarak gösterin (Resim Kipi) veya Metinden Konuşmaya (Konuşma Kipi) olarak oynatın."
+   "Çeviriyi görüntü katmanı (Görüntü Modu), doğrudan ses (Konuşma), metinden konuşmaya (Anlatıcı) veya metin katmanı (Metin) olarak gösterin."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_URL,
@@ -6516,6 +6524,30 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_TARGET_LANG,
    "Hizmetin çevireceği dil. \"Varsayılan\" İngilizcedir."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_POLL_DELAY,
+   "Çeviri Hizmeti Otomatik Seçim Gecikmesi"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AI_SERVICE_POLL_DELAY,
+   "Otomatik çağrılar arasında ms cinsinden asgari gecikme. Tepkimeyi azaltır ancak CPU performansını artırır."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION,
+   "Çeviri Hizmeti Metin Konumunu Özelleştir"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_POSITION,
+   "Hizmet Metin modundayken kaplamanın konumunu özelleştirin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_PADDING,
+   "Çeviri Hizmeti Metin Dolgusu (%)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_PADDING,
+   "Hizmet Metin modundayken metin kaplamasına uygulanacak dikey dolgu. Daha fazla dolgu, metni ekranın ortasına doğru itecektir."
    )
 
 /* Settings > Accessibility */
@@ -9180,11 +9212,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET,
-   "Yükle"
+   "Ön Ayar Yükle"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET,
-   "Gölgelendirici önayarı yükleyin. Gölgelendirici düzeni otomatik olarak kurulacaktır."
+   "Gölgelendirici ön ayarı yükleyin. Gölgelendirici düzeni otomatik olarak kurulacaktır."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SHADER_PRESET,
@@ -9192,23 +9224,23 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_PREPEND,
-   "Başa Ekle"
+   "Ön Ayarı Başa Ekle"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_PREPEND,
-   "Şu anda yüklü olan Ön Ayarı Başa Ekle"
+   "O anda yüklü olan ön ayarın başına ön ayarı ekleyin."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_APPEND,
-   "Sona Ekle"
+   "Ön Ayar Ekle"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_APPEND,
-   "Şu anda yüklü olan Ön Ayarı Sona Ekle"
+   "Mevcut yüklü ön ayara bu ön ayarı ekleyin."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_SAVE,
-   "Kaydet"
+   "Ön Ayarı Kaydet"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_SAVE,
@@ -9216,7 +9248,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE,
-   "Kaldır"
+   "Ön Ayarı Kaldır"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_REMOVE,
@@ -9715,6 +9747,26 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_NARRATOR_MODE,
    "Ekran Okuyucusu Kipi"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_MODE,
+   "Metin Modu"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_NARRATOR_MODE,
+   "Metin + Anlatıcı"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_IMAGE_NARRATOR_MODE,
+   "Resim + Anlatıcı"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_BOTTOM,
+   "Alt"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_TOP,
+   "Üst"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_REMOVE_ENABLE_HIST_FAV,
@@ -12025,7 +12077,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN_MUSIC,
-   "Çalıştır"
+   "Medya Oynatıcıda Oynat"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SECONDS,
@@ -12556,6 +12608,22 @@ MSG_HASH( /* FIXME Should be MSG_ */
    "Çekirdek kurulumu başarısız"
    )
 MSG_HASH(
+   MSG_AI_VIDEO_DRIVER_NOT_SUPPORTED,
+   "Video sürücüsü Çeviri Hizmeti için desteklenmiyor."
+   )
+MSG_HASH(
+   MSG_AI_AUTO_MODE_ENABLED,
+   "Otomatik çeviri etkin."
+   )
+MSG_HASH(
+   MSG_AI_AUTO_MODE_DISABLED,
+   "Otomatik çeviri devre dışı."
+   )
+MSG_HASH(
+   MSG_AI_NOTHING_TO_TRANSLATE,
+   "Çevirecek birşey yok."
+   )
+MSG_HASH(
    MSG_CHEAT_DELETE_ALL_INSTRUCTIONS,
    "Tüm hileleri silmek için beş kez sağa basın."
    )
@@ -13011,6 +13079,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_CONTENT_CRC32S_DIFFER,
    "İçerik CRC32'leri farklıdır. Farklı oyunlar kullanılamaz."
+   )
+MSG_HASH(
+   MSG_CONTENT_NETPACKET_CRC32S_DIFFER,
+   "Sunucu farklı bir oyun çalıştırıyor."
    )
 MSG_HASH(
    MSG_PING_TOO_HIGH,
@@ -14653,6 +14725,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_GAMEMODE_ENABLE,
    "Linux GameMode etkinleştirilmesi, en iyi performans için CPU ve GPU'nuzu otomatik olarak yapılandırarak gecikmeyi iyileştirebilir, ses cızırtı sorunlarını düzeltebilir ve genel performansı en üst düzeye çıkarabilir.\nBunun çalışması için GameMode yazılımının yüklenmesi gerekir. GameMode nasıl kurulacağı hakkında bilgi için https://github.com/FeralInteractive/gamemode adresine bakın."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_REST,
+   "Kare Desteği"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_FRAME_REST,
+   "Kare sunumundan sonra mümkün olduğunca uyuyarak vsync CPU kullanımını azaltmaya çalışın. Öncelikle üçüncü taraf tarama hattı eşitlenmesi için tasarlandı."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PAL60_ENABLE,

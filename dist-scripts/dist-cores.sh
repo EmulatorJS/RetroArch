@@ -223,7 +223,7 @@ for f in `ls -v *_${platform}.${EXT}`; do
    whole_archive=
    big_stack=
    memory_padding=0
-   
+
    gles3=0
    stack_mem=8388608
    heap_mem=268435456
@@ -281,7 +281,7 @@ for f in `ls -v *_${platform}.${EXT}`; do
    echo STACK_MEMORY: $stack_mem
    echo HEAP_MEMORY: $heap_mem
    echo MEMORY_PADDING: $memory_padding
-   
+
    if [ $clean = "yes" ]; then
       if [ $lastPthreads != $pthread ] ; then
          rm -rf ../obj-emscripten
@@ -293,7 +293,7 @@ for f in `ls -v *_${platform}.${EXT}`; do
 
    lastPthreads=$pthread
    lastGles=$gles3
-   
+
    # Do cleanup if this is a big stack core
    if [ "$big_stack" = "BIG_STACK=1" ] ; then
       if [ $MAKEFILE_GRIFFIN = "yes" ]; then
@@ -377,18 +377,18 @@ for f in `ls -v *_${platform}.${EXT}`; do
       mv -f ../retrodos.exe ../pkg/${platform}/cores/${name}.exe
    elif [ $PLATFORM = "emscripten" ] ; then
       mkdir -p ../pkg/emscripten/
-      
+
       out_dir="../../EmulatorJS/data/cores"
 
       mkdir -p $out_dir
-      
+
       core=""
       if [ $name = "mednafen_vb" ]; then
         core="beetle_vb"
       else
          core=${name}
       fi
-      
+
       if [ $pthread != 0 ] ; then
          7z a ${out_dir}/${core}-thread-wasm.data ../${name}_libretro.wasm ../${name}_libretro.js ../${name}_libretro.worker.js
       else
@@ -401,15 +401,15 @@ for f in `ls -v *_${platform}.${EXT}`; do
          fi
       fi
       rm ../${name}_libretro.js
-      
-      
+
+
 #      mv -f ../${name}_libretro.js ../pkg/emscripten/${name}_libretro.js
 #      mv -f ../${name}_libretro.wasm ../pkg/emscripten/${name}_libretro.wasm
 #      if [ $pthread != 0 ] ; then
 #         mv -f ../${name}_libretro.worker.js ../pkg/emscripten/${name}_libretro.worker.js
 #      fi
-      
-      
+
+
    fi
 
   # Do manual executable step

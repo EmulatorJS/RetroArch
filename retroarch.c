@@ -270,6 +270,7 @@ enum
    RA_OPT_APPENDCONFIG,
    RA_OPT_BPS,
    RA_OPT_IPS,
+   RA_OPT_XDELTA,
    RA_OPT_NO_PATCH,
    RA_OPT_RECORDCONFIG,
    RA_OPT_SUBSYSTEM,
@@ -601,12 +602,24 @@ static float audio_driver_monitor_adjust_system_rates(
       double input_fps,
       float video_refresh_rate,
       unsigned video_swap_interval,
+      unsigned black_frame_insertion,
       float audio_max_timing_skew)
 {
    float inp_sample_rate        = input_sample_rate;
-   float target_video_sync_rate = video_refresh_rate
-         / (float)video_swap_interval;
-   float timing_skew            =
+
+   /*  This much like the auto swap interval algorithm and will
+    *  find the correct desired target rate the majority of sane
+    *  cases. Any failures should be no worse than the previous
+    *  very incomplete high hz skew adjustments. */
+   float refresh_ratio                   = video_refresh_rate/input_fps;
+   unsigned refresh_closest_multiple     = (unsigned)(refresh_ratio + 0.5f);
+   float target_video_sync_rate          = video_refresh_rate;
+   float timing_skew                     = 0.0f;
+
+   if (refresh_closest_multiple > 1)
+      target_video_sync_rate /= (((float)black_frame_insertion + 1.0f) * (float)video_swap_interval);
+
+   timing_skew            =
       fabs(1.0f - input_fps / target_video_sync_rate);
    if (timing_skew <= audio_max_timing_skew)
       return (inp_sample_rate * target_video_sync_rate / input_fps);
@@ -620,18 +633,23 @@ static bool video_driver_monitor_adjust_system_rates(
       bool vrr_runloop_enable,
       float audio_max_timing_skew,
       unsigned video_swap_interval,
+      unsigned black_frame_insertion,
       double input_fps)
 {
    float target_video_sync_rate = timing_skew_hz;
 
-   /* Divide target rate only when using Auto interval */
-   if (_video_swap_interval == 0)
-      target_video_sync_rate /= (float)video_swap_interval;
+   /* Same concept as for audio driver adjust. */
+   float refresh_ratio                   = target_video_sync_rate/input_fps;
+   unsigned refresh_closest_multiple     = (unsigned)(refresh_ratio + 0.5f);
+   float timing_skew                     = 0.0f;
+
+   if (refresh_closest_multiple > 1)
+      target_video_sync_rate /= (((float)black_frame_insertion + 1.0f) * (float)video_swap_interval);
 
    if (!vrr_runloop_enable)
    {
-      float timing_skew                    = fabs(
-            1.0f - input_fps / target_video_sync_rate);
+      timing_skew         =
+         fabs(1.0f - input_fps / target_video_sync_rate);
       /* We don't want to adjust pitch too much. If we have extreme cases,
        * just don't readjust at all. */
       if (timing_skew <= audio_max_timing_skew)
@@ -652,7 +670,8 @@ static void driver_adjust_system_rates(
       float video_refresh_rate,
       float audio_max_timing_skew,
       bool video_adaptive_vsync,
-      unsigned video_swap_interval)
+      unsigned video_swap_interval,
+      unsigned black_frame_insertion)
 {
    struct retro_system_av_info *av_info   = &video_st->av_info;
    const struct retro_system_timing *info =
@@ -666,6 +685,7 @@ static void driver_adjust_system_rates(
          vrr_runloop_enable,
          (video_st->flags & VIDEO_FLAG_CRT_SWITCHING_ACTIVE) ? true : false,
          video_swap_interval,
+         black_frame_insertion,
          audio_max_timing_skew,
          video_refresh_rate,
          input_fps);
@@ -684,6 +704,7 @@ static void driver_adjust_system_rates(
                   input_fps,
                   video_refresh_rate,
                   video_swap_interval,
+                  black_frame_insertion,
                   audio_max_timing_skew);
 
       RARCH_LOG("[Audio]: Set audio input rate to: %.2f Hz.\n",
@@ -707,6 +728,7 @@ static void driver_adjust_system_rates(
                vrr_runloop_enable,
                audio_max_timing_skew,
                video_swap_interval,
+               black_frame_insertion,
                input_fps))
       {
          /* We won't be able to do VSync reliably
@@ -826,7 +848,8 @@ void drivers_init(
                                  settings->floats.video_refresh_rate,
                                  settings->floats.audio_max_timing_skew,
                                  settings->bools.video_adaptive_vsync,
-                                 settings->uints.video_swap_interval
+                                 settings->uints.video_swap_interval,
+                                 settings->uints.video_black_frame_insertion
                                  );
 
    /* Initialize video driver */
@@ -1260,6 +1283,8 @@ bool driver_ctl(enum driver_ctl_state state, void *data)
             float audio_max_timing_skew   = settings->floats.audio_max_timing_skew;
             bool video_adaptive_vsync     = settings->bools.video_adaptive_vsync;
             unsigned video_swap_interval  = settings->uints.video_swap_interval;
+            unsigned
+               black_frame_insertion      = settings->uints.video_black_frame_insertion;
 
             video_monitor_set_refresh_rate(*hz);
 
@@ -1273,7 +1298,8 @@ bool driver_ctl(enum driver_ctl_state state, void *data)
                                        video_refresh_rate,
                                        audio_max_timing_skew,
                                        video_adaptive_vsync,
-                                       video_swap_interval
+                                       video_swap_interval,
+                                       black_frame_insertion
                                        );
          }
          break;
@@ -2011,11 +2037,26 @@ enum rarch_content_type path_is_media_type(const char *path)
       case FILE_TYPE_MXF:
          return RARCH_CONTENT_MOVIE;
       case FILE_TYPE_WMA:
-      case FILE_TYPE_OGG:
-      case FILE_TYPE_MP3:
       case FILE_TYPE_M4A:
+#endif
+#if defined(HAVE_FFMPEG) || defined(HAVE_MPV) || defined(HAVE_AUDIOMIXER)
+#if !defined(HAVE_AUDIOMIXER) || defined(HAVE_STB_VORBIS)
+      case FILE_TYPE_OGG:
+#endif
+#if !defined(HAVE_AUDIOMIXER) || defined(HAVE_DR_MP3)
+      case FILE_TYPE_MP3:
+#endif
+#if !defined(HAVE_AUDIOMIXER) || defined(HAVE_DR_FLAC)
       case FILE_TYPE_FLAC:
+#endif
+#if !defined(HAVE_AUDIOMIXER) || defined(HAVE_RWAV)
       case FILE_TYPE_WAV:
+#endif
+#if !defined(HAVE_AUDIOMIXER) || defined(HAVE_IBXM)
+      case FILE_TYPE_MOD:
+      case FILE_TYPE_S3M:
+      case FILE_TYPE_XM:
+#endif
          return RARCH_CONTENT_MUSIC;
 #endif
 #ifdef HAVE_IMAGEVIEWER
@@ -2025,13 +2066,6 @@ enum rarch_content_type path_is_media_type(const char *path)
       case FILE_TYPE_BMP:
          return RARCH_CONTENT_IMAGE;
 #endif
-#ifdef HAVE_IBXM
-      case FILE_TYPE_MOD:
-      case FILE_TYPE_S3M:
-      case FILE_TYPE_XM:
-         return RARCH_CONTENT_MUSIC;
-#endif
-
       case FILE_TYPE_NONE:
       default:
          break;
@@ -2211,6 +2245,9 @@ bool command_event(enum event_command cmd, void *data)
 #if defined(HAVE_ACCESSIBILITY) || defined(HAVE_TRANSLATE)
    access_state_t *access_st       = access_state_get_ptr();
 #endif
+#if defined(HAVE_TRANSLATE) && defined(HAVE_GFX_WIDGETS)
+   dispgfx_widget_t *p_dispwidget  = dispwidget_get_ptr();
+#endif
 #ifdef HAVE_MENU
    struct menu_state *menu_st      = menu_state_get_ptr();
 #endif
@@ -2227,12 +2264,12 @@ bool command_event(enum event_command cmd, void *data)
 #ifdef HAVE_OVERLAY
          input_overlay_unload();
 #endif
-#if defined(HAVE_TRANSLATE) && defined(HAVE_GFX_WIDGETS)
-         /* Because the overlay is a display widget,
-          * it's going to be written
-          * over the menu, so we unset it here. */
-         if (dispwidget_get_ptr()->ai_service_overlay_state != 0)
+#ifdef HAVE_TRANSLATE
+         translation_release(true);
+#ifdef HAVE_GFX_WIDGETS
+         if (p_dispwidget->ai_service_overlay_state != 0)
             gfx_widgets_ai_service_overlay_unload();
+#endif
 #endif
          break;
       case CMD_EVENT_OVERLAY_INIT:
@@ -2306,6 +2343,11 @@ bool command_event(enum event_command cmd, void *data)
                            accessibility_narrator_speech_speed,
                            (char*)msg_hash_to_str(MSG_UNPAUSED), 10);
 #endif
+#ifdef HAVE_GFX_WIDGETS
+                  if (p_dispwidget->ai_service_overlay_state != 0)
+                     gfx_widgets_ai_service_overlay_unload();
+#endif
+                  translation_release(true);
                   command_event(CMD_EVENT_UNPAUSE, NULL);
                }
                else /* Pause on call */
@@ -2324,17 +2366,25 @@ bool command_event(enum event_command cmd, void *data)
                 * Also, this mode is required for "auto" translation
                 * packages, since you don't want to pause for that.
                 */
-               if (access_st->ai_service_auto == 2)
+               if (access_st->ai_service_auto != 0)
                {
                   /* Auto mode was turned on, but we pressed the
                    * toggle button, so turn it off now. */
-                  access_st->ai_service_auto = 0;
-#ifdef HAVE_MENU_WIDGETS
-                  gfx_widgets_ai_service_overlay_unload();
+                  translation_release(true);
+#ifdef HAVE_GFX_WIDGETS
+                  if (p_dispwidget->ai_service_overlay_state != 0)
+                     gfx_widgets_ai_service_overlay_unload();
 #endif
                }
-               else
-                  command_event(CMD_EVENT_AI_SERVICE_CALL, NULL);
+               else 
+               {
+#ifdef HAVE_GFX_WIDGETS
+                  if (p_dispwidget->ai_service_overlay_state != 0)
+                     gfx_widgets_ai_service_overlay_unload();
+                  else
+#endif
+                     command_event(CMD_EVENT_AI_SERVICE_CALL, NULL);
+               }
             }
 #endif
             break;
@@ -2945,6 +2995,17 @@ bool command_event(enum event_command cmd, void *data)
                         (unsigned)rewind_buf_size);
                }
             }
+         }
+#endif
+         break;
+      case CMD_EVENT_REWIND_REINIT:
+#ifdef HAVE_REWIND
+         /* to reinitialize the the rewind state manager, we have to recreate it.
+          * the easiest way to do that is a full deinit followed by an init. */
+         if (runloop_st->rewind_st.state != NULL)
+         {
+            command_event(CMD_EVENT_REWIND_DEINIT, NULL);
+            command_event(CMD_EVENT_REWIND_INIT, NULL);
          }
 #endif
          break;
@@ -4448,10 +4509,6 @@ bool command_event(enum event_command cmd, void *data)
                if (data)
                   paused = *((bool*)data);
 
-               if (     (access_st->ai_service_auto == 0)
-                     && !settings->bools.ai_service_pause)
-                  access_st->ai_service_auto = 1;
-
                run_translation_service(settings, paused);
             }
 #endif
@@ -4551,6 +4608,11 @@ void retroarch_override_setting_set(
          p_rarch->flags |= RARCH_FLAGS_HAS_SET_IPS_PREF;
 #endif
          break;
+       case RARCH_OVERRIDE_SETTING_XDELTA_PREF:
+#if defined(HAVE_PATCH) && defined(HAVE_XDELTA)
+           p_rarch->flags |= RARCH_FLAGS_HAS_SET_XDELTA_PREF;
+#endif
+           break;
       case RARCH_OVERRIDE_SETTING_LOG_TO_FILE:
          p_rarch->flags |= RARCH_FLAGS_HAS_SET_LOG_TO_FILE;
          break;
@@ -4628,6 +4690,11 @@ void retroarch_override_setting_unset(
          p_rarch->flags &= ~RARCH_FLAGS_HAS_SET_IPS_PREF;
 #endif
          break;
+       case RARCH_OVERRIDE_SETTING_XDELTA_PREF:
+#if defined(HAVE_PATCH) && defined(HAVE_XDELTA)
+           p_rarch->flags &= ~RARCH_FLAGS_HAS_SET_XDELTA_PREF;
+#endif
+         break;
       case RARCH_OVERRIDE_SETTING_LOG_TO_FILE:
          p_rarch->flags &= ~RARCH_FLAGS_HAS_SET_LOG_TO_FILE;
          break;
@@ -4678,7 +4745,8 @@ static void global_free(struct rarch_state *p_rarch)
    p_rarch->flags    &= ~(
                          RARCH_FLAGS_BPS_PREF
                        | RARCH_FLAGS_IPS_PREF
-                       | RARCH_FLAGS_UPS_PREF);
+                       | RARCH_FLAGS_UPS_PREF
+                       | RARCH_FLAGS_XDELTA_PREF);
    runloop_st->flags &= ~RUNLOOP_FLAG_PATCH_BLOCKED;
 
 #endif
@@ -4703,6 +4771,7 @@ static void global_free(struct rarch_state *p_rarch)
    *runloop_st->name.ups                 = '\0';
    *runloop_st->name.bps                 = '\0';
    *runloop_st->name.ips                 = '\0';
+   *runloop_st->name.xdelta              = '\0';
    *runloop_st->name.savefile            = '\0';
    *runloop_st->name.savestate           = '\0';
    *runloop_st->name.replay              = '\0';
@@ -4766,7 +4835,11 @@ void main_exit(void *args)
 #if defined(HAVE_LOGGER) && !defined(ANDROID)
    logger_shutdown();
 #endif
-
+#ifdef PS2
+   /* PS2 frontend driver deinit also detaches filesystem,
+    * so make sure logs are written in advance. */
+   retro_main_log_file_deinit();
+#endif
    frontend_driver_deinit(args);
    frontend_driver_exitspawn(
          path_get_ptr(RARCH_PATH_CORE),
@@ -5529,10 +5602,18 @@ static void retroarch_print_help(const char *arg0)
          "Specifies path for BPS patch that will be applied to content.\n"
          "      --ips=FILE                 "
          "Specifies path for IPS patch that will be applied to content.\n"
+         , sizeof(buf));
+#ifdef HAVE_XDELTA
+   strlcat(buf,
+         "      --xdelta=FILE              "
+         "Specifies path for Xdelta patch that will be applied to content.\n"
+         , sizeof(buf));
+#endif /* HAVE_XDELTA */
+   strlcat(buf,
          "      --no-patch                 "
          "Disables all forms of content patching.\n"
          , sizeof(buf));
-#endif
+#endif /* HAVE_PATCH */
 
 #ifdef HAVE_SCREENSHOTS
    strlcat(buf,
@@ -5797,8 +5878,11 @@ static bool retroarch_parse_input_and_config(
       { "ups",                1, NULL, 'U' },
       { "bps",                1, NULL, RA_OPT_BPS },
       { "ips",                1, NULL, RA_OPT_IPS },
+#ifdef HAVE_XDELTA
+      { "xdelta",             1, NULL, RA_OPT_XDELTA },
+#endif /* HAVE_XDELTA */
       { "no-patch",           0, NULL, RA_OPT_NO_PATCH },
-#endif
+#endif /* HAVE_PATCH */
       { "detach",             0, NULL, 'D' },
       { "features",           0, NULL, RA_OPT_FEATURES },
       { "subsystem",          1, NULL, RA_OPT_SUBSYSTEM },
@@ -5872,10 +5956,11 @@ static bool retroarch_parse_input_and_config(
    p_rarch->flags                 &= ~RARCH_FLAGS_HAS_SET_USERNAME;
 #ifdef HAVE_PATCH
    p_rarch->flags                 &= ~(  RARCH_FLAGS_UPS_PREF | RARCH_FLAGS_IPS_PREF
-                                       | RARCH_FLAGS_BPS_PREF);
+                                       | RARCH_FLAGS_BPS_PREF | RARCH_FLAGS_XDELTA_PREF);
    *runloop_st->name.ups           = '\0';
    *runloop_st->name.bps           = '\0';
    *runloop_st->name.ips           = '\0';
+   *runloop_st->name.xdelta        = '\0';
 #endif
 #ifdef HAVE_CONFIGFILE
    runloop_st->flags              &= ~RUNLOOP_FLAG_OVERRIDES_ACTIVE;
@@ -6024,6 +6109,10 @@ static bool retroarch_parse_input_and_config(
    if (!(p_rarch->flags & RARCH_FLAGS_BLOCK_CONFIG_READ))
 #endif
    {
+      /* Workaround for libdecor 0.2.0 setting unwanted locale */
+#if defined(HAVE_WAYLAND) && defined(HAVE_DYNAMIC)
+      setlocale(LC_NUMERIC,"C");
+#endif      
       /* If this is a static build, load salamander
        * config file first (sets RARCH_PATH_CORE) */
 #if !defined(HAVE_DYNAMIC)
@@ -6275,7 +6364,14 @@ static bool retroarch_parse_input_and_config(
                retroarch_override_setting_set(RARCH_OVERRIDE_SETTING_IPS_PREF, NULL);
 #endif
                break;
-
+             case RA_OPT_XDELTA:
+#if defined(HAVE_PATCH) && defined(HAVE_XDELTA)
+                 strlcpy(runloop_st->name.xdelta, optarg,
+                     sizeof(runloop_st->name.xdelta));
+               p_rarch->flags |= RARCH_FLAGS_XDELTA_PREF;
+               retroarch_override_setting_set(RARCH_OVERRIDE_SETTING_XDELTA_PREF, NULL);
+#endif
+                 break;
             case RA_OPT_NO_PATCH:
 #ifdef HAVE_PATCH
                runloop_st->flags |= RUNLOOP_FLAG_PATCH_BLOCKED;
@@ -6573,7 +6669,7 @@ bool retroarch_main_init(int argc, char *argv[])
    {
       RARCH_ERR("%s: \"%s\"\n",
             msg_hash_to_str(MSG_FATAL_ERROR_RECEIVED_IN),
-            global->error_string);
+            global_get_ptr()->error_string);
       goto error;
    }
 
@@ -6883,7 +6979,7 @@ bool retroarch_main_init(int argc, char *argv[])
 
 error:
    command_event(CMD_EVENT_CORE_DEINIT, NULL);
-   runloop_st->flags            &= ~RUNLOOP_FLAG_IS_INITED;
+   runloop_state_get_ptr()->flags            &= ~RUNLOOP_FLAG_IS_INITED;
 
    return false;
 }
@@ -6922,7 +7018,12 @@ bool retroarch_ctl(enum rarch_ctl_state state, void *data)
       case RARCH_CTL_UNSET_IPS_PREF:
          p_rarch->flags &= ~RARCH_FLAGS_IPS_PREF;
          break;
-#endif
+#ifdef HAVE_XDELTA
+      case RARCH_CTL_UNSET_XDELTA_PREF:
+         p_rarch->flags &= ~RARCH_FLAGS_XDELTA_PREF;
+         break;
+#endif /* HAVE_XDELTA */
+#endif /* HAVE_PATCH */
       case RARCH_CTL_IS_DUMMY_CORE:
          return runloop_st->current_core_type == CORE_TYPE_DUMMY;
       case RARCH_CTL_IS_CORE_LOADED:
@@ -7180,7 +7281,11 @@ bool retroarch_override_setting_is_set(
          return ((p_rarch->flags & RARCH_FLAGS_HAS_SET_BPS_PREF) > 0);
       case RARCH_OVERRIDE_SETTING_IPS_PREF:
          return ((p_rarch->flags & RARCH_FLAGS_HAS_SET_IPS_PREF) > 0);
-#endif
+#ifdef HAVE_XDELTA
+      case RARCH_OVERRIDE_SETTING_XDELTA_PREF:
+         return ((p_rarch->flags & RARCH_FLAGS_HAS_SET_XDELTA_PREF) > 0);
+#endif /* HAVE_XDELTA */
+#endif /* HAVE_PATCH */
       case RARCH_OVERRIDE_SETTING_LOG_TO_FILE:
          return ((p_rarch->flags & RARCH_FLAGS_HAS_SET_LOG_TO_FILE) > 0);
       case RARCH_OVERRIDE_SETTING_DATABASE_SCAN:
@@ -7284,6 +7389,9 @@ bool retroarch_main_quit(void)
    video_driver_state_t*video_st = video_state_get_ptr();
    settings_t *settings          = config_get_ptr();
    bool config_save_on_exit      = settings->bools.config_save_on_exit;
+#ifdef HAVE_ACCESSIBILITY
+   access_state_t *access_st     = access_state_get_ptr();
+#endif
    struct retro_system_av_info *av_info = &video_st->av_info;
 
    /* Restore video driver before saving */
@@ -7382,6 +7490,17 @@ bool retroarch_main_quit(void)
    retroarch_menu_running_finished(true);
 #endif
 
+#ifdef HAVE_ACCESSIBILITY
+   translation_release(false);
+#ifdef HAVE_THREADS
+   if (access_st->image_lock)
+   {
+      slock_free(access_st->image_lock);
+      access_st->image_lock = NULL;
+   }
+#endif
+#endif
+
    return true;
 }
 
@@ -7435,6 +7554,7 @@ enum retro_language retroarch_get_language_from_iso(const char *iso639)
       {"en_GB", RETRO_LANGUAGE_BRITISH_ENGLISH},
       {"en", RETRO_LANGUAGE_ENGLISH},
       {"hu", RETRO_LANGUAGE_HUNGARIAN},
+      {"be", RETRO_LANGUAGE_BELARUSIAN},
    };
 
    if (string_is_empty(iso639))

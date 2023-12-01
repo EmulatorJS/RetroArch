@@ -51,6 +51,10 @@
 #include <vfs/vfs_implementation_cdrom.h>
 #endif
 
+#ifdef HAVE_WASAPI
+#include "../audio/common/wasapi.h"
+#endif
+
 #include "../config.def.h"
 #include "../config.def.keybinds.h"
 
@@ -3014,6 +3018,42 @@ static void setting_get_string_representation_uint_ai_service_mode(
       case 2:
          enum_idx = MENU_ENUM_LABEL_VALUE_AI_SERVICE_NARRATOR_MODE;
          break;
+      case 3:
+         enum_idx = MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_MODE;
+         break;
+      case 4:
+         enum_idx = MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_NARRATOR_MODE;
+         break;
+      case 5:
+         enum_idx = MENU_ENUM_LABEL_VALUE_AI_SERVICE_IMAGE_NARRATOR_MODE;
+         break;
+      default:
+         break;
+   }
+
+   if (enum_idx != 0)
+      strlcpy(s, msg_hash_to_str(enum_idx), len);
+}
+
+static void setting_get_string_representation_uint_ai_service_text_position(
+      rarch_setting_t *setting,
+      char *s, size_t len)
+{
+   enum msg_hash_enums enum_idx = MSG_UNKNOWN;
+   if (!setting)
+      return;
+
+   switch (*setting->value.target.unsigned_integer)
+   {
+      case 0:
+         enum_idx = MENU_ENUM_LABEL_VALUE_NONE;
+         break;
+      case 1:
+         enum_idx = MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_BOTTOM;
+         break;
+      case 2:
+         enum_idx = MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_TOP;
+         break;
       default:
          break;
    }
@@ -3182,6 +3222,9 @@ static void setting_get_string_representation_uint_ai_service_lang(
          break;
       case TRANSLATION_LANG_UK:
          enum_idx = MENU_ENUM_LABEL_VALUE_LANG_UKRAINIAN;
+         break;
+      case TRANSLATION_LANG_BE:
+         enum_idx = MENU_ENUM_LABEL_VALUE_LANG_BELARUSIAN;
          break;
       case TRANSLATION_LANG_UR:
          enum_idx = MENU_ENUM_LABEL_VALUE_LANG_URDU;
@@ -4902,29 +4945,52 @@ static void setting_get_string_representation_uint_custom_viewport_height(rarch_
 }
 
 #ifdef HAVE_WASAPI
-static void setting_get_string_representation_int_audio_wasapi_sh_buffer_length(rarch_setting_t *setting,
+static void setting_get_string_representation_uint_audio_wasapi_sh_buffer_length(rarch_setting_t *setting,
       char *s, size_t len)
 {
-   if (!setting)
+   settings_t *settings = config_get_ptr();
+
+   if (!setting || !settings)
       return;
 
-   if (*setting->value.target.integer > 0)
-      snprintf(s, len, "%d", *setting->value.target.integer);
-   else if (*setting->value.target.integer == 0)
-      strlcpy(s, "0 (Off)", len);
-   else
-      strlcpy(s, "Auto", len);
+   switch (*setting->value.target.integer)
+   {
+      case WASAPI_SH_BUFFER_AUDIO_LATENCY:
+         snprintf(s, len, "%u (%s)",
+               *setting->value.target.integer,
+               "Audio Latency");
+         break;
+      case WASAPI_SH_BUFFER_DEVICE_PERIOD:
+         snprintf(s, len, "%u (%s)",
+               *setting->value.target.integer,
+               "Device Period");
+         break;
+      case WASAPI_SH_BUFFER_CLIENT_BUFFER:
+         snprintf(s, len, "%u (%s)",
+               *setting->value.target.integer,
+               "Client Buffer");
+         break;
+      default:
+         snprintf(s, len, "%u (%.1f ms)",
+               *setting->value.target.integer,
+               (float)*setting->value.target.integer * 1000 / settings->uints.audio_output_sample_rate);
+         break;
+   }
 }
 
 #ifdef HAVE_MICROPHONE
 static void setting_get_string_representation_uint_microphone_wasapi_sh_buffer_length(rarch_setting_t *setting,
       char *s, size_t len)
 {
-   if (!setting)
+   settings_t *settings = config_get_ptr();
+
+   if (!setting || !settings)
       return;
 
-   if (*setting->value.target.unsigned_integer > 0)
-      snprintf(s, len, "%u", *setting->value.target.unsigned_integer);
+   if (*setting->value.target.integer > 0)
+      snprintf(s, len, "%u (%.1f ms)",
+            *setting->value.target.integer,
+            (float)*setting->value.target.integer * 1000 / settings->uints.audio_output_sample_rate);
    else
       strlcpy(s, "Auto", len);
 }
@@ -6888,6 +6954,7 @@ static void setting_get_string_representation_uint_user_language(
    translated[RETRO_LANGUAGE_BRITISH_ENGLISH]  = LANGUAGE_PROGRESS_ENGLISH_UNITED_KINGDOM_TRANSLATED;
 
    LANG_DATA(HUNGARIAN)
+   LANG_DATA(BELARUSIAN)
 
    if (*msg_hash_get_uint(MSG_HASH_USER_LANGUAGE) == RETRO_LANGUAGE_ENGLISH)
       strlcpy(s, modes[*msg_hash_get_uint(MSG_HASH_USER_LANGUAGE)], len);
@@ -8275,9 +8342,11 @@ static void general_write_handler(rarch_setting_t *setting)
          break;
       case MENU_ENUM_LABEL_AUDIO_LATENCY:
       case MENU_ENUM_LABEL_AUDIO_OUTPUT_RATE:
+#ifdef HAVE_WASAPI
       case MENU_ENUM_LABEL_AUDIO_WASAPI_EXCLUSIVE_MODE:
       case MENU_ENUM_LABEL_AUDIO_WASAPI_FLOAT_FORMAT:
       case MENU_ENUM_LABEL_AUDIO_WASAPI_SH_BUFFER_LENGTH:
+#endif
          rarch_cmd = CMD_EVENT_AUDIO_REINIT;
          break;
 #ifdef HAVE_MICROPHONE
@@ -8561,6 +8630,16 @@ static void general_write_handler(rarch_setting_t *setting)
                   (custom_vp && custom_vp->width && custom_vp->height) ?
                      ((float)custom_vp->width / (float)custom_vp->height) :
                            default_aspect;
+         }
+         break;
+      case MENU_ENUM_LABEL_DYNAMIC_WALLPAPER:
+         {
+            /* Reset wallpaper by menu context reset */
+            struct menu_state *menu_st = menu_state_get_ptr();
+
+            if (menu_st->driver_ctx && menu_st->driver_ctx->context_reset)
+               menu_st->driver_ctx->context_reset(menu_st->userdata,
+                     video_driver_is_threaded());
          }
          break;
       default:
@@ -10509,8 +10588,8 @@ static bool setting_append_list(
                      &group_info,
                      &subgroup_info,
                      parent_group,
-                     general_read_handler,
-                     general_write_handler);
+                     general_write_handler,
+                     general_read_handler);
                SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_IS_DRIVER);
                (*list)[list_info->index - 1].action_ok    = setting_action_ok_uint;
                (*list)[list_info->index - 1].action_left  = setting_string_action_left_driver;
@@ -11239,8 +11318,8 @@ static bool setting_append_list(
                &group_info,
                &subgroup_info,
                parent_group,
-               general_read_handler,
-               general_write_handler);
+               general_write_handler,
+               general_read_handler);
          SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_IS_DRIVER);
          (*list)[list_info->index - 1].action_ok    = setting_action_ok_uint;
          (*list)[list_info->index - 1].action_left  = setting_string_action_left_driver;
@@ -11991,7 +12070,7 @@ static bool setting_append_list(
             /* prevent unused function warning on unsupported builds */
             (void)setting_get_string_representation_int_gpu_index;
 
-#ifdef ANDROID
+#if defined(ANDROID) || TARGET_OS_IOS
             CONFIG_BOOL(
                   list, list_info,
                   &settings->bools.video_notch_write_over_enable,
@@ -13346,6 +13425,8 @@ static bool setting_append_list(
                         general_read_handler);
                   (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
                   menu_settings_list_current_add_range(list, list_info, 0, 5, 1, true, true);
+                  MENU_SETTINGS_LIST_CURRENT_ADD_CMD(list, list_info, CMD_EVENT_REINIT);
+                  SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_CMD_APPLY_AUTO);
                }
             }
 #endif
@@ -13693,6 +13774,26 @@ static bool setting_append_list(
                SD_FLAG_LAKKA_ADVANCED
                );
 #endif
+
+#if TARGET_OS_IOS
+         CONFIG_BOOL(
+               list, list_info,
+               &settings->bools.audio_respect_silent_mode,
+               MENU_ENUM_LABEL_AUDIO_RESPECT_SILENT_MODE,
+               MENU_ENUM_LABEL_VALUE_AUDIO_RESPECT_SILENT_MODE,
+               DEFAULT_AUDIO_RESPECT_SILENT_MODE,
+               MENU_ENUM_LABEL_VALUE_OFF,
+               MENU_ENUM_LABEL_VALUE_ON,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler,
+               SD_FLAG_NONE
+               );
+
+#endif
+
          CONFIG_BOOL(
                list, list_info,
                &settings->bools.audio_fastforward_mute,
@@ -14055,9 +14156,9 @@ static bool setting_append_list(
                   SD_FLAG_NONE
                   );
 
-            CONFIG_INT(
+            CONFIG_UINT(
                   list, list_info,
-                  &settings->ints.audio_wasapi_sh_buffer_length,
+                  &settings->uints.audio_wasapi_sh_buffer_length,
                   MENU_ENUM_LABEL_AUDIO_WASAPI_SH_BUFFER_LENGTH,
                   MENU_ENUM_LABEL_VALUE_AUDIO_WASAPI_SH_BUFFER_LENGTH,
                   DEFAULT_WASAPI_SH_BUFFER_LENGTH,
@@ -14066,11 +14167,12 @@ static bool setting_append_list(
                   parent_group,
                   general_write_handler,
                   general_read_handler);
-            menu_settings_list_current_add_range(list, list_info, -16.0f, 0.0f, 16.0f, true, false);
-            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_ADVANCED);
+            (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint_special;
             (*list)[list_info->index - 1].get_string_representation =
-                  &setting_get_string_representation_int_audio_wasapi_sh_buffer_length;
-            }
+                  &setting_get_string_representation_uint_audio_wasapi_sh_buffer_length;
+            menu_settings_list_current_add_range(list, list_info, 0, 32.0f * 200, 32.0f, true, true);
+            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_ADVANCED);
+         }
 #endif
 
          END_SUB_GROUP(list, list_info, parent_group);
@@ -14250,11 +14352,12 @@ static bool setting_append_list(
                   parent_group,
                   general_write_handler,
                   general_read_handler);
-            menu_settings_list_current_add_range(list, list_info, 0.0f, 0.0f, 16.0f, true, false);
-            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_ADVANCED);
+            (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint_special;
             (*list)[list_info->index - 1].get_string_representation =
                   &setting_get_string_representation_uint_microphone_wasapi_sh_buffer_length;
-            }
+            menu_settings_list_current_add_range(list, list_info, 0, 32.0f * 200, 32.0f, true, true);
+            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_ADVANCED);
+         }
 #endif
 
          END_SUB_GROUP(list, list_info, parent_group);
@@ -15442,6 +15545,25 @@ static bool setting_append_list(
                general_read_handler,
                SD_FLAG_NONE
                );
+         (*list)[list_info->index - 1].action_ok    = &setting_bool_action_left_with_refresh;
+         (*list)[list_info->index - 1].action_left  = &setting_bool_action_left_with_refresh;
+         (*list)[list_info->index - 1].action_right = &setting_bool_action_right_with_refresh;
+
+         CONFIG_BOOL(
+               list, list_info,
+               &settings->bools.menu_throttle_framerate,
+               MENU_ENUM_LABEL_MENU_THROTTLE_FRAMERATE,
+               MENU_ENUM_LABEL_VALUE_MENU_ENUM_THROTTLE_FRAMERATE,
+               true,
+               MENU_ENUM_LABEL_VALUE_OFF,
+               MENU_ENUM_LABEL_VALUE_ON,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler,
+               SD_FLAG_ADVANCED
+               );
 
          CONFIG_FLOAT(
                list, list_info,
@@ -15593,22 +15715,6 @@ static bool setting_append_list(
          (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
          menu_settings_list_current_add_range(list, list_info, 0, 4, 1, true, true);
 #endif
-
-         CONFIG_BOOL(
-               list, list_info,
-               &settings->bools.menu_throttle_framerate,
-               MENU_ENUM_LABEL_MENU_THROTTLE_FRAMERATE,
-               MENU_ENUM_LABEL_VALUE_MENU_ENUM_THROTTLE_FRAMERATE,
-               true,
-               MENU_ENUM_LABEL_VALUE_OFF,
-               MENU_ENUM_LABEL_VALUE_ON,
-               &group_info,
-               &subgroup_info,
-               parent_group,
-               general_write_handler,
-               general_read_handler,
-               SD_FLAG_ADVANCED
-               );
 
          END_SUB_GROUP(list, list_info, parent_group);
          END_GROUP(list, list_info, parent_group);
@@ -16859,7 +16965,6 @@ static bool setting_append_list(
                   general_read_handler);
             (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
             menu_settings_list_current_add_range(list, list_info, 0.0, 1.0, 0.010, true, true);
-            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_LAKKA_ADVANCED);
          }
 
          if (string_is_not_equal(settings->arrays.menu_driver, "rgui") &&
@@ -16879,7 +16984,6 @@ static bool setting_append_list(
                   general_read_handler);
             (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
             menu_settings_list_current_add_range(list, list_info, 0.0, 1.0, 0.010, true, true);
-            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_LAKKA_ADVANCED);
          }
 
          if (string_is_equal(settings->arrays.menu_driver, "xmb"))
@@ -16899,7 +17003,6 @@ static bool setting_append_list(
                   general_read_handler,
                   SD_FLAG_NONE
                   );
-            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_LAKKA_ADVANCED);
          }
 
          CONFIG_BOOL(
@@ -17636,7 +17739,6 @@ static bool setting_append_list(
                   general_read_handler);
             (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
             menu_settings_list_current_add_range(list, list_info, 0, 100, 1, true, true);
-            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_LAKKA_ADVANCED);
 
             CONFIG_UINT(
                   list, list_info,
@@ -17653,7 +17755,6 @@ static bool setting_append_list(
             (*list)[list_info->index - 1].action_left  = &setting_uint_action_left_with_refresh;
             (*list)[list_info->index - 1].action_right = &setting_uint_action_right_with_refresh;
             menu_settings_list_current_add_range(list, list_info, 0, 500, 1, true, true);
-            SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_LAKKA_ADVANCED);
 
             CONFIG_BOOL(
                   list, list_info,
@@ -19116,6 +19217,21 @@ static bool setting_append_list(
                   general_read_handler,
                   SD_FLAG_NONE);
 
+         CONFIG_BOOL(
+               list, list_info,
+               &settings->bools.video_frame_rest,
+               MENU_ENUM_LABEL_VIDEO_FRAME_REST,
+               MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_REST,
+               DEFAULT_FRAME_REST,
+               MENU_ENUM_LABEL_VALUE_OFF,
+               MENU_ENUM_LABEL_VALUE_ON,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler,
+               SD_FLAG_NONE);
+
          END_SUB_GROUP(list, list_info, parent_group);
          END_GROUP(list, list_info, parent_group);
          break;
@@ -19232,7 +19348,7 @@ static bool setting_append_list(
          (*list)[list_info->index - 1].get_string_representation =
             &setting_get_string_representation_uint_ai_service_mode;
          (*list)[list_info->index - 1].action_ok     = &setting_action_ok_uint;
-         menu_settings_list_current_add_range(list, list_info, 0, 2, 1, true, true);
+         menu_settings_list_current_add_range(list, list_info, 0, 5, 1, true, true);
 
          CONFIG_STRING(
                list, list_info,
@@ -19314,6 +19430,50 @@ static bool setting_append_list(
             &setting_get_string_representation_uint_ai_service_lang;
          (*list)[list_info->index - 1].action_ok     = &setting_action_ok_uint;
          menu_settings_list_current_add_range(list, list_info, TRANSLATION_LANG_DONT_CARE, (TRANSLATION_LANG_LAST-1), 1, true, true);
+         
+         CONFIG_UINT(
+               list, list_info,
+               &settings->uints.ai_service_poll_delay,
+               MENU_ENUM_LABEL_AI_SERVICE_POLL_DELAY,
+               MENU_ENUM_LABEL_VALUE_AI_SERVICE_POLL_DELAY,
+               DEFAULT_AI_SERVICE_POLL_DELAY,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler);
+         (*list)[list_info->index - 1].action_ok     = &setting_action_ok_uint;
+         menu_settings_list_current_add_range(list, list_info, 0, MAXIMUM_AI_SERVICE_POLL_DELAY, 50, true, true);
+         
+         CONFIG_UINT(
+               list, list_info,
+               &settings->uints.ai_service_text_position,
+               MENU_ENUM_LABEL_AI_SERVICE_TEXT_POSITION,
+               MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION,
+               DEFAULT_AI_SERVICE_TEXT_POSITION,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler);
+         (*list)[list_info->index - 1].get_string_representation =
+            &setting_get_string_representation_uint_ai_service_text_position;
+         (*list)[list_info->index - 1].action_ok     = &setting_action_ok_uint;
+         menu_settings_list_current_add_range(list, list_info, 0, 2, 1, true, true);
+         
+         CONFIG_UINT(
+               list, list_info,
+               &settings->uints.ai_service_text_padding,
+               MENU_ENUM_LABEL_AI_SERVICE_TEXT_PADDING,
+               MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_PADDING,
+               DEFAULT_AI_SERVICE_TEXT_PADDING,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler);
+         (*list)[list_info->index - 1].action_ok     = &setting_action_ok_uint;
+         menu_settings_list_current_add_range(list, list_info, 0, 20, 1, true, true);
 
          END_SUB_GROUP(list, list_info, parent_group);
          END_GROUP(list, list_info, parent_group);
@@ -21978,8 +22138,8 @@ static bool setting_append_list(
                   &group_info,
                   &subgroup_info,
                   parent_group,
-                  general_read_handler,
-                  general_write_handler);
+                  general_write_handler,
+                  general_read_handler);
             SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_IS_DRIVER);
             (*list)[list_info->index - 1].action_ok      = setting_action_ok_uint;
             (*list)[list_info->index - 1].change_handler = timezone_change_handler;

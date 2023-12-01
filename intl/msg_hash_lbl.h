@@ -276,6 +276,10 @@ MSG_HASH(
    "audio_mute_enable"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_AUDIO_RESPECT_SILENT_MODE,
+   "audio_respect_silent_mode"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_AUDIO_FASTFORWARD_MUTE,
    "audio_fastforward_mute"
    )
@@ -2304,10 +2308,6 @@ MSG_HASH(
    "xmb"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_MENU_ENUM_THROTTLE_FRAMERATE,
-   "menu_throttle_framerate"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_MENU_FILE_BROWSER_SETTINGS,
    "menu_file_browser_settings"
    )
@@ -3328,6 +3328,14 @@ MSG_HASH(
    "vrr_runloop_enable"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_MENU_THROTTLE_FRAMERATE,
+   "menu_throttle_framerate"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_MENU_ENUM_THROTTLE_FRAMERATE,
+   "menu_throttle_framerate"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_CHEAT_SETTINGS,
    "cheat_settings"
    )
@@ -4217,6 +4225,10 @@ MSG_HASH(
    "video_frame_delay_auto"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VIDEO_FRAME_REST,
+   "video_frame_rest"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VIDEO_SHADER_DELAY,
    "video_shader_delay"
    )
@@ -4743,10 +4755,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_DEFERRED_RPL_ENTRY_ACTIONS,
    "deferred_rpl_entry_actions"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_MENU_THROTTLE_FRAMERATE,
-   "menu_throttle_framerate"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_OVERLAY_SETTINGS,
@@ -6030,6 +6038,18 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_AI_SERVICE_SOURCE_LANG,
    "ai_service_source_lang"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_AI_SERVICE_POLL_DELAY,
+   "ai_service_poll_delay"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_AI_SERVICE_TEXT_POSITION,
+   "ai_service_text_position"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_AI_SERVICE_TEXT_PADDING,
+   "ai_service_text_padding"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_SETTINGS_SHOW_DRIVERS,

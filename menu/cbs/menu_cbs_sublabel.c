@@ -269,6 +269,9 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ai_service_target_lang,  MENU_ENUM_S
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ai_service_source_lang,  MENU_ENUM_SUBLABEL_AI_SERVICE_SOURCE_LANG)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ai_service_url,  MENU_ENUM_SUBLABEL_AI_SERVICE_URL)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ai_service_enable,  MENU_ENUM_SUBLABEL_AI_SERVICE_ENABLE)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ai_service_poll_delay,  MENU_ENUM_SUBLABEL_AI_SERVICE_POLL_DELAY)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ai_service_text_position,  MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_POSITION)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ai_service_text_padding,  MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_PADDING)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_power_management_settings_list,  MENU_ENUM_SUBLABEL_POWER_MANAGEMENT_SETTINGS)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_privacy_settings_list,         MENU_ENUM_SUBLABEL_PRIVACY_SETTINGS)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_midi_settings_list,            MENU_ENUM_SUBLABEL_MIDI_SETTINGS)
@@ -513,6 +516,9 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_audio_mute,                    MENU_
 #ifdef HAVE_AUDIOMIXER
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_audio_mixer_mute,              MENU_ENUM_SUBLABEL_AUDIO_MIXER_MUTE)
 #endif
+#if TARGET_OS_IOS
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_audio_respect_silent_mode,     MENU_ENUM_SUBLABEL_AUDIO_RESPECT_SILENT_MODE)
+#endif
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_audio_fastforward_mute,        MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_MUTE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_audio_fastforward_speedup,     MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_SPEEDUP)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_camera_allow,                  MENU_ENUM_SUBLABEL_CAMERA_ALLOW)
@@ -695,6 +701,7 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_block_sram_overwrite,          MENU_
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_fastforward_ratio,             MENU_ENUM_SUBLABEL_FASTFORWARD_RATIO)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_fastforward_frameskip,         MENU_ENUM_SUBLABEL_FASTFORWARD_FRAMESKIP)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_vrr_runloop_enable,            MENU_ENUM_SUBLABEL_VRR_RUNLOOP_ENABLE)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_throttle_framerate,       MENU_ENUM_SUBLABEL_MENU_ENUM_THROTTLE_FRAMERATE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_slowmotion_ratio,              MENU_ENUM_SUBLABEL_SLOWMOTION_RATIO)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_run_ahead_unsupported,         MENU_ENUM_SUBLABEL_RUN_AHEAD_UNSUPPORTED)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_run_ahead_enabled,             MENU_ENUM_SUBLABEL_RUN_AHEAD_ENABLED)
@@ -1006,7 +1013,6 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_disk_tray_eject,                    
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_disk_tray_insert,                      MENU_ENUM_SUBLABEL_DISK_TRAY_INSERT)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_disk_index,                            MENU_ENUM_SUBLABEL_DISK_INDEX)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_disk_options,                          MENU_ENUM_SUBLABEL_DISK_OPTIONS)
-DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_throttle_framerate,               MENU_ENUM_SUBLABEL_MENU_ENUM_THROTTLE_FRAMERATE)
 #ifdef HAVE_XMB
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_xmb_layout,                            MENU_ENUM_SUBLABEL_XMB_LAYOUT)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_xmb_icon_theme,                        MENU_ENUM_SUBLABEL_XMB_THEME)
@@ -1229,6 +1235,7 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_gamemode_enable,                MENU
 #endif
 #endif /*HAVE_LAKKA*/
 
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_video_frame_rest,               MENU_ENUM_SUBLABEL_VIDEO_FRAME_REST)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_brightness_control,             MENU_ENUM_SUBLABEL_BRIGHTNESS_CONTROL)
 
 #ifdef _3DS
@@ -3147,9 +3154,6 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_xmb_switch_icons);
 #endif
             break;
-         case MENU_ENUM_LABEL_MENU_THROTTLE_FRAMERATE:
-            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_menu_throttle_framerate);
-            break;
          case MENU_ENUM_LABEL_DISK_IMAGE_APPEND:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_disk_image_append);
             break;
@@ -4068,6 +4072,9 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
          case MENU_ENUM_LABEL_VRR_RUNLOOP_ENABLE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_vrr_runloop_enable);
             break;
+         case MENU_ENUM_LABEL_MENU_THROTTLE_FRAMERATE:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_menu_throttle_framerate);
+            break;
          case MENU_ENUM_LABEL_BLOCK_SRAM_OVERWRITE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_block_sram_overwrite);
             break;
@@ -4508,6 +4515,11 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_audio_mixer_mute);
 #endif
             break;
+#if TARGET_OS_IOS
+         case MENU_ENUM_LABEL_AUDIO_RESPECT_SILENT_MODE:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_audio_respect_silent_mode);
+            break;
+#endif
          case MENU_ENUM_LABEL_AUDIO_FASTFORWARD_MUTE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_audio_fastforward_mute);
             break;
@@ -5001,6 +5013,15 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
          case MENU_ENUM_LABEL_AI_SERVICE_ENABLE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ai_service_enable);
             break;
+         case MENU_ENUM_LABEL_AI_SERVICE_POLL_DELAY:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ai_service_poll_delay);
+            break;
+         case MENU_ENUM_LABEL_AI_SERVICE_TEXT_POSITION:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ai_service_text_position);
+            break;
+         case MENU_ENUM_LABEL_AI_SERVICE_TEXT_PADDING:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ai_service_text_padding);
+            break;
          case MENU_ENUM_LABEL_AI_SERVICE_SETTINGS:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ai_service_settings_list);
             break;
@@ -5213,6 +5234,9 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_gamemode_enable);
             break;
 #endif /*HAVE_LAKKA*/
+         case MENU_ENUM_LABEL_VIDEO_FRAME_REST:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_video_frame_rest);
+            break;
          case MENU_ENUM_LABEL_BRIGHTNESS_CONTROL:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_brightness_control);
             break;

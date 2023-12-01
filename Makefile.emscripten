@@ -2,6 +2,7 @@ HAVE_STATIC_DUMMY ?= 0
 ifeq ($(TARGET),)
 ifeq ($(LIBRETRO),)
 TARGET := retroarch.js
+LIBRETRO = dummy
 else
 TARGET := $(LIBRETRO)_libretro.js
 endif
@@ -48,7 +49,6 @@ HAVE_CORE_INFO_CACHE = 1
 HAVE_7ZIP = 1
 HAVE_BSV_MOVIE = 1
 HAVE_AL = 1
-
 
 # WARNING -- READ BEFORE ENABLING
 # The rwebaudio driver is known to have several audio bugs, such as
@@ -118,18 +118,21 @@ ifeq ($(HAVE_SDL2), 1)
 endif
 
 LIBS    := -s USE_ZLIB=1
-LDFLAGS := -L. --no-heap-copy $(LIBS) -s TOTAL_STACK=$(STACK_MEMORY) -s TOTAL_MEMORY=$(HEAP_MEMORY) -s NO_EXIT_RUNTIME=1 -s EXPORTED_RUNTIME_METHODS="['callMain', 'cwrap', 'getValue', 'FS']" -s EXPORTED_FUNCTIONS=$(EXPORTED_FUNCTIONS) \
+
+LDFLAGS := -L. --no-heap-copy $(LIBS) -s TOTAL_STACK=$(STACK_MEMORY) -s TOTAL_MEMORY=$(HEAP_MEMORY) -s NO_EXIT_RUNTIME=1 -s EXPORTED_RUNTIME_METHODS="['callMain', 'cwrap', 'getValue', 'FS', 'PATH', 'ERRNO_CODES']" -s EXPORTED_FUNCTIONS=$(EXPORTED_FUNCTIONS) \
            -s EXPORTED_FUNCTIONS=['_main','_malloc','_load_state','_ejs_set_variable','_simulate_input','_shader_enable','_get_state_info','_save_state_info','_set_cheat','_cmd_take_screenshot','_system_restart','_cmd_savefiles','_get_core_options','_cmd_save_state','_supports_states','_reset_cheat','_toggleMainLoop','_save_file_path','_get_disk_count','_set_current_disk','_get_current_disk','_refresh_save_files','_toggle_fastforward','_set_ff_ratio','_toggle_slow_motion','_set_sm_ratio','_toggle_rewind','_set_rewind_granularity','_get_current_frame_count','_ejs_set_keyboard_enabled'] \
            -lidbfs.js \
+           -s MODULARIZE=1 -s EXPORT_ES6=1 \
            -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
-           -s DISABLE_DEPRECATED_FIND_EVENT_TARGET_BEHAVIOR=0 \
            -s ALLOW_MEMORY_GROWTH=1 \
            --js-library emscripten/library_rwebcam.js \
            --js-library emscripten/library_errno_codes.js
 
+
 ifneq ($(MEMORY_PADDING), 0)
    LDFLAGS += -s GLOBAL_BASE=$(MEMORY_PADDING)mb
 endif
+
 
 ifeq ($(HAVE_RWEBAUDIO), 1)
    LDFLAGS += --js-library emscripten/library_rwebaudio.js
@@ -177,7 +180,10 @@ else
 endif
 
 ifeq ($(ASYNC), 1)
-   LDFLAGS += -s ASYNCIFY=1 -s ASYNCIFY_STACK_SIZE=131072
+   LDFLAGS += -s ASYNCIFY=$(ASYNC) -s ASYNCIFY_STACK_SIZE=131072
+   ifeq ($(DEBUG), 1)
+     LDFLAGS += -s ASYNCIFY_DEBUG=1 # -s ASYNCIFY_ADVISE
+   endif
 endif
 
 ifeq ($(GENERATE_SOURCEMAP), 1)
@@ -210,8 +216,8 @@ ifneq ($(V), 1)
 endif
 
 ifeq ($(DEBUG), 1)
-   LDFLAGS += -O0 -g -s ASSERTIONS=2
-   CFLAGS += -O0 -g
+   LDFLAGS += -O0 -g -gsource-map -s SAFE_HEAP=1 -s STACK_OVERFLOW_CHECK=2 -s ASSERTIONS=1
+   CFLAGS += -O0 -g -gsource-map -s SAFE_HEAP=1 -s SAFE_HEAP_LOG=1 -s STACK_OVERFLOW_CHECK=2 -s ASSERTIONS=1
 else
    LDFLAGS += -O3
    # WARNING: some optimizations can break some cores (ex: LTO breaks tyrquake)
@@ -221,6 +227,10 @@ else
    endif
    CFLAGS += -O3
 endif
+
+LDFLAGS += -s STACK_SIZE=131072
+
+#LDFLAGS += --extern-pre-js emscripten/pre.js
 
 CFLAGS += -Wall -Wunused-function -Wno-unused-command-line-argument -I. -Ilibretro-common/include -std=gnu99 $(LIBS)
 

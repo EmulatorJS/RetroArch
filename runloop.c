@@ -1996,8 +1996,9 @@ bool runloop_environment_cb(unsigned cmd, void *data)
          break;
 
       case RETRO_ENVIRONMENT_GET_SAVE_DIRECTORY:
-         RARCH_LOG("[Environ]: GET_SAVE_DIRECTORY.\n");
          *(const char**)data = runloop_st->savefile_dir;
+         RARCH_LOG("[Environ]: SAVE_DIRECTORY: \"%s\".\n",
+               runloop_st->savefile_dir);
          break;
 
       case RETRO_ENVIRONMENT_GET_USERNAME:
@@ -4082,9 +4083,14 @@ void runloop_event_deinit_core(void)
       av_info->timing.fps = video_st->video_refresh_rate_original;
       video_display_server_restore_refresh_rate();
    }
+
    /* Recalibrate frame delay target */
    if (settings->bools.video_frame_delay_auto)
       video_st->frame_delay_target = 0;
+
+   /* Reset frame rest counter */
+   if (settings->bools.video_frame_rest)
+      video_st->frame_rest_time_count = video_st->frame_rest = 0;
 
    driver_uninit(DRIVERS_CMD_ALL, 0);
 
@@ -4250,13 +4256,10 @@ static bool event_init_content(
 
    content_set_subsystem_info();
 
-   /* If core is contentless, just initialise SRAM
-    * interface, otherwise fill all content-related
-    * paths */
    if (flags & CONTENT_ST_FLAG_CORE_DOES_NOT_NEED_CONTENT)
       runloop_path_init_savefile_internal(runloop_st);
-   else
-      runloop_path_fill_names();
+
+   runloop_path_fill_names();
 
    if (!content_init())
       return false;
@@ -4399,6 +4402,7 @@ void runloop_set_video_swap_interval(
       bool vrr_runloop_enable,
       bool crt_switching_active,
       unsigned swap_interval_config,
+      unsigned black_frame_insertion,
       float audio_max_timing_skew,
       float video_refresh_rate,
       double input_fps)
@@ -4425,11 +4429,13 @@ void runloop_set_video_swap_interval(
     * > If core fps is higher than display refresh rate,
     *   set swap interval to 1
     * > If core fps or display refresh rate are zero,
-    *   set swap interval to 1 */
+    *   set swap interval to 1
+    * > If BFI is active set swap interval to 1 */
    if (   (vrr_runloop_enable)
        || (core_hz    > timing_hz)
        || (core_hz   <= 0.0f)
-       || (timing_hz <= 0.0f))
+       || (timing_hz <= 0.0f)
+       || (black_frame_insertion))
    {
       runloop_st->video_swap_interval_auto = 1;
       return;
@@ -4628,7 +4634,7 @@ bool runloop_event_init_core(
             type, &runloop_st->current_core, NULL, NULL))
       return false;
 #ifdef HAVE_RUNAHEAD
-   /* remember last core type created, so creating a
+   /* Remember last core type created, so creating a
     * secondary core will know what core type to use. */
    runloop_st->last_core_type              = type;
 #endif
@@ -4687,7 +4693,7 @@ bool runloop_event_init_core(
          settings, &runloop_st->fastmotion_override.current);
 
 #ifdef HAVE_CHEEVOS
-   /* assume the core supports achievements unless it tells us otherwise */
+   /* Assume the core supports achievements unless it tells us otherwise */
    rcheevos_set_support_cheevos(true);
 #endif
 
@@ -4698,9 +4704,13 @@ bool runloop_event_init_core(
    runloop_st->shader_delay_timer.timer_end   = false; /* not expired */
 #endif
 
-   /* reset video format to libretro's default */
+   /* Reset video format to libretro's default */
    video_st->pix_fmt = RETRO_PIXEL_FORMAT_0RGB1555;
 
+   /* Set save redirection paths */
+   runloop_path_set_redirect(settings, old_savefile_dir, old_savestate_dir);
+
+   /* Set core environment */
    runloop_st->current_core.retro_set_environment(runloop_environment_cb);
 
    /* Load any input remap files
@@ -4716,9 +4726,6 @@ bool runloop_event_init_core(
    if (auto_remaps_enable)
       config_load_remap(dir_input_remapping, &runloop_st->system);
 #endif
-
-   /* Per-core saves: reset redirection paths */
-   runloop_path_set_redirect(settings, old_savefile_dir, old_savestate_dir);
 
    video_st->frame_cache_data              = NULL;
 
@@ -4866,6 +4873,16 @@ void runloop_path_fill_names(void)
       strlcpy(runloop_st->name.ips       + len,
             ".ips",
             sizeof(runloop_st->name.ips) - len);
+   }
+
+   if (string_is_empty(runloop_st->name.xdelta))
+   {
+      size_t len = strlcpy(runloop_st->name.xdelta,
+            runloop_st->runtime_content_path_basename,
+            sizeof(runloop_st->name.xdelta));
+      strlcpy(runloop_st->name.xdelta       + len,
+            ".xdelta",
+            sizeof(runloop_st->name.xdelta) - len);
    }
 }
 
@@ -6004,8 +6021,7 @@ static enum runloop_state_enum runloop_check_state(
             menu->state               = 0;
          }
 
-         if (settings->bools.audio_enable_menu
-               && !libretro_running)
+         if (!libretro_running)
             audio_driver_menu_sample();
       }
 
@@ -6201,15 +6217,7 @@ static enum runloop_state_enum runloop_check_state(
 #ifdef HAVE_MENU
    /* Stop checking the rest of the hotkeys if menu is alive */
    if (menu_st->flags & MENU_ST_FLAG_ALIVE)
-   {
-      float fastforward_ratio = runloop_get_fastforward_ratio(settings,
-            &runloop_st->fastmotion_override.current);
-
-      if (!settings->bools.menu_throttle_framerate && !fastforward_ratio)
-         return RUNLOOP_STATE_MENU_ITERATE;
-
-      return RUNLOOP_STATE_END;
-   }
+      return RUNLOOP_STATE_MENU;
 #endif
 
 #ifdef HAVE_NETWORKING
@@ -6796,7 +6804,7 @@ static enum runloop_state_enum runloop_check_state(
    }
 
    if (menu_was_alive)
-      return RUNLOOP_STATE_END;
+      return RUNLOOP_STATE_MENU;
 
    return RUNLOOP_STATE_ITERATE;
 }
@@ -6826,8 +6834,6 @@ int runloop_iterate(void)
 #endif
    settings_t *settings                         = config_get_ptr();
    runloop_state_t *runloop_st                  = &runloop_state;
-   unsigned video_frame_delay                   = settings->uints.video_frame_delay;
-   unsigned video_frame_delay_effective         = video_st->frame_delay_effective;
    bool vrr_runloop_enable                      = settings->bools.vrr_runloop_enable;
    unsigned max_users                           = settings->uints.input_max_users;
    retro_time_t current_time                    = cpu_features_get_time_usec();
@@ -6955,7 +6961,7 @@ int runloop_iterate(void)
 #endif
          video_driver_cached_frame();
          return 1;
-      case RUNLOOP_STATE_END:
+      case RUNLOOP_STATE_MENU:
 #ifdef HAVE_NETWORKING
 #ifdef HAVE_MENU
          /* FIXME: This is an ugly way to tell Netplay this... */
@@ -6965,13 +6971,29 @@ int runloop_iterate(void)
             netplay_driver_ctl(RARCH_NETPLAY_CTL_PAUSE, NULL);
 #endif
 #endif
-         goto end;
-      case RUNLOOP_STATE_MENU_ITERATE:
-#ifdef HAVE_NETWORKING
-         /* FIXME: This is an ugly way to tell Netplay this... */
-         netplay_driver_ctl(RARCH_NETPLAY_CTL_PAUSE, NULL);
+#ifdef HAVE_MENU
+         /* Rely on vsync throttling unless VRR is enabled and menu throttle is disabled. */
+         if (vrr_runloop_enable && !settings->bools.menu_throttle_framerate)
+            return 0;
+         else if (settings->bools.video_vsync)
+            goto end;
+
+         /* Otherwise run menu in video refresh rate speed. */
+         if (menu_state_get_ptr()->flags & MENU_ST_FLAG_ALIVE)
+         {
+            float refresh_rate = (video_st->video_refresh_rate_original)
+                  ? video_st->video_refresh_rate_original : settings->floats.video_refresh_rate;
+
+            runloop_st->frame_limit_minimum_time = (retro_time_t)roundf(1000000.0f / refresh_rate);
+         }
+         else
+            runloop_set_frame_limit(&video_st->av_info, settings->floats.fastforward_ratio);
 #endif
-         return 0;
+#ifdef HAVE_CHEEVOS
+         if (cheevos_enable)
+            rcheevos_idle();
+#endif
+         goto end;
       case RUNLOOP_STATE_ITERATE:
          runloop_st->flags       |= RUNLOOP_FLAG_CORE_RUNNING;
          break;
@@ -7064,91 +7086,6 @@ int runloop_iterate(void)
       }
    }
 
-   /* Frame delay */
-   if (     !(input_st->flags & INP_FLAG_NONBLOCKING)
-         || (runloop_st->flags & RUNLOOP_FLAG_FASTMOTION))
-   {
-      bool skip_delay = core_paused
-            || (runloop_st->flags & RUNLOOP_FLAG_SLOWMOTION)
-            || (runloop_st->flags & RUNLOOP_FLAG_FASTMOTION);
-
-      if (settings->bools.video_frame_delay_auto)
-      {
-         float refresh_rate          = settings->floats.video_refresh_rate;
-         uint8_t video_swap_interval = runloop_get_video_swap_interval(
-               settings->uints.video_swap_interval);
-         uint8_t video_bfi           = settings->uints.video_black_frame_insertion;
-         uint8_t frame_time_interval = 8;
-         static uint8_t skip_update  = 0;
-         static bool skip_delay_prev = false;
-         bool frame_time_update      =
-               /* Skip some initial frames for stabilization */
-                  video_st->frame_count > frame_time_interval
-               /* Only update when there are enough frames for averaging */
-               && video_st->frame_count % frame_time_interval == 0;
-
-         /* A few frames must be ignored after slow+fastmotion/pause
-          * is disabled or geometry change is triggered */
-         if (     (!skip_delay && skip_delay_prev)
-               || video_st->frame_delay_pause)
-         {
-            skip_update = frame_time_interval * 4;
-            video_st->frame_delay_pause = false;
-         }
-
-         if (skip_update)
-            skip_update--;
-
-         skip_delay_prev = skip_delay;
-
-         /* Always skip when slow+fastmotion/pause is active */
-         if (skip_delay_prev)
-            skip_update = 1;
-
-         if (skip_update)
-            frame_time_update = false;
-
-         /* Black frame insertion + swap interval multiplier */
-         refresh_rate = (refresh_rate / (video_bfi + 1.0f) / video_swap_interval);
-
-         /* Set target moderately as half frame time with 0 (Auto) delay */
-         if (video_frame_delay == 0)
-            video_frame_delay = 1 / refresh_rate * 1000 / 2;
-
-         /* Reset new desired delay target */
-         if (video_st->frame_delay_target != video_frame_delay)
-         {
-            frame_time_update             = false;
-            video_st->frame_delay_target  = video_frame_delay_effective = video_frame_delay;
-            RARCH_LOG("[Video]: Frame delay reset to %d ms.\n", video_frame_delay);
-         }
-
-         /* Decide what should happen to effective delay */
-         if (video_frame_delay_effective > 0 && frame_time_update)
-         {
-            video_frame_delay_auto_t vfda   = {0};
-            vfda.frame_time_interval        = frame_time_interval;
-            vfda.refresh_rate               = refresh_rate;
-
-            video_frame_delay_auto(video_st, &vfda);
-            if (vfda.delay_decrease > 0)
-            {
-               video_frame_delay_effective -= vfda.delay_decrease;
-               RARCH_LOG("[Video]: Frame delay decrease by %d ms to %d ms due to frame time average: %d > %d.\n",
-                     vfda.delay_decrease, video_frame_delay_effective, vfda.frame_time_avg, vfda.frame_time_target);
-            }
-         }
-      }
-      else
-         video_st->frame_delay_target = video_frame_delay_effective = video_frame_delay;
-
-      video_st->frame_delay_effective = video_frame_delay_effective;
-
-      /* Never apply frame delay when slow+fastmotion/pause is active */
-      if (video_frame_delay_effective > 0 && !skip_delay)
-         retro_sleep(video_frame_delay_effective);
-   }
-
    {
 #ifdef HAVE_RUNAHEAD
       bool run_ahead_enabled            = settings->bools.run_ahead_enabled;
@@ -7232,6 +7169,11 @@ int runloop_iterate(void)
       autosave_unlock();
 #endif
 
+   /* Frame delay */
+   if (     !(input_st->flags & INP_FLAG_NONBLOCKING)
+         || (runloop_st->flags & RUNLOOP_FLAG_FASTMOTION))
+      video_frame_delay(video_st, settings, core_paused);
+
 end:
    if (vrr_runloop_enable)
    {
@@ -7270,8 +7212,7 @@ end:
                runloop_get_fastforward_ratio(settings,
                   &runloop_st->fastmotion_override.current));
       else
-         runloop_set_frame_limit(&video_st->av_info,
-               1.0f);
+         runloop_set_frame_limit(&video_st->av_info, 1.0f);
    }
 
    /* if there's a fast forward limit, inject sleeps to keep from going too fast. */
@@ -7304,6 +7245,11 @@ end:
 
       runloop_st->frame_limit_last_time = end_frame_time;
    }
+
+   /* Post-frame power saving sleep resting */
+   if (      settings->bools.video_frame_rest
+         && !(input_st->flags & INP_FLAG_NONBLOCKING))
+      video_frame_rest(video_st, settings, current_time);
 
    /* Set paused state after x frames */
    if (runloop_st->run_frames_and_pause > 0)

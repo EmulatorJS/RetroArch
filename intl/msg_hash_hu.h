@@ -1925,10 +1925,6 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FILTER_REMOVE,
    "Aktív CPU alapú videoszűrők eltávolítása."
    )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_NOTCH_WRITE_OVER,
-   "A teljes képernyő kiterjesztése a bevágásra Android eszközökön"
-)
 
 /* Settings > Video > CRT SwitchRes */
 
@@ -6368,7 +6364,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_WALLPAPER,
-   "Háttérkép beállítása a menühöz."
+   "A menu hátterében látható kép. A kézzel vagy dinamikusan megadott képek felülírják a színtémát."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_WALLPAPER_OPACITY,
@@ -6461,9 +6457,9 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_MODE,
    "Az AI szolgáltatás eredménye"
    )
-MSG_HASH( /* FIXME What does the Narrator mode do? */
+MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_MODE,
-   "A fordítást szöveges rátétként jelenítse-e meg (Kép mód), vagy olvassa fel (Beszéd mód)."
+   "Fordítás megjelenítése képrátétként (Kép mód), közvetlen hangként (Beszéd), felolvasott szöveként (Narrátor), vagy szöveges rátétként (Szöveg)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_URL,
@@ -6504,6 +6500,30 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_TARGET_LANG,
    "A fordítási szolgáltatás célnyelve. \"Alapértelmezett\" az angol."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_POLL_DELAY,
+   "Az AI szolgáltatás lekérdezési késleltetése"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AI_SERVICE_POLL_DELAY,
+   "Az automatikus hívások közti minimális késleltetés. Lassítja a reakcióidőt, de növeli a CPU teljesítményt."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION,
+   "Az AI szolgáltatás szöveg helyzetének felülbírálata"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_POSITION,
+   "A rátét pozíciójának felülbírálása, amikor a szolgáltatás Szöveges módban van."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_PADDING,
+   "Az AI szolgáltatás szövegének kitöltése (%)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_PADDING,
+   "A szöveges rátét függőleges kitöltése, amikor a szolgáltatás Szöveges módban van. Nagyobb kitöltés a szöveget a képernyő közepe felé mozdítja."
    )
 
 /* Settings > Accessibility */
@@ -9164,7 +9184,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET,
-   "Betöltés"
+   "Preset betöltése"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET,
@@ -9176,23 +9196,23 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_PREPEND,
-   "Hozzáadás az elejére"
+   "Preset beszúrása az elejére"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_PREPEND,
-   "A preset beszúrása a jelenleg betöltött elé"
+   "A preset beszúrása a jelenleg betöltött elé."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_APPEND,
-   "Hozzáadás a végére"
+   "Preset hozzáadás a végére"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_APPEND,
-   "A preset beszúrása a jelenleg betöltött mögé"
+   "A preset beszúrása a jelenleg betöltött mögé."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_SAVE,
-   "Mentés"
+   "Preset mentése"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_SAVE,
@@ -9200,7 +9220,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE,
-   "Eltávolítás"
+   "Preset eltávolítása"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_REMOVE,
@@ -9699,6 +9719,26 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_NARRATOR_MODE,
    "Narrátor mód"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_MODE,
+   "Szöveges mód"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_NARRATOR_MODE,
+   "Szöveg + narrátor"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_IMAGE_NARRATOR_MODE,
+   "Kép + narrátor"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_BOTTOM,
+   "Felfordítás"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_TOP,
+   "Felül"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_REMOVE_ENABLE_HIST_FAV,
@@ -11693,7 +11733,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN_MUSIC,
-   "Futtatás"
+   "Lejátszás a médialejátszóval"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SECONDS,
@@ -12232,6 +12272,22 @@ MSG_HASH( /* FIXME Should be MSG_ */
    "Mag telepítése sikertelen"
    )
 MSG_HASH(
+   MSG_AI_VIDEO_DRIVER_NOT_SUPPORTED,
+   "Az AI szolgáltatás nem támogatja ezt a videomeghajtót."
+   )
+MSG_HASH(
+   MSG_AI_AUTO_MODE_ENABLED,
+   "Automatikus fordítás engedélyezve."
+   )
+MSG_HASH(
+   MSG_AI_AUTO_MODE_DISABLED,
+   "Automatikus fordítás letiltva."
+   )
+MSG_HASH(
+   MSG_AI_NOTHING_TO_TRANSLATE,
+   "Nincs mit lefordítani."
+   )
+MSG_HASH(
    MSG_CHEAT_DELETE_ALL_INSTRUCTIONS,
    "Nyomja meg a jobbra gombot ötször minden csalás törléséhez."
    )
@@ -12687,6 +12743,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_CONTENT_CRC32S_DIFFER,
    "A tartalmak CRC32-je eltér. Nem lehet eltérő játékokat használni."
+   )
+MSG_HASH(
+   MSG_CONTENT_NETPACKET_CRC32S_DIFFER,
+   "A kiszolgáló eltérő játékot futtat."
    )
 MSG_HASH(
    MSG_PING_TOO_HIGH,
@@ -14333,6 +14393,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_GAMEMODE_ENABLE,
    "A Linux GameMode engedélyezése segíthet a késleltetésen, megjavíthatja a hang recsegését és az általános teljesítményt maximalizálhatja, a CPU és a GPU konfigurálásával a legjobb teljesítményhez.\nA GameMode programot ehhez telepíteni kell. A GameMode telepítési információi: https://github.com/FeralInteractive/gamemode."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_REST,
+   "Képkocka pihentetés"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_FRAME_REST,
+   "A függőleges szinkron CPU használatának csökkentése, a képmegjelenítés után alvó módba állítás, ameddig csak lehetséges. Elsősorban külső scanline szinkronizáló programokhoz."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PAL60_ENABLE,
