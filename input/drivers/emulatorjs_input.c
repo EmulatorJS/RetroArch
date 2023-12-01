@@ -326,7 +326,7 @@ static EM_BOOL rwebinput_touch_cb(int event_type,
 {
    rwebinput_input_t       *rwebinput = (rwebinput_input_t*)user_data;
    rwebinput_touch_t       *touch_handler = &rwebinput->touch;
-   
+
    EmscriptenTouchPoint changed_touch;
    bool touch_changed = false;
    for (int i=0; i<touch_event->numTouches; i++) {
@@ -351,7 +351,7 @@ static EM_BOOL rwebinput_touch_cb(int event_type,
          touch_handler->last_touchdown_id = -1;
       }
    }
-   
+
    if (event_type == EMSCRIPTEN_EVENT_TOUCHCANCEL || event_type == EMSCRIPTEN_EVENT_TOUCHEND) {
       if (changed_touch.identifier == touch_handler->touch_id) {
          touch_handler->down = false;
@@ -377,7 +377,7 @@ static EM_BOOL rwebinput_touch_cb(int event_type,
       long diffY = changed_touch.canvasY - touch_handler->last_canvasY;
       touch_handler->last_canvasX = changed_touch.canvasX;
       touch_handler->last_canvasY = changed_touch.canvasY;
-       
+
 #ifdef WEB_SCALING
       double dpr = emscripten_get_device_pixel_ratio();
       rwebinput->mouse.x                = (long)(changed_touch.canvasX * dpr);
@@ -390,10 +390,10 @@ static EM_BOOL rwebinput_touch_cb(int event_type,
       rwebinput->mouse.pending_delta_x += diffX;
       rwebinput->mouse.pending_delta_y += diffY;
 #endif
-       
+
       //printf("diff: %li\n", diffX);
    }
-   
+
    return EM_TRUE;
 }
 
@@ -434,57 +434,57 @@ static void *rwebinput_input_init(const char *joypad_driver)
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create keypress callback: %d\n", r);
    }
-   
-   r = emscripten_set_mousedown_callback("#canvas", rwebinput, false, rwebinput_mouse_cb);
+
+   r = emscripten_set_mousedown_callback("!canvas", rwebinput, false, rwebinput_mouse_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create mousedown callback: %d\n", r);
    }
 
-   r = emscripten_set_mouseup_callback("#canvas", rwebinput, false, rwebinput_mouse_cb);
+   r = emscripten_set_mouseup_callback("!canvas", rwebinput, false, rwebinput_mouse_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create mouseup callback: %d\n", r);
    }
 
-   r = emscripten_set_mousemove_callback("#canvas", rwebinput, false, rwebinput_mouse_cb);
+   r = emscripten_set_mousemove_callback("!canvas", rwebinput, false, rwebinput_mouse_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create mousemove callback: %d\n", r);
    }
 
-   r = emscripten_set_wheel_callback("#canvas", rwebinput, false, rwebinput_wheel_cb);
+   r = emscripten_set_wheel_callback("!canvas", rwebinput, false, rwebinput_wheel_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create wheel callback: %d\n", r);
    }
 
-   r = emscripten_set_touchstart_callback("#canvas", rwebinput, false, rwebinput_touch_cb);
+   r = emscripten_set_touchstart_callback("!canvas", rwebinput, false, rwebinput_touch_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create wheel callback: %d\n", r);
    }
-   
-   r = emscripten_set_touchend_callback("#canvas", rwebinput, false, rwebinput_touch_cb);
+
+   r = emscripten_set_touchend_callback("!canvas", rwebinput, false, rwebinput_touch_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create wheel callback: %d\n", r);
    }
-   
-   r = emscripten_set_touchmove_callback("#canvas", rwebinput, false, rwebinput_touch_cb);
+
+   r = emscripten_set_touchmove_callback("!canvas", rwebinput, false, rwebinput_touch_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create wheel callback: %d\n", r);
    }
-   
-   r = emscripten_set_touchcancel_callback("#canvas", rwebinput, false, rwebinput_touch_cb);
+
+   r = emscripten_set_touchcancel_callback("!canvas", rwebinput, false, rwebinput_touch_cb);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
@@ -679,7 +679,7 @@ static int16_t rwebinput_input_state(
          break;
       case RETRO_DEVICE_ANALOG: {
             int rv = 0;
-            
+
             int id_minus_key      = 0;
             int id_plus_key       = 0;
             unsigned id_minus     = 0;
@@ -704,7 +704,7 @@ static int16_t rwebinput_input_state(
             }
             if (id_minus_valid && id_minus_key < RETROK_LAST)
             {
-               if (rwebinput_is_pressed(rwebinput, 
+               if (rwebinput_is_pressed(rwebinput,
                         binds[port], idx, id_minus,
                         keyboard_mapping_blocked))
                   ret += -0x7fff;
@@ -732,10 +732,10 @@ static int16_t rwebinput_input_state(
          if (idx == 0)
          {
             struct video_viewport vp;
-            rwebinput_mouse_state_t 
+            rwebinput_mouse_state_t
                *mouse                   = &rwebinput->mouse;
             const int edge_detect       = 32700;
-            bool screen                 = device == 
+            bool screen                 = device ==
                RARCH_DEVICE_POINTER_SCREEN;
             bool inside                 = false;
             int16_t res_x               = 0;
@@ -761,7 +761,7 @@ static int16_t rwebinput_input_state(
                res_y = res_screen_y;
             }
 
-            inside =    (res_x >= -edge_detect) 
+            inside =    (res_x >= -edge_detect)
                && (res_y >= -edge_detect)
                && (res_x <= edge_detect)
                && (res_y <= edge_detect);
@@ -808,15 +808,15 @@ static void rwebinput_process_keyboard_events(
    uint32_t keycode;
    unsigned translated_keycode;
    const EmscriptenKeyboardEvent *key_event = &event->event;
-   bool keydown                             = 
+   bool keydown                             =
       event->type == EMSCRIPTEN_EVENT_KEYDOWN;
 
    keycode = encoding_crc32(0, (const uint8_t *)key_event->code,
       strnlen(key_event->code, sizeof(key_event->code)));
    translated_keycode = input_keymaps_translate_keysym_to_rk(keycode);
 
-   
-   if (     translated_keycode  < RETROK_LAST 
+
+   if (     translated_keycode  < RETROK_LAST
          && translated_keycode != RETROK_UNKNOWN)
       rwebinput->keys[translated_keycode] = keydown;
 }
