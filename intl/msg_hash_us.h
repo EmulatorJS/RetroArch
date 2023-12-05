@@ -1514,7 +1514,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
-   "The udev input driver uses the recent evdev joypad API for joystick support. It supports hotplugging and force feedback.\nThe driver reads evdev events for keyboard support. It also supports keyboard callback, mice and touchpads.\nBy default in most distros, /dev/input nodes are root-only (mode 600). You can set up a udev rule which makes these accessible to non-root."
+   "The udev driver reads evdev events for keyboard support. It also supports keyboard callback, mice and touchpads.\nBy default in most distros, /dev/input nodes are root-only (mode 600). You can set up a udev rule which makes these accessible to non-root."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
@@ -1532,6 +1532,35 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
    "Controller driver to use."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
+   "DirectInput controller driver."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_HID,
+   "Low-level Human Interface Device driver."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_LINUXRAW,
+   "Raw Linux driver, uses legacy joystick API. Use udev instead if possible."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_PARPORT,
+   "Linux driver for controllers connected parallel port via special adapters."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_SDL,
+   "Controller driver based on SDL libraries."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_UDEV,
+   "Controller driver with udev interface, generally recommended. Uses the recent evdev joypad API for joystick support. It supports hotplugging and force feedback.\nBy default in most distros, /dev/input nodes are root-only (mode 600). You can set up a udev rule which makes these accessible to non-root."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_XINPUT,
+   "XInput controller driver. Mostly for XBox controllers."
+   )
+
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DRIVER,
    "Video"
@@ -9691,6 +9720,22 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_ACHIEVEMENT_RESUME,
    "Resume achievements hardcore mode for the current session. This action will disable cheats, rewind, slow-motion, and loading save states and reset the current game."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "RetroAchievements server is unreachable"
+)
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "One or more achievement unlocks did not make it to the server. The unlocks will be retried as long as you leave the app open."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_DISCONNECTED,
+   "RetroAchievements server is unreachable. Will retry until successful or the app is closed."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_RECONNECTED,
+   "All pending requests have succesfully been synced to the RetroAchievements server."
+)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOT_LOGGED_IN,
    "Not logged in"

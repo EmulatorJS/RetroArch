@@ -1482,7 +1482,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
-   "Udev giriş sürücüsü, joystick desteği için en son evdev joypad API kullanır. Çalışırken takmayı ve zorla geri bildirimi destekler.\nSürücü, klavye desteği için evdev olaylarını okur. Ayrıca klavye geri aramasını, fareleri ve dokunmatik yüzeyleri destekler.\nÇoğu dağıtımda varsayılan olarak, /dev/input düğümleri yalnızca root olur (mod 600). Bunları root olmayanlar için erişilebilir kılan bir udev kuralı oluşturabilirsiniz."
+   "Udev sürücüsü, klavye desteği olaylarını okur. Ayrıca klavye geri çağırmayı, fareleri ve dokunmatik yüzeyleri de destekler.\nÇoğu dağıtımda varsayılan olarak, /dev/input düğümleri yalnızca root (mod 600). Bunları root olmayanlar için erişilebilir kılan bir udev kuralı oluşturabilirsiniz."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
@@ -1500,6 +1500,35 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
    "Kullanılacak kontrolcü sürücüsü."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
+   "DirectInput kontrolcü sürücüsü."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_HID,
+   "Düşük Seviyeli İnsan Arayüzü Aygıtı sürücüsü."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_LINUXRAW,
+   "Ham Linux sürücüsü, eski joystick API kullanır. Mümkünse bunun yerine udev kullanın."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_PARPORT,
+   "Özel adaptörler aracılığıyla paralel bağlantı noktasına bağlanan kontrolcüler için Linux sürücüsü."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_SDL,
+   "SDL kitaplıklarını temel alan kontrolcü sürücüsü."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_UDEV,
+   "Udev arayüzlü kotrolcü sürücüsü, genellikle önerilir. Joystick desteği için en yeni evdev joypad API kullanır. Çalışırken takmayı ve zorla geri bildirimi destekler.\nÇoğu dağıtımda varsayılan olarak, /dev/input düğümleri yalnızca root (mod 600). Bunları root olmayanlar için erişilebilir kılan bir udev kuralı oluşturabilirsiniz."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_XINPUT,
+   "XInput kontrolcü sürücüsü. Çoğunlukla XBox kontrolcüleri için."
+   )
+
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DRIVER,
    "Kullanılacak video sürücüsü."
@@ -9531,6 +9560,22 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_ACHIEVEMENT_RESUME,
    "Mevcut oturum için başarıları zorlu kipte devam ettirin. Bu eylem, hileleri, geri sarmayı, ağır çekimi ve durum kaydı yüklemesini devre dışı bırakır ve mevcut oyunu sıfırlar."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "RetroAchievements sunucusuna erişilemiyor"
+)
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "Bir veya daha fazla başarının kilidi sunucuya ulaşmadı. Uygulamayı açık bıraktığınız sürece kilit açma işlemleri yeniden denenecektir."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_DISCONNECTED,
+   "RetroAchievements sunucusuna erişilemiyor. Başarılı oluncaya veya uygulama kapatılıncaya kadar yeniden denenecek."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_RECONNECTED,
+   "Bekleyen tüm istekler RetroAchievements sunucusuyla başarıyla eşitlendi."
+)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOT_LOGGED_IN,
    "Giriş yapmadınız"

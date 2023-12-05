@@ -1493,10 +1493,6 @@ MSG_HASH(
    "Используемый драйвер устройств ввода. Может быть принудительно изменён отдельными видеодрайверами."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
-   "Драйвер ввода udev использует для поддержки геймпадов последнюю версию evdev API. Он поддерживает горячее подключение и обратную связь.\nДля поддержки клавиатур драйвер считывает события evdev. Также поддерживаются обратный вызов клавиатуры, мышки и тачпады.\nПо умолчанию узлы /dev[...]"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
    "Драйвер ввода linuxraw требует активный TTY. События клавиатуры считываются напрямую с TTY, что делает драйвер более простым, но не таким гибким как udev. Поддержка мышек и пр. полностью отсутствует. В драйвере используется старый API контроллеров (/dev/input/js*)."
    )
@@ -1512,6 +1508,7 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
    "Используемый драйвер контроллера."
    )
+
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DRIVER,
    "Видео"
@@ -9555,6 +9552,22 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_ACHIEVEMENT_RESUME,
    "Возобновляет достижения в режиме хардкора для текущего сеанса. Данное действие отключит чит-коды, перемотку, замедление, загрузку сохранений и перезапустит игру."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "Нет связи с сервером RetroAchievements"
+)
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "Одно или несколько открытых достижений не были обработаны сервером. Попытки будут продолжаться до выхода из приложения."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_DISCONNECTED,
+   "Нет связи с сервером RetroAchievements. Попытки будут продолжаться до выхода из приложения."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_RECONNECTED,
+   "Все необработанные запросы успешно синхронизированы с сервером RetroAchievements."
+)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOT_LOGGED_IN,
    "Вход не выполнен"

@@ -1485,10 +1485,6 @@ MSG_HASH(
    "Selecciona el controlador de entrada que se utilizará. Algunos controladores de vídeo pueden forzar el uso de otro distinto."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
-   "El controlador de entrada udev utiliza la API evdev más reciente para dar soporte para mandos. Es compatible con conexiones en caliente y vibración.\nEl controlador lee los eventos evdev para ser compatible con teclados. También es compatible con devoluciones de llamada de teclado, ratones y pantallas táctiles.\nLa mayoría de las distros tienen los nodos /dev/input en modo solo root (modo 600) de forma predeterminada. Puedes configurar una regla udev que los haga accesibles a otros usuarios[...]"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
    "El controlador de entrada linuxraw necesita un TTY activo. Los eventos de teclado se leen directamente desde el TTY, lo que es más simple pero no tan flexible como udev. No es compatible con ratones, etc. Este controlador utiliza la antigua API de mandos (/dev/input/js*)."
    )
@@ -1504,6 +1500,7 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
    "Selecciona el controlador de mandos que se utilizará."
    )
+
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DRIVER,
    "Vídeo"
@@ -9511,6 +9508,22 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_ACHIEVEMENT_RESUME,
    "Reanuda el modo Hardcore de los logros en esta sesión. Se desactivarán los trucos, el rebobinado, la pausa, la cámara lenta, el uso de guardados rápidos y se reiniciará la partida actual."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "El servidor de RetroAchievements no está disponible"
+)
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "Uno o más desbloqueos de logros no han sido comunicados al servidor. Se intentará reenviar la información mientras mantengas la aplicación abierta."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_DISCONNECTED,
+   "El servidor de RetroAchievements no está disponible. Se intentará reenviar la información hasta que se confirme su llegada o hasta que se cierre la aplicación."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_RECONNECTED,
+   "Todas las solicitudes pendientes han sido sincronizadas con el servidor de RetroAchievements."
+)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOT_LOGGED_IN,
    "No se ha iniciado sesión"
