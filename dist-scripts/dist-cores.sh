@@ -299,7 +299,7 @@ for f in `ls -v *_${platform}.${EXT}`; do
       if [ $MAKEFILE_GRIFFIN = "yes" ]; then
          make -C ../ -f Makefile.griffin platform=${platform} clean || exit 1
       elif [ $PLATFORM = "emscripten" ]; then
-         make -C ../ -f Makefile.emscripten PTHREAD=$pthread ASYNC=$async LTO=$lto WASM=$wasm -j7 clean || exit 1
+         make -C ../ -f Makefile.emscripten PTHREAD=$pthread ASYNC=$async LTO=$lto WASM=$wasm -j$(nproc) clean || exit 1
       elif [ $PLATFORM = "unix" ]; then
          make -C ../ -f Makefile LINK=g++ LTO=$lto -j7 clean || exit 1
       else
@@ -312,7 +312,7 @@ for f in `ls -v *_${platform}.${EXT}`; do
       make -C ../ -f Makefile.griffin $OPTS platform=${platform} $whole_archive $big_stack -j3 || exit 1
    elif [ $PLATFORM = "emscripten" ]; then
        echo "BUILD COMMAND: make -C ../ -f Makefile.emscripten $OPTS PTHREAD=$pthread ASYNC=$async WASM=$wasm  LTO=$lto HAVE_OPENGLES3=$gles3 STACK_MEMORY=$stack_mem HEAP_MEMORY=$heap_mem MEMORY_PADDING=$memory_padding -j7 TARGET=${name}_libretro.js"
-       make -C ../ -f Makefile.emscripten $OPTS PTHREAD=$pthread ASYNC=$async WASM=$wasm LTO=$lto HAVE_OPENGLES3=$gles3 STACK_MEMORY=$stack_mem HEAP_MEMORY=$heap_mem -j7 TARGET=${name}_libretro.js || exit 1
+       make -C ../ -f Makefile.emscripten $OPTS PTHREAD=$pthread ASYNC=$async WASM=$wasm LTO=$lto HAVE_OPENGLES3=$gles3 STACK_MEMORY=$stack_mem HEAP_MEMORY=$heap_mem -j$(nproc) TARGET=${name}_libretro.js || exit 1
    elif [ $PLATFORM = "unix" ]; then
       make -C ../ -f Makefile LINK=g++ $whole_archive $big_stack -j3 || exit 1
    elif [ $PLATFORM = "ctr" ]; then
