@@ -124,6 +124,7 @@ LDFLAGS := -L. --no-heap-copy $(LIBS) -s TOTAL_STACK=$(STACK_MEMORY) -s TOTAL_ME
            -lidbfs.js \
            -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
            -s ALLOW_MEMORY_GROWTH=1 \
+           -s GL_ENABLE_GET_PROC_ADDRESS=1 \
            --js-library emscripten/library_rwebcam.js \
            --js-library emscripten/library_errno_codes.js
 
