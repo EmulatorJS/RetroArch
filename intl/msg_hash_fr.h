@@ -1480,6 +1480,30 @@ MSG_HASH(
    MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
    "Pilote de manettes DirectInput."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_HID,
+   "Pilote de dispositif d'interface humaine de bas niveau."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_LINUXRAW,
+   "Le pilote Linux brut, utilise une API manette obsolète. Utilisez udev à la place si possible."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_PARPORT,
+   "Pilote Linux pour manettes connectées au port parallèle via des adaptateurs spéciaux."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_SDL,
+   "Pilote de manettes basé sur les bibliothèques SDL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_UDEV,
+   "Pilote de manettes avec l'interface udev, généralement recommandé. Utilise l'API manettes récente d'evdev pour le support des manettes. Il prend en charge le branchement à chaud et le retour de force.\nPar défaut dans la plupart des distributions, les nœuds /dev/input sont en mode root-uniquement (mode 600). Vous pouvez mettre en place une règle udev qui rend ceux-ci accessibles en mode non-root."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_XINPUT,
+   "Pilote de manettes XInput. Principalement pour les manettes XBox."
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DRIVER,
@@ -3150,6 +3174,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_TURBO_DEFAULT_BUTTON,
    "Touche active par défaut pour le mode turbo 'Touche unique'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ALLOW_TURBO_DPAD,
+   "Autoriser le turbo pour la croix directionnelle"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ALLOW_TURBO_DPAD,
+   "Si activé, les entrées numériques directionnelles (aussi connues sous le nom de croix ou 'pavé directionnel') peuvent être en mode turbo."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_FIRE_SETTINGS,
@@ -5433,6 +5465,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SETTINGS,
    "Modifier les réglages d'apparence de l'écran du menu."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_APPICON_SETTINGS,
+   "Icône de l’app"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_APPICON_SETTINGS,
+   "Changer l'icône de l'application."
    )
 #ifdef _3DS
 MSG_HASH(

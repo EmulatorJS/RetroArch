@@ -81,7 +81,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_LOAD_CONTENT_LIST,
-   "Bläddra efter innehåll. För att ladda in innehåll behöver du en 'Kärna' att använda innehållet och en innehållsfil.\nFör att kontrollera var menyn börjar kan du bläddra efter innehåll och sedan ställa in den på 'Sökväg för filutforskaren'. Om det inte är inställt, börjar den i rotmappen.\n Webbläsaren filtrerar bort filändelserna för den senast inställda kärnan i 'Ladda in kärna', och använder den kärnan när innehåll laddas in."
+   "Bläddra efter innehåll. För att ladda innehåll behöver du en 'Kärna' att använda och en innehållsfil.\nFör att styra var filhanteraren börjar söka efter innehåll, ställ in 'Filhanterarkatalog'. Om den inte är inställd kommer den att starta i root.\nFilhanteraren kommer att filtrera ut tillägg för den senaste Kärnan i 'Ladda Kärna' och använda den Kärnan när innehåll laddas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_DISC,
@@ -131,7 +131,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SHOW_WIMP,
-   "Öppnar den traditionella skrivbordsmenyn."
+   "Öppna traditionell skrivbordsmeny."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_DISABLE_KIOSK_MODE,
@@ -218,7 +218,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SIDELOAD_CORE_LIST,
-   "Installera eller återställ en Kärna från Nerladdningar'-mappen."
+   "Installera eller återställ en Kärna från 'Nerladdningar'-katalogen."
    )
 MSG_HASH( /* FIXME Maybe add a description? */
    MENU_ENUM_LABEL_VALUE_START_VIDEO_PROCESSOR,
@@ -241,11 +241,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OPEN_ARCHIVE,
-   "Titta igenom arkiv"
+   "Utforska arkiv"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_ARCHIVE,
-   "Ladda in arkiv"
+   "Ladda Arkiv"
    )
 
 /* Main Menu > Load Content > Playlists */
@@ -375,7 +375,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATE_OVERLAYS,
-   "Uppdatera Overlays"
+   "Uppdatera Överlager"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATE_GLSL_SHADERS,
@@ -434,7 +434,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CURSOR_MANAGER,
-   "Hårkorshanterare"
+   "Markörhanterare"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CURSOR_MANAGER,
@@ -489,7 +489,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_SUPPORT_LEVEL,
-   "Stöder Spara status"
+   "Spara status-stöd"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_DISABLED,
@@ -505,7 +505,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_DETERMINISTIC,
-   "Deterministisk (Spara/Ladda, Spola tillbaka, Run-Ahead, Nätspel)"
+   "Deterministisk (Spara/Ladda, Spola tillbaka, Run-Ahead, Netplay)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MISSING_REQUIRED,
@@ -640,11 +640,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OVERLAY_SUPPORT,
-   "Overlays-stöd"
+   "Överlager-stöd"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_COMMAND_IFACE_SUPPORT,
-   "Command Interface-stöd"
+   "Kommandoradsgränssnittsstöd"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_NETWORK_COMMAND_IFACE_SUPPORT,
@@ -652,7 +652,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_NETWORK_REMOTE_SUPPORT,
-   "Network Controller-stöd"
+   "Stöd för nätverksspelkontroller"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_COCOA_SUPPORT,
@@ -796,7 +796,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DYNAMIC_SUPPORT,
-   "Dynamisk inläsning av libretro-bibliotek"
+   "Dynamisk inläsning av libretro-bibliotek vid körning"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_CG_SUPPORT,
@@ -851,7 +851,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DATABASE_SELECTION,
-   "Val av databas"
+   "Databasval"
    )
 
 /* Main Menu > Information > Database Manager > Information */
@@ -938,7 +938,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_TGDB_RATING,
-   "TGDB-klassificering"
+   "TGDB-betyg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_FAMITSU_MAGAZINE_RATING,
@@ -950,11 +950,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_EDGE_MAGAZINE_RATING,
-   "Edge Magazine-recension"
+   "Edge Magazine-betyg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_EDGE_MAGAZINE_ISSUE,
-   "Edge Magazine-nummer"
+   "Edge Magazine-utgåva"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_RELEASE_MONTH,
@@ -966,15 +966,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_BBFC_RATING,
-   "BBFC-klassificering"
+   "BBFC-betyg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_ESRB_RATING,
-   "ESRB-klassificering"
+   "ESRB-betyg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_ELSPA_RATING,
-   "ELSPA-klassificering"
+   "ELSPA-betyg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_PEGI_RATING,
@@ -982,11 +982,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_ENHANCEMENT_HW,
-   "Hårdvaruförbättring"
+   "Förbättringshårdvara"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_CERO_RATING,
-   "CERO-klassificering"
+   "CERO-betyg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_SERIAL,
@@ -994,7 +994,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_ANALOG,
-   "Analog input stöds"
+   "Analog inmatning stöds"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_RUMBLE,
@@ -1086,7 +1086,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SETTINGS,
-   "Ändra utmatningsinställningar för video."
+   "Ändra inställningar för videoutmatning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_SETTINGS,
@@ -1110,7 +1110,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LATENCY_SETTINGS,
-   "Ändra inställningar relaterade till video, ljud och inmatningsfördröjning."
+   "Ändra inställningar kopplade till ljud-, video- och inmatningsfördröjning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_SETTINGS,
@@ -1130,15 +1130,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVING_SETTINGS,
-   "Lagring"
+   "Sparar"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVING_SETTINGS,
-   "Ändra inställningar för lagring av filer."
+   "Ändra inställningar för sparande av filer."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SETTINGS,
-   "Molnsynkronisering"
+   "Molnsynk"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_SETTINGS,
@@ -1146,27 +1146,35 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_ENABLE,
-   "Aktivera molnsynkronisering"
+   "Aktivera Molnsynk"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_ENABLE,
-   "Försök att synkronisera konfigurationer, sram och statusar till en molnlagringsleverantör."
+   "Försök att synkronisera konfigurationer, SRAM och statusar till en molnlagringsleverantör."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DESTRUCTIVE,
+   "Destruktiv molnsynkning"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_DESTRUCTIVE,
+   "Inaktiverat flyttas filer till en säkerhetskopia innan de skrivs över eller raderas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DRIVER,
-   "Backend för molnsynkronisering"
+   "Backend för molnsynk"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_DRIVER,
-   "Vilket molnlagringsprotokoll som ska användas."
+   "Vilket nätverksprotokoll för molnlagring som ska användas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_URL,
-   "URL för molnlagring"
+   "URL till molnlagring"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_URL,
-   "URL för API-ingångspunkten till molnlagringstjänsten."
+   "URL-adressen för API-ingången till molnlagringstjänsten."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_USERNAME,
@@ -1210,11 +1218,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_RECORD_CONFIG,
-   "Spelar in konfigurationsfil."
+   "Konfigurationsfil för Inspelning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_CURSOR,
-   "Fil för databaspekare."
+   "Databasmarkörfil."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_CONFIG,
@@ -1230,7 +1238,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_REMAP,
-   "Fil för omkartläggning av kontroller."
+   "Ommappningsfil för spelkontroller."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_CHEAT,
@@ -1238,7 +1246,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_OVERLAY,
-   "Fil för överlagring."
+   "Överlagerfil."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_RDB,
@@ -1278,15 +1286,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_DIRECTORY,
-   "Mapp. Välj den för att öppna denna mapp."
+   "Katalog. Markera den för att öppna den här katalogen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FRAME_THROTTLE_SETTINGS,
-   "Bildrute-begränsningar"
+   "Bildrutereglage"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_FRAME_THROTTLE_SETTINGS,
-   "Ändra inställningarna för bakåt- och framåtspolning samt slow-motion."
+   "Ändra inställningar för Spola bakåt, Snabbspola framåt och Slow-motion."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORDING_SETTINGS,
@@ -1294,11 +1302,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RECORDING_SETTINGS,
-   "Ändra inspelningsinställningar."
+   "Ändra inställningar för Inspelning."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ONSCREEN_DISPLAY_SETTINGS,
+   "Skärm-visning"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ONSCREEN_DISPLAY_SETTINGS,
-   "Ändra inställningar för bild- och tangentbodsoverlays samt aviseringar."
+   "Ändra inställningar för bild- och tangentbodsöverlager samt skärm-notis."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USER_INTERFACE_SETTINGS,
@@ -1330,7 +1342,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_POWER_MANAGEMENT_SETTINGS,
-   "Ändra inställningar relaterade till strömförsörjning."
+   "Ändra inställningar kopplade till strömförsörjning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RETRO_ACHIEVEMENTS_SETTINGS,
@@ -1366,11 +1378,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
-   "Kataloger"
+   "Katalog"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DIRECTORY_SETTINGS,
-   "Ange/ändra sökvägar till filer för standardmappar."
+   "Ändra standardkataloger där filerna finns."
    )
 
 /* Core option category placeholders for icons */
@@ -1398,7 +1410,7 @@ MSG_HASH(
 #ifdef HAVE_MIST
 MSG_HASH(
    MENU_ENUM_SUBLABEL_STEAM_SETTINGS,
-   "Ändra inställningar relaterade till Steam."
+   "Ändra inställningar kopplade till Steam."
    )
 #endif
 
@@ -1410,15 +1422,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_DRIVER,
-   "Vilken drivrutin som ska användas för inmatning. Vissa videodrivrutiner tvingar systemet att använda en viss inmatningsdrivrutin."
+   "Inmatningsdrivrutin att använda. Vissa videodrivrutiner tvingar fram en annan inmatningsdrivrutin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
+   "Udev-drivrutinen läser evdev-händelser för tangentbordsstöd. Den stöder också tangentbordsåteruppringning, möss och pekplattor.\nSom standard i de flesta distros är /dev/input-noder endast root (läge 600). Du kan konfigurera en udev-regel som gör dessa tillgängliga för icke-root."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
-   "Linuxraw-inputdrivrutinen kräver en aktiv TTY. Tangentbordshändelser läses direkt från TTY:n vilket gör det enklare, men inte lika flexibelt som udev. Datormusar och liknande stöds inte alls. Denna drivrutin använder det äldre joypad-API (/dev/input/js*)."
+   "Drivrutinen för linuxraw-inmatningen kräver en aktiv TTY. Tangentbordshändelser läses direkt från TTY vilket gör det enklare, men inte lika flexibelt som udev. Möss, etc, stöds inte alls. Den här drivrutinen använder det äldre joystick-APIet (/dev/input/js*)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_NO_DETAILS,
-   "Input-drivrutin. Videodrivrutinen kan tvinga fram en annan input-drivrutin."
+   "Inmatningsdrivrutin. Videodrivrutinen kan tvinga fram en annan drivrutin för inmatning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_JOYPAD_DRIVER,
@@ -1428,26 +1444,50 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
    "Ange drivrutin för spelkontroll."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
+   "DirectInput spelkontrolldrivrutin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_HID,
+   "Human Interface Device-drivrutin på låg nivå."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_LINUXRAW,
+   "Raw Linux-drivrutin, använder äldre joystick API. Använd udev i stället om det är möjligt."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_SDL,
+   "Spelkontroll-drivrutin baserad på SDL-bibliotek."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_UDEV,
+   "Spelkontrolldrivrutin med udev-gränssnitt, rekommenderas generellt. Använder det senaste evdev joypad-APIet för joystick-stöd. Den stöder hotplugging och force-feedback.\nSom standard i de flesta distros är /dev/input-noder endast root (läge 600). Du kan konfigurera en udev-regel som gör dessa tillgängliga för icke-root."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_XINPUT,
+   "XInput spelkontrolldrivrutin. Mest för Xbox-kontroller."
+   )
 
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DRIVER,
-   "Video-drivrutin att använda."
+   "Videodrivrutin att använda."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL1,
-   "OpenGL 1.x-drivrutin. Minimumversion krävs: OpenGL 1.1. Stöder inte shaders. Använd istället senare OpenGL-drivrutiner, om möjligt."
+   "OpenGL 1.x drivrutin. Lägsta krav: OpenGL 1.1. Stöder inte shaders. Använd senare OpenGL-drivrutiner istället, om det är möjligt."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL,
-   "OpenGL 2.x-drivrutin. Denna drivrutin gör det möjligt att använda libretro GL-kärnor i tillägg till mjukvarurenderade kärnor. Minimumversion krävs: OpenGL 2.0 eller OpenGLES 2.0. Stöder GLSL shader-formatet. Använd istället glcore-drivrutinen, om möjligt."
+   "OpenGL 2.x drivrutin. Denna drivrutin gör att libretro GL-kärnor kan användas utöver mjukvaru-renderade kärnor. Lägsta krav: OpenGL 2.0 eller OpenGLES 2.0. Stöder GLSL shader-formatet. Använd glcore-drivrutinen istället, om det är möjligt."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL_CORE,
-   "OpenGL 3.x-drivrutin. Denna drivrutin gör det möjligt att använda libretro GL-kärnor i tillägg till mjukvarurenderade kärnor. Minimumversion krävs: OpenGL 3.2 eller OpenGLES 3.0+. Stöder Slang shader-formatet."
+   "OpenGL 3.x drivrutin. Denna drivrutin gör att libretro GL-kärnor kan användas utöver mjukvaru-renderade kärnor. Lägsta krav: OpenGL 3.2 eller OpenGLES 3.0+. Stöder Slang shader-formatet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_VULKAN,
-   "Vulkan-drivrutin. Denna drivrutin gör det möjligt att använda libretro Vulkan-kärnor i tillägg till mjukvarurenderade kärnor. Minimumversion krävs: Vulkan 1.0. Stöder HDR och Slang shaders."
+   "Vulkan drivrutinen. Denna drivrutin gör att libretro Vulkan-kärnor kan användas utöver mjukvaru-renderade kärnor. Lägsta krav: Vulkan 1.0. Stöder HDR och Slang shaders."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SDL1,
@@ -1455,7 +1495,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SDL2,
-   "SDL 2 mjukvarurenderad drivrutin. Prestandan för mjukvarurenderade libretro-kärnor beror på din plattform och SDL-implementering."
+   "SDL 2-programvara-renderad drivrutin. Prestanda för mjukvarurenderade libretro-kärnimplementeringar är beroende av din plattforms SDL-implementering."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_METAL,
@@ -1487,7 +1527,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_DISPMANX,
-   "DispmanX-drivrutin. Använder DispmanX API:n för Videocore IV GPU i Raspberry Pi 0..3. Inget stöd för överlagringar eller shaders."
+   "DispmanX-drivrutin. Använder DispmanX APIn för Videocore IV GPU i Raspberry Pi 0..3. Inget stöd för överlager eller shaders."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_CACA,
@@ -1499,7 +1539,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_DRM,
-   "Enkel DRM-videodrivrutin. Detta är en lågnivå videodrivrutin som använder libdrm för maskinvaruskalning med hjälp av GPU-överlagringar."
+   "Enkel DRM-videodrivrutin. Detta är en lågnivå videodrivrutin som använder libdrm för maskinvaruskalning med hjälp av GPU-överlager."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SUNXI,
@@ -1538,6 +1578,26 @@ MSG_HASH(
    "RSound-drivrutin för nätverksbaserade ljudsystem."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_OSS,
+   "Äldre Open Sound System-drivrutin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ALSA,
+   "Standard ALSA-drivrutin."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ALSATHREAD,
+   "ALSA-drivrutin med stöd för trådning."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_TINYALSA,
+   "ALSA-drivrutin implementerad utan beroenden."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ROAR,
+   "Ljudsystem RoarAudio-drivrutin."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_AL,
    "OpenAL-drivrutin."
    )
@@ -1545,10 +1605,30 @@ MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_SL,
    "OpenSL-drivrutin."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_DSOUND,
+   "DirectSound-drivrutin. DirectSound används huvudsakligen från Windows 95 till Windows XP."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_WASAPI,
+   "Windows Audio Session API-drivrutin. WASAPI används huvudsakligen från Windows 7 och senare."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_PULSE,
+   "PulseAudio-drivrutin. Om systemet använder PulseAudio, se till att använda denna drivrutin istället för t.ex. ALSA."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_JACK,
+   "Drivrutinen för Jack Audio anslutningssats."
+   )
 #ifdef HAVE_MICROPHONE
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MICROPHONE_DRIVER,
    "Mikrofon"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MICROPHONE_DRIVER,
+   "Mikrofon-drivrutin att använda."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MICROPHONE_RESAMPLER_DRIVER,
@@ -1557,6 +1637,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MICROPHONE_RESAMPLER_DRIVER,
    "Mikrofonomsamplare att använda."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_BLOCK_FRAMES,
+   "Mikrofon bildrutsblock"
    )
 #endif
 MSG_HASH(
@@ -1624,6 +1708,10 @@ MSG_HASH(
    "RGUI är ett enkelt inbyggt GUI för RetroArch. Det har de lägsta prestandakraven bland menydrivrutinerna och kan användas på skärmar med låg upplösning."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_MATERIALUI,
+   "På mobila enheter använder RetroArch det mobila användargränssnittet, MaterialUI, som standard. Det här gränssnittet är designat kring pekskärms- och pekarenheter, som en mus/styrkula."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORD_DRIVER,
    "Inspelning"
    )
@@ -1640,7 +1728,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCHRES_SETTINGS,
-   "Skicka lågupplöst signal som passar CRT-bildskärmar."
+   "Sänd ut ursprungliga, lågupplösta signaler för användning med CRT-skärmar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_OUTPUT_SETTINGS,
@@ -1648,7 +1736,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_OUTPUT_SETTINGS,
-   "Ändra utmatningsinställningar för video."
+   "Ändra inställningar för videoutmatning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FULLSCREEN_MODE_SETTINGS,
@@ -1656,7 +1744,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FULLSCREEN_MODE_SETTINGS,
-   "Ändra inställningarna för helskärmsläget."
+   "Ändra inställningar för helskärmsläge."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOWED_MODE_SETTINGS,
@@ -1664,7 +1752,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOWED_MODE_SETTINGS,
-   "Ändra inställningarna för fönsterläget."
+   "Ändra inställningar för fönsterläge."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SCALING_SETTINGS,
@@ -1672,7 +1760,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SCALING_SETTINGS,
-   "Ändra inställningarna för videoskalning."
+   "Ändra inställningar för videoskalning."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_HDR_SETTINGS,
@@ -1704,7 +1792,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_THREADED,
-   "Förbättrar prestanda på bekostnad av latens och hackig videouppspelning. Använd bara om det är enda sättet att uppnå full hastighet."
+   "Förbättrar prestanda till priset av latens och mer videolagg. Använd endast om full hastighet inte kan uppnås på annat sätt."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_THREADED,
+   "Använd trådad videodrivrutin. Att använda detta kan förbättra prestandan till den möjliga kostnaden för latens och mer videolagg."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION,
@@ -1726,6 +1818,10 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SMOOTH,
    "Bilinjär-filtrering"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_SMOOTH,
+   "Lägg till en liten oskärpa i bilden för att mjuka upp hårda pixelkanter. Det här alternativet har mycket liten inverkan på prestandan. Bör inaktiveras när Shaders används."
+   )
 #if defined(DINGUX)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_IPU_FILTER_TYPE,
@@ -1733,7 +1829,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DINGUX_IPU_FILTER_TYPE,
-   "Ange bildinterpoleringsmetod vid skalning av innehåll via den interna IPU. 'Bicubic' eller 'Bilinear' rekommenderas när du använder CPU-drivna videofilter. Det här alternativet påverkar inte prestandan."
+   "Ange bildinterpoleringsmetod vid skalning av innehåll via intern IPU. 'Bikubisk' eller 'Bilinjär' rekommenderas när du använder CPU-drivna videofilter. Det här alternativet påverkar inte prestandan."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_IPU_FILTER_BICUBIC,
@@ -1772,7 +1868,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_DELAY,
-   "Fördröjning (i ms) innan automatisk inladdning av shaders. Kan avhjälpa grafikproblem när du använder program för skärminspelning."
+   "Fördröj automatisk laddning av Shaders (i ms). Kan kringgå grafiska fel när programvara för skärminspelning används."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FILTER,
@@ -1780,7 +1876,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FILTER,
-   "Tillämpa ett CPU-drivet videofilter. Kan innebära en stor prestandakostnad. Vissa videofilter kanske bara fungerar för kärnor som använder 16- eller 32-bits färgdjup."
+   "Använd ett CPU-drivet videofilter. Kan innebära en hög prestandakostnad. Vissa videofilter kanske bara fungerar för kärnor som använder 32-bitars eller 16-bitars färg."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_FILTER,
+   "Använd ett CPU-drivet videofilter. Kan komma till en hög prestandakostnad. Vissa videofilter kanske bara fungerar för kärnor som använder 32-bitars eller 16-bitars färg. Dynamiskt länkade videofilterbibliotek kan väljas."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_FILTER_BUILTIN,
+   "Använd ett CPU-drivet videofilter. Kan innebära en hög prestandakostnad. Vissa videofilter kanske bara fungerar för kärnor som använder 32-bitars eller 16-bitars färg. Inbyggda videofilterbibliotek kan väljas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FILTER_REMOVE,
@@ -1790,20 +1894,24 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FILTER_REMOVE,
    "Stäng av alla aktiva CPU-drivna videofilter."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_NOTCH_WRITE_OVER,
+   "Aktivera helskärm utan hänsyn till notch på Android och iOS-enheter"
+)
 
 /* Settings > Video > CRT SwitchRes */
 
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_RESOLUTION,
-   "Endast för CRT-skärmar. Försök att använda kärnan/spelets upplösning och uppdateringsfrekvens."
+   "Endast för CRT-skärmar. Försöker att använda exakt kärna/spelupplösning och uppdateringsfrekvens."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_RESOLUTION_SUPER,
-   "CRT Super-upplösning"
+   "CRT Superupplösning"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_RESOLUTION_SUPER,
-   "Växla mellan inbyggda och ultrabreda superupplösningar."
+   "Växla mellan inbyggda och ultravida superupplösningar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_X_AXIS_CENTERING,
@@ -1811,15 +1919,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
-   "Gå igenom dessa alternativ om bilden inte är centrerad ordentligt."
+   "Gå igenom dessa alternativ om bilden inte är korrekt centrerad på skärmen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Porch-justering"
+   "Justera Porch"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
-   "Cykla genom dessa alternativ för att justera porch-inställningarna för att ändra bildstorleken."
+   "Gå igenom de här alternativen för att justera porch inställningarna för att ändra bildstorleken."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
@@ -1827,31 +1935,35 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_HIRES_MENU,
-   "Växla till högupplöst läge för användning med högupplösta menyer när inget innehåll har laddats."
+   "Växla till högupplöst modell för användning med högupplösta menyer när inget innehåll är laddat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_RESOLUTION_USE_CUSTOM_REFRESH_RATE,
-   "Anpassad Uppdateringshastighet"
+   "Anpassad uppdateringsfrekvens"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_RESOLUTION_USE_CUSTOM_REFRESH_RATE,
-   "Använd en anpassad uppdateringshastighet som anges i konfigurationsfilen om det behövs."
+   "Använd en anpassad uppdateringsfrekvens som anges i konfigurationsfilen om det behövs."
    )
 
 /* Settings > Video > Output */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MONITOR_INDEX,
-   "Skärm-index"
+   "Skärmindex"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_MONITOR_INDEX,
    "Välj vilken skärm som ska användas."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_MONITOR_INDEX,
+   "Vilken bildskärm att föredra. 0 (standard) betyder att ingen speciell bildskärm är att föredra, 1 och uppåt (1 är den första bildskärmen), föreslår att RetroArch använder just den bildskärmen."
+   )
 #if defined (WIIU)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WIIU_PREFER_DRC,
-   "Optimera för Wii U GamePad (omstart krävs)"
+   "Optimera för Wii U-GamePad (omstart krävs)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WIIU_PREFER_DRC,
@@ -1860,11 +1972,11 @@ MSG_HASH(
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ROTATION,
-   "Video-rotation"
+   "Videorotation"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ROTATION,
-   "Tvingar en viss rotation av bilden på skärmen. Denna appliceras ovanpå eventuella rotationer som görs av kärnan."
+   "Framtvingar en särskild rotation av videon. Rotationen läggs till rotationer som kärnan ställer in."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCREEN_ORIENTATION,
@@ -1872,7 +1984,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SCREEN_ORIENTATION,
-   "Tvingar en viss orientering av skärmen från operativsystemet."
+   "Framtvingar en särskild skärmorientering från operativsystemet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_GPU_INDEX,
@@ -1884,35 +1996,39 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OFFSET_X,
-   "Horisontell förskjutning av skärmen"
+   "Horisontell skärmförskjutning"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_OFFSET_X,
-   "Tvingar en viss offset horisontellt till videon. Offseten tillämpas globalt."
+   "Framtvingar en särskild förskjutning horisontellt till videon. Förskjutningen tillämpas globalt."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OFFSET_Y,
-   "Vertikal förskjutning av skärmen"
+   "Vertikal skärmförskjutning"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_OFFSET_Y,
-   "Tvingar en viss offset vertikalt till videon. Offseten tillämpas globalt."
+   "Framtvingar en särskild förskjutning vertikalt till videon. Förskjutningen tillämpas globalt."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE,
-   "Vertikal uppdateringshastighet"
+   "Vertikal uppdateringsfrekvens"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE,
-   "Din skärms vertikala uppdateringsfrekvens. Används för att beräkna en lämplig ljudinmatningshastighet.\nDetta kommer att ignoreras om 'Trådad bildrendering' är aktiverat."
+   "Vertikal uppdateringsfrekvens för din skärm. Används för att beräkna en lämplig ljudingångshastighet.\nDetta kommer att ignoreras om 'Trådad video' är aktiverat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE_AUTO,
-   "Uppskattad uppdateringshastighet"
+   "Uppskattad uppdateringsfrekvens"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE_AUTO,
    "Den noggrant uppskattade uppdateringsfrekvensen för skärmen i Hz."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_REFRESH_RATE_AUTO,
+   "Den exakta uppdateringsfrekvensen för din bildskärm (Hz). Detta används för att beräkna ljudingångshastigheten med formeln:\naudio_input_rate = spelets ingångshastighet * skärmens uppdateringsfrekvens / spelets uppdateringsfrekvens\nOm kärnan inte rapporterar några värden kommer NTSC-standardvärden att antas för kompatibilitet.\nDetta värde bör förbli i närheten av 60Hz för att undvika stora tonhöjdsförändringar. Om din skärm inte körs vid eller nära 60Hz, inaktivera VSyn[...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE_POLLED,
@@ -1920,7 +2036,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE_POLLED,
-   "Uppdateringsfrekvensen som rapporterats från bilddrivrutinen."
+   "Uppdateringsfrekvensen som rapporterats av bildskärmsdrivrutinen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE,
@@ -1942,14 +2058,22 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_ALL_FULLSCREEN,
    "Alla Helskärmslägen"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
+   "Automatisk uppdateringsfrekvens PAL-tröskel"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_AUTOSWITCH_PAL_THRESHOLD,
+   "Maximal uppdateringsfrekvens för att betraktas som PAL."
+   )
 #if defined(DINGUX) && defined(DINGUX_BETA)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_REFRESH_RATE,
-   "Vertikal uppdateringshastighet"
+   "Vertikal uppdateringsfrekvens"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DINGUX_REFRESH_RATE,
-   "Ställ in den vertikala uppdateringshastigheten för bildskärmen. '50 Hz' kommer att möjliggöra smidig video när du kör PAL-innehåll."
+   "Ställ in skärmens vertikala uppdateringsfrekvens. '50 Hz' kommer att möjliggöra jämn video när du kör PAL-innehåll."
    )
 #endif
 MSG_HASH(
@@ -1958,7 +2082,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FORCE_SRGB_DISABLE,
-   "Tvinga sRGB FBO-stödet att vara inaktivt. Vissa Intel OpenGL-drivrutiner i Windows har bildproblem med sRGB FBOn. Denna inställning kan avhjälpa detta."
+   "Tvångsinaktivera stöd för sRGB FBO. Vissa Intel OpenGL-drivrutiner på Windows har videoproblem med sRGB FBOer. Att aktivera detta kan lösa det."
    )
 
 /* Settings > Video > Fullscreen Mode */
@@ -1969,7 +2093,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FULLSCREEN,
-   "Starta i Helskärm. Kan ändras medan programmet körs. Om ett annat val anges via parameter när RetroArch körs så prioriteras det valet."
+   "Starta i helskärm. Kan ändras medan programmet körs. Om ett annat val anges via parameter när RetroArch körs så prioriteras det valet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOWED_FULLSCREEN,
@@ -1977,7 +2101,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOWED_FULLSCREEN,
-   "Om helskärm, föredra att använda ett fullskärmsfönster för att förhindra att visningsläget växlar."
+   "Om helskärm, föredrar att använda ett helskärmsfönster som förhindrar att visningsläge ändras."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FULLSCREEN_X,
@@ -1985,7 +2109,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FULLSCREEN_X,
-   "Bestäm en egen bredd för skärmen i helskärmsläge (påverkar inte helskärmsfönster). Lämnas detta obestämt så används skrivbordets bredd."
+   "Ställ in anpassad breddstorlek för helskärmsläget utan fönster. Om du låter den vara oinställd används skrivbordsupplösningen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FULLSCREEN_Y,
@@ -1993,15 +2117,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FULLSCREEN_Y,
-   "Bestäm en egen höjd för skärmen i helskärmsläge (påverkar inte helskärmsfönster). Lämnas detta obestämt så används skrivbordets höjd."
+   "Ställ in anpassad höjdstorlek för helskärmsläge utan fönster. Om du låter den vara oinställd används skrivbordsupplösningen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FORCE_RESOLUTION,
-   "Tvinga upplösning på UWP"
+   "Framtvinga upplösning på UWP"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FORCE_RESOLUTION,
-   "Tvingar upplösningen till fullskärmsstorlek. Om satt till 0, kommer ett fast värde på 3840 x 2160 att användas."
+   "Tvinga upp upplösningen till helskärmsstorleken, om den är inställd på 0, kommer ett fast värde på 3840 x 2160 att användas."
    )
 
 /* Settings > Video > Windowed Mode */
@@ -2012,7 +2136,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_SCALE,
-   "Ställ in fönsterstorleken till den angivna multipeln av storleken på kärnans visningsyta."
+   "Ställ in fönsterstorleken till den angivna multipeln av kärnans visningsportstorlek."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OPACITY,
@@ -2032,27 +2156,27 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UI_MENUBAR_ENABLE,
-   "Visa Menyrad"
+   "Visa menyfält"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_UI_MENUBAR_ENABLE,
-   "Visa fönstrets menybar."
+   "Visa fönstermenyfält."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_SAVE_POSITION,
-   "Kom ihåg Fönsterposition/storlek"
+   "Kom ihåg fönsterposition/storlek"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_SAVE_POSITION,
-   "Visa allt innehåll i ett fönster i fast storlek av dimensioner som anges av 'Fönsterbredd' och 'Fönsterhöjd', och spara aktuell fönsterstorlek och position vid stängning av RetroArch. När inaktiverad kommer fönsterstorleken att ställas in dynamiskt baserat på 'Fönsterskala'."
+   "Visa allt innehåll i ett fönster i fast storlek av dimensioner som anges av 'Fönster Bredd' och 'Fönster Höjd', och spara aktuell fönsterstorlek och position vid stängning av RetroArch. Inaktiverad kommer fönsterstorleken att ställas in dynamiskt baserat på 'Fönsterskala'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_CUSTOM_SIZE_ENABLE,
-   "Använd anpassad Fönsterstorlek"
+   "Använd anpassad fönsterstorlek"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_CUSTOM_SIZE_ENABLE,
-   "Visa allt innehåll i ett fönster med en fast storlek som anges av 'Fönsterbredd' och 'Fönsterhöjd'. När inaktiverad kommer fönsterstorleken att ställas in dynamiskt baserat på 'Fönsterskala'."
+   "Visa allt innehåll i ett fönster i fast storlek av dimensioner som anges av 'Fönster Bredd' och 'Fönster Höjd'. Inaktiverad kommer fönsterstorleken att ställas in dynamiskt baserat på 'Fönsterskala'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_WIDTH,
@@ -2072,7 +2196,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_AUTO_WIDTH_MAX,
-   "Fönster max Bredd"
+   "Max Bredd fönster"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_AUTO_WIDTH_MAX,
@@ -2080,7 +2204,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_AUTO_HEIGHT_MAX,
-   "Fönster max Höjd"
+   "Max Höjd fönster"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_AUTO_HEIGHT_MAX,
@@ -2095,11 +2219,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SCALE_INTEGER,
-   "Skala video enbart i heltalssteg. Basstorleken beror på systemrapporterad geometri och bildformat. Om 'Tvinga Bildformat' inte är inställt, kommer X/Y att vara heltal skalat oberoende."
+   "Skala video endast i heltalssteg. Basstorleken beror på systemrapporterad geometri och bildformat. Om 'Tvinga Bildformat' inte är inställt, kommer X/Y att heltalsskalas oberoende av varandra."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SCALE_INTEGER_OVERSCALE,
-   "Heltalsöverskalning"
+   "Heltalsöverskala"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SCALE_INTEGER_OVERSCALE,
@@ -2115,7 +2239,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ASPECT_RATIO,
-   "Konfigurera Bildformat"
+   "Konfigurera bildformat"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ASPECT_RATIO,
@@ -2140,7 +2264,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DINGUX_IPU_KEEP_ASPECT,
-   "Upprätthåll 1:1 pixel bildformatet vid skalning av innehåll via den interna IPUn. Om inaktiverat kommer bilder att sträckas ut för att fylla hela skärmen."
+   "Upprätthåll 1:1 pixel bildformatet vid skalning av innehåll via intern IPU. Inaktiverad kommer bilden att sträckas ut för att fylla hela skärmen."
    )
 #endif
 MSG_HASH(
@@ -2149,7 +2273,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_X,
-   "Anpassad offset för visningsytans X-position.\nDessa ignoreras om 'Heltalsskala' är aktiverat."
+   "Anpassad visningsportoffset som används för att definiera X-axelns position för visningsporten.\nDessa ignoreras om 'Heltalsskala' är aktiverat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_Y,
@@ -2157,7 +2281,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_Y,
-   "Anpassad offset för visningsytans Y-position.\nDessa ignoreras om 'Heltalsskala' är aktiverat."
+   "Anpassad visningsportoffset som används för att definiera Y-axelns position för visningsporten.\nDessa ignoreras om 'Heltalsskala' är aktiverat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_WIDTH,
@@ -2165,7 +2289,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_WIDTH,
-   "Anpassad offset för visningsytans bredd, som används om bildproportionerna är inställda på 'Anpassade bildproportioner'."
+   "Anpassad visningsportbredd som används om bildformatet är inställt på 'Anpassa bildformat'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_HEIGHT,
@@ -2173,7 +2297,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_HEIGHT,
-   "Anpassad offset för visningsytans höjd, som används om bildformatet är inställd på 'Anpassa bildformat'."
+   "Anpassad visningsporthöjd som används om bildformatet är inställt på 'Anpassa bildformat'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_CROP_OVERSCAN,
@@ -2181,7 +2305,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_CROP_OVERSCAN,
-   "Klipp bort några pixlar runt skärmens kant, som vanligen lämnas tomma av utvecklare och som ibland också innehåller skräppixlar."
+   "Beskär några pixlar runt skärmens kant, som vanligen lämnas tomma av utvecklare och som ibland också innehåller skräppixlar."
    )
 
 /* Settings > Video > HDR */
@@ -2196,19 +2320,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_HDR_MAX_NITS,
-   "Toppljusstyrka"
+   "Högsta ljusstyrka"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_HDR_MAX_NITS,
-   "Ställ in den toppljusstyrka (i cd/m2) som din bildskärm kan reproducera. Se RTings för bildskärmens toppbelysning."
+   "Ställ in den högsta ljusstyrka (i cd/m2) som bildskärmen kan reproducera. Se bruksanvisning för bildskärmens högsta ljusstyrka."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_HDR_PAPER_WHITE_NITS,
-   "Pappersvitt ljus"
+   "Pappersvitt ljusstyrka"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_HDR_PAPER_WHITE_NITS,
-   "Ställ in luminansen vid vilken pappervitt ska vara, d.v.s. läsbar text eller luminans överst i SDR-intervallet (Standard Dynamic Range). Användbar för att anpassa till olika ljusförhållanden i din miljö."
+   "Ställ in ljusstyrka vid vilken vitt papper ska vara, nämligen läsbar text eller ljusstyrka överst i SDR (Standard Dynamic Range). Användbar för att anpassa till olika ljusförhållanden i din miljö."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_HDR_CONTRAST,
@@ -2216,7 +2340,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_HDR_CONTRAST,
-   "Gamma/kontrastkontroll för HDR. Tar färgerna och ökar det totala intervallet mellan de ljusaste partierna och de mörkaste partierna av bilden. Desto högre HDR-kontrast desto större blir denna skillnad, medans lägre kontrast bidrar till en mera \"urtvättad\" bild. Hjälper användare att justera bilden till deras smak och vad de anser ser bäst ut på sin bildskärm."
+   "Gamma/kontrastkontroll för HDR. Tar färgerna och ökar det totala intervallet mellan de ljusaste och mörkaste delarna av bilden. Ju högre HDR-kontrasten är, desto större blir denna skillnad, medan ju lägre kontrasten är, desto mer urtvättad blir bilden. Hjälper användarna att ställa in bilden efter deras smak och vad de tycker ser bäst ut på deras display."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_HDR_EXPAND_GAMUT,
@@ -2224,30 +2348,34 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_HDR_EXPAND_GAMUT,
-   "När färgrymden är konverterad till linjär rymd kan du besluta huruvida vi ska expandera färgomfånget för att uppnå HDR10."
+   "När färgrymden har konverterats till linjär rymd, bestäm om ett utökat färgomfång ska användas för att komma till HDR10."
    )
 
 /* Settings > Video > Synchronization */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VSYNC,
-   "Vertikal synkronisering (Vsync)"
+   "Vertikal Synk (VSynk)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VSYNC,
-   "Synkronisera bildsignalen från grafikkortet till bildskärmens uppdateringsfrekvens. Rekommenderas."
+   "Synkronisera videoutmatningen från grafikkortet till bildskärmens uppdateringsfrekvens. Rekommenderas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SWAP_INTERVAL,
-   "VSync Swap Intervall"
+   "VSynk bytesintervall"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_SWAP_INTERVAL,
+   "Använd ett anpassat bytesintervall för VSynk. Minskar effektivt bildskärmens uppdateringsfrekvens med den angivna faktorn. 'Auto' ställer in faktorn baserat på kärnrapporterad bildhastighet, vilket ger förbättrad bildtakt när du kör t.ex. 30 fps innehåll på en 60 Hz skärm eller 60 fps innehåll på en 120 Hz skärm."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ADAPTIVE_VSYNC,
-   "Adaptiv VSync"
+   "Adaptiv VSynk"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "VSync är aktiverat tills prestandan blir för dålig för att nå optimal uppdateringsfrekvens. Kan minimera hackande bild när prestandan är dålig, och vara mer energieffektivt."
+   "VSynk är aktiverat tills prestandan faller under måluppdateringsfrekvensen. Kan minimera lagg när prestandan sjunker under realtid och vara mer energieffektiv."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -2255,7 +2383,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY_AUTO,
-   "Automatisk fördröjning av bildruta"
+   "Automatisk bildfördröjning"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY_EFFECTIVE,
@@ -2271,11 +2399,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_HARD_SYNC_FRAMES,
-   "Hård synkronisering av GPU-synkroniseringsbildrutor"
+   "Hård GPU-synk Bildrutor"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_HARD_SYNC_FRAMES,
+   "Ställ in hur många bildrutor CPUn kan köra före GPUn när 'Hård GPU-synk' används."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VRR_RUNLOOP_ENABLE,
-   "Synkronisera exakt till innehållets uppdateringsfrekvens (G-sync, FreeSync)"
+   "Synkronisera exakt till innehålls bildhastighet (G-syn, FreeSync)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VRR_RUNLOOP_ENABLE,
@@ -2299,7 +2431,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MICROPHONE_SETTINGS,
-   "Ändra ljudinmatningsinställningar."
+   "Ändra inställningar för ljudingången."
    )
 #endif
 MSG_HASH(
@@ -2308,7 +2440,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_RESAMPLER_SETTINGS,
-   "Ändra inställningar för Omsamplare."
+   "Ändra inställningar för ljud omsamplare."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_SYNCHRONIZATION_SETTINGS,
@@ -2320,11 +2452,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIDI_SETTINGS,
-   "Ändra MIDI-inställningar."
+   "Ändra inställningar för MIDI."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MIXER_SETTINGS,
-   "Ändra inställningarna för ljudmixern."
+   "Ändra inställningar för ljudmixer."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SOUNDS,
@@ -2336,51 +2468,63 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_MUTE,
-   "Ljudlös"
+   "Tysta"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MUTE,
-   "Tysta ljudet."
+   "Stäng av ljudet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_MIXER_MUTE,
-   "Mixer Ljudlös"
+   "Mixer Tyst"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MIXER_MUTE,
-   "Stäng av ljudet från mixer."
+   "Stäng av mixer ljudet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AUDIO_RESPECT_SILENT_MODE,
+   "Respektera Tyst läge"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_RESPECT_SILENT_MODE,
+   "Stäng av allt ljud i tyst läge."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_MUTE,
-   "Ljudlös vid Snabbspolning"
+   "Tyst vid Snabbspola framåt"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_MUTE,
-   "Aktivera ljudlöstläge automatiskt vid Snabbspolning."
+   "Stäng av ljudet automatiskt när snabbspolning framåt används."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_SPEEDUP,
-   "Öka hastigheten vid snabbspolning"
+   "Fortare vid Snabbspola framåt"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_SPEEDUP,
-   "Snabba upp ljudet vid snabbspolning. Förebygger sprakande men skiftar tonhöjd."
+   "Snabba upp ljudet vid snabbspolning framåt. Förhindrar knastrande men ändrar tonhöjd."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_VOLUME,
-   "Volymförstärkning (dB)"
+   "Volymökning (dB)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_VOLUME,
-   "Ljudvolym (i dB). 0 dB är normal volym, och ingen förstärkning appliceras."
+   "Ljudvolym (i dB). 0 dB är normal volym och ingen förstärkning tillämpas."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_VOLUME,
+   "Ljudvolym, uttryckt i dB. 0 dB är normal volym, där ingen förstärkning tillämpas. Förstärkningen kan kontrolleras under körning med Volym upp / Volym ner."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_MIXER_VOLUME,
-   "Mixer Volymförstärkning (dB)"
+   "Mixer Volymökning (dB)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MIXER_VOLUME,
-   "Global ljudvolym för mixern (i dB). 0 dB är normal volym, och ingen förstärkning appliceras."
+   "Global ljudmixervolym (i dB). 0 dB är normal volym, och ingen förstärkning tillämpas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DSP_PLUGIN,
@@ -2393,6 +2537,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DSP_PLUGIN_REMOVE,
    "Ta bort DSP-plugin"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_DSP_PLUGIN_REMOVE,
+   "Inaktiverar DSP-plugins som är aktiva."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_WASAPI_EXCLUSIVE_MODE,
@@ -2442,8 +2590,24 @@ MSG_HASH(
    "Åsidosätt den förvalda ljudenheten som ljuddrivrutinen använder. Detta är beroende av drivrutinen."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DEVICE_ALSA,
+   "Anpassat PCM-enhetsvärde för ALSA-drivrutinen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DEVICE_OSS,
+   "Anpassat sökvägsvärde för OSS-drivrutinen (t.ex. /dev/dsp)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DEVICE_RSOUND,
+   "Anpassad IP-adress för en RSound-server för RSound-drivrutinen."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_LATENCY,
    "Ljudfördröjning (ms)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_LATENCY,
+   "Önskad ljudfördröjning i millisekunder. Kanske inte är hedrad om ljuddrivrutinen inte kan tillhandahålla given latens."
    )
 
 #ifdef HAVE_MICROPHONE
@@ -2471,6 +2635,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MICROPHONE_RESAMPLER_QUALITY,
    "Sänk detta värde för att gynna prestanda/lägre latens över ljudkvalitet, öka för bättre ljudkvalitet på bekostnad av prestanda/lägre latens."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_INPUT_RATE,
+   "Standard inmatningsfrekvens (Hz)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MICROPHONE_INPUT_RATE,
+   "Ljudinmatningens samplingsfrekvens, används om en kärna inte begär ett specifikt värde."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_LATENCY,
+   "Latens ljudinmatning (ms)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MICROPHONE_LATENCY,
+   "Önskad fördröjning för ljudinmatning i millisekunder. Kanske inte blir hedrad om mikrofondrivrutinen inte kan ge angiven fördröjning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MICROPHONE_WASAPI_EXCLUSIVE_MODE,
@@ -2502,11 +2682,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_OUTPUT_RATE,
-   "Utmatningshastighet (Hz)"
+   "Utmatningsfrekvens (Hz)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_OUTPUT_RATE,
-   "Prov på ljudutgång."
+   "Samplingsfrekvens för ljudutgång."
    )
 
 /* Settings > Audio > Synchronization */
@@ -2519,6 +2699,14 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_SYNC,
    "Synkronisera ljud. Rekommenderas."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AUDIO_RATE_CONTROL_DELTA,
+   "Dynamisk ljudfrekvenskontroll"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_RATE_CONTROL_DELTA,
+   "Hjälper till att jämna ut brister i timing när ljud och video synkroniseras. Tänk på att korrekt synkronisering är nästan omöjlig att få till om den är inaktiverad."
+   )
 
 /* Settings > Audio > MIDI */
 
@@ -2528,7 +2716,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIDI_INPUT,
-   "Välj ingående enhet."
+   "Välj inmatningsenhet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MIDI_INPUT,
+   "Ställer in inmatningsenhet (drivrutinspecifik). När den är inställd på 'Off' kommer MIDI-ingången att inaktiveras. Enhetsnamn kan också skrivas in."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIDI_OUTPUT,
@@ -2536,7 +2728,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIDI_OUTPUT,
-   "Välj utgångsenhet."
+   "Välj utmatningsenhet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MIDI_OUTPUT,
+   "Ställer in utmatningsenhet (drivrutinsspecifik). När den är inställd på 'Off' kommer MIDI-utgången att inaktiveras. Enhetsnamn kan också skrivas in.\nNär MIDI-utgång är aktiverad och kärna och spel/app stöder MIDI-utgång, kommer en del eller alla ljud (beroende på spel/app) att genereras av MIDI-enhet. I händelse av 'null' MIDI-drivrutin betyder detta att dessa ljud inte kommer att höras."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIDI_VOLUME,
@@ -2550,28 +2746,48 @@ MSG_HASH(
 /* Settings > Audio > Mixer Settings > Mixer Stream */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_MIXER_STREAM,
+   "Mixer ström #%d: %s"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_PLAY,
    "Spela"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIXER_ACTION_PLAY,
-   "Kommer att starta uppspelning av ljudströmmen. När den är klar kommer den att ta bort den aktuella ljudströmmen från minnet."
+   "Kommer att starta uppspelningen av ljudströmmen. När det är klart kommer det att ta bort den aktuella ljudströmmen från minnet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_PLAY_LOOPED,
-   "Spela (Repetera)"
+   "Spela (Loopad)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MIXER_ACTION_PLAY_LOOPED,
+   "Kommer att starta uppspelningen av ljudströmmen. När den är klar kommer den att loopa och spela upp spåret igen från början."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_PLAY_SEQUENTIAL,
    "Spela (Sekventiell)"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MIXER_ACTION_PLAY_SEQUENTIAL,
+   "Kommer att starta uppspelningen av ljudströmmen. När den är klar, hoppar den till nästa ljudström i sekventiell ordning och upprepar detta beteende. Användbar som uppspelningsläge för album."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_STOP,
    "Stopp"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MIXER_ACTION_STOP,
+   "Detta kommer att stoppa uppspelningen av ljudströmmen, men inte ta bort den från minnet. Den kan startas igen genom att välja 'Spela'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_REMOVE,
    "Ta bort"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MIXER_ACTION_REMOVE,
+   "Detta kommer att stoppa uppspelningen av ljudströmmen och ta bort den helt från minnet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_VOLUME,
@@ -2595,7 +2811,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING_LOOPED,
-   "Status : Spelar (Repeterar)"
+   "Status : Spelar (Loopad)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING_SEQUENTIAL,
+   "Status : Spelar (Sekventiell)"
    )
 
 /* Settings > Audio > Menu Sounds */
@@ -2620,12 +2840,16 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SOUND_BGM,
    "Aktivera för 'BGM'"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_SOUND_SCROLL,
+   "Aktivera för 'Scroll'"
+   )
 
 /* Settings > Input */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MAX_USERS,
-   "Max antal användare"
+   "Max användare"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_MAX_USERS,
@@ -2633,28 +2857,28 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_REMAP_BINDS_ENABLE,
-   "Ändra Styrenheter för denna Kärna"
+   "Mappa om kontroller för denna kärna"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_REMAP_BINDS_ENABLE,
-   "Åsidosätt kontrollerna med de ändrade kontrollerna för den aktuella kärnan."
+   "Åsidosätt nuvarande med de ommappade bindningarna för den nuvarande kärnan."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_AUTODETECT_ENABLE,
-   "Autokonfigurera"
+   "Autokonfig"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_AUTODETECT_ENABLE,
-   "Konfigurerar automatiskt styrenheter som har en profil, Plug-and-Play stil."
+   "Konfigurerar automatiskt spelkontroller som har en profil, Plug-and-Play-stil."
    )
 #if defined(HAVE_DINPUT) || defined(HAVE_WINRAWINPUT)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_NOWINKEY_ENABLE,
-   "Inaktivera Windows Snabbtangenter (Omstart krävs)"
+   "Inaktivera Windows kortkommandon (omstart krävs)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_NOWINKEY_ENABLE,
-   "Håll Win-key kombinationer inuti programmet."
+   "Behåll kombinationer med Win-tangenten inuti programmet."
    )
 #endif
 #ifdef ANDROID
@@ -2664,12 +2888,36 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_SELECT_PHYSICAL_KEYBOARD,
-   "Använd denna enhet som ett fysiskt tangentbord och inte som en gamepad."
+   "Använd denna enhet som ett fysiskt tangentbord och inte som en spelkontroll."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_SELECT_PHYSICAL_KEYBOARD,
+   "Om RetroArch identifierar ett hårdvarutangentbord som någon form av gamepad, kan den här inställningen användas för att tvinga RetroArch att behandla den felidentifierade enheten som ett tangentbord.\nDetta kan vara användbart om du försöker emulera en dator i någon Android TV-enhet och även äger ett fysiskt tangentbord som kan fästas på lådan."
    )
 #endif
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_SENSORS_ENABLE,
+   "Hjälpsensorinmatning"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_SENSORS_ENABLE,
+   "Aktivera inmatning från accelerometer, gyroskop och belysningsstyrka sensorer, om det stöds av den aktuella hårdvaran. Kan påverka prestanda och/eller öka strömförbrukningen på vissa plattformar."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_AUTO_MOUSE_GRAB,
+   "Greppa mus automatiskt"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_AUTO_MOUSE_GRAB,
+   "Aktivera automatiskt greppad mus vid applikationsfokus."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_AUTO_GAME_FOCUS,
    "Automatiskt 'Game Focus'-läge"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_AUTO_GAME_FOCUS,
+   "Aktivera alltid 'Game Focus' -läget när innehåll startar eller återupptas. När inställt på \"Detektera\" kommer alternativet att aktiveras om kärnan implementerar frontens-tangentbordsåteruppringningsfunktioner."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_AUTO_GAME_FOCUS_OFF,
@@ -2685,27 +2933,67 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PAUSE_ON_DISCONNECT,
-   "Pausa innehållet när handkontroll kopplas från"
+   "Pausa Innehåll när spelkontroll kopplas från"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_PAUSE_ON_DISCONNECT,
-   "Pausa innehållet när någon spelkontroll kopplas från. Återgå med Start."
+   "Pausa innehållet när någon spelkontroll kopplas från. Återuppta med Start."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_BUTTON_AXIS_THRESHOLD,
+   "Hur långt en spak måste lutas för att resultera i en knapptryckning vid användning av 'Analog till Digital'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_DEADZONE,
-   "Analog Dödzone"
+   "Analog dödzon"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ANALOG_DEADZONE,
+   "Ignorera analoga spakrörelser under dödzon-värde."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_SENSITIVITY,
+   "Analog känslighet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ANALOG_SENSITIVITY,
+   "Justera känsligheten för analoga spakar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_BIND_TIMEOUT,
-   "Timeout vid bind"
+   "Bind tidsgräns"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_BIND_TIMEOUT,
+   "Antal sekunder att vänta för att gå vidare till nästa bindning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_BIND_HOLD,
    "Intryckt vid bind"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_BIND_HOLD,
+   "Antal sekunder att behålla en inmatning intryckt för att binda den."
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_PRESS,
+   "Tryck på tangentbord, mus eller spelkontroll"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_RELEASE,
+   "Släpp tangenter och knappar!"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_TIMEOUT,
+   "Tidsgräns"
+   )
+MSG_HASH(
+   MSG_INPUT_BIND_HOLD,
+   "Håll in"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_PERIOD,
-   "Turbo-period"
+   "Turboperiod"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_MODE,
@@ -2714,6 +3002,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TURBO_MODE_CLASSIC,
    "Klassisk"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_TURBO_MODE_SINGLEBUTTON,
+   "Singel knapp (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_TURBO_MODE_SINGLEBUTTON_HOLD,
+   "Singel knapp (Intryckt)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_HAPTIC_FEEDBACK_SETTINGS,
@@ -2728,20 +3024,48 @@ MSG_HASH(
    "Menykontroller"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_MENU_SETTINGS,
+   "Ändra inställningar för menykontroller."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_HOTKEY_BINDS,
    "Kortkommandon"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_HOTKEY_BINDS,
+   "Ändra inställningar och tilldelningar för snabbtangenter, som att visa/dölja menyn under spel."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_RETROPAD_BINDS,
+   "RetroPad-bindningar"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_RETROPAD_BINDS,
+   "Ändra hur den virtuella RetroPad mappas till en fysisk inmatningsenhet. Om en inmatningsenhet känns igen och automatiskt konfigurerad på rätt sätt behöver användare förmodligen inte använda den här menyn.\nOBS: För kärnspecifika ändringar, använd 'Spelkontroller' i Snabbmenyn istället."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_RETROPAD_BINDS,
+   "Libretro använder en virtuell gamepad-abstraktion känd som \"RetroPad\" för att kommunicera från frontends (som RetroArch) till kärnor och vice versa. Den här menyn bestämmer hur den virtuella RetroPad mappas till de fysiska inmatningsenheterna och vilka virtuella ingångsportar dessa enheter upptar.\nOm en fysisk inmatningsenhet känns igen och autokonfigureras korrekt, behöver användare förmodligen inte använda den här menyn alls, och för kärnspecifika ändringar, använd 'Spelko[...]"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_USER_BINDS,
-   "Port %u Kontroller"
+   "Port %u kontroller"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_USER_BINDS,
+   "Ändra hur den virtuella RetroPad är mappad till den fysiska inmatningsenhet för denna virtuella port."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_USER_REMAPS,
+   "Ändra kärnspecifika inmatningsmappningar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ANDROID_INPUT_DISCONNECT_WORKAROUND,
-   "Lösning för Android-frånkoppling"
+   "Åtgärd för Android kopplas från"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_ANDROID_INPUT_DISCONNECT_WORKAROUND,
-   "Lösning för kontroller som kopplar från och återansluter. Hindrar 2 spelare med identiska kontroller."
+   "Åtgärd för spelkontroller son kopplar från och återansluter. Hindrar 2 spelare med identiska kontroller."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUIT_PRESS_TWICE,
@@ -2760,7 +3084,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ENABLE_DEVICE_VIBRATION,
-   "Aktivera enheters vibration (för kärnor som stödjer det)"
+   "Aktivera enhetsvibration (för kärnor som stöds)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_RUMBLE_GAIN,
@@ -2775,15 +3099,27 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_UNIFIED_MENU_CONTROLS,
-   "Enhetlig Meny-kontroll"
+   "Enhetliga menykontroller"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_UNIFIED_MENU_CONTROLS,
+   "Använd samma spelkontroller för både menyn och spelet. Gäller tangentbordet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DISABLE_INFO_BUTTON,
    "Inaktivera info-knapp"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_DISABLE_INFO_BUTTON,
+   "Aktiverad kommer Info-knapp tryckningar att ignoreras."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DISABLE_SEARCH_BUTTON,
    "Inaktivera Sökknapp"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_DISABLE_SEARCH_BUTTON,
+   "Aktiverad kommer Sök-knapp tryckningar att ignoreras."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_INPUT_SWAP_OK_CANCEL,
@@ -2798,6 +3134,10 @@ MSG_HASH(
    "Skifta menyns scroll-knappar"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_INPUT_SWAP_SCROLL,
+   "Byt plats på knapparna för att scrolla. Inaktiv scrollas 10 objekt med L/R och i alfabetisk ordning med L2/R2."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ALL_USERS_CONTROL_MENU,
    "Alla kontrollerar menyn"
    )
@@ -2810,19 +3150,47 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_ENABLE_HOTKEY,
-   "Kortkommando-aktivering"
+   "Snabbknappsaktivering"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_ENABLE_HOTKEY,
+   "När tilldelad knapp för 'Snabbknappsaktivering' hålls nedtryckt identifieras snabbknappar. Det här möjliggör att spelkontrollsknappar kan användas till snabbknappsfunktioner utan att påverka normal inmatning. Tilldelad spelkontrollsknapp kommer inte krävas, men kan användas, för aktivering av tangentbordssnabbknappar och vice versa."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_ENABLE_HOTKEY,
+   "Är 'Snabbknappsaktivering' tilldelad, till antingen tangentbord, spelkontroll eller joystick, kommer snabbknappar endast vara aktiv medans tilldelad knapp hålls nedtryckt.\nDetta är användbart för RETRO_KEYBOARD-centrerade implementeringar som efterfrågar ett stort område av tangentbordet, där det inte är önskvärt att snabbknappar kommer i vägen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_HOTKEY_BLOCK_DELAY,
-   "Fördröjning Kortkommando (Bildrutor)"
+   "Snabbknappsfördröjning (Bildrutor)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_HOTKEY_BLOCK_DELAY,
+   "Försena snabbknappsaktivering med antal bildrutor innan normal inmatning växlar till snabbknappsaktivering när tilldelad knapp hålls nedtryckt. Tillåter att knapp som redan tilldelats normal inmatning (t.ex. RetroPad 'Select') även tilldelas 'Snabbknappsaktivering'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_MENU_ENUM_TOGGLE_GAMEPAD_COMBO,
+   "Visa/dölj meny (spelkontroll kombo)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_MENU_ENUM_TOGGLE_GAMEPAD_COMBO,
-   "En kombination av kortkommando-knappar för att växla till menyn."
+   "Spelkontrolls knappkombination för att visa/dölj menyn."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_MENU_TOGGLE,
+   "Visa/dölj meny"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_MENU_TOGGLE,
+   "Växlar den aktuella visningen mellan meny och innehåll som körs."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_QUIT_GAMEPAD_COMBO,
-   "Avsluta(Spelkontroll Kombo)"
+   "Avsluta (spelkontroll kombo)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_QUIT_GAMEPAD_COMBO,
+   "Spelkontrollers knappkombination för att avsluta RetroArch."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_QUIT_KEY,
@@ -2837,17 +3205,65 @@ MSG_HASH(
    "Stänger aktuellt innehåll."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_RESET,
+   "Återställ innehåll"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_RESET,
+   "Startar om innehåll från början."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_FAST_FORWARD_KEY,
+   "Snabbspola framåt (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_FAST_FORWARD_KEY,
+   "Växlar mellan snabb och normal hastighet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_FAST_FORWARD_HOLD_KEY,
+   "Snabbspola framåt (nedtryckt)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_FAST_FORWARD_HOLD_KEY,
+   "Tillämpar 'Snabbspola framåt' när den hålls nedtryckt. Innehåll återgår till normal hastighet när knapp släpps."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_SLOWMOTION_KEY,
+   "Slow motion (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_SLOWMOTION_KEY,
+   "Växlar mellan slow motion och normal hastighet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_SLOWMOTION_HOLD_KEY,
+   "Slow motion (nedtryckt)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_SLOWMOTION_HOLD_KEY,
+   "Tillämpar 'Slow motion' när den hålls nedtryckt. Innehåll återgår till normal hastighet när knapp släpps."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_REWIND,
    "Spola tillbaka"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_REWIND_HOTKEY,
+   "Spolar tillbaka aktuellt innehåll medan knappen hålls intryckt. 'Spola tillbaka-stöd' måste vara aktiverat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_PAUSE_TOGGLE,
    "Pausa"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_PAUSE_TOGGLE,
+   "Växlar innehåll som körs mellan pausat och icke pausat läge."
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_MUTE,
-   "Ljud tysta"
+   "Ljud av"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_MUTE,
@@ -2855,19 +3271,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_VOLUME_UP,
-   "Volym Upp"
+   "Volym upp"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_VOLUME_UP,
-   "Ökar den utgående ljudvolymnivån."
+   "Ökar utgående ljudvolymnivå."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_VOLUME_DOWN,
-   "Volym Ner"
+   "Volym ner"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_VOLUME_DOWN,
-   "Minskar den utgående ljudvolymnivå."
+   "Minskar utgående ljudvolymnivå."
    )
 
 MSG_HASH(
@@ -2880,11 +3296,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_SAVE_STATE_KEY,
-   "Sparar spelets status på den för närvarande valda platsen och lagrar den i minnesplatsen."
+   "Sparar status till den för närvarande valda platsen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_STATE_SLOT_PLUS,
+   "Nästa Spara status plats"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_STATE_SLOT_PLUS,
    "Ökar index för att välja slot till att spara status."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_STATE_SLOT_MINUS,
+   "Föregående Spara status plats"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_STATE_SLOT_MINUS,
@@ -2892,8 +3316,12 @@ MSG_HASH(
    )
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_DISK_EJECT_TOGGLE,
+   "Mata skiva (In/Ut)"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_DISK_EJECT_TOGGLE,
-   "Om det virtuella skivfacket är stängt, öppnar det och tar bort den laddade skivan. Annars, matar in den valda disken och stänger facket."
+   "Om det virtuella skivfacket är stängt, öppnas det och den laddade skivan tas ut. Annars sätts skivan som är vald in och skivfacket stängs."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_DISK_NEXT,
@@ -2905,6 +3333,14 @@ MSG_HASH(
    )
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_TOGGLE,
+   "Shaders (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_SHADER_TOGGLE,
+   "Slår på/av den för närvarande valda shadern."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_NEXT,
    "Nästa Shader"
    )
@@ -2915,7 +3351,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_CHEAT_TOGGLE,
-   "Fusk (Växla)"
+   "Fusk (På/Av)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_CHEAT_TOGGLE,
@@ -2948,7 +3384,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_RECORDING_TOGGLE,
-   "Inspelning (Växla)"
+   "Inspelning (På/Av)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_RECORDING_TOGGLE,
@@ -2956,7 +3392,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_STREAMING_TOGGLE,
-   "Streaming (Växla)"
+   "Streaming (På/Av)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_STREAMING_TOGGLE,
@@ -2968,7 +3404,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_PLAY_REPLAY_KEY,
-   "Spela upp reprisfil från den valda platsen för tillfället."
+   "Spela reprisfilen från den för närvarande valda platsen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_RECORD_REPLAY_KEY,
@@ -2976,19 +3412,31 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_RECORD_REPLAY_KEY,
-   "Spela in repris-fil till den nuvarande valda platsen."
+   "Spela in reprisfil till den för närvarande valda platsen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_HALT_REPLAY_KEY,
    "Stoppa Inspelning/Repris"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_GRAB_MOUSE_TOGGLE,
+   "Greppa musen (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_GRAB_MOUSE_TOGGLE,
+   "Greppar eller släpper musen. När den greppas döljs systemmarkören och begränsas till RetroArch-visningsfönstret, vilket förbättrar relativ musinmatning."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_GAME_FOCUS_TOGGLE,
-   "Game Focus (Växla)"
+   "Game Focus (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_GAME_FOCUS_TOGGLE,
+   "Slår på/av läget 'Game Focus'. När innehållet har fokus inaktiveras snabbtangenter (all tangentbordsinmatning skickas till den kärna som körs) och musen greppas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_FULLSCREEN_TOGGLE_KEY,
-   "Helskärm (Växla)"
+   "Helskärm (På/Av)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_FULLSCREEN_TOGGLE_KEY,
@@ -2996,23 +3444,119 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_UI_COMPANION_TOGGLE,
-   "Skrivbordsmeny (Växla)"
+   "Skrivbordsmeny (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_UI_COMPANION_TOGGLE,
+   "Öppnar det kompletterande WIMP (Windows, Icons, Menus, Pointer) skrivbordsanvändargränssnittet."
    )
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_VRR_RUNLOOP_TOGGLE,
+   "Synkronisera till exakt innehållsbildhastighet (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_VRR_RUNLOOP_TOGGLE,
+   "Slår på/av synkronisering till exakt innehållsbildhastighet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_RUNAHEAD_TOGGLE,
+   "Förutse (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_RUNAHEAD_TOGGLE,
+   "Slår på/av Förutse."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_PREEMPT_TOGGLE,
+   "Förebyggande bildrutor (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_PREEMPT_TOGGLE,
+   "Slår på/av Förebyggande bildrutor."
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_FPS_TOGGLE,
-   "Visa FPS (Växla)"
+   "Visa FPS (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_FPS_TOGGLE,
+   "Slår på/av statusindikatorn 'FPS'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_STATISTICS_TOGGLE,
+   "Visa Teknisk statistik (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_STATISTICS_TOGGLE,
+   "Slår på/av visningen av teknisk statistik på skärmen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_OSK,
+   "Tangentbord överlager (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_OSK,
+   "Slår på/av tangentbord överlagret."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_OVERLAY_NEXT,
-   "Nästa Overlay"
+   "Nästa Överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_OVERLAY_NEXT,
+   "Växlar till nästa tillgängliga layout för det för närvarande aktiva skärm-överlagret."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_AI_SERVICE,
    "AI-tjänst"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_AI_SERVICE,
+   "Fångar en bild av aktuellt innehåll för att översätta och/eller läsa upp text på skärmen. 'AI-tjänst' måste vara aktiverad och konfigurerad."
+   )
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_NETPLAY_PING_TOGGLE,
+   "Netplay Ping (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_NETPLAY_PING_TOGGLE,
+   "Slår på/av pingräknaren för aktuellt Netplay."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_NETPLAY_HOST_TOGGLE,
+   "Netplay Hosting (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_NETPLAY_HOST_TOGGLE,
+   "Slår på/av Netplay Hosting."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_NETPLAY_GAME_WATCH,
+   "Netplay Spela/Åskådare (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_NETPLAY_GAME_WATCH,
+   "Växlar aktuell Netplay session mellan lägena 'Spela' och 'Åskådare'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_NETPLAY_PLAYER_CHAT,
+   "Netplay Spelarchatt"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_NETPLAY_PLAYER_CHAT,
+   "Skickar ett chattmeddelande till den aktuella Netplay sessionen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_NETPLAY_FADE_CHAT_TOGGLE,
+   "Netplay Tona chatt (På/Av)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_NETPLAY_FADE_CHAT_TOGGLE,
+   "Växlar mellan tonande eller statiska Netplay chattmeddelanden."
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_SEND_DEBUG_INFO,
@@ -3030,12 +3574,24 @@ MSG_HASH(
    "Enhetstyp"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_DEVICE_TYPE,
+   "Specificerar den emulerade spelkontrollstypen."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ADC_TYPE,
    "Analog till Digital typ"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ADC_TYPE,
+   "Använd angiven analog spak för D-Pad-inmatning. Läget 'Tvingad' åsidosätter den ursprungliga analoga inmatningen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_ADC_TYPE,
+   "Mappa angiven analog spak för D-Pad-inmatning.\nOm kärnan har inbyggt analogt stöd, kommer D-Pad-mappning att inaktiveras om inte alternativet '(Tvingad)' är valt.\nOm D-Pad-mappning är påtvingad kommer kärnan inte att få någon analog inmatning från angiven spak."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DEVICE_INDEX,
-   "Enhetens index"
+   "Enhetindex"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_REMAP_PORT,
@@ -3055,7 +3611,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_INDEX,
-   "Mus index"
+   "Musindex"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_JOYPAD_B,
@@ -3153,9 +3709,57 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_RIGHT_Y_MINUS,
    "Höger Analog Y- (Upp)"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_TRIGGER,
+   "Pistol Avtryckare"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_RELOAD,
+   "Pistol Ladda om"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_AUX_A,
+   "Pistol knapp A"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_AUX_B,
+   "Pistol knapp B"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_AUX_C,
+   "Pistol knapp C"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_START,
+   "Pistol Start"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_SELECT,
+   "Pistol Select"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_UP,
+   "Pistol D-Pad Upp"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_DOWN,
+   "Pistol D-Pad Ner"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_LEFT,
+   "Pistol D-Pad Vänster"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_LIGHTGUN_DPAD_RIGHT,
+   "Pistol D-Pad Höger"
+   )
 
 /* Settings > Latency */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUN_AHEAD_FRAMES,
+   "Antal bildrutor att köra före"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN_AHEAD_HIDE_WARNINGS,
    "Dölj Run-Ahead Varningar"
@@ -3168,8 +3772,44 @@ MSG_HASH(
 /* Settings > Core */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DRIVER_SWITCH_ENABLE,
+   "Tillåt kärnor att byta videodrivrutin"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_DRIVER_SWITCH_ENABLE,
+   "Tillåt kärnor att byta till en annan videodrivrutin än den som för närvarande är laddad."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_DUMMY_ON_CORE_SHUTDOWN,
+   "Vissa kärnor har en avstängningsfunktion, att ladda en dummykärna förhindrar att RetroArch stängs av."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_DUMMY_ON_CORE_SHUTDOWN,
+   "Vissa kärnor kan ha en avstängningsfunktion. Om det här alternativet lämnas inaktiverat, skulle valet av avstängningsproceduren utlösa att RetroArch stängs av.\nAtt aktivera det här alternativet kommer att ladda en dummykärna istället så att vi stannar kvar i menyn och RetroArch stängs inte av."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_SET_SUPPORTS_NO_CONTENT_ENABLE,
+   "Starta en kärna automatiskt"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHECK_FOR_MISSING_FIRMWARE,
+   "Kontrollera firmware före laddning"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_CHECK_FOR_MISSING_FIRMWARE,
    "Kontrollera om all nödvändig firmware finns innan försök att ladda innehållet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_CHECK_FOR_MISSING_FIRMWARE,
+   "Vissa kärnor kan behöva firmware eller BIOS-filer. Om det här alternativet är aktiverat tillåter RetroArch inte att kärnan startas om några obligatoriska firmware-objekt saknas."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_OPTION_CATEGORY_ENABLE,
+   "Kategorier för kärnalternativ"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_OPTION_CATEGORY_ENABLE,
+   "Tillåter kärnor att visa alternativ i kategoribaserade undermenyer. OBS: Kärnan måste laddas om för att ändringar ska börja gälla."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_BYPASS,
@@ -3177,21 +3817,33 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_INFO_SAVESTATE_BYPASS,
-   "Specificerar om kärninformationens möjligheter för sparad status ska ignoreras, vilket gör det möjligt att experimentera med relaterade funktioner (köra framåt, spola tillbaka osv)."
+   "Anger om kärninformationens spara status-möjligheter ska ignoreras, vilket gör det möjligt att experimentera med relaterade funktioner (run ahead, spola tillbaka, etc.)."
    )
 #ifndef HAVE_DYNAMIC
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ALWAYS_RELOAD_CORE_ON_RUN_CONTENT,
    "Ladda alltid om Kärna när Innehåll ska köras"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ALWAYS_RELOAD_CORE_ON_RUN_CONTENT,
+   "Starta om RetroArch när innehåll startas, även när den begärda kärnan redan är laddad. Detta kan förbättra systemets stabilitet, på bekostnad av ökade laddningstider."
+   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ALLOW_ROTATE,
-   "Tillåt Rotering"
+   "Tillåt Rotation"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_ALLOW_ROTATE,
+   "Tillåt kärnor att ställa in rotationen. När den är inaktiverad ignoreras rotationsförfrågningar. Användbar för inställningar som manuellt roterar skärmen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_MANAGER_LIST,
    "Hantera Kärnor"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_MANAGER_LIST,
+   "Utför offlineunderhållsuppgifter på installerade kärnor (säkerhetskopiering, återställning, radering, etc.) och visa kärninformation."
    )
 #ifdef HAVE_MIST
 MSG_HASH(
@@ -3199,6 +3851,10 @@ MSG_HASH(
    "Hantera Kärnor"
    )
 
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_MANAGER_STEAM_LIST,
+   "Installera/Avinstallera kärnor distribuerade via Steam."
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_STEAM_INSTALL,
@@ -3224,7 +3880,15 @@ MSG_HASH(
    "Installerar Kärna: "
 )
 
+MSG_HASH(
+   MSG_CORE_STEAM_UNINSTALLED,
+   "Kärnan kommer att avinstallera när RetroArch avslutas."
+)
 
+MSG_HASH(
+   MSG_CORE_STEAM_CURRENTLY_DOWNLOADING,
+   "Kärnan laddar ner för närvarande"
+)
 #endif
 /* Settings > Configuration */
 
@@ -3237,8 +3901,32 @@ MSG_HASH(
    "Spara ändringar i konfigurationsfilen vid avslut."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_CONFIG_SAVE_ON_EXIT,
+   "Spara ändringar i konfigurationsfilen vid avslut. Användbar för ändringar som görs i menyn. Skriver över konfigurationsfilen, #include's och kommentarer bevaras inte."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_REMAP_SAVE_ON_EXIT,
+   "Spara ommappningsfiler vid Avsluta"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_REMAP_SAVE_ON_EXIT,
+   "Spara ändringar i alla aktiva ommappningsfiler vid Stäng innehåll eller Avsluta RetroArch."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_OPTIONS,
    "Ladda Innehållsspecifika Kärnalternativ automatiskt"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AUTO_REMAPS_ENABLE,
+   "Ladda Ommappningsfiler automatiskt"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GLOBAL_CORE_OPTIONS,
+   "Använd global kärnalternativsfil"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_GLOBAL_CORE_OPTIONS,
+   "Spara alla kärnalternativ i gemensam fil (retroarch-core-options.cfg). Inaktiverad kommer alternativ för varje kärna att skrivas till kärnspecifik fil i 'Konfigurationer'-katalogen."
    )
 
 /* Settings > Saving */
@@ -3277,7 +3965,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_SAVE,
-   "Spara din status automatiskt"
+   "Autospara status"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_SAVE,
@@ -3311,12 +3999,28 @@ MSG_HASH(
 /* Settings > Logging */
 
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOG_VERBOSITY,
+   "Logga händelser till en terminal eller fil."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FRONTEND_LOG_LEVEL,
    "Loggningsnivå för Frontend"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_FRONTEND_LOG_LEVEL,
+   "Ange loggnivå för frontend. Om en loggnivå som utfärdats av frontend är under detta värde, ignoreras den."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LIBRETRO_LOG_LEVEL,
    "Loggningsnivå för Kärna"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_LIBRETRO_LOG_LEVEL,
+   "Ange loggnivå för kärnor. Om en loggnivå som utfärdats av en kärna är under detta värde ignoreras den."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LOG_VERBOSITY_DEBUG,
+   "0 (Felsök)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOG_VERBOSITY_WARNING,
@@ -3331,12 +4035,24 @@ MSG_HASH(
    "Logga till fil"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOG_TO_FILE,
+   "Omdirigera meddelanden i systemhändelseloggen till filen. Kräver att 'Logging Verbosity' är aktiverat."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOG_TO_FILE_TIMESTAMP,
    "Tidsstämpla loggfiler"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOG_TO_FILE_TIMESTAMP,
+   "Vid loggning till fil, dirigera utdata från varje RetroArch session till en ny tidsstämplad fil. Inaktiverad skrivs loggen över varje gång RetroArch startas om."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PERFCNT_ENABLE,
    "Räkna körningar"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_PERFCNT_ENABLE,
+   "Körräknare för RetroArch och kärnor. Räknardata kan hjälpa till att fastställa systemets flaskhalsar och finjustera prestanda."
    )
 
 /* Settings > File Browser */
@@ -3344,6 +4060,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHOW_HIDDEN_FILES,
    "Visa dolda filer och mappar"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SHOW_HIDDEN_FILES,
+   "Visa dolda filer och mappar i filhanteraren."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NAVIGATION_BROWSER_FILTER_SUPPORTED_EXTENSIONS_ENABLE,
@@ -3368,12 +4088,32 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REWIND_SETTINGS,
    "Spola tillbaka"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_REWIND,
+   "Ändra inställningar för Spola tillbaka."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_FASTFORWARD_RATIO,
+   "Snabbspola framåt-hastighet"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_FASTFORWARD_FRAMESKIP,
+   "Snabbspola framåt-bildrutshopp"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SLOWMOTION_RATIO,
+   "Slow motion hastighet"
+   )
 
 /* Settings > Frame Throttle > Rewind */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REWIND_ENABLE,
-   "Stöd för tillbakaspolning"
+   "Spola tillbaka-stöd"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_REWIND_BUFFER_SIZE,
+   "Spola tillbaka Buffertstorlek (MB)"
    )
 
 /* Settings > Frame Throttle > Frame Time Counter */
@@ -3385,6 +4125,10 @@ MSG_HASH(
 
 /* Settings > Recording */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_QUALITY,
+   "Inspelningskvalitet"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_RECORDING_CUSTOM,
    "Anpassa"
@@ -3398,12 +4142,44 @@ MSG_HASH(
    "Hög"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_RECORDING_LOSSLESS_QUALITY,
+   "Förlustfri"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_RECORDING_WEBM_FAST,
+   "WebM Snabb"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_RECORDING_WEBM_HIGH_QUALITY,
+   "WebM Hög kvalitet"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RECORD_CONFIG,
+   "Anpassad inspelningskonfiguration"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_THREADS,
+   "Inspelnings-trådar"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_GPU_RECORD,
+   "Använd GPU-inspelning"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STREAMING_MODE,
+   "Streamingläge"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_STREAMING_MODE_LOCAL,
    "Lokal"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_STREAMING_MODE_CUSTOM,
    "Anpassa"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_STREAM_QUALITY,
+   "Streamingkvalitet"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_STREAMING_CUSTOM,
@@ -3417,57 +4193,173 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_RECORD_CONFIG_TYPE_STREAMING_HIGH_QUALITY,
    "Hög"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STREAM_CONFIG,
+   "Anpassad streamingkonfiguration"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STREAMING_TITLE,
+   "Stream Titel"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UDP_STREAM_PORT,
+   "Stream UDP Port"
+   )
 
 /* Settings > On-Screen Display */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ONSCREEN_OVERLAY_SETTINGS,
+   "Skärm-överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ONSCREEN_OVERLAY_SETTINGS,
+   "Justera ramar och skärm-spelkontroller."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ONSCREEN_VIDEO_LAYOUT_SETTINGS,
+   "Videolayout"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ONSCREEN_VIDEO_LAYOUT_SETTINGS,
+   "Justera videolayout."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ONSCREEN_NOTIFICATIONS_SETTINGS,
-   "On-Screen Notiser"
+   "Skärm-notiser"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ONSCREEN_NOTIFICATIONS_SETTINGS,
    "Hantera notiser som visas på skärmen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ONSCREEN_NOTIFICATIONS_VIEWS_SETTINGS,
+   "Synliga notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ONSCREEN_NOTIFICATIONS_VIEWS_SETTINGS,
+   "Slå på/av synligheten för specifika typer av notiser."
    )
 
 /* Settings > On-Screen Display > On-Screen Overlay */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_ENABLE,
-   "Visa Overlay"
+   "Visa Överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_ENABLE,
+   "Överlager används för kantramar och skärm-spelkontroller."
    )
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_BEHIND_MENU,
+   "Visa överlager bakom meny"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_BEHIND_MENU,
+   "Visa överlager bakom inte framför meny."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_HIDE_IN_MENU,
-   "Dölj Overlay i meny"
+   "Dölj Överlager i meny"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_HIDE_IN_MENU,
+   "Dölj överlager i meny och visa igen när meny stängs."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_HIDE_WHEN_GAMEPAD_CONNECTED,
+   "Dölj överlager när spelkontroll är ansluten"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_HIDE_WHEN_GAMEPAD_CONNECTED,
+   "Dölj överlager när en fysisk spelkontroll är ansluten till port 1, och visa igen när spelkontroll kopplas från."
    )
 #if defined(ANDROID)
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_HIDE_WHEN_GAMEPAD_CONNECTED_ANDROID,
+   "Dölj överlager när en fysisk spelkontroll är ansluten till port 1. Överlager visas inte automatiskt när spelkontroll kopplas från."
+   )
 #endif
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_SHOW_INPUTS,
+   "Visa inmatningar på överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_SHOW_INPUTS_PHYSICAL,
+   "Fysiska (spelkontroller)"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_SHOW_INPUTS_PORT,
    "Visa inmatningar från Port"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_SHOW_MOUSE_CURSOR,
-   "Visa muspekaren vid Overlay"
+   "Visa muspekare med Överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_SHOW_MOUSE_CURSOR,
+   "Visa muspekaren när ett skärm-överlager används."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_AUTO_ROTATE,
-   "Auto-rotera Overlay"
+   "Autorotera Överlager"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_AUTO_SCALE,
-   "Auto-skalning Overlay"
+   "Autoskalning Överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_AUTO_SCALE,
+   "Justera automatiskt överlagringsskalan och avståndet mellan element i användargränssnittet för att matcha skärmens bildförhållande. Ger bästa resultat med överkontrollör."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OVERLAY,
+   "Överlager"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERLAY_OPACITY,
-   "Genomskinlighet Overlay"
+   "Överlager opacitet"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OVERLAY_PRESET,
+   "Förinställt Överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OSK_OVERLAY_SETTINGS,
+   "Tangentbordsöverlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OSK_OVERLAY_SETTINGS,
+   "Välj och justera ett tangentbordsöverlager."
    )
 
 /* Settings > On-Screen Display > On-Screen Overlay > Keyboard Overlay */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OSK_OVERLAY_PRESET,
+   "Förinställt tangentbordsöverlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OSK_OVERLAY_PRESET,
+   "Välj ett tangentbordsöverlager med filhanteraren."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OSK_OVERLAY_AUTO_SCALE,
+   "Auto-skala tangentbordsöverlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OSK_OVERLAY_AUTO_SCALE,
+   "Justera tangentbordsöverlägret till dess ursprungliga bildformat. Inaktivera för att fylla skärmen."
+   )
 
 /* Settings > On-Screen Display > Video Layout */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_LAYOUT_ENABLE,
+   "Aktivera videolayout"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_LAYOUT_SELECTED_VIEW,
    "Vald vy"
@@ -3477,7 +4369,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FONT_ENABLE,
-   "On-Screen Notiser"
+   "Skärm-notiser"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FONT_ENABLE,
@@ -3496,16 +4388,40 @@ MSG_HASH(
    "Visa bildhastighet"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_FPS_SHOW,
+   "Visa aktuella bilder per sekund på skärmen."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FRAMECOUNT_SHOW,
    "Visa bildruteräknare"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_FRAMECOUNT_SHOW,
+   "Visa aktuell bildrutsräkning på skärmen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_STATISTICS_SHOW,
    "Visa Statistik"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_STATISTICS_SHOW,
+   "Visa teknisk statistik på skärmen."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MEMORY_SHOW,
    "Visa Minnesanvändning"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MEMORY_SHOW,
+   "Visa systemets använd och total mängd minne på skärmen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_PING_SHOW,
+   "Visa Netplay Ping"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NETPLAY_PING_SHOW,
+   "Visa pingen för den aktuella Netplay sessionen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_LOAD_CONTENT_ANIMATION,
@@ -3513,11 +4429,59 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_CHEATS_APPLIED,
-   "Notiser Fusk-kod"
+   "Fuskkod Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_CHEATS_APPLIED,
+   "Visa ett meddelande på skärmen när fuskkoder tillämpas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_PATCH_APPLIED,
-   "Patch notiser"
+   "Patch Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_PATCH_APPLIED,
+   "Visa ett meddelande på skärmen när ROM soft-patchas."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_AUTOCONFIG,
+   "Visa ett meddelande på skärmen när spelkontroller ansluts/kopplas från."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_REMAP_LOAD,
+   "Ommappning laddad Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_REMAP_LOAD,
+   "Visa ett meddelande på skärmen när ommappningsfiler för spelkontroller laddas."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_SAVE_STATE,
+   "Visa ett meddelande på skärmen när du sparar och laddar spelstatus."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_FAST_FORWARD,
+   "Snabbspola Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_FAST_FORWARD,
+   "Visa en indikation på skärmen när du snabbspolar innehåll."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SCREENSHOT,
+   "Skärmdump Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_SCREENSHOT,
+   "Visa ett meddelande på skärmen när en skärmdump tas."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SCREENSHOT_DURATION,
+   "Tidsgräns skärmdumpsnotis"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_SCREENSHOT_DURATION,
+   "Definiera varaktigheten för skärm-meddelandet om skärmdump."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SCREENSHOT_DURATION_FAST,
@@ -3532,6 +4496,14 @@ MSG_HASH(
    "Omedelbar"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SCREENSHOT_FLASH,
+   "Skärmdump Blixt-effekt"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_SCREENSHOT_FLASH,
+   "Visa en vit blinkande effekt på skärmen med önskad längd när en skärmdump tas."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SCREENSHOT_FLASH_NORMAL,
    "PÅ (Normal)"
    )
@@ -3540,44 +4512,116 @@ MSG_HASH(
    "PÅ (Snabb)"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_REFRESH_RATE,
+   "Uppdateringsfrekvens Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_REFRESH_RATE,
+   "Visa ett meddelande på skärmen när uppdateringsfrekvensen ställs in."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_NETPLAY_EXTRA,
+   "Extra Netplay Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_NETPLAY_EXTRA,
+   "Visa icke-nödvändiga Netplay-meddelanden på skärmen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_WHEN_MENU_IS_ALIVE,
+   "Endast-meny Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NOTIFICATION_SHOW_WHEN_MENU_IS_ALIVE,
+   "Visa notiser endast när menyn är öppen."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FONT_PATH,
    "Typsnitt notiser"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FONT_PATH,
-   "Välj typsnitt för notiser på skärmen."
+   "Välj typsnittet för skärm-notiser."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FONT_SIZE,
-   "Storlek på notiser"
+   "Notis-storlek"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FONT_SIZE,
-   "Ange teckenstorlek i punkter."
+   "Ange typsnittsstorleken i punkter."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_POS_X,
    "Notisposition (horisontellt)"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_POS_X,
+   "Ange anpassad X-axelposition för skärmtext. 0 är den vänstra kanten."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_POS_Y,
    "Notisposition (vertikalt)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_POS_Y,
+   "Ange anpassad Y-axelposition för skärmtext. 0 är den nedre kanten."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_COLOR_RED,
    "Notisfärg (röd)"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_COLOR_RED,
+   "Ställer in det röda värdet för textfärgen för skärm-notiser. Giltiga värden är mellan 0 och 255."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_COLOR_GREEN,
    "Notisfärg (grön)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_COLOR_GREEN,
+   "Ställer in det gröna värdet för textfärgen för skärm-notiser. Giltiga värden är mellan 0 och 255."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_COLOR_BLUE,
    "Notisfärg (blå)"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_COLOR_BLUE,
+   "Ställer in det blåa värdet för textfärgen för skärm-notiser. Giltiga värden är mellan 0 och 255."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_BGCOLOR_ENABLE,
    "Notis bakgrund"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_BGCOLOR_ENABLE,
+   "Aktiverar en bakgrundsfärg för skärm-notiser."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_BGCOLOR_RED,
+   "Notis bakgrundsfärg (röd)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_BGCOLOR_RED,
+   "Ställer in det röda värdet för bakgrundsfärgen för skärm-notiser. Giltiga värden är mellan 0 och 255."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_BGCOLOR_GREEN,
+   "Notis bakgrundsfärg (grön)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_BGCOLOR_GREEN,
+   "Ställer in det gröna värdet för bakgrundsfärgen för skärm-notiser. Giltiga värden är mellan 0 och 255."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_BGCOLOR_BLUE,
+   "Notis bakgrundsfärg (blå)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_MESSAGE_BGCOLOR_BLUE,
+   "Ställer in det blåa värdet för bakgrundsfärgen för skärm-notiser. Giltiga värden är mellan 0 och 255."
    )
 
 /* Settings > User Interface */
@@ -3588,13 +4632,25 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_VIEWS_SETTINGS,
-   "Välj vilka menyobjekt som ska vara synliga i RetroArch."
+   "Välj synligheten för menyalternativ i RetroArch."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SETTINGS,
    "Utseende"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SETTINGS,
+   "Ändra inställningar för menyskärmens utseende."
+   )
 #ifdef _3DS
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_BOTTOM_SETTINGS,
+   "3DS Utseende bottenskärm"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_BOTTOM_SETTINGS,
+   "Ändra inställningar för den nedre skärmens utseende."
+   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHOW_ADVANCED_SETTINGS,
@@ -3609,12 +4665,24 @@ MSG_HASH(
    "Kioskläge"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_ENABLE_KIOSK_MODE,
+   "Skyddar installationen genom att dölja alla konfigurationsrelaterade inställningar."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_KIOSK_MODE_PASSWORD,
    "Ange lösenord för att inaktivera Kioskläge"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_KIOSK_MODE_PASSWORD,
+   "Att ange ett lösenord när kioskläget aktiveras gör det möjligt att senare inaktivera kioskläget från menyn, genom att gå till huvudmenyn, välja Inaktivera Kioskläge och ange lösenordet."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PAUSE_LIBRETRO,
    "Pausa innehåll när menyn är aktiv"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_PAUSE_LIBRETRO,
+   "Pausa innehållet som körs för närvarande om menyn är aktiv."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SAVESTATE_RESUME,
@@ -3622,7 +4690,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SAVESTATE_RESUME,
-   "Stäng menyn automatiskt och återgå till innehållet efter att ha sparat eller laddat in en sparad status. Att inaktivera detta kan förbättra prestandan för sparad status på mycket långsamma enheter."
+   "Stäng automatiskt menyn och återuppta innehållet efter att ha sparat eller laddat en status. Inaktivering kan förbättra prestandan för sparad status på mycket långsamma enheter."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_INSERT_DISK_RESUME,
@@ -3634,7 +4702,27 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUIT_ON_CLOSE_CONTENT,
-   "Avsluta vid Stäng Innehåll"
+   "Avsluta vid Stäng innehåll"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUIT_ON_CLOSE_CONTENT,
+   "Avsluta RetroArch automatiskt vid Stäng innehåll. 'CLI' avslutas bara när innehållet startas via kommandoraden."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_SCREENSAVER_TIMEOUT,
+   "Menyskärmsläckarens tidsgräns"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SCREENSAVER_TIMEOUT,
+   "Medan menyn är aktiv kommer en skärmsläckare att kunna visas efter den angivna perioden av inaktivitet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_SCREENSAVER_ANIMATION,
+   "Animera menyskärmsläckare"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SCREENSAVER_ANIMATION,
+   "Aktivera en animeringseffekt medan menyskärmsläckaren är aktiv. Har en väldigt låg påverkan på prestanda."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SCREENSAVER_ANIMATION_SNOW,
@@ -3649,12 +4737,64 @@ MSG_HASH(
    "Virvel"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_SCREENSAVER_ANIMATION_SPEED,
+   "Menyskärmsläckarens animeringshastighet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SCREENSAVER_ANIMATION_SPEED,
+   "Justera hastigheten på menyskärmsläckarens animationseffekt."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MOUSE_ENABLE,
+   "Mus-stöd"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MOUSE_ENABLE,
+   "Tillåt att menyn styrs med en mus."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_POINTER_ENABLE,
+   "Touch-stöd"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_POINTER_ENABLE,
+   "Tillåt att menyn styrs med en pekskärm."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_THREADED_DATA_RUNLOOP_ENABLE,
+   "Trådade uppgifter"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_THREADED_DATA_RUNLOOP_ENABLE,
+   "Utför uppgifter på en separat tråd."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PAUSE_NONACTIVE,
+   "Pausa innehåll vid inaktivitet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_PAUSE_NONACTIVE,
+   "Pausa innehåll när RetroArch inte är det aktiva fönstret."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_DISABLE_COMPOSITION,
+   "Inaktivera skrivbordskomposition"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SCROLL_FAST,
    "Scrollhastighet i meny"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SCROLL_DELAY,
    "Scrollfördröjning i meny"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DESKTOP_MENU_ENABLE,
+   "Skrivbordsmeny (omstart krävs)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UI_COMPANION_TOGGLE,
+   "Öppna skrivbordsmenyn vid start"
    )
 
 /* Settings > User Interface > Menu Item Visibility */
@@ -3664,8 +4804,16 @@ MSG_HASH(
    "Snabbmeny"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_VIEWS_SETTINGS,
+   "Växla synligheten för menyobjekt i Snabbmenyn."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_VIEWS_SETTINGS,
    "Inställningar"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_VIEWS_SETTINGS,
+   "Växla synligheten för menyobjekt i menyn Inställningar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_LOAD_CORE,
@@ -3695,31 +4843,67 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_DUMP_DISC,
    "Visa 'Dumpa skiva'"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_DUMP_DISC,
+   "Visa alternativet 'Dumpa skiva' i huvudmenyn."
+   )
 #ifdef HAVE_LAKKA
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_SHOW_EJECT_DISC,
+   "Visa 'Mata ut skiva'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_EJECT_DISC,
+   "Visa alternativet 'Mata ut skiva' i huvudmenyn."
+   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_ONLINE_UPDATER,
    "Visa 'Online Uppdaterare'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_ONLINE_UPDATER,
+   "Visa alternativet 'Online Uppdaterare' i huvudmenyn."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_CORE_UPDATER,
    "Visa 'Ladda ner Kärna'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_CORE_UPDATER,
+   "Visa möjligheten att uppdatera kärnor (och kärninfofiler) i 'Online Uppdaterare'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_INFORMATION,
    "Visa 'Information'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_INFORMATION,
+   "Visa alternativet 'Information' i huvudmenyn."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_CONFIGURATIONS,
    "Visa 'Konfigurationsfil'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_CONFIGURATIONS,
+   "Visa alternativet 'Konfigurationsfil' i huvudmenyn."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_HELP,
    "Visa 'Hjälp'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_HELP,
+   "Visa alternativet 'Hjälp' i huvudmenyn."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_QUIT_RETROARCH,
    "Visa 'Avsluta RetroArch'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_QUIT_RETROARCH,
+   "Visa alternativet 'Avsluta RetroArch' i huvudmenyn."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_RESTART_RETROARCH,
@@ -3734,6 +4918,10 @@ MSG_HASH(
    "Visa 'Inställningar'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_SETTINGS,
+   "Visa menyn 'Inställningar'. (Omstart krävs på Ozone/XMB)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_SETTINGS_PASSWORD,
    "Ange lösenord för 'Inställningar'"
    )
@@ -3742,20 +4930,40 @@ MSG_HASH(
    "Visa 'Favoriter'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_FAVORITES,
+   "Visa menyn 'Favoriter'. (Omstart krävs på Ozone/XMB)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_IMAGES,
    "Visa 'Bilder'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_IMAGES,
+   "Visa menyn 'Bilder'. (Omstart krävs på Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_MUSIC,
    "Visa 'Musik'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_MUSIC,
+   "Visa menyn 'Musik'. (Omstart krävs på Ozone/XMB)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_VIDEO,
    "Visa 'Videor'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_VIDEO,
+   "Visa menyn 'Video'. (Omstart krävs på Ozone/XMB)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_NETPLAY,
    "Visa 'Netplay'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_NETPLAY,
+   "Visa menyn 'Netplay'. (Omstart krävs på Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_HISTORY,
@@ -3765,13 +4973,25 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_ADD,
    "Visa 'Importera Innehåll'"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_ADD,
+   "Visa menyn 'Importera innehåll'. (Omstart krävs på Ozone/XMB)"
+   )
 MSG_HASH( /* FIXME can now be replaced with MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_ADD */
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_ADD_ENTRY,
    "Visa 'Importera Innehåll'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_ADD_ENTRY,
+   "Visa en 'Importera innehåll' -post i huvudmenyn eller undermenyn för spellistor."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_ADD_CONTENT_ENTRY_DISPLAY_MAIN_TAB,
    "Huvudmeny"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_ADD_CONTENT_ENTRY_DISPLAY_PLAYLISTS_TAB,
+   "Spellistsmeny"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_PLAYLISTS,
@@ -3802,20 +5022,44 @@ MSG_HASH(
    "Visa tid och datum"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_TIMEDATE_ENABLE,
+   "Visa aktuellt datum och/eller tid i menyn."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIMEDATE_STYLE,
    "Tid och datum-format"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_TIMEDATE_DATE_SEPARATOR,
+   "Datumseparator"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_TIMEDATE_DATE_SEPARATOR,
+   "Ange tecken som ska användas som avgränsare mellan år/månad/dag komponenter när aktuellt datum visas i menyn."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BATTERY_LEVEL_ENABLE,
    "Visa 'Batteri-nivå'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_BATTERY_LEVEL_ENABLE,
+   "Visa aktuell batterinivå i menyn."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_ENABLE,
    "Visa 'Kärnnamn'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CORE_ENABLE,
+   "Visa aktuell kärnas namn i menyn."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SHOW_SUBLABELS,
    "Visa Meny-undertitlar"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_SHOW_SUBLABELS,
+   "Visa ytterligare information för menyobjekt."
    )
 MSG_HASH( /* FIXME Not RGUI specific */
    MENU_ENUM_LABEL_VALUE_RGUI_SHOW_START_SCREEN,
@@ -3830,15 +5074,23 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_RESUME_CONTENT,
-   "Visar valet att återuppta innehållet."
+   "Visar alternativet att återuppta innehåll."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_RESTART_CONTENT,
    "Visa 'Starta om'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_RESTART_CONTENT,
+   "Visa alternativet att starta om innehåll."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_CLOSE_CONTENT,
    "Visa 'Stäng Innehåll'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_CLOSE_CONTENT,
+   "Visa alternativet att stänga innehåll."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SAVESTATE_SUBMENU,
@@ -3853,6 +5105,18 @@ MSG_HASH(
    "Visa 'Spara/Ladda status'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_SAVE_LOAD_STATE,
+   "Visa alternativen för att spara/ladda ett tillstånd."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_REPLAY,
+   "Visa 'Repris-kontroller'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_REPLAY,
+   "Visa alternativen för inspelning/uppspelning av reprisfiler."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_UNDO_SAVE_LOAD_STATE,
    "Visa 'Ångra Spara/Ladda status'"
    )
@@ -3865,48 +5129,120 @@ MSG_HASH(
    "Visa 'Kärnalternativ'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_OPTIONS,
+   "Visa alternativet 'Kärnalternativ'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_CONTROLS,
-   "Visa 'Spelkontroll'"
+   "Visa 'Spelkontroller'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_CONTROLS,
+   "Visa alternativet 'Spelkontroller'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_TAKE_SCREENSHOT,
    "Visa 'Ta skärmdump'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_TAKE_SCREENSHOT,
+   "Visa alternativet 'Ta skärmdump'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_START_RECORDING,
    "Visa 'Starta inspelning'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_START_RECORDING,
+   "Visa alternativet 'Starta inspelning'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_START_STREAMING,
    "Visa 'Starta streaming'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_START_STREAMING,
+   "Visa alternativet 'Börja streama'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_OVERLAYS,
-   "Visa 'On-Screen Overlay'"
+   "Visa 'Skärm-överlager'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_OVERLAYS,
+   "Visa alternativet 'Skärm-överlager'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_VIDEO_LAYOUT,
+   "Visa 'Video Layout'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_VIDEO_LAYOUT,
+   "Visa alternativet 'Video Layout'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_LATENCY,
    "Visa 'Latens'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_LATENCY,
+   "Visa alternativet 'Latens'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_REWIND,
    "Visa 'Spola tillbaka'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_REWIND,
+   "Visa alternativet 'Spola tillbaka'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_CHEATS,
    "Visa 'Fusk'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_CHEATS,
+   "Visa alternativet 'Fusk'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SHADERS,
    "Visa 'Shaders'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_SHADERS,
+   "Visa alternativet 'Shaders'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_ADD_TO_FAVORITES,
    "Visa 'Lägg till i Favoriter'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_ADD_TO_FAVORITES,
+   "Visa alternativet 'Lägg till i favoriter'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SET_CORE_ASSOCIATION,
+   "Visa 'Ställ in kärnassociation'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_SET_CORE_ASSOCIATION,
+   "Visa alternativet 'Ställ in kärnassociation' när innehåll inte körs."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_RESET_CORE_ASSOCIATION,
+   "Visa 'Återställ kärnassociation'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_RESET_CORE_ASSOCIATION,
+   "Visa alternativet 'Återställ kärnassociation' när innehåll inte körs."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_DOWNLOAD_THUMBNAILS,
    "Visa 'Ladda ner miniatyrer'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_DOWNLOAD_THUMBNAILS,
+   "Visa alternativet 'Ladda ner miniatyrer' när innehåll inte körs."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_INFORMATION,
@@ -3932,77 +5268,169 @@ MSG_HASH(
    "Visa 'Video'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_VIDEO,
+   "Visar inställningar för video."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_AUDIO,
    "Visa 'Ljud'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_AUDIO,
+   "Visar inställningar för ljud."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_INPUT,
    "Show 'Inmatning'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_INPUT,
+   "Visar inställningar för inmatning."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_LATENCY,
    "Visa 'Latens'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_LATENCY,
+   "Visar inställningar för latens."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_CORE,
    "Visa 'Kärna'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_CORE,
+   "Visar inställningar för kärna."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_CONFIGURATION,
    "Visa 'Konfiguration'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_CONFIGURATION,
+   "Visar inställningar för konfiguration."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_SAVING,
+   "Visa 'Sparar'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_SAVING,
+   "Visa inställningar för 'Sparar'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_LOGGING,
    "Visa 'Loggning'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_LOGGING,
+   "Visar inställningar för loggning."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_FILE_BROWSER,
+   "Visa 'Filhanterare'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_FILE_BROWSER,
+   "Visar inställningar för filhanterare."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_RECORDING,
    "Visa 'Inspelning'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_RECORDING,
+   "Visar inställningar för inspelning."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_ONSCREEN_DISPLAY,
-   "Visa 'On-Screen Display'"
+   "Visa 'Skärm-visning'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_ONSCREEN_DISPLAY,
+   "Visa inställningar för skärm-visning."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_USER_INTERFACE,
    "Visa 'Användargränssnitt'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_USER_INTERFACE,
+   "Visar inställningar för användargränssnitt."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_AI_SERVICE,
    "Visa 'AI-tjänst'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_AI_SERVICE,
+   "Visar inställningar för AI-tjänst."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_ACCESSIBILITY,
    "Visa 'Tillgänglighet'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_ACCESSIBILITY,
+   "Visa inställningar för tillgänglighet."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_POWER_MANAGEMENT,
    "Visa 'Energihantering'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_POWER_MANAGEMENT,
+   "Visa inställningar för 'Energihantering'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_ACHIEVEMENTS,
    "Visa 'Prestationer'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_ACHIEVEMENTS,
+   "Visa inställningar för 'Prestationer'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_NETWORK,
    "Visa 'Nätverk'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_NETWORK,
+   "Visa inställningar för 'Nätverk'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_PLAYLISTS,
    "Visa 'Spellistor'"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_PLAYLISTS,
+   "Visa inställningar för 'Spellistor'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_USER,
    "Visa 'Användare'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_USER,
+   "Visa inställningar för 'Användare'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_DIRECTORY,
    "Visa 'Katalog'"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_DIRECTORY,
+   "Visa inställningar för 'Katalog'."
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_STEAM,
    "Visa 'Steam'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_STEAM,
+   "Visa inställningar för 'Steam'."
    )
 
 /* Settings > User Interface > Appearance */
@@ -4020,32 +5448,84 @@ MSG_HASH(
    "Bakgrundsbild"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_WALLPAPER,
+   "Välj en bild att ställa in som menybakgrund. Manuella och dynamiska bilder kommer att åsidosätta 'Färgtema'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_WALLPAPER_OPACITY,
    "Bakgrundsgenomskinlighet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_WALLPAPER_OPACITY,
+   "Ändra bakgrundsbildens opacitet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FRAMEBUFFER_OPACITY,
    "Genomskinlighet"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_FRAMEBUFFER_OPACITY,
+   "Ändra förinställda menybakgrundens opacitet."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS,
    "Primär miniatyrbild"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_THUMBNAILS,
+   "Typ av miniatyr som ska visas."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_THUMBNAIL_UPSCALE_THRESHOLD,
+   "Miniatyrbilders uppskalningströskel"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_UPSCALE_THRESHOLD,
+   "Uppskala automatiskt miniatyrbilder med en bredd/höjd som är mindre än det angivna värdet. Förbättrar bildkvalitén. Har en måttlig inverkan på prestanda."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
-   "Animation rull-text"
+   "Rull-textanimering"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_TICKER_TYPE,
+   "Välj metod för horisontell rullning som används för att visa lång menytext."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_SPEED,
-   "Hastighet rull-text"
+   "Rull-texthastighet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_TICKER_SPEED,
+   "Animeringshastigheten vid rullning av lång menytext."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_SMOOTH,
-   "Smidig rull-text"
+   "Mjuk Rull-text"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_TICKER_SMOOTH,
+   "Använd mjuk rullande animation när lång menytext visas. Har en liten prestandapåverkan."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_REMEMBER_SELECTION,
+   "Kom ihåg val vid byte av flikar"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_REMEMBER_SELECTION,
+   "Kom ihåg föregående markörposition i flikar. RGUI har inga flikar, men Spellistor och Inställningar beter sig som sådana."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_REMEMBER_SELECTION_ALWAYS,
    "Alltid"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_REMEMBER_SELECTION_PLAYLISTS,
+   "Endast för Spellistor"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_REMEMBER_SELECTION_MAIN,
+   "Endast för Huvudmeny och Inställningar"
    )
 
 /* Settings > AI Service */
@@ -4064,7 +5544,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_PAUSE,
-   "Pausa kärnan medan skärmen översatts."
+   "Pausa Kärna medan skärmen översatts."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_SOURCE_LANG,
@@ -4090,6 +5570,10 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEEVOS_ENABLE,
    "Samla prestationframgångar i klassiska spel. För mer information, besök 'https://retroachievements.org'."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_AUTO_SCREENSHOT,
+   "Automatisk skärmdump"
+   )
 
 /* Settings > Achievements > Appearance */
 
@@ -4097,12 +5581,84 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_APPEARANCE_SETTINGS,
    "Utseende"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_APPEARANCE_SETTINGS,
+   "Ändra position och förskjutningar för prestationsnotiser på skärmen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_APPEARANCE_ANCHOR_TOPLEFT,
+   "Överkant Vänster"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_APPEARANCE_ANCHOR_TOPCENTER,
+   "Överkant Mitten"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_APPEARANCE_ANCHOR_TOPRIGHT,
+   "Överkant Höger"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_APPEARANCE_ANCHOR_BOTTOMLEFT,
+   "Underkant Vänster"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_APPEARANCE_ANCHOR_BOTTOMCENTER,
+   "Underkant Mitten"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_APPEARANCE_ANCHOR_BOTTOMRIGHT,
+   "Underkant Höger"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_APPEARANCE_PADDING_AUTO,
+   "Ange om prestationsnotiser ska överensstämma med andra typer av skärm-notiser. Inaktivera för att ställa in manuella utfyllnads-/positionsvärden."
+   )
 
 /* Settings > Achievements > Visibility */
 
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_SETTINGS,
+   "Ändra vilka meddelanden och element på skärmen som visas. Inaktiverar inte funktionalitet."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_UNLOCK,
+   "Upplåst Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_UNLOCK,
+   "Visar en notis när en prestation är upplåst."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_MASTERY,
+   "Mästerlig Notiser"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_MASTERY,
+   "Visar en notis när alla prestationer för ett spel är upplåsta."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_CHALLENGE_INDICATORS,
+   "Visa indikationer på skärmen samtidigt som vissa prestationer kan tjänas."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_PROGRESS_TRACKER,
+   "Visa en indikationer på skärmen när framsteg görs mot vissa prestationer."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_ACCOUNT,
+   "Inloggningsmeddelande"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_ACCOUNT,
+   "Visar meddelanden kopplade till RetroAchievements kontoinloggning."
+   )
 
 /* Settings > Network */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_MITM_SERVER_LOCATION_2,
+   "Västeuropa"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_MITM_SERVER_LOCATION_CUSTOM,
    "Anpassa"
@@ -4132,8 +5688,16 @@ MSG_HASH(
    "Netplay Åskådarläge"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_CHAT_COLOR_NAME,
+   "Chattfärg (Nicknamn)"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_CHAT_COLOR_NAME,
    "Format: #RRGGBB eller RRGGBB"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_CHAT_COLOR_MSG,
+   "Chattfärg (Meddelande)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_CHAT_COLOR_MSG,
@@ -4144,8 +5708,28 @@ MSG_HASH(
    "Tillåt pausning"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_NETPLAY_ALLOW_PAUSING,
+   "Tillåt spelare att pausa under Netplay."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETWORK_CMD_ENABLE,
    "Nätverkskommandon"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETWORK_CMD_PORT,
+   "Nätverkskommandoport"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETWORK_REMOTE_ENABLE,
+   "Nätverksspelkontroll"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETWORK_REMOTE_PORT,
+   "Port för nätverksspelkontroller"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETWORK_USER_REMOTE_ENABLE,
+   "Spelare %d Nätverksspelkontroll"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATER_SETTINGS,
@@ -4179,11 +5763,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_HISTORY_SIZE,
-   "Storlek på Historik"
+   "Historik storlek"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_FAVORITES_SIZE,
-   "Storlek på Favoriter"
+   "Favoriters storlek"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_PLAYLIST_COMPRESSION,
@@ -4226,6 +5810,10 @@ MSG_HASH(
    "timme"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_TIME_UNIT_HOURS_PLURAL,
+   "timmar"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIME_UNIT_DAYS_SINGLE,
    "dag"
    )
@@ -4265,12 +5853,20 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LIST,
    "Hantera Spellistor"
    )
-   
+   MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MANAGE,
+   "Hantera"
+   )
+
 /* Settings > Playlists > Playlist Management */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_DEFAULT_CORE,
    "Standard Kärna"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_RESET_CORES,
+   "Återställ kärnassociationer"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE,
@@ -4309,7 +5905,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_NICKNAME,
-   "Ange ditt användarnamn här. Detta kommer bland annat att användas för nätverkssessioner."
+   "Ange ditt användarnamn här. Detta kommer bland annat att användas för Netplay-sessioner."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USER_LANGUAGE,
@@ -4401,24 +5997,76 @@ MSG_HASH(
    "Databaser"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_DATABASE_DIRECTORY,
+   "Databaser lagras i denna katalog."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_DATABASE_PATH,
    "Fuskfiler"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEAT_DATABASE_PATH,
+   "Fuskfiler lagras i denna katalog."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FILTER_DIR,
+   "Videofilter"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_FILTER_DIR,
+   "CPU-baserade videofilter lagras i denna katalog."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FILTER_DIR,
    "Ljudfilter"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_FILTER_DIR,
+   "DSP-ljudfilter lagras i denna katalog."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_SHADER_DIR,
+   "GPU-baserade videoshaders lagras i denna katalog."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORDING_OUTPUT_DIRECTORY,
    "Inspelningar"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_RECORDING_OUTPUT_DIRECTORY,
+   "Inspelningar lagras i denna katalog."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORDING_CONFIG_DIRECTORY,
    "Inspelning Configs"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OVERLAY_DIRECTORY,
+   "Överlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OVERLAY_DIRECTORY,
+   "Överlager lagras i denna katalog."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OSK_OVERLAY_DIRECTORY,
+   "Tangentbordsöverlager"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OSK_OVERLAY_DIRECTORY,
+   "Tangentbordsöverlager lagras i denna katalog."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCREENSHOT_DIRECTORY,
    "Skärmdumpar"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_JOYPAD_AUTOCONFIG_DIR,
+   "Spelkontrollsprofiler"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_JOYPAD_AUTOCONFIG_DIR,
+   "Spelkontrollsprofiler som automatisk konfigurerar spelkontroller lagras i denna katalog."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_DIRECTORY,
@@ -4429,12 +6077,36 @@ MSG_HASH(
    "Favoritspellista"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_FAVORITES_DIRECTORY,
+   "Spara favoritspellista till denna katalog."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_HISTORY_DIRECTORY,
    "Historikspellista"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_IMAGE_HISTORY_DIRECTORY,
+   "Bildspellista"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_MUSIC_HISTORY_DIRECTORY,
+   "Musikspellista"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_VIDEO_HISTORY_DIRECTORY,
+   "Videospellista"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUNTIME_LOG_DIRECTORY,
+   "Körningslogg"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVEFILE_DIRECTORY,
    "Spara filer"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_SAVEFILE_DIRECTORY,
+   "Spara alla filer (*.srm) till denna katalog. Detta inkluderar relaterade filer som .rt, .psrm, etc... Detta kommer att åsidosättas av explicita kommandoradsval."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_DIRECTORY,
@@ -4444,15 +6116,43 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_DIRECTORY,
    "Dina sparstatusar och inspelningar lagras i denna mapp. Om den inte är inställd hit så kommer den att försöka spara filerna i mappen där spelinnehållet är placerat."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LOG_DIR,
+   "System händelselogg"
+   )
 
 #ifdef HAVE_MIST
 /* Settings > Steam */
 
 
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_STEAM_RICH_PRESENCE_FORMAT,
+   "Bestäm vilken information relaterad till innehållet som körs som ska delas."
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_STEAM_RICH_PRESENCE_FORMAT_CONTENT,
    "Innehåll"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STEAM_RICH_PRESENCE_FORMAT_CORE,
+   "Kärnnamn"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STEAM_RICH_PRESENCE_FORMAT_SYSTEM,
+   "Systemnamn"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STEAM_RICH_PRESENCE_FORMAT_CONTENT_SYSTEM,
+   "Innehåll (Systemnamn)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STEAM_RICH_PRESENCE_FORMAT_CONTENT_CORE,
+   "Innehåll (Kärnnamn)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STEAM_RICH_PRESENCE_FORMAT_CONTENT_SYSTEM_CORE,
+   "Innehåll (Systemnamn - Kärnnamn)"
    )
 #endif
 
@@ -4476,18 +6176,74 @@ MSG_HASH(
    "Värd"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_ENABLE_CLIENT,
+   "Anslut till Netplay-värd"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NETPLAY_ENABLE_CLIENT,
+   "Ange Netplay-serveradress och anslut i klientläge."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_DISCONNECT,
+   "Koppla från Netplay-värd"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NETPLAY_DISCONNECT,
+   "Koppla från en aktiv Netplay anslutning."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_SHOW_ONLY_CONNECTABLE,
+   "Endast anslutningsbara rum"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_SHOW_ONLY_INSTALLED_CORES,
    "Endast installerade Kärnor"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_SHOW_PASSWORDED,
+   "Lösenordade rum"
    )
 
 /* Netplay > Host */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_KICK,
+   "Sparka ut klient"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_BAN,
+   "Bannlys klient"
+   )
 
 /* Import Content */
 
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_SCAN_DIRECTORY,
+   "Skannar i en katalog efter innehåll som matchar databasen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_SCAN_THIS_DIRECTORY,
+   "Välj detta för att skanna den aktuella katalogen efter innehåll."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCAN_FILE,
    "Skanna fil"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SCAN_FILE,
+   "Skannar en fil efter innehåll som matchar databasen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_LIST,
+   "Manuell skanning"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MANUAL_CONTENT_SCAN_LIST,
+   "Konfigurerbar skanning baserad på filnamnet på innehåll. Kräver inte att innehåll matchar databasen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SCAN_ENTRY,
+   "Skanna"
    )
 
 /* Import Content > Scan File */
@@ -4504,16 +6260,56 @@ MSG_HASH(
 /* Import Content > Manual Scan */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_DIR,
+   "Innehållets katalog"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MANUAL_CONTENT_SCAN_DIR,
+   "Välj en katalog för att söka efter innehåll."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_SYSTEM_NAME,
    "Systemets namn"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MANUAL_CONTENT_SCAN_SYSTEM_NAME,
+   "Ange ett 'systemnamn' med vilket du kan associera skannat innehåll. Används för att namnge den genererade spellistfilen och för att identifiera spellistminiatyrer."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_SYSTEM_NAME_CUSTOM,
+   "Anpassat systemnamn"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MANUAL_CONTENT_SCAN_SYSTEM_NAME_CUSTOM,
+   "Ange manuellt ett 'systemnamn' för skannat innehåll. Används endast när 'Systemnamn' är satt till '<Custom>'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_CORE_NAME,
    "Standard Kärna"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MANUAL_CONTENT_SCAN_CORE_NAME,
+   "Välj en standard kärna att använda vid start av skannat innehåll."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_FILE_EXTS,
-   "Filtillägg"
+   "Filnamnstillägg"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MANUAL_CONTENT_SCAN_FILE_EXTS,
+   "Lista över filtyper som ska inkluderas i sökningen, separerade med mellanslag. Om tom, innehåller alla filtyper, eller om en kärna anges, alla filer som stöds av kärnan."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_SEARCH_ARCHIVES,
+   "Skanna inuti Arkiv"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_DAT_FILE,
+   "Arkad DAT-fil"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_DAT_FILE_FILTER,
+   "Arkad DAT-filter"
    )
 
 /* Explore tab */
@@ -4554,8 +6350,52 @@ MSG_HASH(
    "Efter genre"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_ACHIEVEMENTS,
+   "Efter prestationer"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_CATEGORY,
+   "Efter kategori"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_LANGUAGE,
+   "Efter språk"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_EXPLORE_BY_REGION,
    "Efter region"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_CONSOLE_EXCLUSIVE,
+   "Efter konsolen exklusiv"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_PLATFORM_EXCLUSIVE,
+   "Efter Plattform exklusiv"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_SCORE,
+   "Efter Poäng"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_CONTROLS,
+   "Efter spelkontroller"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_ARTSTYLE,
+   "Efter konststil"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_GAMEPLAY,
+   "Efter Spelsätt"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_NARRATIVE,
+   "Efter berättande"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_EXPLORE_BY_PERSPECTIVE,
+   "Efter perspektiv"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_EXPLORE_BY_ORIGIN,
@@ -4577,12 +6417,28 @@ MSG_HASH(
    MENU_ENUM_LABEL_EXPLORE_VIEW,
    "Visa"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_EXPLORE_DELETE_VIEW,
+   "Radera vy"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_EXPLORE_VIEW_SAVED,
+   "Vy sparad"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_EXPLORE_VIEW_DELETED,
+   "Vy raderad"
+   )
 
 /* Playlist > Playlist Item */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN,
    "Kör"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_RUN,
+   "Starta innehållet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RENAME_ENTRY,
@@ -4602,7 +6458,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SET_CORE_ASSOCIATION,
-   "Ställ in Kärnkoppling"
+   "Ställ in kärnassociation"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RESET_CORE_ASSOCIATION,
+   "Återställ kärnassociation"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DOWNLOAD_PL_ENTRY_THUMBNAILS,
+   "Ladda ner miniatyrer"
    )
 
 /* Playlist Item > Set Core Association */
@@ -4670,8 +6534,12 @@ MSG_HASH(
    "Ta en bild av skärmen."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STATE_SLOT,
+   "Status minnesplats"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_STATE_SLOT,
-   "Ändra nuvarande valda slot."
+   "Ändra den för närvarande valda status platsen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_STATE,
@@ -4679,7 +6547,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_STATE,
-   "Sparar spelets status på den för närvarande valda platsen och lagrar den i minnesplatsen."
+   "Spara en status av spelet till den för närvarande valda platsen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_STATE,
@@ -4699,7 +6567,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_REPLAY_SLOT,
-   "Ändra nuvarande valda slot."
+   "Ändra den för närvarande valda status platsen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAY_REPLAY,
@@ -4707,7 +6575,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_PLAY_REPLAY,
-   "Spela upp reprisfil från den valda platsen för tillfället."
+   "Spela reprisfilen från den för närvarande valda platsen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORD_REPLAY,
@@ -4715,7 +6583,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RECORD_REPLAY,
-   "Spela in repris-fil till den nuvarande valda platsen."
+   "Spela in reprisfil till den för närvarande valda platsen."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_HALT_REPLAY,
@@ -4731,7 +6599,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_START_RECORDING,
-   "Starta inspelning"
+   "Starta Inspelning"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_START_STREAMING,
@@ -4769,28 +6637,60 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_LIST,
    "Prestationer"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ACHIEVEMENT_LIST,
+   "Visa prestationer och relaterade inställningar."
+   )
 
 /* Quick Menu > Options */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_OPTION_OVERRIDE_LIST,
+   "Hantera kärnalternativ"
+   )
 
 /* Quick Menu > Options > Manage Core Options */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_CORE_OPTIONS_CREATE,
-   "Spara Spel-inställningar"
+   "Spara spelalternativ"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_CORE_OPTIONS_REMOVE,
+   "Ta bort spelalternativ"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FOLDER_SPECIFIC_CORE_OPTIONS_CREATE,
    "Spara Innehålls-inställningar"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_OPTION_OVERRIDE_INFO,
+   "Aktiv alternativ-fil"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_OPTIONS_RESET,
+   "Återställ alternativ"
+   )
 
 /* - Legacy (unused) */
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_OPTIONS_CREATE,
+   "Skapa spelalternativ-fil"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_SPECIFIC_OPTIONS_IN_USE,
+   "Spara spelalternativ-fil"
+   )
 
 /* Quick Menu > Controls */
 
 
 /* Quick Menu > Controls > Manage Remap Files */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_REMAP_FILE_SAVE_GAME,
+   "Spara spelommappningsfil"
+   )
 
 /* Quick Menu > Controls > Manage Remap Files > Load Remap File */
 
@@ -4821,28 +6721,56 @@ MSG_HASH(
    "Tryck vänster eller höger för att ändra värde."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_EXACT_VAL,
+   "Lika med %u (%X)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_LT,
    "Sök i minnet efter värden"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_LT_VAL,
+   "Mindre än innan"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_LTE,
    "Sök i minnet efter värden"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_LTE_VAL,
+   "Mindre än eller lika med innan"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_GT,
    "Sök i minnet efter värden"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_GT_VAL,
+   "Större än innan"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_GTE,
    "Sök i minnet efter värden"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_GTE_VAL,
+   "Större än eller lika med innan"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_EQ,
    "Sök i minnet efter värden"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_EQ_VAL,
+   "Lika med innan"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_NEQ,
    "Sök i minnet efter värden"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_NEQ_VAL,
+   "Inte lika med innan"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_EQPLUS,
@@ -4853,12 +6781,20 @@ MSG_HASH(
    "Tryck vänster eller höger för att ändra värde."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_EQPLUS_VAL,
+   "Lika med innan +%u (%X)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_EQMINUS,
    "Sök i minnet efter värden"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEAT_SEARCH_EQMINUS,
    "Tryck vänster eller höger för att ändra värde."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_EQMINUS_VAL,
+   "Lika med innan -%u (%X)"
    )
 
 /* Quick Menu > Cheats > Load Cheat File (Replace) */
@@ -4909,6 +6845,10 @@ MSG_HASH(
    "Öppna virtuellt skivfack och ta bort den laddade skivan. Om 'Pausa innehåll när menyn är aktiv' är aktiverat kanske vissa kärnor inte registrera ändringar om inte innehållet återupptas i några sekunder efter varje skivkontrollsåtgärd."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DISK_TRAY_INSERT,
+   "Sätt i skiva"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_DISK_TRAY_INSERT,
    "Mata in skiva som matchar 'Nuvarande skivindex' och stäng virtuellt diskfack. Om 'Pausa innehåll när menyn är aktiv' är aktiverat kanske vissa kärnor inte registrera ändringar om inte innehållet återupptas i några sekunder efter varje skivkontrollsåtgärd."
    )
@@ -4932,8 +6872,16 @@ MSG_HASH(
 /* Quick Menu > Shaders */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_REMEMBER_LAST_DIR,
+   "Kom ihåg senast använda Shader-katalog"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_SHADER_REMEMBER_LAST_DIR,
+   "Öppna filhanteraren i den senast använda katalogen när förinställda shaders ska laddas."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET,
-   "Ladda förinställning"
+   "Ladda förinställd"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET,
@@ -4999,6 +6947,10 @@ MSG_HASH(
 
 /* Quick Menu > Information */
 
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_RDB_ENTRY_DETAIL,
+   "Visa databasinformation för aktuellt innehåll."
+   )
 
 /* Miscellaneous UI Items */
 
@@ -5007,8 +6959,20 @@ MSG_HASH(
    "Inga Kärnor tillgängliga"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_CORE_OPTIONS_AVAILABLE,
+   "Inga kärnalternativ tillgängliga"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_CORE_INFORMATION_AVAILABLE,
+   "Ingen kärninformation tillgänglig"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_CORE_BACKUPS_AVAILABLE,
+   "Inga kärnsäkerhetskopior är tillgängliga"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_FAVORITES_AVAILABLE,
-   "Inga favoriter tillgänglig"
+   "Inga favoriter tillgängliga"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_HISTORY_AVAILABLE,
@@ -5016,7 +6980,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_IMAGES_AVAILABLE,
-   "Inga bilder tillgänglig"
+   "Inga bilder tillgängliga"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_MUSIC_AVAILABLE,
@@ -5024,19 +6988,27 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_VIDEOS_AVAILABLE,
-   "Inga videor tillgänglig"
+   "Inga videor tillgängliga"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_INFORMATION_AVAILABLE,
    "Ingen information tillgänglig"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_SETTINGS_FOUND,
+   "Inga inställningar hittades"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_BT_DEVICES_FOUND,
-   "Inga Bluetoothenheter hittad"
+   "Inga Bluetoothenheter hittades"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_NETWORKS_FOUND,
-   "Inga nätverk hittad"
+   "Inga nätverk hittades"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_CORE,
+   "Ingen kärna"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SEARCH,
@@ -5045,6 +7017,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BASIC_MENU_CONTROLS_BACK,
    "Tillbaka"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PARENT_DIRECTORY,
+   "Föräldrakatalog"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_PARENT_DIRECTORY,
+   "Gå bakåt till föräldrakatalogen."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DIRECTORY_NOT_FOUND,
+   "Katalogen hittades inte"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_ITEMS,
+   "Inga föremål"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SELECT_FILE,
@@ -5077,6 +7065,10 @@ MSG_HASH(
 
 /* Settings Options */
 
+MSG_HASH( /* FIXME Should be MENU_LABEL_VALUE */
+   MSG_UNKNOWN_COMPILER,
+   "Okänd kompilator"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_SHARE_DIGITAL_OR,
    "Dela"
@@ -5086,8 +7078,24 @@ MSG_HASH(
    "Rösta"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_SHARE_ANALOG,
+   "Analog ingångsdelning"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_SHARE_ANALOG_AVERAGE,
+   "Medelvärde"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_SHARE_NONE,
    "Ingen"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE_BOUNCE,
+   "Studsa vänster/höger"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE_LOOP,
+   "Rulla åt vänster"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_IMAGE_MODE,
@@ -5095,7 +7103,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_BOTTOM,
-   "Botten"
+   "Underkant"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_TOP,
@@ -5146,6 +7154,14 @@ MSG_HASH(
    "Ingen källa"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_USE_THIS_DIRECTORY,
+   "Välj det här för att ställa in detta som katalog."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RETROPAD_WITH_ANALOG,
+   "RetroPad med Analog"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NONE,
    "Ingen"
    )
@@ -5154,8 +7170,28 @@ MSG_HASH(
    "Okänd"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DOWN_Y_L_R,
+   "Ner + Y + L1 + R1"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_HOLD_START,
+   "Start intryckt (2 sekunder)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_HOLD_SELECT,
+   "Select intryckt (2 sekunder)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DOWN_SELECT,
+   "Ner + Select"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_RUMBLE_TYPE_CHANGES,
    "Ändringar"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_RUMBLE_TYPE_DOES_NOT_CHANGE,
+   "Ändras inte"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_RUMBLE_TYPE_INCREASE,
@@ -5170,20 +7206,96 @@ MSG_HASH(
    "Alla"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_TYPE_SET_TO_VALUE,
+   "Sätt till värde"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_TYPE_INCREASE_VALUE,
+   "Öka med värde"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_TYPE_DECREASE_VALUE,
+   "Minska med värde"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_TYPE_RUN_NEXT_IF_EQ,
+   "Kör nästa fusk om värde = minne"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_TYPE_RUN_NEXT_IF_NEQ,
+   "Kör nästa fusk om värde != minne"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_TYPE_RUN_NEXT_IF_LT,
+   "Kör nästa fusk om värde < minne"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_TYPE_RUN_NEXT_IF_GT,
+   "Kör nästa fusk om värde > minne"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_MEMORY_SIZE_1,
+   "1-Bit, Maximalt värde = 0x01"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_MEMORY_SIZE_2,
+   "2-Bit, Maximalt värde = 0x03"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_MEMORY_SIZE_4,
+   "4-Bit, Maximalt värde = 0x0F"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_MEMORY_SIZE_8,
+   "8-Bit, Maximalt värde= 0xFF"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_MEMORY_SIZE_16,
+   "16-Bit, Maximalt värde = 0xFFFF"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_MEMORY_SIZE_32,
+   "32-Bit, Maximalt värde = 0xFFFFFFFF"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_SORT_MODE_DEFAULT,
    "System förinställt"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_SORT_MODE_ALPHABETICAL,
+   "Alfabetisk"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_SORT_MODE_OFF,
    "Ingen"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_DEFAULT,
+   "Visa hela titel etiketter"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_REMOVE_PARENS,
+   "Ta bort () innehåll"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_REMOVE_BRACKETS,
+   "Ta bort [] innehåll"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_REMOVE_PARENS_AND_BRACKETS,
    "Ta bort () och []"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_KEEP_REGION,
+   "Behåll region"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_KEEP_DISC_INDEX,
    "Behåll skivindex"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_KEEP_REGION_AND_DISC_INDEX,
+   "Behåll region och skivindex"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_THUMBNAIL_MODE_DEFAULT,
@@ -5246,8 +7358,16 @@ MSG_HASH(
    "Upplåst"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_UNOFFICIAL_ENTRY,
+   "Inofficiell"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_UNSUPPORTED_ENTRY,
    "Stöds inte"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_RECENTLY_UNLOCKED_ENTRY,
+   "Nyligen upplåst"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_ALMOST_THERE_ENTRY,
@@ -5257,6 +7377,10 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_ACTIVE_CHALLENGES_ENTRY,
    "Aktiva utmaningar"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_NOTIFICATIONS_ONLY,
+   "Endast notiser"
+)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DONT_CARE,
    "Standard"
@@ -5272,6 +7396,26 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT,
    "Innehåll"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LEFT_ANALOG,
+   "Vänster Analog"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RIGHT_ANALOG,
+   "Höger Analog"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LEFT_ANALOG_FORCED,
+   "Vänster Analog (Tvingad)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RIGHT_ANALOG_FORCED,
+   "Höger Analog (Tvingad)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_KEY,
+   "Knapp %s"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_LEFT,
@@ -5294,6 +7438,22 @@ MSG_HASH(
    "Mus 5"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_WHEEL_UP,
+   "Mushjul Upp"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_WHEEL_DOWN,
+   "Mushjul Ner"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_HORIZ_WHEEL_UP,
+   "Mushjul Vänster"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_MOUSE_HORIZ_WHEEL_DOWN,
+   "Mushjul Höger"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_POLL_TYPE_BEHAVIOR_EARLY,
    "Tidig"
    )
@@ -5302,15 +7462,51 @@ MSG_HASH(
    "Sen"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_TIMEDATE_DDMMYYYY,
-   "DD-MM-ÅÅÅÅ"
+   MENU_ENUM_LABEL_VALUE_TIMEDATE_AGO,
+   "sedan"
    )
 
 /* RGUI: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_BACKGROUND_FILLER_THICKNESS_ENABLE,
+   "Bakgrundsfyllnad Fet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_BACKGROUND_FILLER_THICKNESS_ENABLE,
+   "Öka storlek på bakgrundsfyllnadens schackbrädsrutor."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_BORDER_FILLER_ENABLE,
+   "Kantfyllnad"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_BORDER_FILLER_THICKNESS_ENABLE,
+   "Kantfyllnad Fet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_BORDER_FILLER_THICKNESS_ENABLE,
+   "Öka storlek på kantfyllnadens schackbrädsrutor."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_BORDER_FILLER_ENABLE,
+   "Visa menyram."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_FULL_WIDTH_LAYOUT,
+   "Använd fullbreddslayout"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_FULL_WIDTH_LAYOUT,
+   "Ändra storlek och placera menyposter för att utnyttja tillgängligt skärmutrymme på bästa sätt. Inaktivera detta för att använda klassisk tvåkolumnslayout med fast bredd."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_LINEAR_FILTER,
    "Linjärt filter"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_LINEAR_FILTER,
+   "Lägger till en liten oskärpa till menyn för att mjuka upp hårda pixelkanter."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_INTERNAL_UPSCALE_LEVEL,
@@ -5321,8 +7517,16 @@ MSG_HASH(
    "Bildformat"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO,
+   "Välj bildformat för meny. Bredbildsformat ökar den horisontella upplösningen i menygränssnittet. (Kan kräva en omstart om 'Lås bildformat' är inaktiverad)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO_LOCK,
    "Lås bildformat"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_ASPECT_RATIO_LOCK,
+   "Säkerställer att menyn alltid visas med rätt bildformat. Inaktiverad kommer snabbmenyn att sträckas ut för att matcha det för närvarande laddade innehållet."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME,
@@ -5335,6 +7539,34 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_SHADOWS,
    "Skuggeffekter"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_SHADOWS,
+   "Aktivera skuggor för menytext, ramar och miniatyrer. Har en blygsam prestandapåverkan."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_PARTICLE_EFFECT,
+   "Animerad bakgrund"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_PARTICLE_EFFECT_SPEED,
+   "Animerad bakgrunds hastighet"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_THUMBNAILS_RGUI,
+   "Övre miniatyrbild"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_RGUI,
+   "Nedre miniatyrbild"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_EXTENDED_ASCII,
+   "Utökat ASCII-stöd"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_RGUI_EXTENDED_ASCII,
+   "Aktivera visning av icke-standardiserade ASCII-tecken. Krävs för kompatibilitet med vissa icke-engelska västerländska språk. Har en måttlig prestationspåverkan."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_SWITCH_ICONS,
@@ -5364,16 +7596,40 @@ MSG_HASH(
    "Ingen"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_16_9_CENTRE,
+   "16:9 (Centrerad)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_16_10_CENTRE,
+   "16:10 (Centrerad)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_21_9_CENTRE,
    "21:9 (Centrerad)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_3_2_CENTRE,
+   "3:2 (Centrerad)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_5_3_CENTRE,
+   "5:3 (Centrerad)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_NONE,
    "AV"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_FIT_SCREEN,
+   "Anpassa till skärm"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_INTEGER,
    "Heltalsskala"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_LOCK_FILL_SCREEN,
+   "Fyll skärm (Sträckt)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_CUSTOM,
@@ -5472,6 +7728,14 @@ MSG_HASH(
    "AV"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_PARTICLE_EFFECT_SNOW,
+   "Snö (Lätt)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_PARTICLE_EFFECT_SNOW_ALT,
+   "Snö (Tungt)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_PARTICLE_EFFECT_RAIN,
    "Regn"
    )
@@ -5542,12 +7806,16 @@ MSG_HASH(
 /* XMB: Settings Options */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SHADER_PIPELINE_SIMPLE_SNOW,
+   "Enkel snö"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHADER_PIPELINE_SNOW,
    "Snö"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHADER_PIPELINE_SNOWFLAKE,
-   "Snöflinga"
+   "Snöflingor"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_CUSTOM,
@@ -5558,8 +7826,16 @@ MSG_HASH(
    "Monokrom"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_MONOCHROME_INVERTED,
+   "Monokrom inverterad"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_AUTOMATIC,
    "Automatisk"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_AUTOMATIC_INVERTED,
+   "Automatisk inverterad"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_APPLE_GREEN,
@@ -5637,6 +7913,22 @@ MSG_HASH(
 /* Ozone: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
+   "Dölj sidofältet"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_COLLAPSE_SIDEBAR,
+   "Har alltid det vänstra sidofältet hopfällt."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_TRUNCATE_PLAYLIST_NAME,
+   "Avkorta spellistnamn (omstart krävs)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_TRUNCATE_PLAYLIST_NAME,
+   "Ta bort tillverkarens namn från spellistorna. Till exempel, 'Sony - PlayStation' blir 'PlayStation'."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
    "Färgtema"
    )
@@ -5679,6 +7971,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Miniatyrskalfaktor"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
+   "Skala storleken på miniatyrfältet."
    )
 
 /* MaterialUI: Settings > User Interface > Appearance */
@@ -5749,7 +8045,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_THUMBNAIL_VIEW_PORTRAIT,
-   "Stående miniatyrbild"
+   "Stående miniatyrvy"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_MENU_THUMBNAIL_VIEW_PORTRAIT,
@@ -5930,6 +8226,10 @@ MSG_HASH(
    "&Ladda Kärna..."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_FILE_EXIT,
+   "&Avsluta"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MENU_EDIT,
    "&Redigera"
    )
@@ -5939,7 +8239,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MENU_VIEW,
-   "&Visa"
+   "Vis&a"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MENU_VIEW_SHADER_PARAMS,
@@ -5980,6 +8280,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOAD_CORE,
    "Ladda Kärna"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_LOADING_CORE,
+   "Laddar kärna..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_NAME,
@@ -6038,6 +8342,10 @@ MSG_HASH(
    "Nätverksfel"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_RESTART_TO_TAKE_EFFECT,
+   "Vänligen starta om programmet för att ändringarna ska börja gälla."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOG,
    "Logg"
    )
@@ -6046,12 +8354,36 @@ MSG_HASH(
    "%1 objekt"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_DROP_IMAGE_HERE,
+   "Dra och släpp bilden här"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_DONT_SHOW_AGAIN,
+   "Visa inte detta igen"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_STOP,
    "Stopp"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_ASSOCIATE_CORE,
+   "Associera kärna"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_HIDDEN_PLAYLISTS,
+   "Dolda spellistor"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_HIDE,
    "Dölj"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_VIEW_OPTIONS_HIGHLIGHT_COLOR,
+   "Highlight färg:"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_CHOOSE,
+   "V&älj..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_SELECT_COLOR,
@@ -6066,12 +8398,28 @@ MSG_HASH(
    "Anpassat tema"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_FILE_PATH_IS_BLANK,
+   "Sökväg till filen är tom."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_FILE_IS_EMPTY,
    "Filen är tom."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_FILE_READ_OPEN_FAILED,
+   "Kunde inte öppna filen för att läsa."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_FILE_WRITE_OPEN_FAILED,
+   "Kunde inte öppna filen för att skriva."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_FILE_DOES_NOT_EXIST,
    "Filen existerar inte."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_VIEW_OPTIONS_SUGGEST_LOADED_CORE_FIRST,
+   "Föreslå laddad kärna först:"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_VIEW,
@@ -6094,8 +8442,16 @@ MSG_HASH(
    "Förlopp:"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_VIEW_OPTIONS_SHOW_HIDDEN_FILES,
+   "Visa dolda filer och mappar:"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_NEW_PLAYLIST,
    "Ny spellista"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_ENTER_NEW_PLAYLIST_NAME,
+   "Vänligen ange namn för ny spellista:"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_DELETE_PLAYLIST,
@@ -6103,11 +8459,31 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_RENAME_PLAYLIST,
-   "Byt namn på spellista"
+   "Byt namn Spellista"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_CONFIRM_DELETE_PLAYLIST,
+   "Är du säker på att du vill radera spellistan \"%1\"?"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_QUESTION,
    "Fråga"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_COULD_NOT_DELETE_FILE,
+   "Kunde inte radera fil."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_COULD_NOT_RENAME_FILE,
+   "Kunde inte döpa om fil."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_GATHERING_LIST_OF_FILES,
+   "Samlar in en lista över filer..."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_ADDING_FILES_TO_PLAYLIST,
+   "Lägger till filer i spellista..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_PLAYLIST_ENTRY_NAME,
@@ -6130,6 +8506,14 @@ MSG_HASH(
    "Tillägg:"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_PLAYLIST_ENTRY_FILTER_INSIDE_ARCHIVES,
+   "Filtrera inuti arkiv"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_CONFIRM_DELETE_PLAYLIST_ITEM,
+   "Är du säker på att du vill radera objektet \"%1\"?"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_DELETE,
    "Radera"
    )
@@ -6142,12 +8526,24 @@ MSG_HASH(
    "Lägg till mapp..."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_EDIT,
+   "Redigera"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_SELECT_FILES,
    "Välj filer"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_SELECT_FOLDER,
    "Välj mapp"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_UPDATE_RETROARCH_FAILED,
+   "Uppdateringen misslyckades."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_HELP_ABOUT_CONTRIBUTORS,
+   "Bidragsgivare"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MOVE_DOWN,
@@ -6170,12 +8566,20 @@ MSG_HASH(
    "Ta bort"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_APPLY,
+   "Tillämpa"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_DOWNLOAD_ALL_THUMBNAILS_ENTIRE_SYSTEM,
    "Hela systemet"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_DOWNLOAD_ALL_THUMBNAILS_THIS_PLAYLIST,
    "Denna spellista"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_DOWNLOAD_PLAYLIST_THUMBNAIL_PROGRESS,
+   "Lyckades: %1 Misslyckades: %2"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_CORE_OPTIONS,
@@ -6197,6 +8601,14 @@ MSG_HASH(
    "Ingen skiva vald"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_HORIZONTAL_MENU,
+   "Horisontell meny"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OVERLAY_SETTINGS,
+   "Skärm-överlager"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_CONTENT_HISTORY,
    "Historik"
    )
@@ -6209,12 +8621,28 @@ MSG_HASH(
    "Aktuellt Innehåll: %s"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_NETPLAY_HOSTS_FOUND,
+   "Inga Netplay värdar hittades."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_PLAYLISTS,
+   "Inga spellistor."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BT_CONNECTED,
    "Ansluten"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PORT_DEVICE_NAME,
+   "Port %d Enhetsnamn: %s (#%d)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SETTINGS,
    "Fuskinställningar"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUN_MUSIC,
+   "Spela i Media Player"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SECONDS,
@@ -6225,8 +8653,24 @@ MSG_HASH(
    "Starta Kärna"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_START_CORE,
+   "Starta kärnan utan innehåll."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SUPPORTED_CORES,
+   "Föreslagna kärnor"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UNABLE_TO_READ_COMPRESSED_FILE,
+   "Kan inte läsa komprimerad fil."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USER,
    "Användare"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_KEYBOARD,
+   "Tgb"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WAITABLE_SWAPCHAINS,
@@ -6264,6 +8708,18 @@ MSG_HASH(
    "Auto Bildformat"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_ROOM_NICKNAME_LAN,
+   "Nicknamn (LAN): %s"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RECORD_ENABLE,
+   "Inspelning-stöd"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEAT_MATCH_IDX,
+   "Visa träff #"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FORCE_ASPECT,
    "Tvinga bildformat"
    )
@@ -6278,6 +8734,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RESUME,
    "Återupptar det pågående innehållet och lämnar Snabbmenyn."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEAT_VIEW_MATCHES,
+   "Visa listan över %u träffar"
    )
 MSG_HASH( /* FIXME Still exists in a comment about being removed */
    MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_FOOTER_OPACITY,
@@ -6296,12 +8756,24 @@ MSG_HASH( /* FIXME Still exists in a comment about being removed */
    "Ändra opaciteten för sidhuvudets grafik."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RDB_ENTRY_START_CONTENT,
+   "Starta innehåll"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_HELP,
    "Hjälp"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLEAR_SETTING,
    "Rensa"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_HELP_LOADING_CONTENT,
+   "Laddar innehåll"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_HELP_WHAT_IS_A_CORE,
+   "Vad är en kärna?"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_HELP_SEND_DEBUG_INFO,
@@ -6316,6 +8788,14 @@ MSG_HASH(
    "Databasinställningar"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_MODE,
+   "Netplay-klient"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_SPECTATOR_MODE_ENABLE,
+   "Netplay åskådare"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_DESCRIPTION,
    "Beskrivning"
    )
@@ -6324,12 +8804,32 @@ MSG_HASH(
    "Fortsätt sök"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CHEAT_CONTINUE_SEARCH,
+   "Fortsätt söka efter nytt fusk."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_CHEAT_DETAILS,
    "Fuskdetaljer"
    )
 
 /* Unused (Needs Confirmation) */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_LEFT_X,
+   "Vänster analog X"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_LEFT_Y,
+   "Vänster analog Y"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_RIGHT_X,
+   "Höger analog X"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ANALOG_RIGHT_Y,
+   "Höger analog Y"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DATABASE_CURSOR_LIST_ENTRY_DATABASE_INFO,
    "Databasinformation"
@@ -6382,6 +8882,18 @@ MSG_HASH(
 /* Discord Status */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DISCORD_IN_MENU,
+   "I meny"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DISCORD_IN_GAME,
+   "I spel"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DISCORD_IN_GAME_PAUSED,
+   "I spel (Pausad)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DISCORD_STATUS_PLAYING,
    "Spelar"
    )
@@ -6392,9 +8904,125 @@ MSG_HASH(
 
 /* Notifications */
 
+MSG_HASH( /* FIXME Should be MSG_ */
+   MENU_ENUM_LABEL_VALUE_SIDELOAD_CORE_SUCCESS,
+   "Kärninstallation lyckad"
+   )
+MSG_HASH( /* FIXME Should be MSG_ */
+   MENU_ENUM_LABEL_VALUE_SIDELOAD_CORE_ERROR,
+   "Kärninstallation misslyckad"
+   )
+MSG_HASH(
+   MSG_AI_AUTO_MODE_ENABLED,
+   "Automatisk översättning aktiverad."
+   )
+MSG_HASH(
+   MSG_AI_AUTO_MODE_DISABLED,
+   "Automatisk översättning inaktiverad."
+   )
+MSG_HASH(
+   MSG_AI_NOTHING_TO_TRANSLATE,
+   "Inget att översätta"
+   )
+MSG_HASH(
+   MSG_CHEAT_DELETE_ALL_INSTRUCTIONS,
+   "Tryck höger 5 gånger för att radera alla fusk."
+   )
+MSG_HASH(
+   MSG_FAILED_TO_SAVE_DEBUG_INFO,
+   "Spara felsökningsinformation misslyckad."
+   )
+MSG_HASH(
+   MSG_FAILED_TO_SEND_DEBUG_INFO,
+   "Skicka felsökningsinformation misslyckad."
+   )
+MSG_HASH(
+   MSG_SENDING_DEBUG_INFO,
+   "Skickar felsökningsinformation..."
+   )
+MSG_HASH(
+   MSG_SENT_DEBUG_INFO,
+   "Skicka felsökningsinformation lyckad. Ditt ID-nummer är %u."
+   )
+MSG_HASH(
+   MSG_AUDIO_MIXER_VOLUME,
+   "Global ljudmixervolym"
+   )
+MSG_HASH(
+   MSG_WAITING_FOR_CLIENT,
+   "Väntar på klient..."
+   )
+MSG_HASH(
+   MSG_NETPLAY_YOU_HAVE_LEFT_THE_GAME,
+   "Du har lämnat spelet"
+   )
+MSG_HASH(
+   MSG_NETPLAY_YOU_HAVE_JOINED_AS_PLAYER_N,
+   "Du är ansluten, som spelare %u"
+   )
+MSG_HASH(
+   MSG_NETPLAY_YOU_HAVE_JOINED_WITH_INPUT_DEVICES_S,
+   "Du är ansluten, med inmatningsenheter %.*s"
+   )
+MSG_HASH(
+   MSG_NETPLAY_PLAYER_S_LEFT,
+   "Spelare %.*s har lämnat spelet"
+   )
+MSG_HASH(
+   MSG_NETPLAY_S_HAS_JOINED_AS_PLAYER_N,
+   "%.*s är ansluten, som spelare %u"
+   )
+MSG_HASH(
+   MSG_NETPLAY_S_HAS_JOINED_WITH_INPUT_DEVICES_S,
+   "%.*s är ansluten, med inmatningsenheter %.*s"
+   )
+MSG_HASH(
+   MSG_NETPLAY_ENTER_PASSWORD,
+   "Ange Netplay-serverlösenord:"
+   )
+MSG_HASH(
+   MSG_NETPLAY_ENTER_CHAT,
+   "Ange Netplay-chattmeddelande:"
+   )
+MSG_HASH(
+   MSG_DISCORD_CONNECTION_REQUEST,
+   "Tillåta anslutning för användare:"
+   )
+MSG_HASH(
+   MSG_NETPLAY_INCORRECT_PASSWORD,
+   "Felaktigt lösenord"
+   )
+MSG_HASH(
+   MSG_NETPLAY_SERVER_NAMED_HANGUP,
+   "\"%s\" har kopplat från"
+   )
+MSG_HASH(
+   MSG_NETPLAY_CHANGED_NICK,
+   "Ditt nicknamn ändrades till \"%s\""
+   )
+MSG_HASH(
+   MSG_NETPLAY_KICKED_CLIENT_S,
+   "Sparkade klient: \"%s\""
+   )
+MSG_HASH(
+   MSG_NETPLAY_FAILED_TO_KICK_CLIENT_S,
+   "Misslyckades sparka klient: \"%s\""
+   )
+MSG_HASH(
+   MSG_NETPLAY_BANNED_CLIENT_S,
+   "Blockerade klient: \"%s\""
+   )
+MSG_HASH(
+   MSG_NETPLAY_FAILED_TO_BAN_CLIENT_S,
+   "Misslyckades blockera klient: \"%s\""
+   )
 MSG_HASH(
    MSG_NETPLAY_STATUS_PLAYING,
    "Spelar"
+   )
+MSG_HASH(
+   MSG_NETPLAY_STATUS_SPECTATING,
+   "Åskådar"
    )
 MSG_HASH(
    MSG_NETPLAY_CLIENT_DEVICES,
@@ -6414,12 +9042,52 @@ MSG_HASH(
    "Auto ladda sparad status från"
    )
 MSG_HASH(
+   MSG_CONNECTING_TO_NETPLAY_HOST,
+   "Ansluter till Netplay-värd"
+   )
+MSG_HASH(
    MSG_CONNECTING_TO_PORT,
    "Ansluter till port"
    )
 MSG_HASH(
+   MSG_CONNECTION_SLOT,
+   "Anslutningsplats"
+   )
+MSG_HASH(
+   MSG_FETCHING_CORE_LIST,
+   "Hämtar kärnlista..."
+   )
+MSG_HASH(
+   MSG_CORE_LIST_FAILED,
+   "Hämta kärnlista misslyckad!"
+   )
+MSG_HASH(
+   MSG_UPDATING_CORE,
+   "Uppdaterar kärna: "
+   )
+MSG_HASH(
+   MSG_DOWNLOADING_CORE,
+   "Laddar ner kärna: "
+   )
+MSG_HASH(
+   MSG_EXTRACTING_CORE,
+   "Extraherar kärna: "
+   )
+MSG_HASH(
+   MSG_CORE_INSTALLED,
+   "Kärna installerad: "
+   )
+MSG_HASH(
+   MSG_CORE_INSTALL_FAILED,
+   "Misslyckades installera kärna: "
+   )
+MSG_HASH(
    MSG_SCANNING_CORES,
    "Skannar Kärnor..."
+   )
+MSG_HASH(
+   MSG_CHECKING_CORE,
+   "Kontrollerar kärna: "
    )
 MSG_HASH(
    MSG_ALL_CORES_UPDATED,
@@ -6439,15 +9107,27 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_PLAYLIST_MANAGER_RESETTING_CORES,
-   "Återställa Kärnor: "
+   "Återställer kärnor: "
    )
 MSG_HASH(
    MSG_PLAYLIST_MANAGER_CORES_RESET,
-   "Kärnor återställs: "
+   "Kärnor återställd: "
    )
 MSG_HASH(
    MSG_PLAYLIST_MANAGER_CLEANING_PLAYLIST,
    "Rensar spellista: "
+   )
+MSG_HASH(
+   MSG_ADDED_TO_FAVORITES,
+   "Tillagd i favoriter"
+   )
+MSG_HASH(
+   MSG_ADD_TO_FAVORITES_FAILED,
+   "Misslyckades med att lägga till favorit: spellistan full"
+   )
+MSG_HASH(
+   MSG_FAILED_TO_APPEND_DISK,
+   "Misslyckades med att lägga till skivan"
    )
 MSG_HASH(
    MSG_AUTO_SAVE_STATE_TO,
@@ -6462,12 +9142,20 @@ MSG_HASH(
    "Kärnan har inget stöd för Spara Statusar."
    )
 MSG_HASH(
+   MSG_CORE_OPTIONS_FLUSH_FAILED,
+   "Misslyckades med att spara kärnalternativen till:"
+   )
+MSG_HASH(
+   MSG_DECOMPRESSION_FAILED,
+   "Dekomprimeringen misslyckades."
+   )
+MSG_HASH(
    MSG_DOWNLOADING,
    "Laddar ner"
    )
 MSG_HASH(
    MSG_DOWNLOAD_FAILED,
-   "Nedladdning misslyckades"
+   "Nedladdningen misslyckades"
    )
 MSG_HASH(
    MSG_ERROR,
@@ -6482,6 +9170,34 @@ MSG_HASH(
    "Extraherar fil"
    )
 MSG_HASH(
+   MSG_FAILED_SAVING_CONFIG_TO,
+   "Misslyckades med att spara konfig till"
+   )
+MSG_HASH(
+   MSG_FAILED_TO_ACCEPT_INCOMING_SPECTATOR,
+   "Misslyckades med att acceptera inkommande åskådare."
+   )
+MSG_HASH(
+   MSG_FAILED_TO_ALLOCATE_MEMORY_FOR_PATCHED_CONTENT,
+   "Misslyckades med att tilldela minne för korrigerat innehåll..."
+   )
+MSG_HASH(
+   MSG_FAILED_TO_APPLY_SHADER,
+   "Misslyckades med att tillämpa shader."
+   )
+MSG_HASH(
+   MSG_FAILED_TO_APPLY_SHADER_PRESET,
+   "Misslyckades med att tillämpa shader förinställning:"
+   )
+MSG_HASH(
+   MSG_FAILED_TO_CREATE_THE_DIRECTORY,
+   "Misslyckades med att skapa katalogen."
+   )
+MSG_HASH(
+   MSG_FAILED_TO_EXTRACT_CONTENT_FROM_COMPRESSED_FILE,
+   "Misslyckades med att extrahera innehåll från komprimerad fil"
+   )
+MSG_HASH(
    MSG_FAILED_TO_LOAD,
    "Misslyckades att ladda"
    )
@@ -6492,6 +9208,14 @@ MSG_HASH(
 MSG_HASH(
    MSG_FAILED_TO_SAVE_STATE_TO,
    "Misslyckades att spara status till"
+   )
+MSG_HASH(
+   MSG_FAILED_TO_SEND_NICKNAME,
+   "Misslyckades att skicka nicknamn."
+   )
+MSG_HASH(
+   MSG_FAILED_TO_SEND_NICKNAME_SIZE,
+   "Misslyckades att skicka nicknamnsstorlek."
    )
 MSG_HASH(
    MSG_FAILED_TO_UNDO_SAVE_STATE,
@@ -6506,6 +9230,14 @@ MSG_HASH(
    "Hittade automatiskt sparad status i"
    )
 MSG_HASH(
+   MSG_GAME_FOCUS_ON,
+   "Game Focus aktiv"
+   )
+MSG_HASH(
+   MSG_GAME_FOCUS_OFF,
+   "Game Focus inaktiv"
+   )
+MSG_HASH(
    MSG_INTERFACE,
    "Gränssnitt"
    )
@@ -6514,12 +9246,28 @@ MSG_HASH(
    "Intern lagring"
    )
 MSG_HASH(
+   MSG_INVALID_NICKNAME_SIZE,
+   "Ogiltig nicknamnsstorlek."
+   )
+MSG_HASH(
    MSG_IN_GIGABYTES,
    "i gigabyte"
    )
 MSG_HASH(
    MSG_LOADING,
    "Laddar"
+   )
+MSG_HASH(
+   MSG_LOADING_CONTENT_FILE,
+   "Laddar innehållsfil"
+   )
+MSG_HASH(
+   MSG_LOADING_HISTORY_FILE,
+   "Laddar historikfil"
+   )
+MSG_HASH(
+   MSG_LOADING_FAVORITES_FILE,
+   "Laddar favoriterfil"
    )
 MSG_HASH(
    MSG_MEMORY,
@@ -6550,12 +9298,16 @@ MSG_HASH(
    "Återställer katalogen för sparad status-filer till"
    )
 MSG_HASH(
+   MSG_SAVED_NEW_CONFIG_TO,
+   "Sparade ny konfig till"
+   )
+MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT,
-   "Sparade status till slot #%d."
+   "Sparade status till plats #%d."
    )
 MSG_HASH(
    MSG_SAVED_STATE_TO_SLOT_AUTO,
-   "Sparade status till slot #-1 (Auto)."
+   "Sparade status till plats #-1 (Auto)."
    )
 MSG_HASH(
    MSG_SCANNING,
@@ -6566,12 +9318,20 @@ MSG_HASH(
    "Skickar kommando"
    )
 MSG_HASH(
+   MSG_TAKING_SCREENSHOT,
+   "Tar skärmdump."
+   )
+MSG_HASH(
    MSG_SCREENSHOT_SAVED,
    "Skärmdump sparad"
    )
 MSG_HASH(
+   MSG_ACHIEVEMENT_UNLOCKED,
+   "Prestation upplåst"
+   )
+MSG_HASH(
    MSG_TOGGLE_FULLSCREEN_THUMBNAILS,
-   "Helskärm miniatyrer"
+   "Helskärmsminiatyrer"
    )
 MSG_HASH(
    MSG_PRESS_AGAIN_TO_QUIT,
@@ -6594,6 +9354,10 @@ MSG_HASH(
    "Opausad."
    )
 MSG_HASH(
+   MSG_VALUE_CONNECT_DEVICE_FROM_A_VALID_PORT,
+   "Anslut enhet från en giltig port."
+   )
+MSG_HASH(
    MSG_VALUE_REBOOTING,
    "Startar om..."
    )
@@ -6614,12 +9378,28 @@ MSG_HASH(
    "Parkoppling borttagen. Starta om RetroArch för att ansluta/para igen."
    )
 MSG_HASH(
+   MSG_WIFI_SCAN_COMPLETE,
+   "Wi-Fi-skanning slutförd."
+   )
+MSG_HASH(
    MSG_SCANNING_BLUETOOTH_DEVICES,
    "Skannar efter bluetooth-enheter..."
    )
 MSG_HASH(
+   MSG_SCANNING_WIRELESS_NETWORKS,
+   "Skannar trådlösa nätverk..."
+   )
+MSG_HASH(
+   MSG_ENABLING_WIRELESS,
+   "Aktiverar Wi-Fi..."
+   )
+MSG_HASH(
    MSG_DISABLING_WIRELESS,
    "Inaktiverar Wi-Fi..."
+   )
+MSG_HASH(
+   MSG_DISCONNECTING_WIRELESS,
+   "Kopplar från Wi-Fi..."
    )
 MSG_HASH(
    MSG_INPUT_ENABLE_SETTINGS_PASSWORD,
@@ -6678,6 +9458,14 @@ MSG_HASH(
    "Installerar Kärna: "
    )
 MSG_HASH(
+   MSG_CORE_LOCK_FAILED,
+   "Misslyckades med att låsa kärnan: "
+   )
+MSG_HASH(
+   MSG_CORE_UNLOCK_FAILED,
+   "Misslyckades med att låsa upp kärnan: "
+   )
+MSG_HASH(
    MSG_CORE_SET_STANDALONE_EXEMPT_FAILED,
    "Misslyckades att ta bort Kärna från listan 'Innehållslösa Kärnor': "
    )
@@ -6710,6 +9498,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_SCREEN_RESOLUTION_DESC,
    "Skärmupplösning: %dx%d - %s"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SCREEN_RESOLUTION,
+   "Ange upplösningen för skärm (omstart krävs)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHUTDOWN,
@@ -6784,7 +9576,7 @@ MSG_HASH(
 #ifdef HAVE_LAKKA
 MSG_HASH(
    MENU_ENUM_SUBLABEL_BLUETOOTH_ENABLE,
-   "Bestäm tillståndet för Bluetooth."
+   "Ange tillståndet för Bluetooth."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LAKKA_SERVICES,
@@ -6802,10 +9594,26 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIMEZONE,
    "Tidszon"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_TIMEZONE,
+   "Välj din tidszon för att justera datum och tid till din plats."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_TIMEZONE,
+   "Visar en lista över tillgängliga tidszoner. Efter att du valt en tidszon justeras tid och datum till den valda tidszonen. Det antar, att system/hårdvaruklockan är inställd på UTC."
+   )
 #ifdef HAVE_LAKKA_SWITCH
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SWITCH_OC_ENABLE,
    "Överklocka CPU"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SWITCH_CEC_ENABLE,
+   "CEC-stöd"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SWITCH_CEC_ENABLE,
+   "Aktivera CPU-handskakning med TV vid dockning"
    )
 #endif
 #endif
@@ -6858,6 +9666,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_BOTTOM_ASSETS_DIRECTORY,
    "Nedre skärmens katalog för tillgångar. Katalogen måste inkludera \"bottom_menu.png\"."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BOTTOM_FONT_SCALE,
+   "Typsnittsskala"
    )
 #endif
 #ifdef HAVE_QT

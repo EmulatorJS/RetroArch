@@ -1906,7 +1906,7 @@ void rcheevos_test(void)
 #ifdef HAVE_THREADS
    if (rcheevos_locals.queued_command != CMD_EVENT_NONE)
    {
-      if (rcheevos_locals.queued_command != CMD_CHEEVOS_NON_COMMAND)
+      if ((int)rcheevos_locals.queued_command != CMD_CHEEVOS_NON_COMMAND)
          command_event(rcheevos_locals.queued_command, NULL);
 
       rcheevos_locals.queued_command = CMD_EVENT_NONE;
@@ -2463,15 +2463,15 @@ static void rcheevos_client_load_game_callback(int result,
    }
 
 #ifdef HAVE_THREADS
-   if (!task_is_on_main_thread())
+   if (!video_driver_is_threaded() && !task_is_on_main_thread())
    {
       /* have to "schedule" this. game image should not be loaded on background thread */
       rcheevos_locals.queued_command = CMD_CHEEVOS_NON_COMMAND;
       rcheevos_locals.game_placard_requested = true;
    }
    else
-      rcheevos_show_game_placard();
 #endif
+      rcheevos_show_game_placard();
 
    rcheevos_finalize_game_load(client);
 

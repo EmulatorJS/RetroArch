@@ -9242,9 +9242,17 @@ bool netplay_driver_ctl(enum rarch_netplay_ctl_state state, void *data)
          break;
 
       case RARCH_NETPLAY_CTL_PAUSE:
-         if (       netplay
-               && (!(netplay->local_paused)))
+         if (netplay && !netplay->local_paused)
             netplay_frontend_paused(netplay, true);
+
+         if (netplay && netplay->modus == NETPLAY_MODUS_CORE_PACKET_INTERFACE)
+         {
+            /* handle new connections while paused, unpause on connect */
+            if (!netplay_sync_pre_frame(netplay))
+               netplay_disconnect(netplay);
+            else if (netplay_have_any_active_connection(netplay))
+               command_event(CMD_EVENT_UNPAUSE, NULL);
+         }
          break;
 
       case RARCH_NETPLAY_CTL_UNPAUSE:
@@ -9368,11 +9376,11 @@ bool netplay_driver_ctl(enum rarch_netplay_ctl_state state, void *data)
             /* reset savefile dir as core_netpacket_interface affects it */
             runloop_path_set_redirect(config_get_ptr(),
                dir_get_ptr(RARCH_DIR_SAVEFILE),
-               dir_get_ptr(RARCH_DIR_CURRENT_SAVESTATE));
+               dir_get_ptr(RARCH_DIR_SAVESTATE));
          }
          break;
 
-      case RARCH_NETPLAY_CTL_SKIP_NETPLAY_CALLBACKS:
+      case RARCH_NETPLAY_CTL_USE_CORE_PACKET_INTERFACE:
          ret = (net_st->core_netpacket_interface != NULL);
          break;
 

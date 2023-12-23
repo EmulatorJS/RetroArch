@@ -1493,8 +1493,12 @@ MSG_HASH(
    "Используемый драйвер устройств ввода. Может быть принудительно изменён отдельными видеодрайверами."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
+   "Драйвер udev считывает события evdev для поддержки клавиатур. Также имеется поддержка обратного вызова клавиатуры, мышек и тачпадов.\nПо умолчанию в большинстве дистрибутивов узлы /dev/input доступны только при наличии root-прав (mode 600). Вы можете установить правило udev для доступа к н[...]"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
-   "Драйвер ввода linuxraw требует активный TTY. События клавиатуры считываются напрямую с TTY, что делает драйвер более простым, но не таким гибким как udev. Поддержка мышек и пр. полностью отсутствует. В драйвере используется старый API контроллеров (/dev/input/js*)."
+   "Для драйвера ввода linuxraw требуется активный TTY. События клавиатуры считываются напрямую с TTY, что делает драйвер более простым, но менее гибким, чем udev. Поддержка мышек и пр. полностью отсутствует. Драйвер использует устаревший joystick API (/dev/input/js*)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_DRIVER_NO_DETAILS,
@@ -1507,6 +1511,34 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
    "Используемый драйвер контроллера."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
+   "Драйвер контроллера DirectInput."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_HID,
+   "Низкоуровневый драйвер устройств HID."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_LINUXRAW,
+   "Драйвер Linux для необработанных (raw) данных, использующий устаревший joystick API. Рекомендуется по возможности использовать udev."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_PARPORT,
+   "Драйвер Linux для контроллеров, подключаемых к параллельному порту через спецадаптеры."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_SDL,
+   "Драйвер контроллеров на основе библиотек SDL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_UDEV,
+   "Рекомендованный драйвер контроллера с интерфейсом udev, использующий для поддержки джойстиков последнюю версию joypad API. Поддерживает горячее подключение и отдачу.\nПо умолчанию в большинстве дистрибутивов узлы /dev/input доступны только при наличии root-прав (mode 600). Вы можете наст[...]"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_XINPUT,
+   "Драйвер контроллера XInput. Предназначен главным образом для контроллеров XBox."
    )
 
 MSG_HASH(
@@ -2349,7 +2381,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_Y,
-   "Ручная установка смещения области отображения по оси X.\nНе учитывается, если включено 'Целочисленное масштабирование'."
+   "Ручная установка смещения области отображения по оси Y.\nНе учитывается, если включено 'Целочисленное масштабирование'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_WIDTH,
@@ -3202,6 +3234,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_TURBO_DEFAULT_BUTTON,
    "Кнопка действия, используемая в турборежимах 'Одна кнопка'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ALLOW_TURBO_DPAD,
+   "Разрешать турбо для диагоналей d-pad"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ALLOW_TURBO_DPAD,
+   "При включении разрешает турбо для нажатий цифровых диагоналей."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_FIRE_SETTINGS,
@@ -5493,6 +5533,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SETTINGS,
    "Настройка внешнего вида меню."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_APPICON_SETTINGS,
+   "Значок приложения"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_APPICON_SETTINGS,
+   "Выбор иконки приложения."
    )
 #ifdef _3DS
 MSG_HASH(

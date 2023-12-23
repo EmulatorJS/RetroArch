@@ -18,7 +18,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FAVORITES_TAB,
-   "Абранае"
+   "Упадабанае"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_HISTORY_TAB,
@@ -187,7 +187,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_HELP_LIST,
-   "Даведацца больш аб тым, як працуе праграма."
+   "Даведацца больш пра тое, як працуе праграма."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESTART_RETROARCH,
@@ -256,11 +256,11 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GOTO_FAVORITES,
-   "Абранае"
+   "Упадабанае"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GOTO_FAVORITES,
-   "Тут адлюстроўваецца змесціва, дададзенае да 'Абранае'."
+   "Тут адлюстроўваецца змесціва, дададзенае да 'Упадабанае'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GOTO_MUSIC,
@@ -394,7 +394,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFORMATION,
-   "Звесткі аб ядры"
+   "Звесткі пра ядро"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_INFORMATION,
@@ -402,15 +402,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DISC_INFORMATION,
-   "Звесткі аб дыску"
+   "Звесткі пра дыск"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DISC_INFORMATION,
-   "Праглядзець звесткі аб устаўленых медыядысках."
+   "Праглядзець звесткі пра ўстаўленыя медыядыскі."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETWORK_INFORMATION,
-   "Звесткі аб сеціве"
+   "Звесткі пра сеціва"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETWORK_INFORMATION,
@@ -418,11 +418,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFORMATION,
-   "Звесткі аб сістэме"
+   "Звесткі пра сістэму"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SYSTEM_INFORMATION,
-   "Праглядзець пэўныя звесткі аб прыладзе."
+   "Праглядзець пэўныя звесткі пра прыладу."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DATABASE_MANAGER,
@@ -914,7 +914,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_SETTING,
-   "Сэтынг"
+   "Сетынг"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_VISUAL,
@@ -1169,6 +1169,10 @@ MSG_HASH(
    "Калі адключана, файлы будуць перасунутыя ў тэчку рэзервовай копіі перад іх перазапісам ці выдаленнем."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DRIVER,
+   "Бэкенд воблачнай сінхранізацыі"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_DRIVER,
    "Які сеткавы пратакол воблачнага сховішча выкарыстоўваць."
    )
@@ -1289,12 +1293,20 @@ MSG_HASH(
    "Каталог. Выберыце, каб адкрыць гэты каталог."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_FRAME_THROTTLE_SETTINGS,
+   "Рэгулятар кадраў"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORDING_SETTINGS,
    "Запіс"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RECORDING_SETTINGS,
    "Змяніцы налады запісу."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ONSCREEN_DISPLAY_SETTINGS,
+   "Адлюстраванне на экране"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USER_INTERFACE_SETTINGS,
@@ -1795,7 +1807,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
-   "Ужываць меню высокай раздзяляльнасці"
+   "Выкарыстоўваць меню высокай раздзяляльнасці"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_RESOLUTION_USE_CUSTOM_REFRESH_RATE,
@@ -2146,7 +2158,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_OUTPUT_SETTINGS,
-   "Змяніць налады вываду гука."
+   "Змяніць налады вываду гуку."
    )
 #ifdef HAVE_MICROPHONE
 MSG_HASH(
@@ -2155,7 +2167,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MICROPHONE_SETTINGS,
-   "Змяніць налады ўводу гука."
+   "Змяніць налады ўводу гуку."
    )
 #endif
 MSG_HASH(
@@ -2196,7 +2208,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_MUTE,
-   "Сцішыць"
+   "Прыглушыць"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MUTE,
@@ -2224,7 +2236,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_MUTE,
-   "Аўтаматычна сцішаць гук пры выкарыстанні перамотцы наперад."
+   "Аўтаматычна адключаць гук пры выкарыстанні перамотцы наперад."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_SPEEDUP,
@@ -2244,15 +2256,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DSP_PLUGIN,
-   "Плагін DSP"
+   "Убудова DSP"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DSP_PLUGIN_REMOVE,
-   "Адкінуць плагін DSP"
+   "Прыбраць убудову DSP"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_DSP_PLUGIN_REMOVE,
-   "Выгрузіць усялякія актыўныя аўдыяплагіны DSP."
+   "Выгрузіць усялякія актыўныя гукавыя ўбудовы DSP."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_WASAPI_EXCLUSIVE_MODE,
@@ -2267,7 +2279,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_ENABLE,
-   "Уключыць вывад гука."
+   "Уключыць вывад гуку."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DEVICE,
@@ -2299,11 +2311,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_LATENCY,
-   "Латэнтнасць гука (мс)"
+   "Латэнтнасць гуку (мс)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_LATENCY,
-   "Пажаданая латэнтнасць гука ў мілісекундах. Можа не ўлічвацца, калі гукавы драйвер не зможа забяспечыць зададзенае значэнне."
+   "Пажаданая латэнтнасць гуку ў мілісекундах. Можа не ўлічвацца, калі гукавы драйвер не зможа забяспечыць зададзенае значэнне."
    )
 
 #ifdef HAVE_MICROPHONE
@@ -2330,7 +2342,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MICROPHONE_LATENCY,
-   "Пажаданая латэнтнасць уводу гука ў мілісекундах. Можа не ўлічвацца, калі драйвер мікрафона не зможа забяспечыць зададзенае значэнне."
+   "Пажаданая латэнтнасць уводу гуку ў мілісекундах. Можа не ўлічвацца, калі драйвер мікрафона не зможа забяспечыць зададзенае значэнне."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MICROPHONE_WASAPI_EXCLUSIVE_MODE,
@@ -2532,6 +2544,14 @@ MSG_HASH(
    "Тайм-аўт"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO_PERIOD,
+   "Перыяд турба"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO_MODE,
+   "Рэжым турба"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TURBO_MODE_CLASSIC,
    "Класічны"
    )
@@ -2544,12 +2564,48 @@ MSG_HASH(
    "Адна кнопка (Утрымліванне)"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_TURBO_DEFAULT_BUTTON,
+   "Прадвызначаная кнопка турба"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_MENU_SETTINGS,
+   "Кіраванне меню"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_MENU_SETTINGS,
+   "Змяніць налады кіравання меню."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_HOTKEY_BINDS,
+   "Гарачыя клавішы"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_HOTKEY_BINDS,
+   "Змяніць налады ды прызначэнні гарачых клавіш, накшталт выкліку меню падчас гульнявога працэсу."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_USER_BINDS,
+   "Кантроль порта %u"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUIT_PRESS_TWICE,
    "Пацвярджэнне выхаду"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUIT_PRESS_TWICE,
+   "Патрабаваць двайное націсканне гарачай клавішы выхаду, каб выйсці з RetroArch."
    )
 
 /* Settings > Input > Haptic Feedback/Vibration */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIBRATE_ON_KEYPRESS,
+   "Вібрацыя пры націсканні кнопак"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ENABLE_DEVICE_VIBRATION,
+   "Уключыць вібрацыю прылады (для ядраў з падтрымкай)"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_RUMBLE_GAIN,
    "Інтэнсіўнасць вібрацыі"
@@ -2561,6 +2617,10 @@ MSG_HASH(
 /* Settings > Input > Hotkeys */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_MENU_TOGGLE,
+   "Выклік меню"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_QUIT_KEY,
    "Выхад"
    )
@@ -2569,8 +2629,24 @@ MSG_HASH(
    "Закрыць змесціва"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_CLOSE_CONTENT_KEY,
+   "Закрывае бягучае змесціва."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_RESET,
    "Скінуць змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_RESET,
+   "Зноўку запускае бягучае змесціва."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_FAST_FORWARD_KEY,
+   "Перамотка наперад (пераключэнне)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_FAST_FORWARD_HOLD_KEY,
+   "Перамотка наперад (утрыманне)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_REWIND,
@@ -2583,11 +2659,11 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_MUTE,
-   "Сцішыць гук"
+   "Адключэнне гуку"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_VOLUME_UP,
-   "Гучней"
+   "Павялічыць гучнасць"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_VOLUME_UP,
@@ -2595,7 +2671,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_VOLUME_DOWN,
-   "Цішэй"
+   "Паменшыць гучнасць"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_VOLUME_DOWN,
@@ -2728,7 +2804,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_SEND_DEBUG_INFO,
-   "Адпраўляе дыягнастычныя звесткі аб вашай прыладзе ды канфігурацыі RetroArch на нашы серверы для аналізу."
+   "Адпраўляе дыягнастычныя звесткі пра вашую прыладу ды канфігурацыю RetroArch на нашы серверы для аналізу."
    )
 
 /* Settings > Input > Port # Controls */
@@ -3069,15 +3145,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MEMORY_SHOW,
-   "Адлюстроўваць ужыты ды агульны аб'ём памяці ў сістэме."
+   "Адлюстроўваць скарыстаны ды агульны аб'ём памяці ў сістэме."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_CHEATS_APPLIED,
-   "Апавяшчэнні аб чыт-кодах"
+   "Апавяшчэнні пра чыт-коды"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SCREENSHOT,
-   "Апавяшчэнні аб здымках экрана"
+   "Апавяшчэнні пра здымкі экрана"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SCREENSHOT_DURATION,
@@ -3343,11 +3419,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_FAVORITES,
-   "Паказ 'Абранае'"
+   "Паказ 'Упадабанае'"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_FAVORITES,
-   "Паказваць меню 'Абранае' (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню 'Упадабанае' (патрабуецца перазапуск на Ozone/XMB)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_IMAGES,
@@ -3570,11 +3646,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_ADD_TO_FAVORITES,
-   "Паказ 'Дадаць у абранае'"
+   "Паказ 'Дадаць да ўпадабанага'"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_ADD_TO_FAVORITES,
-   "Паказваць опцыю 'Дадаць у абранае'."
+   "Паказваць опцыю 'Дадаць да ўпадабанага'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_DOWNLOAD_THUMBNAILS,
@@ -3784,6 +3860,10 @@ MSG_HASH(
    "Тып мініяцюр для адлюстравання."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_THUMBNAIL_UPSCALE_THRESHOLD,
+   "Парог апскейлінга мініяцюр"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_REMEMBER_SELECTION,
    "Запамінаць выбар пры змене ўкладак"
    )
@@ -3938,7 +4018,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_UNLOCK,
-   "Апавяшчэнні аб раскрыцці"
+   "Апавяшчэнні пра раскрыццё"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_UNLOCK,
@@ -3946,7 +4026,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_MASTERY,
-   "Апавяшчэнні аб майстэрстве"
+   "Апавяшчэнні пра майстэрства"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_MASTERY,
@@ -3958,7 +4038,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_LBOARD_START,
-   "Паведамленні аб адкрыцці дошкі лідараў"
+   "Паведамленні пра адкрыццё дошкі лідараў"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_LBOARD_START,
@@ -3966,7 +4046,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_LBOARD_SUBMIT,
-   "Паведамленні аб унясенні на дошку лідараў"
+   "Паведамленні пра ўнясенне на дошку лідараў"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_LBOARD_SUBMIT,
@@ -3974,7 +4054,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_LBOARD_CANCEL,
-   "Паведамленні аб няўдачы з дошкай лідараў"
+   "Паведамленні пра няўдачу з дошкай лідараў"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEEVOS_VISIBILITY_LBOARD_CANCEL,
@@ -3982,7 +4062,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_ACCOUNT,
-   "Паведамленне аб уваходзе"
+   "Паведамленне пра ўваход"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VERBOSE_ENABLE,
@@ -4167,7 +4247,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_FAVORITES_SIZE,
-   "Памер абранага"
+   "Памер упадабанага"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_RENAME,
@@ -4482,11 +4562,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_FAVORITES_DIRECTORY,
-   "Плэй-ліст абранага"
+   "Плэй-ліст упадабанага"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_FAVORITES_DIRECTORY,
-   "Захоўваць плэй-ліст абранага ў гэты каталог."
+   "Захоўваць плэй-ліст упадабанага ў гэты каталог."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_HISTORY_DIRECTORY,
@@ -4802,7 +4882,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DELETE_ENTRY,
-   "Пазбавіцца"
+   "Прыбраць"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DELETE_ENTRY,
@@ -4810,11 +4890,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ADD_TO_FAVORITES_PLAYLIST,
-   "Дадаць у абранае"
+   "Дадаць да ўпадабанага"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ADD_TO_FAVORITES_PLAYLIST,
-   "Дадаць змесціва ў 'Абранае'."
+   "Дадаць змесціва да 'Упадабанае'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INFORMATION,
@@ -4899,11 +4979,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ADD_TO_FAVORITES,
-   "Дадаць у абранае"
+   "Дадаць да ўпадабанага"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ADD_TO_FAVORITES,
-   "Дадаць змесціва ў 'Абранае'."
+   "Дадаць змесціва да 'Упадабанае'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_START_RECORDING,
@@ -5105,7 +5185,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE,
-   "Зняць набор налад"
+   "Прыбраць набор налад"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHADER,
@@ -5149,7 +5229,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE_GLOBAL,
-   "Зняць глабальны набор налад"
+   "Прыбраць глабальны набор налад"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_REMOVE_GLOBAL,
@@ -5157,7 +5237,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE_CORE,
-   "Зняць набор налад для ядра"
+   "Прыбраць набор налад для ядра"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_REMOVE_CORE,
@@ -5165,11 +5245,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE_PARENT,
-   "Зняць налад для каталога змесціва"
+   "Прыбраць набор налад для каталога змесціва"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE_GAME,
-   "Зняць набор налад для гульні"
+   "Прыбраць набор налад для гульні"
    )
 
 /* Quick Menu > Shaders > Shader Parameters */
@@ -5216,6 +5296,22 @@ MSG_HASH(
 
 /* Quick Menu > Achievements */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "Сервер RetroAchievements недаступны"
+)
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ACHIEVEMENT_SERVER_UNREACHABLE,
+   "Адно ці некалькі раскрытых дасягненняў не падхапіліся серверам. Спробы будуць паўтарацца пакуль праграма будзе заставацца адкрытай."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_DISCONNECTED,
+   "Сервер RetroAchievements недаступны. Спробы будуць працягвацца да поспеху або да выхаду з праграмы."
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEEVOS_SERVER_RECONNECTED,
+   "Усе неапрацаваныя запыты паспяхова сінхранізаваныя з серверам RetroAchievements."
+)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOT_LOGGED_IN,
    "Уваход не выкананы"
@@ -5268,7 +5364,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_FAVORITES_AVAILABLE,
-   "Абранае адсутнічае"
+   "Упадабанае адсутнічае"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_HISTORY_AVAILABLE,
@@ -5423,7 +5519,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_REMOVE_ENABLE_HIST_FAV,
-   "Гісторыя ды абранае"
+   "Гісторыя ды ўпадабанае"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_REMOVE_ENABLE_ALL,
@@ -5435,7 +5531,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_INLINE_CORE_DISPLAY_HIST_FAV,
-   "Гісторыя ды абранае"
+   "Гісторыя ды ўпадабанае"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_INLINE_CORE_DISPLAY_ALWAYS,
@@ -5796,6 +5892,10 @@ MSG_HASH(
 
 /* RGUI: Settings > User Interface > Appearance */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_INTERNAL_UPSCALE_LEVEL,
+   "Унутраны апскейлінг"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO,
    "Суадносіны бакоў"
@@ -6571,7 +6671,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_REMOVE,
-   "Зняць"
+   "Прыбраць"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_APPLY,
@@ -6979,11 +7079,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_ADDED_TO_FAVORITES,
-   "Дададзена да абранага"
+   "Дададзена да ўпадабанага"
    )
 MSG_HASH(
    MSG_ADD_TO_FAVORITES_FAILED,
-   "Не ўдалося дадаць да абранага: плэй-ліст запоўнены"
+   "Не ўдалося дадаць да ўпадабанага: плэй-ліст запоўнены"
    )
 MSG_HASH(
    MSG_APPLICATION_DIR,
@@ -7128,6 +7228,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_ERROR_REMOVING_SHADER_PRESET,
    "Памылка пры зняцці набору налад шэйдара."
+   )
+MSG_HASH(
+   MSG_CORE_UNLOCK_FAILED,
+   "Не атрымалася разблакаваць ядро: "
    )
 
 /* Lakka */

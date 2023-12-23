@@ -444,7 +444,8 @@ bool gfx_thumbnail_set_content_playlist(
             "", sizeof(path_data->content_label));
 
    /* Determine content image name */
-   if (settings->bools.playlist_use_filename)
+   if (settings->bools.playlist_use_filename ||
+       playlist_thumbnail_match_with_filename(playlist))
    {
       char* content_name_no_ext = NULL;
       char tmp_buf[PATH_MAX_LENGTH];
@@ -474,6 +475,8 @@ bool gfx_thumbnail_set_content_playlist(
 
    /* Thumbnail image name is done -> now check if
     * per-content database name is defined */
+   if (string_is_empty(db_name))
+      playlist_get_db_name(playlist, idx, &db_name);
    if (!string_is_empty(db_name))
    {
       /* Hack: There is only one MAME thumbnail repo,

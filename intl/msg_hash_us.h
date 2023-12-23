@@ -3280,6 +3280,14 @@ MSG_HASH(
    "Default active button for Turbo Mode 'Single Button'."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_ALLOW_TURBO_DPAD,
+   "Allow Turbo D-Pad Directions"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_ALLOW_TURBO_DPAD,
+   "If enabled, digital directional inputs (also known as d-pad or 'hatswitch') can be turbo."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_FIRE_SETTINGS,
    "Turbo Fire"
    )
@@ -5589,6 +5597,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SETTINGS,
    "Change menu screen appearance settings."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_APPICON_SETTINGS,
+   "App Icon"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_APPICON_SETTINGS,
+   "Change App Icon."
    )
 #ifdef _3DS
 MSG_HASH(
