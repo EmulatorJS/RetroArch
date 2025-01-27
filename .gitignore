@@ -260,3 +260,7 @@ param.sfo
 
 # Clazy
 *.clazy.yaml
+
+*.wasm*
+*.tmp*
+obj-emscripten/

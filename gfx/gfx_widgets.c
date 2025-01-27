@@ -745,7 +745,7 @@ static void gfx_widgets_font_init(
       bool is_threaded, char *font_path, float font_size)
 {
    int glyph_width               = 0;
-   float scaled_size             = font_size * p_dispwidget->last_scale_factor;
+   float scaled_size             = font_size * p_dispwidget->last_scale_factor * 1.25;
 
    /* Limit minimum font size to keep it readable */
    if (scaled_size < 9)
@@ -1650,7 +1650,7 @@ void gfx_widgets_frame(void *data)
 
       int txt_width        = font_driver_get_message_width(
             p_dispwidget->gfx_widget_fonts.regular.font,
-            txt, strlen(txt), 1.0f);
+            txt, strlen(txt), 1.5f);
       int total_width       = txt_width
          + p_dispwidget->simple_widget_padding * 2;
 
@@ -1759,6 +1759,7 @@ void gfx_widgets_frame(void *data)
          widget->frame(data, p_dispwidget);
    }
 
+#ifndef EMULATORJS
    /* Draw all messages */
    if (p_dispwidget->current_msgs_size)
    {
@@ -1793,6 +1794,7 @@ void gfx_widgets_frame(void *data)
       slock_unlock(p_dispwidget->current_msgs_lock);
 #endif
    }
+#endif
 
    /* Ensure all text is flushed */
    gfx_widgets_flush_text(video_width, video_height,

@@ -1407,6 +1407,9 @@ bool content_auto_save_state(const char *path)
  **/
 bool content_save_state(const char *path, bool save_to_disk)
 {
+#ifdef EMULATORJS
+   return false;
+#endif
    size_t _len;
    void *data  = NULL;
 
@@ -1834,3 +1837,47 @@ void set_save_state_in_background(bool state)
 {
    save_state_in_background = state;
 }
+
+#ifdef EMULATORJS
+char state_data[300];
+void* save_data;
+
+char* save_state_info(void)
+{
+   memset(state_data, '\0', sizeof(state_data));
+
+   if (save_data)
+      free(save_data);
+
+   size_t serial_size;
+
+   if (!core_info_current_supports_savestate()) {
+      strcpy(state_data, "Not supported||0");
+      return state_data;
+   }
+
+   serial_size = core_serialize_size();
+   if (serial_size == 0) {
+      strcpy(state_data, "Size is zero||0");
+      return state_data;
+   }
+
+   save_data = content_get_serialized_data(&serial_size);
+   if (!save_data) {
+      strcpy(state_data, "Error writing data||0");
+      return state_data;
+   }
+   sprintf(state_data, "%zu|%zu|1", serial_size, (unsigned long)save_data);
+   return state_data;
+}
+
+bool supports_states(void)
+{
+    return core_info_current_supports_savestate();
+}
+void refresh_save_files(void)
+{
+    event_load_save_files(false);
+}
+
+#endif

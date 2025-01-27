@@ -1,0 +1,209 @@
+HAVE_STATIC_DUMMY ?= 0
+ifeq ($(TARGET),)
+ifeq ($(LIBRETRO),)
+TARGET := retroarch.js
+LIBRETRO = dummy
+else
+TARGET := $(LIBRETRO)_libretro.js
+endif
+endif
+
+EOPT = USE_ZLIB=1 # Emscripten specific options
+EOPTS = $(addprefix -s $(EMPTY), $(EOPT)) # Add '-s ' to each option
+
+OS = EmulatorJS
+OBJ :=
+DEFINES := -DRARCH_INTERNAL -DHAVE_MAIN -DHAVE_FILTERS_BUILTIN
+
+EMULATORJS                 = 1
+HAVE_PATCH                 = 1
+HAVE_DSP_FILTER            = 1
+HAVE_VIDEO_FILTER          = 1
+HAVE_OVERLAY               = 1
+HAVE_GLSL                  = 1
+HAVE_SCREENSHOTS           = 1
+HAVE_REWIND                = 1
+HAVE_AUDIOMIXER            = 1
+HAVE_CC_RESAMPLER          = 1
+HAVE_EGL                   = 0
+HAVE_OPENGLES             ?= 1
+HAVE_OPENGLES3            ?= 1
+HAVE_RJPEG                 = 0
+HAVE_RPNG                  = 1
+HAVE_EMSCRIPTEN            = 1
+HAVE_MENU                  = 1
+HAVE_GFX_WIDGETS           = 1
+HAVE_RGUI                  = 1
+HAVE_ZLIB                  = 1
+HAVE_SHADERPIPELINE        = 1
+HAVE_STATIC_VIDEO_FILTERS  = 1
+HAVE_STATIC_AUDIO_FILTERS  = 1
+HAVE_STB_FONT              = 1
+HAVE_CONFIGFILE            = 1
+HAVE_COMMAND               = 1
+HAVE_STDIN_CMD             = 1
+HAVE_CHEATS                = 1
+HAVE_IBXM                  = 1
+HAVE_CORE_INFO_CACHE       = 0
+HAVE_7ZIP                  = 1
+HAVE_BSV_MOVIE             = 1
+HAVE_CHD                  ?= 1
+HAVE_AL                    = 1
+HAVE_RWEBAUDIO             = 0
+
+DEBUG                     ?= 0
+ASYNC                     ?= 0
+PTHREAD                   ?= 0
+LTO                       ?= 0
+PRECISE_F32                = 1
+OBJDIR                    := obj-emscripten
+LIBS                      := -s USE_ZLIB=1 -lGL
+
+HAVE_OPENGL                = 0 # not supported
+EM_OPENGL                 ?= 0
+HAVE_REGAL                ?= 0
+
+GL_DEBUG ?= 0 # help diagnose GLSL problems (can cause errors in normal operation)
+GENERATE_SOURCEMAP ?= 0
+FS_DEBUG = 0
+
+# 4194304 ----- 4 MiB (Stack: recommended)
+# 8388608 ----- 8 MiB
+# 16777216 ---- 16 MiB
+# 33554432 ---- 32 MiB
+# 67108864 ---- 64 MiB
+# 134217728 --- 128 MiB (Heap: recommended) (Stack: recommended for some cores [mupen64plus_next])
+# 268435456 --- 256 MiB (Heap: recommended for some cores [mupen64plus_next])
+# 536870912 --- 512 MiB (Heap: needed for some cores [mednafen_psx(_hw)])
+# 1073741824 -- 1 GiB
+# 1610612736 -- 1.5 GiB
+# 2147483648 -- 2 GiB
+
+STACK_SIZE ?= 4194304
+HEAP_SIZE ?= 134217728
+
+DEFINES += -DEMSCRIPTEN_FIXME -DHAVE_FILTERS_BUILTIN -DNO_MISSING_ASSET_WARNING -DEMULATORJS
+
+#ifneq ($(PTHREAD), 0)
+#    LIBS += -s PROXY_TO_PTHREAD -s USE_ES6_IMPORT_META=0 -sENVIRONMENT=worker,web
+#else 
+    ifeq ($(HAVE_AL), 1)
+        ASYNC = 1
+    endif
+#endif
+
+ifeq ($(LIBRETRO), tyrquake)
+    LTO = 0
+endif
+
+EXPORTED_FUNCTIONS = _main,_malloc,_free,_load_state, \
+                     _ejs_set_variable,_simulate_input,_shader_enable,_save_state_info,_set_cheat,_cmd_take_screenshot, \
+                     _system_restart,_cmd_savefiles,_get_core_options,_cmd_save_state,_supports_states,_reset_cheat,_toggleMainLoop, \
+                     _save_file_path,_get_disk_count,_set_current_disk,_get_current_disk,_refresh_save_files,_toggle_fastforward,_set_ff_ratio, \
+                     _toggle_slow_motion,_set_sm_ratio,_toggle_rewind,_set_rewind_granularity,_get_current_frame_count,_ejs_set_keyboard_enabled, \
+                     _set_vsync,_set_video_rotation
+
+LDFLAGS := -L. --no-heap-copy $(LIBS) -s STACK_SIZE=$(STACK_SIZE) -s INITIAL_MEMORY=$(HEAP_SIZE) -s NO_EXIT_RUNTIME=1 \
+           -s EXPORTED_RUNTIME_METHODS=Browser,callMain,cwrap,getValue,FS,PATH,ERRNO_CODES,AL,abort,stringToNewUTF8,UTF8ToString \
+           -s EXPORTED_FUNCTIONS="$(EXPORTED_FUNCTIONS)" \
+           -lidbfs.js \
+           -s GL_ENABLE_GET_PROC_ADDRESS=1 \
+           -s ALLOW_MEMORY_GROWTH=1 \
+           --js-library emscripten/library_errno_codes.js \
+           -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
+           -s MODULARIZE=1 -s 'EXPORT_NAME="EJS_Runtime"'
+
+#           -s OFFSCREENCANVAS_SUPPORT -s OFFSCREEN_FRAMEBUFFER
+
+ifeq ($(HAVE_RWEBAUDIO), 1)
+    LDFLAGS += --js-library emscripten/library_rwebaudio.js
+    DEFINES += -DHAVE_RWEBAUDIO
+endif
+
+ifeq ($(HAVE_AL), 1)
+    LDFLAGS += -lopenal
+    DEFINES += -DHAVE_AL
+endif
+
+ifeq ($(HAVE_OPENGLES), 1)
+   ifeq ($(HAVE_OPENGLES3), 1)
+      LDFLAGS += -s FULL_ES3=1 -s MIN_WEBGL_VERSION=2 -s MAX_WEBGL_VERSION=2
+   else
+      LDFLAGS += -s FULL_ES2=1 -s MAX_WEBGL_VERSION=2
+   endif
+endif
+
+ifneq ($(PTHREAD), 0)
+    LDFLAGS += -s MAXIMUM_MEMORY=1073741824 -pthread -s PTHREAD_POOL_SIZE=$(PTHREAD)
+    CFLAGS += -pthread -s SHARED_MEMORY
+    HAVE_THREADS=1
+else
+    HAVE_THREADS=0
+endif
+
+ifeq ($(ASYNC), 1)
+    DEFINES += -DEMSCRIPTEN_ASYNCIFY
+    LDFLAGS += -s ASYNCIFY=$(ASYNC) -s ASYNCIFY_STACK_SIZE=8192
+    ifeq ($(DEBUG), 1)
+        LDFLAGS += -s ASYNCIFY_DEBUG=1
+    endif
+endif
+
+include Makefile.common
+
+CFLAGS += $(DEF_FLAGS) -Ideps -Ideps/stb
+
+libretro :=
+
+ifneq (,$(findstring ppsspp,$(TARGET)))
+  libretro += ffmpeg/libavcodec.a ffmpeg/libavformat.a ffmpeg/libavutil.a ffmpeg/libswresample.a ffmpeg/libswscale.a
+endif
+
+ifeq ($(HAVE_STATIC_DUMMY),1)
+    DEFINES += -DHAVE_STATIC_DUMMY
+else
+    libretro += libretro_emscripten.a
+endif
+
+ifneq ($(V), 1)
+   Q := @
+endif
+
+ifeq ($(DEBUG), 1)
+    LDFLAGS += -O0 -g -gsource-map -s SAFE_HEAP=1 -s STACK_OVERFLOW_CHECK=2 -s ASSERTIONS=1 -GL_DEBUG=1
+    CFLAGS += -O0 -g -gsource-map -s SAFE_HEAP=1 -s SAFE_HEAP_LOG=1 -s STACK_OVERFLOW_CHECK=2 -s ASSERTIONS=1
+else
+    LDFLAGS += -O3 -s WASM=1
+    # WARNING: some optimizations can break some cores (ex: LTO breaks tyrquake)
+    LDFLAGS += -s PRECISE_F32=$(PRECISE_F32)
+    ifeq ($(LTO), 1)
+       LDFLAGS += --llvm-lto 3
+    endif
+    CFLAGS += -O3
+endif
+
+CFLAGS += -Wall -I. -Ilibretro-common/include -Ideps/7zip -std=gnu99
+
+RARCH_OBJ := $(addprefix $(OBJDIR)/,$(OBJ))
+
+all: $(TARGET)
+
+$(TARGET): $(RARCH_OBJ) $(libretro)
+	@$(if $(Q), $(shell echo echo LD $@),)
+	$(Q)$(LD) -o $@ $(RARCH_OBJ) $(libretro) $(LIBS) $(LDFLAGS)
+
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@$(if $(Q), $(shell echo echo CC $<),)
+	$(Q)$(CC) $(CFLAGS) $(DEFINES) $(EOPTS) -c -o $@ $<
+
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	@$(if $(Q), $(shell echo echo CXX $<),)
+	$(Q)$(CXX) $(CXXFLAGS) $(DEFINES) $(EOPTS) -c -o $@ $<
+
+clean:
+	rm -rf $(OBJDIR)
+	rm -f $(TARGET)
+
+.PHONY: all clean

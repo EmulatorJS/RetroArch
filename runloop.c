@@ -5446,6 +5446,12 @@ static bool runloop_is_libretro_running(runloop_state_t* runloop_st, settings_t*
          && runloop_st->flags & RUNLOOP_FLAG_CORE_RUNNING);
 }
 
+#ifdef EMULATORJS
+bool EJS_IS_FASTFORWARD();
+bool EJS_IS_SLOWMOTION();
+bool EJS_IS_REWIND();
+#endif
+
 static enum runloop_state_enum runloop_check_state(
       bool error_on_init,
       settings_t *settings,
@@ -6131,7 +6137,11 @@ static enum runloop_state_enum runloop_check_state(
          char s[128];
          bool rewinding      = false;
          static bool old_rewind_pressed = false;
+#ifdef EMULATORJS
+         bool rewind_pressed = EJS_IS_REWIND();
+#else
          bool rewind_pressed = BIT256_GET(current_bits, RARCH_REWIND);
+#endif
          unsigned t          = 0;
 
          s[0]                = '\0';
@@ -6400,10 +6410,15 @@ static enum runloop_state_enum runloop_check_state(
    {
       static bool old_button_state            = false;
       static bool old_hold_button_state       = false;
+#ifdef EMULATORJS
+      bool new_button_state = EJS_IS_FASTFORWARD();
+      bool new_hold_button_state = EJS_IS_FASTFORWARD();
+#else
       bool new_button_state                   = BIT256_GET(
             current_bits, RARCH_FAST_FORWARD_KEY);
       bool new_hold_button_state              = BIT256_GET(
             current_bits, RARCH_FAST_FORWARD_HOLD_KEY);
+#endif
       bool check2                             = new_button_state && !old_button_state;
 
       if (!check2)
@@ -6497,10 +6512,15 @@ static enum runloop_state_enum runloop_check_state(
          /* Check slowmotion hotkeys */
          static bool old_slowmotion_button_state      = false;
          static bool old_slowmotion_hold_button_state = false;
+#ifdef EMULATORJS
+         bool new_slowmotion_button_state = EJS_IS_SLOWMOTION();
+         bool new_slowmotion_hold_button_state = EJS_IS_SLOWMOTION();
+#else
          bool new_slowmotion_button_state             = BIT256_GET(
                current_bits, RARCH_SLOWMOTION_KEY);
          bool new_slowmotion_hold_button_state        = BIT256_GET(
                current_bits, RARCH_SLOWMOTION_HOLD_KEY);
+#endif
 
          /* Don't allow slowmotion while paused */
          if (runloop_paused)
@@ -8004,15 +8024,31 @@ void runloop_path_set_redirect(settings_t *settings,
 
       if (savefile_is_dir)
       {
+#ifdef __EMSCRIPTEN__
+       char *ext = (char*)EM_ASM_PTR({
+           try {
+              return stringToNewUTF8(Module.getSavExt());
+          } catch(e) {
+              return stringToNewUTF8(".srm");
+          }
+       });
+#endif
          fill_pathname_dir(runloop_st->name.savefile,
                            !string_is_empty(runloop_st->runtime_content_path_basename)
                            ? runloop_st->runtime_content_path_basename
                            : sysinfo->library_name,
+#ifdef __EMSCRIPTEN__
+                           ext,
+#else
                            FILE_PATH_SRM_EXTENSION,
+#endif
                            sizeof(runloop_st->name.savefile));
          RARCH_LOG("[Overrides]: %s \"%s\".\n",
                    msg_hash_to_str(MSG_REDIRECTING_SAVEFILE_TO),
                    runloop_st->name.savefile);
+#ifdef __EMSCRIPTEN__
+       free(ext);
+#endif
       }
 
       if (savestate_is_dir)
@@ -8121,3 +8157,127 @@ void runloop_path_set_special(char **argv, unsigned num_content)
             runloop_st->name.savestate);
    }
 }
+
+#ifdef EMULATORJS
+void ejs_set_variable(char key[], char value[])
+{
+    if (strcmp(key, "fps") == 0) {
+        settings_t *settings = config_get_ptr();
+        if (strcmp(value, "show") == 0) {
+            settings->bools.video_fps_show = true;
+        } else {
+            settings->bools.video_fps_show = false;
+        }
+        return;
+    }
+   runloop_state_t *runloop_st  = &runloop_state;
+   size_t opt_idx;
+   size_t val_idx;
+    if (!core_option_manager_get_idx(runloop_st->core_options, key, &opt_idx)) {
+       printf("invalid core option %s. This is not an error.\n", key);
+       return;
+    }
+    if (!core_option_manager_get_val_idx(runloop_st->core_options, opt_idx, value, &val_idx)) {
+       printf("invalid core value %s for %s\n", value, key);
+       return;
+    }
+    if (val_idx != runloop_st->core_options->opts[opt_idx].index) {
+        core_option_manager_set_val(runloop_st->core_options, opt_idx, val_idx, true);
+    }
+}
+
+char* get_core_options(void)
+{
+    int size = 10;
+    runloop_state_t *runloop_st  = &runloop_state;
+    int o = 0;
+    for (int i=0; i<runloop_st->core_options->size; i++) {
+        size_t opt_idx;
+        struct core_option *option = (struct core_option*)&runloop_st->core_options->opts[i];
+
+        if (core_option_manager_get_idx(runloop_st->core_options, option->key, &opt_idx)) {
+            if (o>0) size++;
+            o++;
+            size += 3;
+            size += strlen(option->key);
+            size += strlen(core_option_manager_get_val(runloop_st->core_options, opt_idx));
+            int w = 0;
+            for (int j=0; j<option->vals->size; j++) {
+                if (w>0) size++;
+                size += strlen(option->vals->elems[j].data);
+                w++;
+            }
+        }
+    }
+    o = 0;
+    char rv[size];
+    memset(rv, '\0', sizeof(rv));
+
+    for (int i=0; i<runloop_st->core_options->size; i++) {
+        size_t opt_idx;
+        struct core_option *option = (struct core_option*)&runloop_st->core_options->opts[i];
+
+        if (core_option_manager_get_idx(runloop_st->core_options, option->key, &opt_idx)) {
+            if (o>0) strcat(rv, "\n");
+            o++;
+            strcat(rv, option->key);
+            strcat(rv, "|");
+            strcat(rv, core_option_manager_get_val(runloop_st->core_options, opt_idx));
+            strcat(rv, "; ");
+            int w = 0;
+            for (int j=0; j<option->vals->size; j++) {
+                if (w>0) strcat(rv, "|");
+                strcat(rv, option->vals->elems[j].data);
+                w++;
+            }
+        }
+    }
+    return rv;
+}
+
+void set_video_rotation(int rotation)
+{  
+   settings_t *settings = config_get_ptr();
+   settings->uints.video_rotation = rotation;
+   video_viewport_t vp;
+   runloop_state_t *runloop_st    = &runloop_state;
+   rarch_system_info_t *sys_info  = &runloop_st->system;
+   video_driver_state_t *video_st       = video_state_get_ptr();
+   struct retro_system_av_info *av_info = &video_st->av_info;
+   video_viewport_t *custom_vp          = &settings->video_vp_custom;
+   if (sys_info)
+   {
+      unsigned base_width              = 0;
+      unsigned base_height             = 0;
+      struct retro_game_geometry *geom = (struct retro_game_geometry*)&av_info->geometry;
+      int core_rotation = sys_info->core_requested_rotation;
+      int new_rotation = 0;
+      new_rotation = rotation + core_rotation;
+      if (new_rotation > 3) new_rotation -= 4;
+      video_driver_set_rotation(new_rotation);
+      video_driver_get_viewport_info(&vp);
+      custom_vp->x         = 0;
+      custom_vp->y         = 0;
+      base_width           = (geom->base_width)  ? geom->base_width  : video_st->frame_cache_width;
+      base_height          = (geom->base_height) ? geom->base_height : video_st->frame_cache_height;
+      if (base_width <= 4 || base_height <= 4)
+      {
+         base_width        = (rotation % 2) ? 240 : 320;
+         base_height       = (rotation % 2) ? 320 : 240;
+      }
+      if (rotation % 2)
+      {
+         custom_vp->width  = MAX(1, (custom_vp->width  / base_height)) * base_height;
+         custom_vp->height = MAX(1, (custom_vp->height / base_width )) * base_width;
+      }
+      else
+      {
+         custom_vp->width  = ((custom_vp->width  + base_width  - 1) / base_width)  * base_width;
+         custom_vp->height = ((custom_vp->height + base_height - 1) / base_height) * base_height;
+      }
+      aspectratio_lut[ASPECT_RATIO_CUSTOM].value = (float)custom_vp->width / custom_vp->height;
+      video_driver_set_aspect_ratio();
+   }
+   RARCH_LOG("[Rotation]: Set rotation to %d\n", retroarch_get_rotation());
+}
+#endif

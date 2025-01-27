@@ -285,7 +285,7 @@ input_device_driver_t *joypad_drivers[] = {
 #if defined(HAVE_HID) && !defined(WIIU)
    &hid_joypad,
 #endif
-#ifdef EMSCRIPTEN
+#if defined(EMSCRIPTEN) && !defined(EMULATORJS)
    &rwebpad_joypad,
 #endif
 #ifdef HAVE_TEST_DRIVERS
@@ -366,7 +366,11 @@ input_driver_t *input_drivers[] = {
    &input_qnx,
 #endif
 #ifdef EMSCRIPTEN
+#ifdef EMULATORJS
+   &input_emulatorjs,
+#else
    &input_rwebinput,
+#endif
 #endif
 #ifdef DJGPP
    &input_dos,
@@ -824,12 +828,14 @@ static int32_t input_state_wrap(
          }
       }
    }
+#ifndef EMULATORJS
    else if (device == RETRO_DEVICE_KEYBOARD)
    {
       /* Always ignore null key. */
       if (id == RETROK_UNKNOWN)
          return ret;
    }
+#endif
 
    if (current_input && current_input->input_state)
       ret |= current_input->input_state(
@@ -7268,7 +7274,11 @@ void input_driver_collect_system_input(input_driver_state_t *input_st,
 
          for (i = 0; i < ARRAY_SIZE(ids); i++)
          {
+#ifndef EMULATORJS
+            if (current_input->input_state(
+#else
             if (ids[i][0] && current_input->input_state(
+#endif
                      input_st->current_data,
                      joypad,
                      sec_joypad,

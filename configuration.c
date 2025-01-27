@@ -196,6 +196,7 @@ enum input_driver_enum
    INPUT_COCOA,
    INPUT_QNX,
    INPUT_RWEBINPUT,
+   INPUT_EMULATORJS,
    INPUT_DOS,
    INPUT_WINRAW,
    INPUT_NULL
@@ -616,7 +617,11 @@ static const enum input_driver_enum INPUT_DEFAULT_DRIVER = INPUT_SDL2;
 #elif defined(WEBOS) && defined(HAVE_SDL2)
 static const enum input_driver_enum INPUT_DEFAULT_DRIVER = INPUT_SDL2;
 #elif defined(EMSCRIPTEN)
+#ifdef EMULATORJS
+static const enum input_driver_enum INPUT_DEFAULT_DRIVER = INPUT_EMULATORJS;
+#else
 static const enum input_driver_enum INPUT_DEFAULT_DRIVER = INPUT_RWEBINPUT;
+#endif
 #elif defined(_WIN32) && defined(HAVE_DINPUT)
 static const enum input_driver_enum INPUT_DEFAULT_DRIVER = INPUT_DINPUT;
 #elif defined(_WIN32) && !defined(HAVE_DINPUT) && _WIN32_WINNT >= 0x0501
@@ -705,7 +710,7 @@ static const enum joypad_driver_enum JOYPAD_DEFAULT_DRIVER = JOYPAD_DOS;
 static const enum joypad_driver_enum JOYPAD_DEFAULT_DRIVER = JOYPAD_HID;
 #elif defined(__QNX__)
 static const enum joypad_driver_enum JOYPAD_DEFAULT_DRIVER = JOYPAD_QNX;
-#elif defined(EMSCRIPTEN)
+#elif defined(EMSCRIPTEN) && !defined(EMULATORJS)
 static const enum joypad_driver_enum JOYPAD_DEFAULT_DRIVER = JOYPAD_RWEBPAD;
 #else
 static const enum joypad_driver_enum JOYPAD_DEFAULT_DRIVER = JOYPAD_NULL;
@@ -713,7 +718,7 @@ static const enum joypad_driver_enum JOYPAD_DEFAULT_DRIVER = JOYPAD_NULL;
 
 #if defined(HAVE_V4L2)
 static const enum camera_driver_enum CAMERA_DEFAULT_DRIVER = CAMERA_V4L2;
-#elif defined(EMSCRIPTEN)
+#elif defined(EMSCRIPTEN) && !defined(EMULATORJS)
 static const enum camera_driver_enum CAMERA_DEFAULT_DRIVER = CAMERA_RWEBCAM;
 #elif defined(ANDROID)
 static const enum camera_driver_enum CAMERA_DEFAULT_DRIVER = CAMERA_ANDROID;
@@ -1199,6 +1204,8 @@ const char *config_get_default_input(void)
           return "qnx_input";
       case INPUT_RWEBINPUT:
           return "rwebinput";
+      case INPUT_EMULATORJS:
+          return "emulatorjs";
       case INPUT_DOS:
          return "dos";
       case INPUT_NULL:

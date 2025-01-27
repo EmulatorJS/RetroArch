@@ -782,7 +782,10 @@ ifeq ($(HAVE_STDIN_CMD), 1)
    DEFINES += -DHAVE_STDIN_CMD
 endif
 
-ifeq ($(HAVE_EMSCRIPTEN), 1)
+ifeq ($(EMULATORJS), 1)
+   OBJ += input/drivers/emulatorjs_input.o \
+          frontend/drivers/platform_emulatorjs.o
+else ifeq ($(HAVE_EMSCRIPTEN), 1)
    OBJ += frontend/drivers/platform_emscripten.o \
           input/drivers/rwebinput_input.o \
           input/drivers_joypad/rwebpad_joypad.o \
@@ -1525,7 +1528,9 @@ ifeq ($(HAVE_GL_CONTEXT), 1)
       OBJ += gfx/drivers_context/vc_egl_ctx.o
    endif
 
-   ifeq ($(HAVE_EMSCRIPTEN), 1)
+   ifeq ($(EMULATORJS), 1)
+      OBJ += gfx/drivers_context/emulatorjs_ctx.o
+   else ifeq ($(HAVE_EMSCRIPTEN), 1)
       OBJ += gfx/drivers_context/emscriptenegl_ctx.o
    endif
 
@@ -1570,10 +1575,11 @@ ifeq ($(HAVE_GL_CONTEXT), 1)
       DEF_FLAGS += $(OPENGLES_CFLAGS)
       ifeq ($(HAVE_OPENGLES3), 1)
          DEFINES += -DHAVE_OPENGLES3
+         OBJ += $(LIBRETRO_COMM_DIR)/glsym/glsym_es3.o
       else
          DEFINES += -DHAVE_OPENGLES2
+         OBJ += $(LIBRETRO_COMM_DIR)/glsym/glsym_es2.o
       endif
-      OBJ += $(LIBRETRO_COMM_DIR)/glsym/glsym_es2.o
    else
       DEFINES += -DHAVE_GL_SYNC
       OBJ += $(LIBRETRO_COMM_DIR)/glsym/glsym_gl.o

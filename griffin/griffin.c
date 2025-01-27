@@ -289,7 +289,11 @@ VIDEO CONTEXT
 #elif defined(__QNX__)
 #include "../gfx/drivers_context/qnx_ctx.c"
 #elif defined(EMSCRIPTEN)
+#ifdef EMULATORJS
+#include "../gfx/drivers_context/emulatorjs_ctx.c"
+#else
 #include "../gfx/drivers_context/emscriptenegl_ctx.c"
+#endif
 #elif defined(__PS3__)
 #include "../gfx/drivers_context/ps3_ctx.c"
 #endif
@@ -673,8 +677,12 @@ INPUT
 #include "../input/drivers/qnx_input.c"
 #include "../input/drivers_joypad/qnx_joypad.c"
 #elif defined(EMSCRIPTEN)
+#ifdef EMULATORJS
+#include "../input/drivers/emulatorjs_input.c"
+#else
 #include "../input/drivers/rwebinput_input.c"
 #include "../input/drivers_joypad/rwebpad_joypad.c"
+#endif
 #elif defined(DJGPP)
 #include "../input/drivers/dos_input.c"
 #include "../input/drivers_joypad/dos_joypad.c"
@@ -862,7 +870,7 @@ AUDIO
 #elif defined(__wiiu__)
 #include "../audio/drivers/wiiu_audio.c"
 #elif defined(EMSCRIPTEN)
-#include "../audio/drivers/rwebaudio.c"
+//#include "../audio/drivers/rwebaudio.c"
 #elif defined(PSP) || defined(VITA) || defined(ORBIS)
 #include "../audio/drivers/psp_audio.c"
 #elif defined(PS2)
