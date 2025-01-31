@@ -47,7 +47,6 @@
 #include "../../verbosity.h"
 #include "../../tasks/tasks_internal.h"
 
-void dummyErrnoCodes(void);
 void emscripten_mainloop(void);
 
 void cmd_savefiles(void)
@@ -160,7 +159,6 @@ static void frontend_emscripten_get_env(int *argc, char *argv[],
 
 int main(int argc, char *argv[])
 {
-   dummyErrnoCodes();
    printf("Built for EmulatorJS\nDownload a copy from https://github.com/EmulatorJS/EmulatorJS\nView the licence here: https://github.com/EmulatorJS/EmulatorJS/blob/main/LICENSE\n");
 
    EM_ASM({

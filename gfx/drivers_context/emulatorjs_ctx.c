@@ -76,17 +76,19 @@ static void gfx_ctx_emscripten_webgl_get_canvas_size(int *width, int *height)
 static void gfx_ctx_emscripten_webgl_check_window(void *data, bool *quit,
       bool *resize, unsigned *width, unsigned *height)
 {
-   int input_width=0;
-   int input_height=0;
+   int input_width = 0;
+   int input_height = 0;
    emscripten_ctx_data_t *emscripten = (emscripten_ctx_data_t*)data;
 
    *resize                           = false;
    gfx_ctx_emscripten_webgl_get_canvas_size(&input_width, &input_height);
-   *width = (unsigned)input_width;
-   *height = (unsigned)input_height;
    
-   emscripten->fb_width  = (unsigned)*width;
-   emscripten->fb_height = (unsigned)*height;
+   double dpr = emscripten_get_device_pixel_ratio();
+   emscripten->fb_width  = (unsigned)(input_width * dpr);
+   emscripten->fb_height = (unsigned)(input_height * dpr);
+   
+   *width = (unsigned)emscripten->fb_width;
+   *height = (unsigned)emscripten->fb_height;
    *quit                 = false;
 }
 
@@ -190,20 +192,6 @@ static bool gfx_ctx_emscripten_webgl_set_video_mode(void *data,
    return true;
 }
 
-bool gfx_ctx_emscripten_webgl_set_resize(void *data, unsigned width, unsigned height) {
-   emscripten_ctx_data_t *emscripten = (emscripten_ctx_data_t*)data;
-   EMSCRIPTEN_RESULT r;
-   if(!emscripten || !emscripten->ctx) return false;
-   RARCH_LOG("[EMSCRIPTEN/WebGL]: set canvas size to %d, %d\n", width, height);/*
-   r = emscripten_set_canvas_element_size("!canvas",
-                                          (int)width, (int)height);
-   if (r != EMSCRIPTEN_RESULT_SUCCESS) {
-      RARCH_ERR("[EMSCRIPTEN/WebGL]: error resizing canvas: %d\n", r);
-      return false;
-   }*/
-   return true;
-}
-
 static enum gfx_ctx_api gfx_ctx_emscripten_webgl_get_api(void *data) { return GFX_CTX_OPENGL_ES_API; }
 
 static bool gfx_ctx_emscripten_webgl_bind_api(void *data,
@@ -262,7 +250,7 @@ const gfx_ctx_driver_t gfx_ctx_emscripten_webgl = {
    gfx_ctx_emscripten_webgl_translate_aspect,
    NULL, /* update_title */
    gfx_ctx_emscripten_webgl_check_window,
-   gfx_ctx_emscripten_webgl_set_resize, /* set_resize */
+   NULL, /* set_resize */
    gfx_ctx_emscripten_webgl_has_focus,
    gfx_ctx_emscripten_webgl_suppress_screensaver,
    false,

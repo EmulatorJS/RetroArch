@@ -107,9 +107,7 @@ LDFLAGS := -L. --no-heap-copy $(LIBS) -s STACK_SIZE=$(STACK_SIZE) -s INITIAL_MEM
            -s EXPORTED_RUNTIME_METHODS=Browser,callMain,cwrap,getValue,FS,PATH,ERRNO_CODES,AL,abort,stringToNewUTF8,UTF8ToString \
            -s EXPORTED_FUNCTIONS="$(EXPORTED_FUNCTIONS)" \
            -lidbfs.js \
-           -s GL_ENABLE_GET_PROC_ADDRESS=1 \
            -s ALLOW_MEMORY_GROWTH=1 \
-           --js-library emscripten/library_errno_codes.js \
            -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
            -s MODULARIZE=1 -s 'EXPORT_NAME="EJS_Runtime"'
 
