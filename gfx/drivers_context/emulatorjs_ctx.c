@@ -141,9 +141,6 @@ static void *gfx_ctx_emscripten_webgl_init(void *video_driver)
 #endif
    attrs.minorVersion = 0;
    attrs.enableExtensionsByDefault = true;
-   //attrs.explicitSwapControl = true;
-   //attrs.renderViaOffscreenBackBuffer = true;
-   //attrs.proxyContextToMainThread = EMSCRIPTEN_WEBGL_CONTEXT_PROXY_DISALLOW;
 
    if (!emscripten)
       return NULL;

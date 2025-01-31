@@ -1530,7 +1530,9 @@ ifeq ($(HAVE_GL_CONTEXT), 1)
 
    ifeq ($(EMULATORJS), 1)
       OBJ += gfx/drivers_context/emulatorjs_ctx.o
-   else ifeq ($(HAVE_EMSCRIPTEN), 1)
+   endif
+   
+   ifeq ($(HAVE_EGL), 1)
       OBJ += gfx/drivers_context/emscriptenegl_ctx.o
    endif
 

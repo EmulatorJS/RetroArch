@@ -56,7 +56,8 @@ fi
 
 lastGles=0
 
-largeStack=("mupen64plus_next" "ppsspp")
+largeStack=("mupen64plus_next")
+largerStack=("ppsspp")
 largeHeap=("mupen64plus_next" "picodrive" "pcsx_rearmed" "genesis_plus_gx" "mednafen_psx" "mednafen_psx_hw" "parallel_n64" "ppsspp")
 needsGles3=("ppsspp")
 needsThreads=("ppsspp")
@@ -82,7 +83,10 @@ for f in $(ls -v *_emscripten.bc); do
   fi
 
   if [[ $(containsElement $name "${largeStack[@]}") = 1 ]]; then
-    stack_mem=134217728 # 256mb
+    stack_mem=134217728 # 128mb
+  fi
+  if [[ $(containsElement $name "${largerStack[@]}") = 1 ]]; then
+    stack_mem=268435456 # 256mb
   fi
   if [[ $(containsElement $name "${largeHeap[@]}") = 1 ]]; then
     heap_mem=536870912 # 512mb

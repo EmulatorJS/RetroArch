@@ -111,8 +111,6 @@ LDFLAGS := -L. --no-heap-copy $(LIBS) -s STACK_SIZE=$(STACK_SIZE) -s INITIAL_MEM
            -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
            -s MODULARIZE=1 -s 'EXPORT_NAME="EJS_Runtime"'
 
-#           -s OFFSCREENCANVAS_SUPPORT -s OFFSCREEN_FRAMEBUFFER
-
 ifeq ($(HAVE_RWEBAUDIO), 1)
     LDFLAGS += --js-library emscripten/library_rwebaudio.js
     DEFINES += -DHAVE_RWEBAUDIO
@@ -132,7 +130,7 @@ ifeq ($(HAVE_OPENGLES), 1)
 endif
 
 ifneq ($(PTHREAD), 0)
-    LDFLAGS += -s MAXIMUM_MEMORY=1073741824 -pthread -s PTHREAD_POOL_SIZE=$(PTHREAD)
+    LDFLAGS += -s MAXIMUM_MEMORY=4294967296 -pthread -s PTHREAD_POOL_SIZE=$(PTHREAD)
     CFLAGS += -pthread -s SHARED_MEMORY
     HAVE_THREADS=1
 else
