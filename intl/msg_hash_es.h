@@ -2052,7 +2052,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SHADER_SUBFRAMES,
-   "Introduce uno o varios fotogramas adicionales para cualquier efecto de shaders pensado para una velocidad de actualización superior a la del contenido. Utiliza únicamente la opción designada para la frecuencia de actualización actual de tu monitor. No se debe utilizar con frecuencias que no sean múltiplos de 60 Hz, como 144 Hz, 165 Hz, etc. No combinar con un intervalo de intercambio de VSync superior a 1, con inserción de fotogramas negros, con el retraso de fotogramas o con Sincroniza[...]"
+   "Inserta fotogramas adicionales entre fotogramas para cualquier efecto shader que esté diseñado para ejecutarse más rápido que la velocidad del contenido. Solo use la opción designada para la frecuencia de actualización de la pantalla actual. No debe usarse en frecuencias de actualización que no sean múltiplos de 60 Hz, como 144 Hz, 165 Hz, etc. No combine con Intervalo de intercambio superior a 1, BFI, Retraso de fotogramas o Sincronizar con la velocidad de fotogramas exacta del contenid[...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_120,
@@ -2789,7 +2789,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_FRAME_DELAY,
-   "Establece el tiempo de espera en milisegundos entre la ejecución del núcleo y la presentación de la imagen. Puede reducir la latencia a costa de aumentar la probabilidad de sufrir tirones de imagen.\nUn valor igual o superior a 20 se considerará como un porcentaje de la duración de fotogramas."
+   "Establece el tiempo de espera en milisegundos entre la ejecución del núcleo y la presentación de la imagen. Reduce la latencia a costa de aumentar la probabilidad de sufrir tirones en la imagen.\nUn valor igual o superior a 20 se considerará como un porcentaje de la duración de fotogramas."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY_AUTO,
@@ -2797,7 +2797,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FRAME_DELAY_AUTO,
-   "Ajusta el retraso de fotogramas real de forma dinámica."
+   "Ajusta el 'Retraso de fotogramas' efectivo de forma dinámica."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_FRAME_DELAY_AUTO,
