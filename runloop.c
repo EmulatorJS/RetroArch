@@ -8307,7 +8307,7 @@ char* get_core_options(void)
 }
 
 void set_video_rotation(int rotation)
-{  
+{
    settings_t *settings = config_get_ptr();
    settings->uints.video_rotation = rotation;
    video_viewport_t vp;
@@ -8350,5 +8350,37 @@ void set_video_rotation(int rotation)
       video_driver_set_aspect_ratio();
    }
    RARCH_LOG("[Rotation]: Set rotation to %d\n", retroarch_get_rotation());
+}
+
+float get_video_dimensions(const char *key)
+{
+   video_driver_state_t *video_st           = video_state_get_ptr();
+   struct retro_system_av_info *av_info     = &video_st->av_info;
+   struct retro_game_geometry  *geom        = (struct retro_game_geometry*)&av_info->geometry;
+
+   if (!geom)
+      return -1.0f;
+
+   if (strcmp(key, "width") == 0)
+   {
+      RARCH_LOG("[Width]: %d\n", geom->base_width);
+      return (float)geom->base_width;
+   }
+   else if (strcmp(key, "height") == 0)
+   {
+      RARCH_LOG("[Height]: %d\n", geom->base_height);
+      return (float)geom->base_height;
+   }
+   else if (strcmp(key, "aspect") == 0)
+   {
+      float aspect = (float)geom->aspect_ratio;
+      RARCH_LOG("[Aspect Ratio]: %f\n", aspect);
+      return aspect;
+   }
+   else
+   {
+      RARCH_LOG("[Error]: Invalid key '%s' provided to get_video_dimensions\n", key);
+      return -1.0f;
+   }
 }
 #endif

@@ -100,7 +100,7 @@ EXPORTED_FUNCTIONS = _main,_malloc,_free,_load_state, \
                      _system_restart,_cmd_savefiles,_get_core_options,_cmd_save_state,_supports_states,_reset_cheat,_toggleMainLoop, \
                      _save_file_path,_get_disk_count,_set_current_disk,_get_current_disk,_refresh_save_files,_toggle_fastforward,_set_ff_ratio, \
                      _toggle_slow_motion,_set_sm_ratio,_toggle_rewind,_set_rewind_granularity,_get_current_frame_count,_ejs_set_keyboard_enabled, \
-                     _set_vsync,_set_video_rotation,_update_canvas_dimensions,_update_window_hidden,_update_power_state,_update_memory_usage,\
+                     _set_vsync,_set_video_rotation,_get_video_dimensions,_update_canvas_dimensions,_update_window_hidden,_update_power_state,_update_memory_usage,\
                      EmscriptenSendCommand,EmscriptenReceiveCommandReply
 
 LDFLAGS := -L. --no-heap-copy $(LIBS) -s STACK_SIZE=$(STACK_SIZE) -s INITIAL_MEMORY=$(HEAP_SIZE) -s NO_EXIT_RUNTIME=1 \
