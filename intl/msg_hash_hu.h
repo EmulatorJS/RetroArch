@@ -1493,10 +1493,6 @@ MSG_HASH(
    "Felhasználó"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "Fiókok, felhasználónév, és a nyelv beállítása."
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
    "Könyvtárak"
    )
@@ -7091,6 +7087,10 @@ MSG_HASH(
    "A megadott értéknél kevésbé széles/magas bélyegképeket automatikusan felskálázza. Javítja a képminőséget, mérsékelt hatása van a teljesítményre."
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "A bélyegképek körüli felhasználatlan terület kitöltése tömör háttérszínnel. Ez javítja a menü megjelenését, ha változó méretű bélyegképek szerepelnek benne, mert azokat egyenletes méretben jeleníti meg."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
    "Gördülőszalag animációja"
    )
@@ -11675,10 +11675,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_DUAL_THUMBNAIL_LIST_VIEW_ENABLE,
    "Második bélyegkép megjelenítése \"Lista\" típusú nézetekben. Csak akkor érvényes, ha a képernyő ténylegesen elég széles két bélyegképhez."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "Háttér a bélyegképekhez"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,

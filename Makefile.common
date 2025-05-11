@@ -1290,6 +1290,7 @@ ifeq ($(HAVE_WAYLAND), 1)
         gfx/common/wayland_common.o \
         gfx/common/wayland/fractional-scale-v1.o \
         gfx/common/wayland/viewporter.o \
+        gfx/common/wayland/xdg-toplevel-icon-v1.o \
         gfx/common/wayland/xdg-shell.o \
         gfx/common/wayland/idle-inhibit-unstable-v1.o \
         gfx/common/wayland/xdg-decoration-unstable-v1.o \
@@ -1553,11 +1554,7 @@ ifeq ($(HAVE_GL_CONTEXT), 1)
       ifeq ($(HAVE_EGL), 1)
         OBJ += gfx/drivers_context/emscriptenegl_ctx.o
       endif
-      ifeq ($(EMULATORJS), 1)
-         OBJ += gfx/drivers_context/emulatorjs_ctx.o
-      else
-         OBJ += gfx/drivers_context/emscriptenwebgl_ctx.o
-      endif
+      OBJ += gfx/drivers_context/emscriptenwebgl_ctx.o
    endif
 
    ifeq ($(HAVE_MALI_FBDEV), 1)

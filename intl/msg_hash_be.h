@@ -1517,10 +1517,6 @@ MSG_HASH(
    "Карыстальнік"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "Змяніць налады ўліковага запісу, імя карыстальніка ды мовы."
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
    "Каталог"
    )
@@ -7055,6 +7051,14 @@ MSG_HASH(
    "Аўтаматычна маштабаваць эскізы з шырынёй/вышынёй менш зададзенага значэння. Падвышае якасць малюнка, умерана ўплываючы на ​​прадукцыйнасць."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "Фоны мініяцюр"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "Уключае запаўненне вольнай прасторы вакол мініяцюр суцэльным фонам. Забяспечвае адзіную памернасць для ўсіх малюнкаў, паляпшаючы адлюстраванне меню пры праглядзе эскізаў рознага памеру."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
    "Анімацыя бягучага радка"
    )
@@ -11870,7 +11874,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "Дадаваць фон да эскізаў"
+   "Фоны мініяцюр"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
@@ -14871,6 +14875,10 @@ MSG_HASH(
    "Загрузка станаў патрабуе адключэння ці прыпынення хардкор рэжыму дасягненняў."
    )
 MSG_HASH(
+   MSG_CHEEVOS_LOAD_SAVEFILE_PREVENTED_BY_HARDCORE_MODE,
+   "Загрузка станаў патрабуе адключэння ці прыпынення хардкор рэжыму дасягненняў."
+   )
+MSG_HASH(
    MSG_CHEEVOS_HARDCORE_MODE_DISABLED,
    "Загружана захаванне стану. Хардкор рэжым дасягненняў у бягучым сеансе адключаны."
    )
@@ -15932,5 +15940,9 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_GAME_AI,
    "Паказваць 'Гульнявы ШІ'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_GAME_AI,
+   "Паказваць опцыю 'Гульнявы ШІ'."
    )
 #endif

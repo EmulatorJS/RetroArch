@@ -1521,10 +1521,6 @@ MSG_HASH(
    "用户"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "更改帐号、用户名和语言设置。"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
    "文件夹"
    )
@@ -6831,6 +6827,10 @@ MSG_HASH(
    "自动放大小于指定宽度/高度的缩略图。提高图像质量。有小幅的性能影响。"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "启用缩略图边框，用颜色填充。借此统一缩略图显示尺寸，改进浏览多种不同尺寸缩略图时的菜单外观。"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
    "滚动字幕动画"
    )
@@ -11551,10 +11551,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_DUAL_THUMBNAIL_LIST_VIEW_ENABLE,
    "缩略图使用列表查看模式时，显示第二张缩略图。此设置仅在屏幕足够宽时有效。"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "绘制缩略图背景"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,

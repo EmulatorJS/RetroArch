@@ -1518,7 +1518,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "Зміна налаштувань облікового запису, користувача та мови."
+   "Зміна налаштувань конфіденційності, облікового запису та імені користувача."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
@@ -3986,6 +3986,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_SHADER_TOGGLE,
    "Вмикає/вимикає поточний вибраний шейдер."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_HOLD,
+   "Шейдери (Утримувати)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_SHADER_HOLD,
+   "Тримає поточний вибраний шейдер увімкненим/вимкненим, поки натиснута клавіша."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_NEXT,
@@ -7081,6 +7089,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_UPSCALE_THRESHOLD,
    "Автоматично збільшувати мініатюри зображень з шириною/висотою менше, ніж зазначене значення. Покращує якість зображення. Має помірний вплив продуктивності."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "Фони мініатюр"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "Дозволяє додавати невикористаний простір в мініатюрах із суцільним фоном. Це забезпечує однорідний розмір відображення для всіх зображень, покращує зовнішній вигляд меню, при перегляді змішаних мініатюр вмісту з різними базовими розмірами."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
@@ -11958,7 +11974,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "Малювати тло мініатюри"
+   "Фони мініатюр"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
@@ -14953,6 +14969,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_CHEEVOS_LOAD_STATE_PREVENTED_BY_HARDCORE_MODE,
    "Ви повинні призупинити або вимкнути передобуті досягнень для завантаження станів."
+   )
+MSG_HASH(
+   MSG_CHEEVOS_LOAD_SAVEFILE_PREVENTED_BY_HARDCORE_MODE,
+   "Ви повинні призупинити або вимкнути досягнення Хардкорного режиму, щоб завантажити збереження srm."
    )
 MSG_HASH(
    MSG_CHEEVOS_HARDCORE_MODE_DISABLED,

@@ -2818,6 +2818,7 @@ void video_driver_build_info(video_frame_info_t *video_info)
 #ifdef HAVE_MENU
    struct menu_state *menu_st              = menu_state_get_ptr();
 #endif
+   uint8_t menu_shdr_flags                 = 0;
 #ifdef HAVE_GFX_WIDGETS
    dispgfx_widget_t *p_dispwidget          = dispwidget_get_ptr();
 #endif
@@ -2826,6 +2827,12 @@ void video_driver_build_info(video_frame_info_t *video_info)
          VIDEO_DRIVER_IS_THREADED_INTERNAL(video_st);
 
    VIDEO_DRIVER_THREADED_LOCK(video_st, is_threaded);
+#endif
+
+#ifdef HAVE_MENU
+#if defined(HAVE_CG) || defined(HAVE_GLSL) || defined(HAVE_SLANG) || defined(HAVE_HLSL)
+   menu_shdr_flags                         = menu_shader_get()->flags;
+#endif
 #endif
    custom_vp                               = &settings->video_vp_custom;
 #ifdef HAVE_GFX_WIDGETS
@@ -2896,6 +2903,7 @@ void video_driver_build_info(video_frame_info_t *video_info)
    video_info->scale_width                 = video_st->scale_width;
    video_info->scale_height                = video_st->scale_height;
 
+   video_info->shader_active               = !(menu_shdr_flags & SHDR_FLAG_DISABLED) ? true : false;
    video_info->hdr_enable                  = settings->bools.video_hdr_enable;
 
    video_info->libretro_running            = false;
@@ -4573,15 +4581,15 @@ void video_frame_delay(video_driver_state_t *video_st,
          || (runloop_st->flags & RUNLOOP_FLAG_SLOWMOTION)
          || (runloop_st->flags & RUNLOOP_FLAG_FASTMOTION);
 
-   /* Black frame insertion + swap interval multiplier */
-   refresh_rate = (refresh_rate / (video_bfi + 1.0f) / video_swap_interval / shader_subframes);
-
    /* Treat values 20+ as frame time percentage */
    if (video_frame_delay >= 20)
       video_frame_delay = 1 / refresh_rate * 1000 * (video_frame_delay / 100.0f);
    /* Set 0 (Auto) delay target as 3/4 frame time */
    else if (video_frame_delay == 0 && settings->bools.video_frame_delay_auto)
       video_frame_delay = 1 / refresh_rate * 1000 * 0.75f;
+
+   /* Black frame insertion + swap interval multiplier */
+   refresh_rate = (refresh_rate / (video_bfi + 1.0f) / video_swap_interval / shader_subframes);
 
    if (settings->bools.video_frame_delay_auto)
    {

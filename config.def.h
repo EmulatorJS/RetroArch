@@ -156,6 +156,7 @@
  * > Helps to unify menu appearance when viewing
  *   thumbnails of different sizes */
 #define DEFAULT_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE true
+#define DEFAULT_MENU_THUMBNAIL_BACKGROUND_ENABLE false
 
 #define DEFAULT_SCREEN_BRIGHTNESS 100
 
@@ -1289,11 +1290,7 @@
 #endif
 
 /* Pause gameplay when window loses focus. */
-#if defined(EMSCRIPTEN)
-#define DEFAULT_PAUSE_NONACTIVE false
-#else
 #define DEFAULT_PAUSE_NONACTIVE true
-#endif
 
 /* Pause gameplay when controller disconnects. */
 #define DEFAULT_PAUSE_ON_DISCONNECT false

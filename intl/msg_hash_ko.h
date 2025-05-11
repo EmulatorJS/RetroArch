@@ -1521,10 +1521,6 @@ MSG_HASH(
    "사용자"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "계정, 사용자 이름, 언어 설정을 변경합니다."
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
    "디렉토리"
    )
@@ -7147,6 +7143,14 @@ MSG_HASH(
    "지정된 값보다 작은 크기의 미리보기 이미지를 자동으로 확대합니다. 이미지 품질이 개선됩니다. 약간의 성능 저하가 있을 수 있습니다."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "썸네일 백그라운드"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "미리보기 테두리에 단색의 테두리 배경을 추가합니다. 미리보기를 항상 일정한 크기로 표시하여 미리보기의 크기 또는 비율이 일정하지 않더라도 일관된 모습을 유지합니다."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
    "한 줄 텍스트 애니메이션"
    )
@@ -11950,7 +11954,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "미리보기에 배경 추가"
+   "썸네일 백그라운드"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
@@ -14965,6 +14969,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_CHEEVOS_LOAD_STATE_PREVENTED_BY_HARDCORE_MODE,
    "상태저장을 불러오려면 도전과제 하드코어 모드를 일시정지 또는 비활성화해야 합니다."
+   )
+MSG_HASH(
+   MSG_CHEEVOS_LOAD_SAVEFILE_PREVENTED_BY_HARDCORE_MODE,
+   "Srm 저장 파일을 불러오려면 업적 하드코어 모드를 일시 정지하거나 비활성화해야 합니다."
    )
 MSG_HASH(
    MSG_CHEEVOS_HARDCORE_MODE_DISABLED,

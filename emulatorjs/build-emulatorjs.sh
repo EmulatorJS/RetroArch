@@ -73,13 +73,15 @@ for f in $(ls -v *_emscripten.bc); do
   heap_mem=134217728 # 128mb
   pthread=0
   chd=1
+  threads=0
 
   if [ "$LEGACY" = "YES" ]; then
     gles3=0
   fi
 
   if [[ "$PTHREADS" = "YES" ]]; then
-    pthread=8
+    threads=1
+    pthread=4
   fi
 
   if [[ $(containsElement $name "${largeStack[@]}") = 1 ]]; then
@@ -111,10 +113,11 @@ for f in $(ls -v *_emscripten.bc); do
    
   echo NAME: $name
   echo ASYNC: $async
-  echo PTHREAD: $pthread
+  echo HAVE_THREADS: $threads
+  echo PTHREAD_POOL_SIZE: $pthread
   echo GLES3: $gles3
   echo STACK_SIZE: $stack_mem
-  echo HEAP_SIZE: $heap_mem
+  echo INITIAL_HEAP: $heap_mem
   echo HAVE_CHD: $chd
 
   if [[ "$CLEAN" = "YES" ]]; then
@@ -125,8 +128,8 @@ for f in $(ls -v *_emscripten.bc); do
   lastGles=$gles3
 
   # Compile core
-  echo "BUILD COMMAND: make -C ../ -f Makefile.emulatorjs HAVE_CHD=$chd PTHREAD=$pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem HEAP_SIZE=$heap_mem TARGET=${name}_libretro.js -j"$(nproc)
-  make -C ../ -f Makefile.emulatorjs HAVE_CHD=$chd PTHREAD=$pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem HEAP_SIZE=$heap_mem TARGET=${name}_libretro.js -j$(nproc) || exit 1
+  echo "BUILD COMMAND: make -C ../ -f Makefile.emulatorjs HAVE_CHD=$chd HAVE_THREADS=$threads PTHREAD_POOL_SIZE=$pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem INITIAL_HEAP=$heap_mem TARGET=${name}_libretro.js -j"$(nproc)
+  make -C ../ -f Makefile.emulatorjs HAVE_CHD=$chd HAVE_THREADS=$threads PTHREAD_POOL_SIZE=$pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem INITIAL_HEAP=$heap_mem TARGET=${name}_libretro.js -j$(nproc) || exit 1
 
   # Move executable files
   out_dir="../../EmulatorJS/data/cores"

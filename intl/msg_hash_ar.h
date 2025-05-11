@@ -1425,6 +1425,14 @@ MSG_HASH(
    "نواة ليبرترو. اختيار هذا سيربط هذا النواة باللعبة."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_CORE,
+   "نواة ليبرترو. حدد هذا الملف لتحميل RetroArch هذا النوع."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_DIRECTORY,
+   "الدليل. حدده لفتح هذا الدليل."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FRAME_THROTTLE_SETTINGS,
    "خنق الإطار"
    )
@@ -1509,10 +1517,6 @@ MSG_HASH(
    "المستخدم"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "تغيير إعدادات الحساب واسم المستخدم واللغة."
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
    "الدلائل"
    )
@@ -1581,8 +1585,36 @@ MSG_HASH(
    "مشغل الإدخال للاستخدام. تبعاً لمشغل الفيديو، قد يفرض مشغل إدخال مختلف."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
+   "يقوم مشغل udev بقراءة أحداث evdev للحصول على دعم لوحة المفاتيح. كما أنه يدعم رد المكالمات على لوحة المفاتيح والجرذان والملامس.\nبشكل افتراضي في معظم الأقراص، عقد /dev/input هي جذر فقط (الوضع 600). يمكنك إعداد قاعدة udev التي تجعل هذه متاحة لغير الجذر."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
+   "يتطلب مشغل إدخال Linuxraw نشيطا TTY. تُقرأ أحداث لوحة المفاتيح مباشرة من TY مما يجعلها أبسط ولكن ليس مرنة مثل udev. الرماد الخ، غير مدعوم على الإطلاق. يستخدم هذا السائق API القديم عصا التحكم (/dev/input/js*)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_NO_DETAILS,
+   "مشغل الإدخال. مشغل الفيديو قد يفرض مشغل إدخال مختلف."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_JOYPAD_DRIVER,
    "نظام تشغيل الجوي باد"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
+   "سائق يد التحكم لاستخدامه. (إعادة التشغيل مطلوبة)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
+   "مشغل وحدة تحكم مباشر الإدخال."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_HID,
+   "مشغل جهاز الواجهة الانسانية مستوى منخفض."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_LINUXRAW,
+   "استخدام واجهة برمجة التطبيقات API الموروثة لـ Linux. استخدم udev بدلا من ذلك إذا أمكن."
    )
 
 MSG_HASH(
@@ -4001,6 +4033,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_UPSCALE_THRESHOLD,
    "رفع مستوى الصور المصغرة تلقائياً مع عرض / ارتفاع أصغر من القيمة المحددة. يحسن جودة الصورة. له تأثير متوسط للأداء."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "تمكين تعبئة المساحة غير المستخدمة في الصور المصغرة مع خلفية صلبة. هذا يضمن حجم عرض موحد لجميع الصور، وتحسين مظهر القائمة عند عرض الصور المصغرة للمحتوى المختلط مع أبعاد أساسية مختلفة."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
@@ -6831,10 +6867,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_DUAL_THUMBNAIL_LIST_VIEW_ENABLE,
    "يعرض صورة مصغرة ثانوية عند استخدام \"قائمة\" نوع أوضاع عرض الصور المصغرة لقائمة التشغيل. ينطبق هذا الإعداد فقط عندما يكون للشاشة عرض فيزيائي كافٍ لإظهار مصغرتين."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "ارسم خلفيات مصغرة"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,

@@ -1506,7 +1506,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "Hesap, kullanıcı adı veya dil ayarlarını değiştir."
+   "Gizlilik, hesap ve kullanıcı adı ayarlarınızı değiştirin."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
@@ -3974,6 +3974,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_SHADER_TOGGLE,
    "Seçili olan gölgelendiriciyi açar/kapatır."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_HOLD,
+   "Gölgelendiriciler (Basılı Tut)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_SHADER_HOLD,
+   "Tuşa basılı tutulduğu sürece seçili olan gölgelendiriciyi açık/kapalı tutar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_NEXT,
@@ -7105,6 +7113,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_UPSCALE_THRESHOLD,
    "Belirtilen değerden daha küçük bir genişlik/yüksekliğe sahip küçük resim görüntülerini otomatik olarak yükseltin. Görüntü kalitesini artırır. Orta düzeyde performansa eksi etkisi vardır."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "Küçük Resim Arkaplanları"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_THUMBNAIL_BACKGROUND_ENABLE,
+   "Sağlam bir arka plana sahip küçük resim görüntülerinde kullanılmayan alanın dolmasını sağlar. Bu, tüm görüntüler için tekdüze bir görüntü boyutu sağlayarak, farklı taban boyutlarına sahip karışık içerikli küçük resimleri görüntülerken menü görünümünü iyileştirir."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE,
@@ -11954,7 +11970,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "Küçük Resim Arkaplan Çizimi"
+   "Küçük Resim Arkaplanları"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
@@ -14949,6 +14965,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_CHEEVOS_LOAD_STATE_PREVENTED_BY_HARDCORE_MODE,
    "Durumları yüklemek için Zorlu Kipte Başarılar duraklatılmalı veya devre dışı bırakmanız gerekir."
+   )
+MSG_HASH(
+   MSG_CHEEVOS_LOAD_SAVEFILE_PREVENTED_BY_HARDCORE_MODE,
+   "Durumları yüklemek için Zorlu Kipte Başarımlar duraklatılmalı veya devre dışı bırakılmalı."
    )
 MSG_HASH(
    MSG_CHEEVOS_HARDCORE_MODE_DISABLED,
