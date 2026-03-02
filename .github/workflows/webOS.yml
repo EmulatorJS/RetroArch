@@ -81,7 +81,7 @@ jobs:
           DEBUG: ${{ github.event_name == 'release' && '0' || '1' }}
 
       - name: Upload GLES3 artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: com.retroarch.webos.gles3_${{ env.RARCH_VERSION }}_${{ github.sha }}_arm.ipk
           path: webos/com.retroarch.webos.gles3_${{ env.RARCH_VERSION }}_arm.ipk
@@ -95,7 +95,7 @@ jobs:
           DEBUG: ${{ github.event_name == 'release' && '0' || '1' }}
 
       - name: Upload default artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: com.retroarch.webos_${{ env.RARCH_VERSION }}_${{ github.sha }}_arm.ipk
           path: webos/com.retroarch.webos_${{ env.RARCH_VERSION }}_arm.ipk
