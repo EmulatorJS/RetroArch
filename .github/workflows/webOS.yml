@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download ares-cli-rs
-        uses: robinraju/release-downloader@v1.11
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: "webosbrew/ares-cli-rs"
           latest: true
@@ -33,7 +33,7 @@ jobs:
           out-file-path: "temp"
 
       - name: Download Manifest Generator
-        uses: robinraju/release-downloader@v1.9
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: "webosbrew/dev-toolbox-cli"
           latest: true
@@ -47,7 +47,7 @@ jobs:
         run: sudo apt-get -yq install ./temp/*.deb
 
       - name: Download webOS NDK
-        uses: robinraju/release-downloader@v1.11
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: "openlgtv/buildroot-nc4"
           latest: true
