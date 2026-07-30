@@ -69,7 +69,10 @@ needsThreads=("ppsspp" "azahar")
 largeThreads=("ppsspp" "azahar")
 noCHD=("mame2003" "mame2003_plus" "pcsx_rearmed" "genesis_plus_gx" "genesis_plus_gx_wide" "azahar")
 no7Zip=("bsnes")
-needsAsync=("mupen64plus_next" "dosbox_pure" "ppsspp" "azahar" "bsnes")
+# Cores that perform synchronous file I/O during retro_load_game()
+# (e.g. reading XML machine configs) need ASYNCIFY to avoid deadlocking
+# the Emscripten event loop.
+needsAsync=("mupen64plus_next" "dosbox_pure" "ppsspp" "azahar" "bsnes" "bluemsx")
 
 for f in $(ls -v *_emscripten.bc); do
   name=`echo "$f" | sed "s/\(_libretro_emscripten\|\).bc$//"`
