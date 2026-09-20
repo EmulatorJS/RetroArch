@@ -109,7 +109,7 @@ static void *gfx_ctx_emscripten_webgl_init(void *video_driver)
 
    EmscriptenWebGLContextAttributes attrs = {0};
    emscripten_webgl_init_context_attributes(&attrs);
-   attrs.alpha = true;
+   attrs.alpha = false;
    attrs.depth = true;
    attrs.stencil = true;
    attrs.antialias = false;
