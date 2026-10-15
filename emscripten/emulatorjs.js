@@ -9,10 +9,10 @@ var LibraryEmulatorJS = {
         }
         const size = parseInt(state[0]);
         const dataStart = parseInt(state[1]);
-        const data = HEAPU8.subarray(dataStart, dataStart + size);
-        _free(info);
-        _free(data);
-        return new Uint8Array(data);
+        // Copy the state out of the heap before freeing the buffer it lives in
+        const data = new Uint8Array(HEAPU8.subarray(dataStart, dataStart + size));
+        _free(dataStart);
+        return data;
     },
     $EmulatorJSGetMemoryData: function(key) {
         let keyPtr = stringToNewUTF8(key);
