@@ -471,102 +471,111 @@ static void *rwebinput_input_init(const char *joypad_driver)
 
    input_keymaps_init_keyboard_lut(rarch_key_map_rwebinput);
 
-   r = emscripten_set_keydown_callback("!parent", rwebinput, false,
-         rwebinput_keyboard_cb);
+   /* Browser events update shared input state while the core thread is busy. */
+#ifdef PROXY_TO_PTHREAD
+#define EJS_HTML5_CALLBACK_THREAD EM_CALLBACK_THREAD_CONTEXT_MAIN_BROWSER_THREAD
+#else
+#define EJS_HTML5_CALLBACK_THREAD EM_CALLBACK_THREAD_CONTEXT_CALLING_THREAD
+#endif
+
+   r = emscripten_set_keydown_callback_on_thread("!parent", rwebinput, false,
+         rwebinput_keyboard_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create keydown callback: %d\n", r);
    }
 
-   r = emscripten_set_keyup_callback("!parent", rwebinput, false,
-         rwebinput_keyboard_cb);
+   r = emscripten_set_keyup_callback_on_thread("!parent", rwebinput, false,
+         rwebinput_keyboard_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create keyup callback: %d\n", r);
    }
 
-   r = emscripten_set_keypress_callback("!parent", rwebinput, false,
-         rwebinput_keyboard_cb);
+   r = emscripten_set_keypress_callback_on_thread("!parent", rwebinput, false,
+         rwebinput_keyboard_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create keypress callback: %d\n", r);
    }
 
-   r = emscripten_set_mousedown_callback("!canvas", rwebinput, false,
-         rwebinput_mouse_cb);
+   r = emscripten_set_mousedown_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_mouse_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create mousedown callback: %d\n", r);
    }
 
-   r = emscripten_set_mouseup_callback("!canvas", rwebinput, false,
-         rwebinput_mouse_cb);
+   r = emscripten_set_mouseup_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_mouse_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create mouseup callback: %d\n", r);
    }
 
-   r = emscripten_set_mousemove_callback("!canvas", rwebinput, false,
-         rwebinput_mouse_cb);
+   r = emscripten_set_mousemove_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_mouse_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create mousemove callback: %d\n", r);
    }
 
-   r = emscripten_set_wheel_callback("!canvas", rwebinput, false,
-         rwebinput_wheel_cb);
+   r = emscripten_set_wheel_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_wheel_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create wheel callback: %d\n", r);
    }
 
-   r = emscripten_set_touchstart_callback("!canvas", rwebinput, false,
-         rwebinput_touch_cb);
+   r = emscripten_set_touchstart_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_touch_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create touchstart callback: %d\n", r);
    }
 
-   r = emscripten_set_touchend_callback("!canvas", rwebinput, false,
-         rwebinput_touch_cb);
+   r = emscripten_set_touchend_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_touch_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create touchend callback: %d\n", r);
    }
 
-   r = emscripten_set_touchmove_callback("!canvas", rwebinput, false,
-         rwebinput_touch_cb);
+   r = emscripten_set_touchmove_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_touch_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create touchmove callback: %d\n", r);
    }
 
-   r = emscripten_set_touchcancel_callback("!canvas", rwebinput, false,
-         rwebinput_touch_cb);
+   r = emscripten_set_touchcancel_callback_on_thread("!canvas", rwebinput, false,
+         rwebinput_touch_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create touchcancel callback: %d\n", r);
    }
 
-   r = emscripten_set_pointerlockchange_callback(
+   r = emscripten_set_pointerlockchange_callback_on_thread(
          EMSCRIPTEN_EVENT_TARGET_DOCUMENT, rwebinput, false,
-         rwebinput_pointerlockchange_cb);
+         rwebinput_pointerlockchange_cb, EJS_HTML5_CALLBACK_THREAD);
    if (r != EMSCRIPTEN_RESULT_SUCCESS)
    {
       RARCH_ERR(
          "[EMSCRIPTEN/INPUT] failed to create pointerlockchange callback: %d\n", r);
    }
+
+#undef EJS_HTML5_CALLBACK_THREAD
 
    return rwebinput;
 }

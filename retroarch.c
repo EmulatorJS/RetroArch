@@ -6123,11 +6123,26 @@ void emscripten_mainloop(void)
       }
       EJS_PENDING_SCREENSHOT = false;
    }
+#ifdef PROXY_TO_PTHREAD
+   /* A paused worker polls for browser-side resume requests at 60 Hz. */
+   static bool paused_timing = false;
+   if (EJS_PAUSED) {
+      if (!paused_timing)
+         emscripten_set_main_loop_timing(EM_TIMING_SETTIMEOUT, 16);
+      paused_timing = true;
+      return;
+   }
+   if (paused_timing) {
+      emscripten_set_main_loop_timing(EM_TIMING_SETIMMEDIATE, 0);
+      paused_timing = false;
+   }
+#else
    if (EJS_PAUSED && !EJS_MAINLOOP_PAUSED) {
       emscripten_pause_main_loop();
       EJS_MAINLOOP_PAUSED = true;
       return;
    }
+#endif
 #endif
 
    int ret;
