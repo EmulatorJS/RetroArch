@@ -164,7 +164,11 @@ void set_vsync(int enabled)
 void platform_emscripten_update_canvas_dimensions_cb(int width, int height, double *dpr)
 {
    printf("[INFO] Setting real canvas size: %d x %d\n", width, height);
+#ifdef PROXY_TO_PTHREAD
+   emscripten_set_canvas_element_size("#canvas", width, height);
+#else
    emscripten_set_canvas_element_size("!canvas", width, height);
+#endif
    if (!emscripten_platform_data)
       return;
    PLATFORM_SETVAL(u32, &emscripten_platform_data->canvas_width,        width);
@@ -238,7 +242,10 @@ void platform_emscripten_command_raise_flag()
 void platform_emscripten_run_on_browser_thread_sync(void (*func)(void*), void* arg)
 {
 #ifdef PROXY_TO_PTHREAD
-   emscripten_proxy_sync(emscripten_proxy_get_system_queue(), emscripten_main_runtime_thread_id(), func, arg);
+   if (emscripten_is_main_browser_thread())
+      func(arg);
+   else
+      emscripten_proxy_sync(emscripten_proxy_get_system_queue(), emscripten_main_runtime_thread_id(), func, arg);
 #else
    func(arg);
 #endif

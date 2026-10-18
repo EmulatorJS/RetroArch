@@ -62,10 +62,10 @@ fi
 lastGles=0
 
 largeStack=("mupen64plus_next" "azahar")
-useOpenAL=()
+useOpenAL=("dosbox_pure")
 largeHeap=("mupen64plus_next" "picodrive" "pcsx_rearmed" "genesis_plus_gx" "genesis_plus_gx_wide" "mednafen_psx" "mednafen_psx_hw" "parallel_n64" "ppsspp" "azahar")
 needsGles3=("ppsspp" "azahar")
-needsThreads=("ppsspp" "azahar")
+needsThreads=("ppsspp" "azahar" "dosbox_pure")
 largeThreads=("ppsspp" "azahar")
 noCHD=("mame2003" "mame2003_plus" "pcsx_rearmed" "genesis_plus_gx" "genesis_plus_gx_wide" "azahar")
 no7Zip=("bsnes")
@@ -84,6 +84,7 @@ for f in $(ls -v *_emscripten.bc); do
   threads=0
   have_al=0
   have_rwebaudio=1
+  proxy_to_pthread=0
 
   if [ "$LEGACY" = "YES" ]; then
     gles3=0
@@ -125,6 +126,11 @@ for f in $(ls -v *_emscripten.bc); do
     exit 1
   fi
 
+  if [[ "$name" = "dosbox_pure" ]]; then
+    proxy_to_pthread=1
+    async=0
+  fi
+
   echo "-- Building core: $name --"
   cp -f "$f" ../libretro_emscripten.a
    
@@ -137,6 +143,7 @@ for f in $(ls -v *_emscripten.bc); do
   echo INITIAL_HEAP: $heap_mem
   echo HAVE_CHD: $chd
   echo HAVE_7ZIP: $sevenZip
+  echo PROXY_TO_PTHREAD: $proxy_to_pthread
 
   if [[ "$CLEAN" = "YES" ]]; then
     if [ $lastGles != $gles3 ] ; then
@@ -151,8 +158,8 @@ for f in $(ls -v *_emscripten.bc); do
   fi
 
   # Compile core
-  echo "BUILD COMMAND: make -C ../ -f Makefile.emulatorjs HAVE_7ZIP=$sevenZip HAVE_CHD=$chd HAVE_THREADS=$threads PTHREAD_POOL_SIZE=$pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem INITIAL_HEAP=$heap_mem HAVE_AL=$have_al HAVE_RWEBAUDIO=$have_rwebaudio LIGHT_DEBUG=$light_debug TARGET=${name}_libretro.js -j"$(nproc)
-  make -C ../ -f Makefile.emulatorjs HAVE_7ZIP=$sevenZip HAVE_CHD=$chd HAVE_THREADS=$threads PTHREAD_POOL_SIZE=$pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem INITIAL_HEAP=$heap_mem HAVE_AL=$have_al HAVE_RWEBAUDIO=$have_rwebaudio LIGHT_DEBUG=$light_debug TARGET=${name}_libretro.js -j$(nproc) || exit 1
+  echo "BUILD COMMAND: make -C ../ -f Makefile.emulatorjs HAVE_7ZIP=$sevenZip HAVE_CHD=$chd HAVE_THREADS=$threads PTHREAD_POOL_SIZE=$pthread PROXY_TO_PTHREAD=$proxy_to_pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem INITIAL_HEAP=$heap_mem HAVE_AL=$have_al HAVE_RWEBAUDIO=$have_rwebaudio LIGHT_DEBUG=$light_debug TARGET=${name}_libretro.js -j"$(nproc)
+  make -C ../ -f Makefile.emulatorjs HAVE_7ZIP=$sevenZip HAVE_CHD=$chd HAVE_THREADS=$threads PTHREAD_POOL_SIZE=$pthread PROXY_TO_PTHREAD=$proxy_to_pthread ASYNC=$async HAVE_OPENGLES3=$gles3 STACK_SIZE=$stack_mem INITIAL_HEAP=$heap_mem HAVE_AL=$have_al HAVE_RWEBAUDIO=$have_rwebaudio LIGHT_DEBUG=$light_debug TARGET=${name}_libretro.js -j$(nproc) || exit 1
 
   # Move executable files
   out_dir="../../EmulatorJS/data/cores"
