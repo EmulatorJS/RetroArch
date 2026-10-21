@@ -67,7 +67,7 @@ largeHeap=("mupen64plus_next" "picodrive" "pcsx_rearmed" "genesis_plus_gx" "gene
 needsGles3=("ppsspp" "azahar")
 needsThreads=("ppsspp" "azahar")
 largeThreads=("ppsspp" "azahar")
-noCHD=("mame2003" "mame2003_plus" "pcsx_rearmed" "genesis_plus_gx" "genesis_plus_gx_wide" "azahar")
+noCHD=("mame2003" "mame2003_plus" "pcsx_rearmed" "genesis_plus_gx" "genesis_plus_gx_wide" "azahar" "zcdi")
 no7Zip=("bsnes")
 needsAsync=("mupen64plus_next" "dosbox_pure" "ppsspp" "azahar" "bsnes" "bluemsx" "scummvm")
 
