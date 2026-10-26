@@ -129,7 +129,7 @@ EXPORTED_FUNCTIONS = _main,_malloc,_free,_load_state, \
                      _set_vsync,_set_video_rotation,_get_video_dimensions,EmscriptenSendCommand,EmscriptenReceiveCommandReply,_get_memory_data, \
                      _ejs_set_controller_port_device,_ejs_get_controller_port_info
 
-EXPORTS := Browser,callMain,cwrap,getValue,HEAPU8,FS,PATH,ERRNO_CODES,AL,abort,ENV,stringToNewUTF8,UTF8ToString,Browser,EmscriptenSendCommand,EmscriptenReceiveCommandReply,EmulatorJSGetState,EmulatorJSGetMemoryData
+EXPORTS := Browser,callMain,cwrap,getValue,HEAPU8,FS,IDBFS,PATH,ERRNO_CODES,AL,abort,ENV,stringToNewUTF8,UTF8ToString,Browser,EmscriptenSendCommand,EmscriptenReceiveCommandReply,EmulatorJSGetState,EmulatorJSGetMemoryData
 
 LIBS   := -s USE_ZLIB=1
 CFLAGS := -s USE_ZLIB=1
@@ -167,7 +167,7 @@ endif
 LDFLAGS := -L. $(LIBS) -s STACK_SIZE=$(STACK_SIZE) -s INITIAL_MEMORY=$(INITIAL_HEAP) -s NO_EXIT_RUNTIME=1 \
            -s EXPORTED_RUNTIME_METHODS=$(EXPORTS) \
            -s ALLOW_MEMORY_GROWTH=1 -s EXPORTED_FUNCTIONS="$(EXPORTED_FUNCTIONS)" \
-           -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
+           -s ERROR_ON_UNDEFINED_SYMBOLS=0 -sDEFAULT_TO_CXX -sFORCE_FILESYSTEM=1 \
            -lidbfs.js \
            -s MODULARIZE=1 -s EXPORT_NAME="EJS_Runtime" \
            -s ENVIRONMENT=web,worker -s WASM_BIGINT=1 \

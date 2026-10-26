@@ -178,10 +178,10 @@ for f in $(ls -v *_emscripten.bc); do
   out_name="${out_name}-wasm.data"
 
   if [ $wasm = 0 ]; then
-    7z a ${out_dir}/${out_name} ../${name}_libretro.js.mem ../${name}_*.js
+    7z a ${out_dir}/${out_name} ../${name}_libretro.js.mem ../${name}_*.js || exit 1
     rm ../${name}_libretro.js.mem
   else
-    7z a ${out_dir}/${out_name} ../${name}_libretro.wasm ../${name}_*.js
+    7z a ${out_dir}/${out_name} ../${name}_libretro.wasm ../${name}_*.js || exit 1
     rm ../${name}_libretro.wasm
   fi
   rm -f ../${name}_libretro.js
